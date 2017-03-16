@@ -11,6 +11,7 @@
 
 <body>
   <header>
+    <!-- Starting Navigation Bar -->
     <nav class="navbar navbar-default">
       <div class="collapse navbar-collapse navbar-right" id="nav-col">
         <div class="navbar-header">
@@ -47,6 +48,22 @@
     </ol>
 
     <div class="carousel-inner">
+
+      <!-- Beginning Search Bar -->
+      <form class="col-sm-12" id="searchBar" style="padding-top:375px;">
+        <div class="form-inline col-sm-offset-4">
+          <div class="input-group input-group-lg center-block">
+            <input type="text" class="form-control" placeholder="Search">
+            <span class="input-group-btn">
+              <button class="btn btn-secondary" type="button">
+                <span class="glyphicon glyphicon-search"></span>
+              </button>
+            </span>
+          </div>
+        </div>
+      </form>
+
+      <!-- Inner Slides -->
       <div class="item active">
         <div class="slide" style="background-image:
           url(../static/images/game-shelf.png); background-size: cover;"></div>
@@ -79,6 +96,7 @@
     <a class="right carousel-control" href="#splashCarousel" data-slide="next">
     <span class="glyphicon glyphicon-chevron-right"></span>
     </a>
+    
   </div>
 
   <!-- Use following version of JQuery -->
