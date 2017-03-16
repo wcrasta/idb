@@ -1,0 +1,42 @@
+sudo: false
+
+language: python
+
+python:
+   - "3.5"
+
+services:
+   - postgresql
+
+env:
+    - FLASK=0.12
+    - FLASK=0.10.1
+    - FLASK=0.9
+    - FLASK=0.8.1
+    - FLASK=0.7.2
+
+before_script:
+    - psql -c 'create database travis_ci_test;' -U postgres
+
+before_install:
+    - pip install --upgrade pip
+    
+install:
+    - pip install -q Flask ==$FLASK
+    - pip install autopep8
+    - pip install coverage
+    - pip install numpy
+    - pip install pylint
+    - pip install SQLAlchemy
+    - pip install Flask-SQLAlchemy
+    - pip install Jinja2
+    
+before_script:
+    - uname -a
+    - printenv | sort
+    - make versions
+
+script:
+    - date
+    - ls -al
+    - make test
