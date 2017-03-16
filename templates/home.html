@@ -20,11 +20,15 @@
         </div>
         <ul class="nav custom-menu nav-justified">
           <li class="nav-item active">
-            <a class="nav-link" href="games.html">Games<span class="sr-only">
-              (current)</span></a>
+            <a class="nav-link" href="games.html">Games
+              <span class="sr-only">(current)</span>
+            </a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="platforms.html">Platforms</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="studios.html">Studios</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="reviews.html">Reviews</a>
@@ -45,12 +49,16 @@
       <li data-target="#splashCarousel" data-slide-to="0" class="active"></li>
       <li data-target="#splashCarousel" data-slide-to="1"></li>
       <li data-target ="#splashCarousel" data-slide-to="2"></li>
+      <li data-target ="#splashCarousel" data-slide-to="3"></li>
     </ol>
 
     <div class="carousel-inner">
 
+
       <!-- Beginning Search Bar -->
       <form class="col-sm-12" id="searchBar" style="padding-top:375px;">
+        <div class="form-inline col-sm-offset-4">
+        </div>
         <div class="form-inline col-sm-offset-4">
           <div class="input-group input-group-lg center-block">
             <input type="text" class="form-control" placeholder="Search">
@@ -82,6 +90,14 @@
       </div>
       <div class="item">
         <div class="slide" style="background-image:
+          url(../static/images/studio.png); background-size: cover;"></div>
+        <div class="carousel-caption">
+          <h1>Studios</h1>
+          <p>Search works of various studios</p>
+        </div>
+      </div>
+      <div class="item">
+        <div class="slide" style="background-image:
           url(../static/images/high-score.png); background-size: cover;"></div>
         <div class="carousel-caption">
           <h1>Reviews</h1>
@@ -96,7 +112,7 @@
     <a class="right carousel-control" href="#splashCarousel" data-slide="next">
     <span class="glyphicon glyphicon-chevron-right"></span>
     </a>
-    
+
   </div>
 
   <!-- Use following version of JQuery -->
