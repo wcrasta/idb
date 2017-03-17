@@ -8,7 +8,15 @@
 <link rel="stylesheet" type="text/css" href="../static/css/home.css">
 <style type="text/css">
   body {
-    background: url('../static/images/bg.png')
+    background: url('../static/images/bg.png');
+  }
+  h2 {
+    color: white;
+  }
+  .table-bordered {
+    font-size: 175%;
+    color: white;
+    background-color: #2a8958;
   }
 </style>
 </head>
@@ -43,6 +51,57 @@
         </ul>
       </div>
     </nav>
+
+    <!-- Starting Data Table -->
+    <div class="container" style="padding-top: 70px;">
+      <h2>Games Table</h2>
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Summary</th>
+            <th>Game Studio</th>
+            <th>Genres</th>
+            <th>Cover Image</th>
+            <th>Release Date</th>
+            <th>Reviews</th>
+            <th>Website</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Game1</td>
+            <td>Example summary ...</td>
+            <td>Studio1</td>
+            <td>RPG</td>
+            <td>Cover1.png</td>
+            <td>1/1/2017</td>
+            <td>Sample reviews ...</td>
+            <td>www.game1.com</td>
+          </tr>
+          <tr>
+            <td>Game2</td>
+            <td>Example summary ...</td>
+            <td>Studio2</td>
+            <td>FPS</td>
+            <td>Cover2.png</td>
+            <td>1/2/2017</td>
+            <td>Sample reviews ...</td>
+            <td>www.game2.com</td>
+          </tr>
+          <tr>
+            <td>Game3</td>
+            <td>Example summary ...</td>
+            <td>Studio3</td>
+            <td>MOBA</td>
+            <td>Cover3.png</td>
+            <td>1/3/2017</td>
+            <td>Sample reviews ...</td>
+            <td>www.game3.com</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
   </header>
 
 </body>
