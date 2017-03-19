@@ -6,10 +6,11 @@ body {
 }
 
 /* Navbar Formatting */
-.navbar-light {
-  background-color: black;
+.navbar-fixed-top {
+  background-color: #E6FFFFFF;
   margin-bottom: 0px;
-  position: relative;
+  position: absolute;
+  margin-top: 20px;
 }
 .nav-justified > li > a{
   border-right: 1px solid #FFF;
@@ -22,7 +23,7 @@ body {
   font-size: 300%;
   border-right: 1px solid #FFF;
 }
-.navbar-light .custom-menu > li a {
+.navbar-fixed-top .custom-menu > li a {
     padding-top: 12px;
     color: white;
     font-size: 1.75em;
@@ -30,7 +31,7 @@ body {
 .custom-menu > li > a:hover {
     background-color: transparent;
     color: gray;
-    text-decoration:underline;
+    text-decoration: underline;
 }
 .navbar .navbar-collapse {
   text-align: center;
@@ -38,8 +39,12 @@ body {
 
 /* Carousel Slide Formatting */
 .slide{
-  height: 93vh;
+  height: 100vh;
 }
+.carousel {
+  position: relative;
+}
+
 .carousel-caption h1{
   font-size: 6em;
   font-family: 'invasion2000';

@@ -10,11 +10,31 @@
   body {
     background: url('../static/images/bg.png')
   }
+  h1 {
+    color: white;
+    font-size: 2em;
+  }
   h2 {
     color: white;
   }
+  p {
+    color: white;
+    font-size: 1.65em;
+    text-align: left;
+    margin-right: 40px;
+    margin-left: 40px;
+    text-indent: 1.25em;
+  }
+  hr {
+    margin-left: 40px;
+    margin-right: 40px;
+  }
   .underline {
     width: 700px;
+    border-bottom: 1px solid #FFF;
+  }
+  .horizontal-divider {
+    border: 1px solid white;
   }
 </style>
 </head>
@@ -22,10 +42,10 @@
 
   <header>
     <!-- Starting Navigation Bar -->
-    <nav class="navbar navbar-light">
-      <div class="collapse navbar-collapse navbar-right" id="nav-col">
+    <nav class="navbar navbar-fixed-top">
+      <div class="collapse navbar-collapse navbar-left" id="nav-col">
         <div class="navbar-header">
-          <a class="navbar-brand" href="/" style="color: white">GGnoSWE
+          <a class="navbar-brand" href="home.html">GGnoSWE
           </a>
         </div>
         <ul class="nav custom-menu nav-justified">
@@ -53,16 +73,139 @@
 
   <div class="container">
     <div class="row">
-      <div class="col-sm-4" style="padding-top: 50px;">
+      <div class="col-md-2" style="margin-top:125px; margin-bottom: 30px;">
         <h2>The Team</h2>
-        <div class="underline" style="border-bottom: 1px solid #FFF;"></div>
+        <div class="underline"></div>
       </div>
+    </div>
+    <div class="row">
+      <div class="col-md-4">
+        <h2 style="text-align: center;">Kaden Brown</h2>
+        <img class="center-block" src="../static/images/kaden.png" style="padding-top: 20px; height: 300px; width: 200px;"/>
+        <div class="row text-center">
+          <a href="https://github.com/kbbrownn">
+          <img src="../static/images/github-logo.png" style="height: 30px; width: 30px; margin-bottom: 20px; margin-top: 20px;"/>
+          </a>
+          <p>
+            Hey! My name is Kaden and I am a junior in computer science at
+            UT Austin. I like to exercise, travel and of
+            course, game; with The Legend of Zelda being one of the first series
+            I fell in love with.
+          </p>
+          <hr/>
+          <h1>Responsibilities: Frontend</h1>
+          <h1>No. of commits: 0</h1>
+          <h1>No. of issues: 0</h1>
+          <h1>No. of unit tests: 0</h1>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <h2 style="text-align: center;">Zihao Zhu</h2>
+        <img class="center-block" src="../static/images/zihao.png" style="padding-top: 20px; height: 300px; width: 275px;"/>
+        <div class="row text-center">
+          <a href="https://github.com/novuszed">
+          <img src="../static/images/github-logo.png" style="height: 30px; width: 30px; margin-bottom: 20px; margin-top: 20px;"/>
+          </a>
+          <p>
+            I'm a third year computer science student. I love traveling, eating
+            and Netflixing. Hoping to be unemployed post college.
+            <br/><br/>
+          </p>
+          <hr/>
+          <h1>Responsibilities: Backend</h1>
+          <h1>No. of commits: 0</h1>
+          <h1>No. of issues: 0</h1>
+          <h1>No. of unit tests: 0</h1>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <h2 style="text-align: center;">Warren Crasta</h2>
+        <img class="center-block" src="../static/images/kaden.png" style="padding-top: 20px; height: 300px; width: 200px;"/>
+        <div class="row text-center">
+          <a href="https://github.com/wcrasta">
+          <img src="../static/images/github-logo.png" style="height: 30px; width: 30px; margin-bottom: 20px; margin-top: 20px;"/>
+          </a>
+          <p>
+            Hey! My name is Kaden and I am a junior in computer science at
+            UT Austin. I like to exercise, travel and of
+            course, game; with The Legend of Zelda being one of the first series
+            I fell in love with.
+          </p>
+          <hr/>
+          <h1>Responsibilities: Backend</h1>
+          <h1>No. of commits: 0</h1>
+          <h1>No. of issues: 0</h1>
+          <h1>No. of unit tests: 0</h1>
+        </div>
+      </div>
+    </div>
+      <div class="row" style="margin-top: 30px;">
+        <div class="col-md-4">
+          <h2 style="text-align: center;">Colin Thornton</h2>
+          <img class="center-block" src="../static/images/kaden.png" style="padding-top: 20px; height: 300px; width: 200px;"/>
+          <div class="row text-center">
+            <a href="https://github.com/Colin-Thornton">
+            <img src="../static/images/github-logo.png" style="height: 30px; width: 30px; margin-bottom: 20px; margin-top: 20px;"/>
+            </a>
+            <p>
+              Hey! My name is Kaden and I am a junior in computer science at
+              UT Austin. I like to exercise, travel and of
+              course, game; with The Legend of Zelda being one of the first series
+              I fell in love with.
+            </p>
+            <hr/>
+            <h1>Responsibilities: Backend</h1>
+            <h1>No. of commits: 0</h1>
+            <h1>No. of issues: 0</h1>
+            <h1>No. of unit tests: 0</h1>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <h2 style="text-align: center;">Anurag Papineni</h2>
+          <img class="center-block" src="../static/images/kaden.png" style="padding-top: 20px; height: 300px; width: 200px;"/>
+          <div class="row text-center">
+            <a href="https://github.com/anuragpapineni">
+            <img src="../static/images/github-logo.png" style="height: 30px; width: 30px; margin-bottom: 20px; margin-top: 20px;"/>
+            </a>
+            <p>
+              Hey! My name is Kaden and I am a junior in computer science at
+              UT Austin. I like to exercise, travel and of
+              course, game; with The Legend of Zelda being one of the first series
+              I fell in love with.
+            </p>
+            <hr/>
+            <h1>Responsibilities: Backend</h1>
+            <h1>No. of commits: 0</h1>
+            <h1>No. of issues: 0</h1>
+            <h1>No. of unit tests: 0</h1>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <h2 style="text-align: center;">Kaivan Shah</h2>
+          <img class="center-block" src="../static/images/kaden.png" style="padding-top: 20px; height: 300px; width: 200px;"/>
+          <div class="row text-center">
+            <a href="https://github.com/kaivan29">
+            <img src="../static/images/github-logo.png" style="height: 30px; width: 30px; margin-bottom: 20px; margin-top: 20px;"/>
+            </a>
+            <p>
+              Hey! My name is Kaden and I am a junior in computer science at
+              UT Austin. I like to exercise, travel and of
+              course, game; with The Legend of Zelda being one of the first series
+              I fell in love with.
+            </p>
+            <hr/>
+            <h1>Responsibilities: Frontend</h1>
+            <h1>No. of commits: 0</h1>
+            <h1>No. of issues: 0</h1>
+            <h1>No. of unit tests: 0</h1>
+          </div>
+        </div>
     </div>
   </div>
 
   <div class="container">
     <div class="row">
-      <div class="col-sm-4" style="padding-top: 400px;">
+      <div class="col-sm-4" style="padding-top: 150px;">
         <h2>Stats</h2>
         <div class="underline" style="border-bottom: 1px solid #FFF;"></div>
       </div>
