@@ -6,7 +6,7 @@ body {
 }
 
 /* Navbar Formatting */
-.navbar-default {
+.navbar-light {
   background-color: black;
   margin-bottom: 0px;
   position: relative;
@@ -22,7 +22,7 @@ body {
   font-size: 300%;
   border-right: 1px solid #FFF;
 }
-.navbar-default .custom-menu > li a {
+.navbar-light .custom-menu > li a {
     padding-top: 12px;
     color: white;
     font-size: 1.75em;
