@@ -1,6 +1,7 @@
 from flask import Flask, render_template
 from flask_sqlalchemy import SQLAlchemy
 import os
+import models
 # Create the Flask application.
 app = Flask(__name__)
 
@@ -42,6 +43,12 @@ def platforms():
 @app.route('/studios.html', methods=['GET'])
 def studios():
     return render_template('studios.html', title='studios')
+
+@app.route('/games.html/<game>', methods = ['GET'])
+def indvidualGame(game):
+    # do my code here
+    pass
+    #return render_template(, game)
 
 # Run the Flask app.
 if __name__ == '__main__':
