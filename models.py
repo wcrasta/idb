@@ -1,7 +1,7 @@
 from app import db
 
-gameToPlatform = db.Table('gamestoplatform', db.Column('game_id', db.Integer, db.ForeignKey(
-    'game.id')), db.Column('platform_id', db.Integer, db.ForeignKey('platform.id')))
+#gameToPlatform = db.Table('gamestoplatform', db.Column('game_id', db.Integer, db.ForeignKey(
+#    'game.id')), db.Column('platform_id', db.Integer, db.ForeignKey('platform.id')))
 
 
 studioToPlatform = db.Table('studioToPlatform', db.Column('studio_id', db.Integer, db.ForeignKey(
@@ -12,7 +12,8 @@ class Game(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(80), unique=True)
 
-    platform = db.relationship('Platform', secondary=gameToPlatform, backref=db.backref('games', lazy='dynamic'))
+    platform = db.relationship("Platform", backref="game")
+    #platform = db.relationship('Platform', secondary=gameToPlatform, backref=db.backref('games', lazy='dynamic'))
     # Need to disuss how Genre is implemented
     genre = db.Column(db.String(80))
     #studio = db.relationship('Studio', backref='Game', lazy='dynamic')
@@ -26,9 +27,9 @@ class Game(db.Model):
     release_date = db.Column(db.DateTime)
     website = db.Column(db.String(80))
 
-    def __init__(self, name, platform, genre=None, studio=None, reviews=None, image=None, release_date=None, website=None):
+    def __init__(self, name, platform = None, genre=None, studio=None, reviews=None, image=None, release_date=None, website=None):
         self.name = name
-        self.platform = platform
+        #self.platform = platform
         if genre:
             self.genre = genre
         if studio:
