@@ -29,7 +29,8 @@ def about():
 
 @app.route('/games.html', methods=['GET'])
 def games():
-    return render_template('games.html', title="games")
+	items = populateGrid()
+	return render_template('games.html', items=items, title="games")
 
 
 @app.route('/reviews.html', methods=['GET'])
@@ -42,7 +43,7 @@ def platforms():
     return render_template('platforms.html', title='platforms')
 
 
-@app.route('/studios.html', methods=['GET'])
+@app.route('/studios.html', methods=['GET'])	
 def studios():
     return render_template('studios.html', title='studios')
 
@@ -54,8 +55,6 @@ def populateGrid():
 				x['first_release_date'] = time.strftime("%m-%d-%Y", time.gmtime(x['first_release_date']/1000))
 			print(x['first_release_date'])
 		return items
-
-populateGrid()
 
 # Run the Flask app.
 if __name__ == '__main__':
