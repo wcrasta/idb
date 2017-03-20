@@ -29,8 +29,7 @@ def about():
 
 @app.route('/games.html', methods=['GET'])
 def games():
-	items = populateGrid()
-	return render_template('games.html', items=items, title="games")
+    return render_template('games.html', title="games")
 
 
 @app.route('/reviews.html', methods=['GET'])
@@ -43,7 +42,7 @@ def platforms():
     return render_template('platforms.html', title='platforms')
 
 
-@app.route('/studios.html', methods=['GET'])	
+@app.route('/studios.html', methods=['GET'])
 def studios():
     return render_template('studios.html', title='studios')
 
