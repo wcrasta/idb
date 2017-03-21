@@ -6,3 +6,4 @@ games.json
 companies.json
 reviews.json
 platforms.json
+__pycache__/
