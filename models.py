@@ -11,8 +11,9 @@ genres={33:"Arcade", 32:"Indie", 31:"Adventure", 30:"Pinball", 26:"Quiz/Trivia",
 
 class Game(db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    name = db.Column(db.String(80), unique=True)
+    name = db.Column(db.String(80))
 
+    summary = db.Column(db.Text)
 
     genre = db.Column(db.String(80))
 
@@ -20,7 +21,8 @@ class Game(db.Model):
 
     reviews = db.relationship('Reviews', backref='game')
 
-    image = db.Column(db.LargeBinary)
+    #image = db.Column(db.LargeBinary)
+    image = db.Column(db.String(128))
     release_date = db.Column(db.DateTime)
     website = db.Column(db.String(80))
 
