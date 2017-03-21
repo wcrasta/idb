@@ -38,21 +38,21 @@
         </div>
         <ul class="nav custom-menu nav-justified">
           <li class="nav-item active">
-            <a class="nav-link" href="games.html">Games
+            <a class="nav-link" href="{{ url_for('games')}}">Games
               <span class="sr-only">(current)</span>
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="platforms.html">Platforms</a>
+            <a class="nav-link" href="{{ url_for('platforms')}}">Platforms</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="studios.html">Studios</a>
+            <a class="nav-link" href="{{ url_for('studios')}}">Studios</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="reviews.html">Reviews</a>
+            <a class="nav-link" href="{{ url_for('reviews')}}">Reviews</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="about.html">About</a>
+            <a class="nav-link" href="{{ url_for('about')}}">About</a>
           </li>
         </ul>
       </div>
@@ -69,19 +69,24 @@
             <th>Genres</th>
             <th>Release Date</th>
             <th>Website</th>
+            <th>
+                Image
+            </th>
           </tr>
         </thead>
         <tbody>
-          {% for item in items %}
+          {% for item in items.items %}
           <tr>
             <td>{{item.name}}</td>
-            <td>{{item.developers}}</td>
-            <td>{{item.genres}}</td>
-            {%set x = item.first_release_date%}
-            <td>{{x}}</td>
-            <td>{{item.url}}</td>
+            <td>{{item.studio_id}}</td>
+            <td>{{item.genre}}</td>
+            <td>{{item.release_date}}</td>
+            <td>{{item.website}}</td>
+            <td>{{item.image}}</td>
           </tr>
           {% endfor %}
+          {% if items.has_prev %}<a href="{{ url_for('games', page=items.prev_num) }}" style="font-size:50px">&lt;&lt; Newer items</a>{% else %}&lt;&lt; Newer items{% endif %} |
+{% if items.has_next %}<a href="{{ url_for('games', page=items.next_num) }}" style="font-size:50px">Older items &gt;&gt;</a>{% else %}Older posts &gt;&gt;{% endif %}
         </tbody>
       </table>
     </div>

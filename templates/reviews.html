@@ -32,21 +32,21 @@
         </div>
         <ul class="nav custom-menu nav-justified">
           <li class="nav-item active">
-            <a class="nav-link" href="games.html">Games
+            <a class="nav-link" href="{{ url_for('games')}}">Games
               <span class="sr-only">(current)</span>
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="platforms.html">Platforms</a>
+            <a class="nav-link" href="{{ url_for('platforms')}}">Platforms</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="studios.html">Studios</a>
+            <a class="nav-link" href="{{ url_for('studios')}}">Studios</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="reviews.html">Reviews</a>
+            <a class="nav-link" href="{{ url_for('reviews')}}">Reviews</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="about.html">About</a>
+            <a class="nav-link" href="{{ url_for('about')}}">About</a>
           </li>
         </ul>
       </div>
@@ -61,6 +61,9 @@
             <th>Title</th>
             <th>Game</th>
             <th>Platform</th>
+            <th>Date Created</th>
+            <th>Views</th>
+
             <th>Introduction</th>
             <th>Content</th>
             <th>Conclusion</th>
@@ -70,39 +73,25 @@
           </tr>
         </thead>
         <tbody>
+          {% for item in items.items %}
           <tr>
-            <td>Title1</td>
-            <td>Game1</td>
-            <td>Platform1</td>
-            <td>Sample introduction ...</td>
-            <td>Example content ...</td>
-            <td>Example conclusion ...</td>
-            <td>pos points list 1</td>
-            <td>neg points list 1</td>
-            <td>www.review1.com</td>
+            <td>{{item.title}}</td>
+            <td>{{item.game_id}}</td>
+            <td>{{item.platform_id}}</td>
+            <td>{{item.created_at}}</td>
+            <td>{{item.views}}</td>
+
+            <td>{{item.introduction}}</td>
+            <td>{{item.content}}</td>
+            <td>{{item.conclusion}}</td>
+            <td>{{item.positive}}</td>
+            <td>{{item.negative}}</td>
+            <td>{{item.url}}</td>
+
           </tr>
-          <tr>
-            <td>Title2</td>
-            <td>Game2</td>
-            <td>Platform2</td>
-            <td>Sample introduction ...</td>
-            <td>Example content ...</td>
-            <td>Example conclusion ...</td>
-            <td>pos points list 2</td>
-            <td>neg points list 2</td>
-            <td>www.review2.com</td>
-          </tr>
-          <tr>
-            <td>Title3</td>
-            <td>Game3</td>
-            <td>Platform3</td>
-            <td>Sample introduction ...</td>
-            <td>Example content ...</td>
-            <td>Example conclusion ...</td>
-            <td>pos points list 3</td>
-            <td>neg points list 3</td>
-            <td>www.review3.com</td>
-          </tr>
+          {% endfor %}
+          {% if items.has_prev %}<a href="{{ url_for('reviews', page=items.prev_num) }}" style="font-size:50px">&lt;&lt; Newer items</a>{% else %}&lt;&lt; Newer items{% endif %} |
+        {% if items.has_next %}<a href="{{ url_for('reviews', page=items.next_num) }}" style="font-size:50px">Older items &gt;&gt;</a>{% else %}Older posts &gt;&gt;{% endif %}
         </tbody>
       </table>
     </div>

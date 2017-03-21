@@ -4,8 +4,8 @@ from app import db
 #    'game.id')), db.Column('platform_id', db.Integer, db.ForeignKey('platform.id')))
 
 
-studioToPlatform = db.Table('studioToPlatform', db.Column('studio_id', db.Integer, db.ForeignKey(
-    'studio.id')), db.Column('platform_id', db.Integer, db.ForeignKey('platform.id')))
+#studioToPlatform = db.Table('studioToPlatform', db.Column('studio_id', db.Integer, db.ForeignKey(
+#    'studio.id')), db.Column('platform_id', db.Integer, db.ForeignKey('platform.id')))
 
 genres={33:"Arcade", 32:"Indie", 31:"Adventure", 30:"Pinball", 26:"Quiz/Trivia", 25:"Hack and slash/Beat 'em up", 24:"Tactical", 16:"Turn-based strategy (TBS)", 15:"Strategy", 14:"Sport", 13:"Simulator", 12:"Role-playing (RPG)",11:"Real Time Strategy (RTS)", 10:"Racing", 9:"Puzzle", 8:"Platform", 7:"Music", 5:"Shooter", 4:"Fighting", 2:"Point-and-click"}
 
@@ -17,6 +17,7 @@ class Game(db.Model):
     summary = db.Column(db.Text)
 
     genre = db.Column(db.String(80))
+
 
     studio_id = db.Column(db.Integer, db.ForeignKey('studio.id'))
 
