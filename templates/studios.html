@@ -32,21 +32,22 @@
         </div>
         <ul class="nav navbar-nav">
           <li class="nav-item active">
-            <a class="nav-link" href="games.html">Games
+            <a class="nav-link" href="{{ url_for('games')}}">Games
               <span class="sr-only">(current)</span>
             </a>
+
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="platforms.html">Platforms</a>
+            <a class="nav-link" href="{{ url_for('platforms')}}">Platforms</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="studios.html">Studios</a>
+            <a class="nav-link" href="{{ url_for('studios')}}">Studios</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="reviews.html">Reviews</a>
+            <a class="nav-link" href="{{ url_for('reviews')}}">Reviews</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="about.html">About</a>
+            <a class="nav-link" href="{{ url_for('about')}}">About</a>
           </li>
         </ul>
       </div>
@@ -65,7 +66,19 @@
             <th>Platforms Developed For</th>
           </tr>
         </thead>
-        <tbody>
+            <tbody>
+              {% for item in items.items %}
+              <tr>
+                <td>{{item.name}}</td>
+                <td>{{item.logo}}</td>
+                <td>{{item.description}}</td>
+                <td>{{item.game.name}}</td>
+              </tr>
+              {% endfor %}
+              {% if items.has_prev %}<a href="{{ url_for('studios', page=items.prev_num) }}" style="font-size:50px">&lt;&lt; Newer items</a>{% else %}&lt;&lt; Newer items{% endif %} |
+{% if items.has_next %}<a href="{{ url_for('studios', page=items.next_num) }}" style="font-size:50px">Older items &gt;&gt;</a>{% else %}Older posts &gt;&gt;{% endif %}
+            </tbody>
+            <!--
           <tr>
             <td>Studio1</td>
             <td>studio1.png</td>
@@ -87,7 +100,7 @@
             <td>Published games list3</td>
             <td>Platforms list3</td>
           </tr>
-        </tbody>
+      -->
       </table>
     </div>
   </header>

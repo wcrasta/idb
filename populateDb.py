@@ -145,6 +145,8 @@ def platform():
             api_id = entry['id']
 
 
+
+
             #reviews
 
             image = "None"
