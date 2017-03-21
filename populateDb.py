@@ -11,6 +11,12 @@ from sqlalchemy import create_engine, MetaData
 genres={33:"Arcade", 32:"Indie", 31:"Adventure", 30:"Pinball", 26:"Quiz/Trivia", 25:"Hack and slash/Beat 'em up", 24:"Tactical", 16:"Turn-based strategy (TBS)", 15:"Strategy", 14:"Sport", 13:"Simulator", 12:"Role-playing (RPG)",11:"Real Time Strategy (RTS)", 10:"Racing", 9:"Puzzle", 8:"Platform", 7:"Music", 5:"Shooter", 4:"Fighting", 2:"Point-and-click"}
 
 
+#To do : For each one that has the relationship() call, make a new
+# variable that actually displays everything
+#Discuss studio to platform
+#Check github issues for platform?
+#add platform and etc in game (maybe can do this while rendering)
+
 def reviews():
     with open('reviews.json',encoding='UTF-8') as data_file:
         data = json.load(data_file)
@@ -72,12 +78,12 @@ def reviews():
             db.session.commit()
 
             if 'game' in entry:
-                game1 = db.session.query(Game).filter(api_id=entry['game'])
-                game1.review.append(review)
+                game1 = db.session.query(Game).filter_by(api_id=entry['game']).first()
+                game1.reviews.append(review)
                 db.session.commit()
             #hacky way to get around the relationship, check
             if 'platform' in entry:
-                platform1 = db.session.query(Platform).filter(api_id=entry['platform'])
+                platform1 = db.session.query(Platform).filter_by(api_id=entry['platform']).first()
                 platform1.review.append(review)
                 db.session.commit()
 
@@ -93,7 +99,7 @@ def studio():
             #reviews
             image = "None"
             if 'logo' in entry:
-                image = entry['logo']
+                image = "https:"+entry['logo']['url']
 
             games = list()
             if 'developed' in entry:
@@ -112,15 +118,17 @@ def studio():
 
             for game in games:
                 if db.session.query(Game).filter_by(api_id=game).scalar() is not None:
-                    temp_game = db.session.query(Game.api_id)
-
+                    temp_game = db.session.query(Game).filter_by(api_id=game).first()
                     final_game_list.append(temp_game)
             studio = Studio()
             studio.name = name
             studio.logo = image
             studio.description=summary
 
-            studio.game.append(x for x in final_game_list)
+
+
+            for x in final_game_list:
+                studio.game.append(x)
 
 
             db.session.add(studio)
@@ -140,12 +148,12 @@ def platform():
             #reviews
 
             image = "None"
-            if 'logo' in entry:
-                image = entry['logo']
+            if 'url' in entry:
+                image = entry['url']
 
             website = "None"
-            if 'url' in entry:
-                website = entry['url']
+            if 'website' in entry:
+                website = entry['website']
             summary = "None"
             if 'summary' in entry:
                 summary = entry['summary']
@@ -166,7 +174,6 @@ def game():
         for entry in data:
             #print(entry)
             name = entry['name']
-            print(type(name))
 
             api_id = entry['id']
             if 'genres' in entry:
@@ -175,6 +182,8 @@ def game():
             image = "None"
             if 'cover' in entry:
                 image = "https:"+entry['cover']['url']
+
+            #do platform and studio?
             #platform = ['platform']
 
             if 'first_release_date' in entry:
@@ -199,3 +208,8 @@ def game():
             game.summary=summary
             db.session.add(game)
             db.session.commit()
+
+game()
+platform()
+reviews()
+studio()

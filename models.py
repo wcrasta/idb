@@ -37,14 +37,16 @@ class Platform(db.Model):
     # discuss relationship of game
     # games =
 
-    image = db.Column(db.LargeBinary)
+    #image = db.Column(db.LargeBinary)
+    image = db.Column(db.String(128))
     website = db.Column(db.String(80))
 
 
 class Studio(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(80), unique=True)
-    logo = db.Column(db.LargeBinary, nullable = True)
+    #logo = db.Column(db.LargeBinary, nullable = True)
+    logo = db.Column(db.String(128))
     description = db.Column(db.Text, nullable = True)
     game = db.relationship('Game', backref = 'studio')
 
@@ -54,7 +56,7 @@ class Studio(db.Model):
 
 class Reviews(db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    title = db.Column(db.String(128), unique=True)
+    title = db.Column(db.String(128))
 
     # need to discuss
     platform_id = db.Column(db.Integer, db.ForeignKey("platform.id"))
