@@ -1,5 +1,6 @@
 from flask import Flask, render_template
 from flask_sqlalchemy import SQLAlchemy
+from flask import request
 import os
 import json
 import time
@@ -28,10 +29,12 @@ def about():
     return render_template('about.html', title="about")
 
 
-@app.route('/games.html', methods=['GET'])
-@app.route('/games.html/<int:page>', methods=['GET'])
+@app.route('/games', methods=['GET'])
+@app.route('/games/<int:page>', methods=['GET'])
 def games(page=1):
-    games = db.session.query(Game).paginate(page, POSTS_PER_PAGE,False)
+    value = request.args.get('sort', 'name')
+    games = db.session.query(Game).order_by(eval('Game.'+value)).paginate(page, POSTS_PER_PAGE,True)
+
     return render_template('games.html', title='games', items=games)
 
 	#items = populateGrid()
