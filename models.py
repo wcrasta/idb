@@ -7,19 +7,20 @@ from app import db
 studioToPlatform = db.Table('studioToPlatform', db.Column('studio_id', db.Integer, db.ForeignKey(
     'studio.id')), db.Column('platform_id', db.Integer, db.ForeignKey('platform.id')))
 
+genres={33:"Arcade", 32:"Indie", 31:"Adventure", 30:"Pinball", 26:"Quiz/Trivia", 25:"Hack and slash/Beat 'em up", 24:"Tactical", 16:"Turn-based strategy (TBS)", 15:"Strategy", 14:"Sport", 13:"Simulator", 12:"Role-playing (RPG)",11:"Real Time Strategy (RTS)", 10:"Racing", 9:"Puzzle", 8:"Platform", 7:"Music", 5:"Shooter", 4:"Fighting", 2:"Point-and-click"}
 
 class Game(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(80), unique=True)
 
-    platform = db.relationship("Platform", backref="game")
+    #platform = db.relationship("Platform", backref="game")
     #platform = db.relationship('Platform', secondary=gameToPlatform, backref=db.backref('games', lazy='dynamic'))
     # Need to disuss how Genre is implemented
     genre = db.Column(db.String(80))
     #studio = db.relationship('Studio', backref='Game', lazy='dynamic')
 
     studio_id = db.Column(db.Integer, db.ForeignKey('studio.id'))
-    studio = db.relationship("Studio", backref='game')
+    #studio = db.relationship("Studio", backref='game')
 
     reviews = db.relationship('Reviews', backref='game')
 
@@ -31,7 +32,7 @@ class Game(db.Model):
         self.name = name
         #self.platform = platform
         if genre:
-            self.genre = genre
+            self.genre = genres[genre[0]]
         if studio:
             self.studio = studio
         if reviews:
@@ -44,13 +45,12 @@ class Game(db.Model):
             self.website = website
 
     def __repr__(self):
-        print("Game name: " + self.name)
-        return "<Game(name='%s', platform='%s')>" % (self.name, self.platform)
+        return "<Game(name='%s',game_studio='%s', genres='%s', release_date='%s', website = '%s')>" % (self.name, self.studio.name, self.genre, self.release_date, self.website)
 class Platform(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(80), unique=True)
     summary = db.Column(db.Text)
-
+    review = db.relationship('Reviews', backref='platform')
     # discuss relationship of game
     # games =
 
@@ -72,6 +72,7 @@ class Studio(db.Model):
     name = db.Column(db.String(80), unique=True)
     logo = db.Column(db.LargeBinary)
     description = db.Column(db.Text)
+    game = db.relationship('Game', backref = 'studio')
     platform = db.relationship(
         'Platform', secondary=studioToPlatform, backref=db.backref('studio', lazy='dynamic'))
 
@@ -92,7 +93,7 @@ class Reviews(db.Model):
 
     # need to discuss
     platform_id = db.Column(db.Integer, db.ForeignKey("platform.id"))
-    platform = db.relationship('Platform', backref="reviews")
+    #platform = db.relationship('Platform', backref="reviews")
     game_id = db.Column(db.Integer, db.ForeignKey('game.id'))
 
     introduction = db.Column(db.Text)
