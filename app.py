@@ -1,10 +1,10 @@
 from flask import Flask, render_template
 from flask_sqlalchemy import SQLAlchemy
 from flask import request
+from models import Game, Platform, Reviews, Studio
 import os
 import json
 import time
-from models import *
 # Create the Flask application.
 app = Flask(__name__)
 

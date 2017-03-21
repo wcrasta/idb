@@ -1,4 +1,4 @@
-from models import *
+#from models import Game, Platform, Reviews, Studio
 from app import db
 from flask_sqlalchemy import SQLAlchemy
 import sqlite3
@@ -7,9 +7,8 @@ import datetime
 from sqlalchemy.orm import sessionmaker
 from sqlalchemy import create_engine, MetaData
 
-#conn = sqlite3.connect('app.db')
 genres={33:"Arcade", 32:"Indie", 31:"Adventure", 30:"Pinball", 26:"Quiz/Trivia", 25:"Hack and slash/Beat 'em up", 24:"Tactical", 16:"Turn-based strategy (TBS)", 15:"Strategy", 14:"Sport", 13:"Simulator", 12:"Role-playing (RPG)",11:"Real Time Strategy (RTS)", 10:"Racing", 9:"Puzzle", 8:"Platform", 7:"Music", 5:"Shooter", 4:"Fighting", 2:"Point-and-click"}
-esrb = {1:"RP", 2:"EC", 3:"E", 4:"E10+", 5:"T", 6:"M", 7:"AO"}
+esrbs = {1:"RP", 2:"EC", 3:"E", 4:"E10+", 5:"T", 6:"M", 7:"AO"}
 game_category = { 0:"Main Game", 1:"DLC/Add on", 2:"Expansion", 3:"Bundle", 4:"Standalone expansion"}
 game_status = {0:"Released", 2:"Alpha", 3:"Beta", 4:"Early Access", 5:"offline", 6:"Cancelled"}
 
@@ -187,6 +186,30 @@ def game():
             if 'cover' in entry:
                 image = "https:"+entry['cover']['url']
 
+            rating = 0
+            if 'rating' in entry:
+                rating = entry['rating']
+
+            storyline = "None"
+            if 'storyline' in entry:
+                storyline = entry['storyline']
+
+            category = "None"
+            if 'category' in entry:
+                category = game_category[entry['category']]
+
+            esrb = "None"
+            if 'esrb' in entry:
+                #print (entry['esrb'])
+                esrb = esrbs[entry['esrb']['rating']]
+
+            status = "None"
+            if 'status' in entry:
+                status = game_status[entry['status']]
+
+            video = "None"
+            if 'video' in entry:
+                category = "https://www.youtube.com/watch?v="+entry['video']
             #do platform and studio?
             #platform = ['platform']
 
@@ -201,19 +224,25 @@ def game():
                 summary = entry['summary']
             #print(name,summary,genre,image,ts,website)
             game = Game()
+
             game.name = name
-
             game.api_id = api_id
-
             game.genre = genre
+            game.rating = rating
+            game.storyline = storyline
+            game.category = category
+            game.esrb = esrb
+            game.status = status
             game.image = image
             game.release_date = ts
             game.website = website
-            game.summary=summary
+            game.summary = summary
+            game.video = video
+
             db.session.add(game)
             db.session.commit()
 
 game()
-platform()
-reviews()
-studio()
+# platform()
+# reviews()
+# studio()
