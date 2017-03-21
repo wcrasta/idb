@@ -13,6 +13,7 @@ class Game(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(80))
 
+    api_id = db.Column(db.Integer)
     summary = db.Column(db.Text)
 
     genre = db.Column(db.String(80))
@@ -26,27 +27,10 @@ class Game(db.Model):
     release_date = db.Column(db.DateTime)
     website = db.Column(db.String(80))
 
-    # def __init__(self, name, platform = None, genre=None, studio=None, reviews=None, image=None, release_date=None, website=None):
-    #     self.name = name
-    #     #self.platform = platform
-    #     if genre:
-    #         self.genre = genres[genre[0]]
-    #     if studio:
-    #         self.studio = studio
-    #     if reviews:
-    #         self.reviews = reviews
-    #     if image:
-    #         self.image = image
-    #     if release_date:
-    #         self.release_date = release_date
-    #     if website:
-    #         self.website = website
-    #
-    # def __repr__(self):
-    #     return "<Game(name='%s',game_studio='%s', genres='%s', release_date='%s', website = '%s')>" % (self.name, self.studio.name, self.genre, self.release_date, self.website)
-
 class Platform(db.Model):
     id = db.Column(db.Integer, primary_key=True)
+    api_id = db.Column(db.Integer)
+
     name = db.Column(db.String(80), unique=True)
     summary = db.Column(db.Text)
     review = db.relationship('Reviews', backref='platform')
@@ -56,15 +40,6 @@ class Platform(db.Model):
     image = db.Column(db.LargeBinary)
     website = db.Column(db.String(80))
 
-    # def __init__(self, name, summary=None, image=None, website=None):
-    #     self.name = name
-    #     self.summary = summary
-    #     self.image = image
-    #     self.website = website
-    #
-    # def __repr__(self):
-    #     print("Platform name: " + self.name)
-    #     return '<Platform %r>'%self.name
 
 class Studio(db.Model):
     id = db.Column(db.Integer, primary_key=True)
@@ -72,19 +47,10 @@ class Studio(db.Model):
     logo = db.Column(db.LargeBinary, nullable = True)
     description = db.Column(db.Text, nullable = True)
     game = db.relationship('Game', backref = 'studio')
-    platform = db.relationship(
-        'Platform', secondary=studioToPlatform, backref=db.backref('studio', lazy='dynamic'))
 
-    # Game is taken care of up in class Game
-    # def __init__(self, name, logo=None, description=None, platform=None):
-    #     self.name = name
-    #     self.logo = logo
-    #     self.description = description
-    #     self.platform = platform
-    #
-    # def __repr__(self):
-    #     print("Studio name: " + self.name)
 
+#    platform = db.relationship(
+#        'Platform', secondary=studioToPlatform, backref=db.backref('studio', lazy='dynamic'))
 
 class Reviews(db.Model):
     id = db.Column(db.Integer, primary_key=True)
@@ -94,6 +60,8 @@ class Reviews(db.Model):
     platform_id = db.Column(db.Integer, db.ForeignKey("platform.id"))
     #platform = db.relationship('Platform', backref="reviews")
     game_id = db.Column(db.Integer, db.ForeignKey('game.id'))
+    created_at = db.Column(db.DateTime)
+    views = db.Column(db.Integer)
 
     introduction = db.Column(db.Text, nullable = True)
     content = db.Column(db.Text)
@@ -101,15 +69,3 @@ class Reviews(db.Model):
     positive = db.Column(db.Text)
     negative = db.Column(db.Text)
     url = db.Column(db.String(80))
-
-    # def __init__(self, title, introduction=None, content=None, conclusion=None, positive=None, negative=None, url=None):
-    #     self.title = title
-    #     self.introduction = introduction
-    #     self.content = content
-    #     self.conclusion = conclusion
-    #     self.positive = positive
-    #     self.negative = negative
-    #     self.url = url
-    #
-    # def __repr__(self):
-    #     print("Review title: " + self.title)

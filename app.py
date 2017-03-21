@@ -43,7 +43,7 @@ def platforms():
     return render_template('platforms.html', title='platforms')
 
 
-@app.route('/studios.html', methods=['GET'])	
+@app.route('/studios.html', methods=['GET'])
 def studios():
     return render_template('studios.html', title='studios')
 
@@ -51,9 +51,9 @@ def populateGrid():
 	with open('games.json') as json_data:
 		items = json.load(json_data)
 		for x in items:
-			if(x['first_release_date']):
+			if('first_release_date' in x):
 				x['first_release_date'] = time.strftime("%m-%d-%Y", time.gmtime(x['first_release_date']/1000))
-			print(x['first_release_date'])
+			#print(x['first_release_date'])
 		return items
 
 # Run the Flask app.
