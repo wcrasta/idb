@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -81,13 +81,16 @@
             <th>
                 Image
             </th>
+            <th onclick="sortTable(6)">ESRB</th>
+            <th onclick="sortTable(7)">Rating</th>
+            <th onclick="sortTable(8)">Status</th>
           </tr>
         </thead>
         <tbody>
           {% for item in items.items %}
           <tr>
             <td>{{item.name}}</td>
-            <td>{{item.studio_id}}</td>
+            <td>{{item.studio.name}}</td>
             <td>{{item.genre}}</td>
             <td>{{item.release_date}}</td>
             <td> <a href="{{item.website}}" style="color: rgb(0,255,0)">{{item.website}}</a> </td>
@@ -97,6 +100,9 @@
             {% if item.image == "None" %}
             <td><img src ="../static/images/no-art.png"></td>
             {% endif %}
+            <td>{{item.esrb}}</td>
+            <td>{{item.rating}}</td>
+            <td>{{item.status}}</td>
           </tr>
           {% endfor %}
           {% if items.has_prev %}<a href="{{ url_for('games', page=items.prev_num) }}" style="font-size:50px">&lt;&lt; Newer items</a>{% else %}&lt;&lt; Newer items{% endif %} |
