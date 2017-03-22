@@ -90,7 +90,7 @@
 
                 <td>{{item.game.first().name}}</td>
                 {% if item.platform is defined %}
-                <td>{{item.platform.name}}</td>
+                <th><a href="{{ url_for('platform_instance', name = item.platform_id) }}"> {{item.platform.name}}</a></th>
                 {% endif %}
                 <td>
                     {{item.created_at}}

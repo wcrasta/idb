@@ -58,6 +58,12 @@ def platforms(page=1):
     #return render_template('platforms.html', title='platforms')
     return render_template('platforms.html', title='platforms', items=platforms)
 
+@app.route('/platform/<name>')
+def platform_instance(name):
+
+    platform_instance = db.session.query(Platform).get(name)
+    return render_template('platform.html', title='platform_instance', items = platform_instance)
+
 
 @app.route('/studios', methods=['GET'])
 @app.route('/studios/<int:page>', methods = ['GET'])
