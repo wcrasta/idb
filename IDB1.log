@@ -1,3 +1,77 @@
+commit e4576fb0507fc7782ea80a78fe730d48aa9ee688
+Author: Zihao <zihaozhu@utexas.edu>
+Date:   Wed Mar 22 02:35:03 2017 -0500
+
+    Uncommented so front-end can work
+
+commit 493672ef40d198aad94748774dcb02d8c61f98ab
+Author: Zihao <zihaozhu@utexas.edu>
+Date:   Wed Mar 22 02:33:52 2017 -0500
+
+    Studio page broken, will fix after lunch
+
+commit 7b548d63fe35d0b6e7126f7922930b4b676fbb09
+Author: Anurag Papineni <anuragpapineni@gmail.com>
+Date:   Wed Mar 22 02:05:56 2017 -0500
+
+    games template updated to include all fields
+
+commit 54263e106bd653e73414aaf042e0818de2445b44
+Merge: b55508e 298f319
+Author: Anurag Papineni <anuragpapineni@gmail.com>
+Date:   Wed Mar 22 01:30:33 2017 -0500
+
+    fucked up merge last time this is the real one
+
+commit 298f319a9d98a26c9dfd6850f369ce1b22c3c820
+Author: Zihao <zihaozhu@utexas.edu>
+Date:   Wed Mar 22 00:53:43 2017 -0500
+
+    Populated db
+
+commit c9218a4a3e12fa7d28e0136157ac079376b38abd
+Author: Anurag Papineni <anuragpapineni@gmail.com>
+Date:   Wed Mar 22 00:38:18 2017 -0500
+
+    wuck findows
+
+commit b55508e240e7dc2ac57982adbfa24ca2b143cfce
+Author: wcrasta <wcrasta@utexas.edu>
+Date:   Tue Mar 21 23:10:25 2017 -0500
+
+    Working makefile. I hope.
+
+commit 398ba2d6d77af31a4aee4a9f1609d507e48c8c13
+Author: wcrasta <wcrasta@utexas.edu>
+Date:   Tue Mar 21 22:59:53 2017 -0500
+
+    Fixing typo in Travis YML
+
+commit 55276e2a1cce57906496fabcb709bb2adb35c779
+Author: wcrasta <wcrasta@utexas.edu>
+Date:   Tue Mar 21 22:52:31 2017 -0500
+
+    Simple Makefile
+
+commit e5b3e69e4c701d31171e5d067cb5127b0587324a
+Merge: 8de5c5d 056bfdd
+Author: Colin Thornton <colin@cs.utexas.edu>
+Date:   Tue Mar 21 22:40:10 2017 -0500
+
+    Merge branch 'update' of https://github.com/wcrasta/idb into update
+
+commit 8de5c5d7b723591e71d6c8f1b6211d6c0b8f0e8a
+Author: Colin Thornton <colin@cs.utexas.edu>
+Date:   Tue Mar 21 22:40:02 2017 -0500
+
+    Added Default cover art
+
+commit 056bfdd9cdf1751f68c0475ec0cf13f60427b15f
+Author: Kaivan Shah <kaivan29@utexas.edu>
+Date:   Tue Mar 21 22:38:10 2017 -0500
+
+    minor changes
+
 commit dc7acfc02ef802c4fbbef5ed4381be4db2595fad
 Merge: ba7ab5a 9b7b38e
 Author: Kaivan Shah <kaivan29@utexas.edu>
@@ -10,6 +84,12 @@ Author: Kaivan Shah <kaivan29@utexas.edu>
 Date:   Tue Mar 21 22:35:07 2017 -0500
 
     filtering done
+
+commit 9957a5b2bd9b8f5d9dba483626b44781bc80d224
+Author: Zihao Zhu <zz3686@cs.utexas.edu>
+Date:   Tue Mar 21 22:20:57 2017 -0500
+
+    almost there
 
 commit 9b7b38e6ff437ad22359a0895ceb41a3a964fbb1
 Author: kbbrownn <kbbrown@utexas.edu>
@@ -34,6 +114,12 @@ Author: Kaivan Shah <kaivan29@utexas.edu>
 Date:   Tue Mar 21 21:51:57 2017 -0500
 
     links added
+
+commit 087f09f58190dee67a34145049b4dd0006186a4d
+Author: Zihao Zhu <zz3686@cs.utexas.edu>
+Date:   Tue Mar 21 21:44:44 2017 -0500
+
+    Populate DB changes
 
 commit ad8c8d3120ec830390090440dc851269908a05ca
 Author: Kaivan Shah <kaivan29@utexas.edu>

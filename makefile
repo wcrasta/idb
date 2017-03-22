@@ -42,7 +42,8 @@ endif
 
 IDB1.html: models.py
 	pydoc3 -w models
-	mv models.html IDB1.html
+	cp models.html IDB1.html
+	rm models.html
 
 IDB1.log:
 	git log > IDB1.log
