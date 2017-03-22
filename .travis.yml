@@ -10,7 +10,7 @@ before_install:
 
 install:
     - pip install autopep8
-    - pip install coveragey
+    - pip install coverage
     - pip install pylint
     - pip install flask
     - pip install flask-sqlalchemy
