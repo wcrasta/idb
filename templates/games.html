@@ -18,6 +18,14 @@
     color: white;
     background-color: #2a8958;
   }
+  #myInput {
+    background-repeat: no-repeat;
+    width: 120%;
+    font-size: 16px;
+    padding: 12px 20px 12px 40px;
+    border: 1px solid #ddd;
+    margin-bottom: 12px;
+  }
 </style>
 <script type="text/javascript">
   function calcTime(offset){
@@ -57,9 +65,10 @@
         </ul>
       </div>
     </nav>
-
+    
     <!-- Starting Data Table -->
     <div class="container" style="padding-top: 125px;">
+      <input type="text" id="myInput" onkeyup="search()" placeholder="Search for a game.." title="Type in a name">
       <h2>Games Table</h2>
       <table class="table table-bordered" id="myTable">
         <thead>
@@ -96,3 +105,6 @@
 
 <!-- Sort the elements -->
 <script src="../static/js/games.js"></script>
+
+<!-- Search-->
+<script src="../static/js/search.js"></script>
