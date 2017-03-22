@@ -112,9 +112,6 @@ def studio():
                 image = "https:"+entry['logo']['url']
 
             games = set()
-            # if 'developed' in entry:
-            #     for game in entry['developed']:
-            #         games.append(game)
             if 'published' in entry:
                 for game in entry['published']:
                     games.add(game)

@@ -67,30 +67,29 @@
     <div class="col-sm-12">
       <div class="row">
         <div class="col-sm-4">
-          <h1>Platform</h1><img style="height: 50vh; width: 30vw; margin-bottom: 100px;" src="../static/images/platforms.png">
+          <h1>{{items.name}}</h1><img style="height: 50vh; width: 30vw; margin-bottom: 100px;" src="../static/images/platforms.png">
         </div>
         <div class="col-sm-5 text-center">
           <div class="row">
             <h2 style="text-decoration: underline;">Summary</h2>
             <p>
-              Example summary...
+              {{items.summary}}
             </p>
             <h2 style="text-decoration: underline;">Games</h2>
             <p>
-              game1<br/>
-              game2<br/>
-              game3<br/>
+              {{items.games.first().name}}<br/>
+
             </p>
           </div>
         </div>
         <div class="col-sm-3">
           <div class="row">
             <h2 style="display: inline-block;">Release Date:	&nbsp;</h2>
-            <span>1/1/2017</span>
+            <span>{{items.created_at}}</span>
           </div>
           <div class="row">
             <h2 style="display: inline-block;">Website:	&nbsp;</h2>
-            <span>www.game.com</span>
+            <span>{{items.website}}</span>
           </div>
         </div>
       </div>
