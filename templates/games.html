@@ -82,7 +82,7 @@
             <td>{{item.genre}}</td>
             <td>{{item.release_date}}</td>
             <td> <a href="{{item.website}}" style="color: rgb(0,255,0)">{{item.website}}</a> </td>
-            <td>{{item.image}}</td>
+            <td><img src ="{{item.image}}"></td>
           </tr>
           {% endfor %}
           {% if items.has_prev %}<a href="{{ url_for('games', page=items.prev_num) }}" style="font-size:50px">&lt;&lt; Newer items</a>{% else %}&lt;&lt; Newer items{% endif %} |
