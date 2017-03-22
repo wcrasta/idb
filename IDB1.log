@@ -1,3 +1,39 @@
+commit 53db00872f5a1407320bf4e899f4608a278af394
+Author: wcrasta <wcrasta@utexas.edu>
+Date:   Wed Mar 22 13:36:16 2017 -0500
+
+    Updated Travis, please work.
+
+commit 79c9a80171780a43128ae27622f095596fa2d3c1
+Author: kbbrownn <kbbrown@utexas.edu>
+Date:   Wed Mar 22 12:40:44 2017 -0500
+
+    Added template for individual reviews
+
+commit ba5cb68c00be3aaffec760909c54ec1dbb156e20
+Author: kbbrownn <kbbrown@utexas.edu>
+Date:   Wed Mar 22 12:27:24 2017 -0500
+
+    Added template for individual studios
+
+commit 03b8b3d47f2f3b2c77afac3f344b790b8e2c7295
+Author: Zihao <zihaozhu@utexas.edu>
+Date:   Wed Mar 22 10:37:26 2017 -0500
+
+    Displays alright
+
+commit 278afcad18311723fd7e3828c0978bdcc59d2e26
+Author: wcrasta <wcrasta@utexas.edu>
+Date:   Wed Mar 22 10:27:11 2017 -0500
+
+    Reverting back to old makefile. Travis build hanging...
+
+commit 6da0e0ff0024c6a8af83e872535c7d6c13409f60
+Author: wcrasta <wcrasta@utexas.edu>
+Date:   Wed Mar 22 10:20:31 2017 -0500
+
+    Testing Travis
+
 commit e4576fb0507fc7782ea80a78fe730d48aa9ee688
 Author: Zihao <zihaozhu@utexas.edu>
 Date:   Wed Mar 22 02:35:03 2017 -0500
