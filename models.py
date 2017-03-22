@@ -38,7 +38,7 @@ class Game(db.Model):
 
     studio_id = db.Column(db.Integer, db.ForeignKey('studio.id'))
 
-    reviews = db.relationship('Reviews', backref='game')
+    reviews = db.relationship('Reviews', backref='game', lazy="dynamic")
 
     video = db.Column(db.String(128))
 
@@ -54,8 +54,8 @@ class Platform(db.Model):
     created_at = db.Column(db.DateTime)
     name = db.Column(db.String(80))
     summary = db.Column(db.Text)
-    games = db.relationship('Game', backref='platform')
-    review = db.relationship('Reviews', backref='platform')
+    games = db.relationship('Game', backref='platform', lazy="dynamic")
+    review = db.relationship('Reviews', backref='platform', lazy="dynamic")
     # discuss relationship of game
     # games =
     generation = db.Column(db.Integer)
@@ -73,7 +73,7 @@ class Studio(db.Model):
 
     logo = db.Column(db.String(128))
     description = db.Column(db.Text, nullable = True)
-    game = db.relationship('Game', backref = 'studio')
+    game = db.relationship('Game', backref = 'studio', lazy= "dynamic")
     created_at = db.Column(db.DateTime)
     website = db.Column(db.String(128))
 
