@@ -1,0 +1,460 @@
+commit dc7acfc02ef802c4fbbef5ed4381be4db2595fad
+Merge: ba7ab5a 9b7b38e
+Author: Kaivan Shah <kaivan29@utexas.edu>
+Date:   Tue Mar 21 22:35:11 2017 -0500
+
+    Merge branch 'update' of https://github.com/wcrasta/idb into update
+
+commit ba7ab5a38516f878d98fb5566360d557f8e61385
+Author: Kaivan Shah <kaivan29@utexas.edu>
+Date:   Tue Mar 21 22:35:07 2017 -0500
+
+    filtering done
+
+commit 9b7b38e6ff437ad22359a0895ceb41a3a964fbb1
+Author: kbbrownn <kbbrown@utexas.edu>
+Date:   Tue Mar 21 22:18:34 2017 -0500
+
+    Added a default image for cases with no cover art
+
+commit 6b4d4c63ca66f102f6cd6d2b792ec00d882d9e7b
+Author: Colin Thornton <colin@cs.utexas.edu>
+Date:   Tue Mar 21 22:12:46 2017 -0500
+
+    Added Images to the table
+
+commit 538912b70436e02407991a57b62a34b65b8ec2cd
+Author: kbbrownn <kbbrown@utexas.edu>
+Date:   Tue Mar 21 22:00:37 2017 -0500
+
+    Added template for individual platform pages
+
+commit b07ae42b2334439b0a6c38d86b4d3020ff3932ef
+Author: Kaivan Shah <kaivan29@utexas.edu>
+Date:   Tue Mar 21 21:51:57 2017 -0500
+
+    links added
+
+commit ad8c8d3120ec830390090440dc851269908a05ca
+Author: Kaivan Shah <kaivan29@utexas.edu>
+Date:   Tue Mar 21 21:34:26 2017 -0500
+
+    sorting done
+
+commit c1f2aa413c3c4491e29d999246ddb435fc59df0d
+Author: kbbrownn <kbbrown@utexas.edu>
+Date:   Tue Mar 21 21:29:48 2017 -0500
+
+    Separated js from html
+
+commit 8cd342825107b6d999dd3b9419dc0bdc4c1361c6
+Author: Kaivan Shah <kaivan29@utexas.edu>
+Date:   Tue Mar 21 21:27:11 2017 -0500
+
+    Reviews sorted
+
+commit 3853d5d2bafb24aeded57a149198f45e35652d8c
+Author: Kaivan Shah <kaivan29@utexas.edu>
+Date:   Tue Mar 21 21:25:12 2017 -0500
+
+    Sorting platforms
+
+commit 8f36ce506560e61088df6dcf7591465046dba8b8
+Author: kbbrownn <kbbrown@utexas.edu>
+Date:   Tue Mar 21 21:21:56 2017 -0500
+
+    Added template for individual game page
+
+commit 48c3388b2df0c32aab73d95236d18b44f4dc7371
+Author: Kaivan Shah <kaivan29@utexas.edu>
+Date:   Tue Mar 21 21:17:06 2017 -0500
+
+    Sorting for Games page
+
+commit 98b274e5889b3b58e0a6cccb7c940545ac88b0a8
+Author: Zihao Zhu <zz3686@cs.utexas.edu>
+Date:   Tue Mar 21 21:05:59 2017 -0500
+
+    Still broken part 2
+
+commit a79d9ed4c3237f25b04b29e234bf909d7ec0cdc9
+Author: Zihao Zhu <zz3686@cs.utexas.edu>
+Date:   Tue Mar 21 19:49:27 2017 -0500
+
+    Still broken i think
+
+commit b6f27030dbbd858446f237dea3c170e9ad399e95
+Author: Colin Thornton <colin@cs.utexas.edu>
+Date:   Tue Mar 21 18:58:12 2017 -0500
+
+    test
+
+commit 0474fc5e329f4f68d37cf5dc9f25a8bfc15e0043
+Author: wcrasta <wcrasta@utexas.edu>
+Date:   Tue Mar 21 18:30:21 2017 -0500
+
+    Updated GitIgnore
+
+commit 2b3510bc375378d247d7133e119b899194d0365f
+Author: wcrasta <wcrasta@utexas.edu>
+Date:   Tue Mar 21 18:29:43 2017 -0500
+
+    Removed folders
+
+commit 115fae52f5721f3b57a991b03270d9e0cefa4679
+Merge: 70d114e c54af0f
+Author: wcrasta <wcrasta@utexas.edu>
+Date:   Tue Mar 21 18:25:26 2017 -0500
+
+    Merge branch 'update' of https://github.com/wcrasta/idb into update
+
+commit 70d114e18180e2f49770a23000a6816942e1a286
+Author: wcrasta <wcrasta@utexas.edu>
+Date:   Tue Mar 21 18:24:56 2017 -0500
+
+    GitIgnore
+
+commit c54af0f4590e72402f9dc37ec6e69305976ac111
+Merge: e025db4 92e5353
+Author: Colin Thornton <colin@cs.utexas.edu>
+Date:   Tue Mar 21 18:21:00 2017 -0500
+
+    Merge branch 'update' of https://github.com/wcrasta/idb into update
+    
+    lol what
+
+commit 92e535391f9547d82863fcc3f4707033e0b27cad
+Author: wcrasta <wcrasta@utexas.edu>
+Date:   Tue Mar 21 18:20:33 2017 -0500
+
+    Remove pycache
+
+commit e025db47d54193e25f59f414e5f40eb058f6b915
+Author: Colin Thornton <colin@cs.utexas.edu>
+Date:   Tue Mar 21 18:11:32 2017 -0500
+
+    Updated models.py to contain more attributes
+
+commit e3353c9b07ef02b984ef2ee0453b4781045569de
+Author: kbbrownn <kbbrown@utexas.edu>
+Date:   Tue Mar 21 18:05:11 2017 -0500
+
+    Fixed photo / code formatting
+
+commit f362060725287ab42a884ea2ddd2b36795ac826a
+Merge: eff2623 42f8b4c
+Author: kbbrownn <kbbrown@utexas.edu>
+Date:   Tue Mar 21 18:01:37 2017 -0500
+
+    Merge branch 'update' of https://github.com/wcrasta/idb into update
+
+commit 42f8b4cce12aaac5dcf2c215245d59831d89e9c9
+Author: Kaivan Shah <kaivan29@utexas.edu>
+Date:   Tue Mar 21 18:01:09 2017 -0500
+
+    image!
+
+commit eff2623e877e5ecb3a5c58c568552bb302b3340c
+Merge: 45071c9 9c27aae
+Author: kbbrownn <kbbrown@utexas.edu>
+Date:   Tue Mar 21 18:00:09 2017 -0500
+
+    Merge branch 'update' of https://github.com/wcrasta/idb into update
+
+commit 9c27aae06849b3ce20e3646611737e5854b03f18
+Author: Kaivan Shah <kaivan29@utexas.edu>
+Date:   Tue Mar 21 17:59:27 2017 -0500
+
+    added info on about.html
+
+commit 8a13f8cfd9b83f6a384bfe6bbe655fa5305ff38d
+Author: Zihao <zihaozhu@utexas.edu>
+Date:   Tue Mar 21 16:34:53 2017 -0500
+
+    Fixed url by removing .html
+
+commit f39a8106bd1d338a3334e4020bf6ed60c0193ebb
+Author: Anurag Papineni <anuragpapineni@gmail.com>
+Date:   Tue Mar 21 16:23:51 2017 -0500
+
+    added sorting query parameter to use in games
+
+commit d686d045c823bacc3b5ad1399ee106f2684d8b33
+Author: Zihao <zihaozhu@utexas.edu>
+Date:   Tue Mar 21 15:47:47 2017 -0500
+
+    Added unittests and contributed 3
+
+commit bd496e6dd10f8a9e805553c27b2af8a5030ee2e4
+Author: Anurag Papineni <anuragpapineni@gmail.com>
+Date:   Tue Mar 21 14:34:42 2017 -0500
+
+    api scraping script added to repo
+
+commit 827968a51bb36618501eb4adf47ed121b3693a42
+Author: Anurag Papineni <anuragpapineni@gmail.com>
+Date:   Tue Mar 21 14:25:34 2017 -0500
+
+    my profile page changes
+
+commit 45071c9d84fde879ac5ab94b31b2b935d23383b6
+Merge: fe072ef 7878881
+Author: kbbrownn <kbbrown@utexas.edu>
+Date:   Tue Mar 21 13:47:28 2017 -0500
+
+    Merge branch 'update' of https://github.com/wcrasta/idb into update
+
+commit 7878881e34c30c97f8064a015b2bc2ec57be0c4a
+Author: Zihao <zihaozhu@utexas.edu>
+Date:   Tue Mar 21 13:43:28 2017 -0500
+
+    Finished pagination/database
+
+commit fe072ef41d017f4bde55604398cb429ba54227fe
+Author: kbbrownn <kbbrown@utexas.edu>
+Date:   Tue Mar 21 13:27:36 2017 -0500
+
+    Forgot the css
+
+commit c2001f2a02cd12cc45f07c6e6013cfce2f30ed55
+Author: kbbrownn <kbbrown@utexas.edu>
+Date:   Tue Mar 21 13:26:35 2017 -0500
+
+    Updating styling on dev to reflect master
+
+commit 208ebcb4e6d922eb0574dd3678400ffd760dbd94
+Author: Zihao <zihaozhu@utexas.edu>
+Date:   Tue Mar 21 03:57:35 2017 -0500
+
+    95% done with database
+
+commit 2a0add519c8a7abd34ce16b1b557f808ed42c90a
+Author: Zihao <zihaozhu@utexas.edu>
+Date:   Tue Mar 21 03:18:29 2017 -0500
+
+    Fixed Game.html along with implemented basic SQL (needs heavy debugging and discussion)
+
+commit 63cb3d4b3bf24eaf07ffba5dd149bf8e48436db2
+Author: Zihao <zihaozhu@utexas.edu>
+Date:   Tue Mar 21 02:08:09 2017 -0500
+
+    Populated db with games
+
+commit 7d653f2fb17052802b012cd13b04b9c765c7c9e5
+Author: Zihao <zihaozhu@utexas.edu>
+Date:   Mon Mar 20 20:22:02 2017 -0500
+
+    Slowly getting SQLAlchemy together
+
+commit 3df04c6922a9a205f879655ced84635ca7494788
+Author: wcrasta <wcrasta@utexas.edu>
+Date:   Mon Mar 20 19:11:26 2017 -0500
+
+    Models done....Possibly
+
+commit b1980f0bc0a7bd09fdbc3f3a3a91bca3bc9aeb4a
+Author: wcrasta <wcrasta@utexas.edu>
+Date:   Mon Mar 20 18:24:37 2017 -0500
+
+    Corrected Date for games table
+
+commit 78d1792fcafe98d3d123ebcd50820b3f0ec2f699
+Merge: e95b93b 36f9a0f
+Author: wcrasta <wcrasta@utexas.edu>
+Date:   Mon Mar 20 18:19:40 2017 -0500
+
+    Merge branch 'dev' of https://github.com/wcrasta/idb into dev
+
+commit e95b93b1d6d74dc15a5a4e4ebce56c5bdcc516b7
+Author: wcrasta <wcrasta@utexas.edu>
+Date:   Mon Mar 20 18:04:45 2017 -0500
+
+    Populating grids and fixed time
+
+commit 36f9a0f21996c3600c11a683b2be99cf5162be31
+Author: Zihao <zihaozhu@utexas.edu>
+Date:   Mon Mar 20 15:36:21 2017 -0500
+
+    Fixed many to one relationship
+
+commit 56e75077d09e8815b30cfa73a38bb315dad627fd
+Author: Zihao <zihaozhu@utexas.edu>
+Date:   Mon Mar 20 15:29:44 2017 -0500
+
+    Fixed up relationship in sqlalc
+
+commit b82452fe2abce307cb83fbe1f200a6bfae922a7e
+Author: wcrasta <wcrasta@utexas.edu>
+Date:   Mon Mar 20 14:34:18 2017 -0500
+
+    Making things work on Flask again.
+
+commit 20dc857efb41857df2a07e265d27890108a1a7fb
+Author: kbbrownn <kbbrown@utexas.edu>
+Date:   Mon Mar 20 13:50:34 2017 -0500
+
+    Fixed navbar styling on home page
+
+commit 03ea6767ee32291e8ee3dc2fee3ab53c70ec6c73
+Author: kbbrownn <kbbrown@utexas.edu>
+Date:   Mon Mar 20 13:21:59 2017 -0500
+
+    Fixes #19
+
+commit b6870d0ef3b440549539ab910bad017b54dc541c
+Author: kbbrownn <kbbrown@utexas.edu>
+Date:   Mon Mar 20 13:10:10 2017 -0500
+
+    Changed hrefs for brand back to 'home.html' in the mean time for ease of access
+
+commit 2f1150be460ae25f9cf3268ace2278f200f0f942
+Author: kbbrownn <kbbrown@utexas.edu>
+Date:   Mon Mar 20 12:57:59 2017 -0500
+
+    Added Colin about page info
+
+commit 041a681f66e639dca1a7ee3e1f28ff0904e9c94b
+Author: kbbrownn <kbbrown@utexas.edu>
+Date:   Mon Mar 20 12:57:49 2017 -0500
+
+    Added Colin about page info
+
+commit 48a61e1e38c20b202a7215b4d20dd7a508af7c7f
+Merge: 616dcab 4815170
+Author: kbbrownn <kbbrown@utexas.edu>
+Date:   Mon Mar 20 12:54:45 2017 -0500
+
+    Merge branch 'dev' of https://github.com/wcrasta/idb into dev
+
+commit 616dcab9fafc3eed21c393a55d3a8be10492de71
+Author: kbbrownn <kbbrown@utexas.edu>
+Date:   Mon Mar 20 12:54:14 2017 -0500
+
+    Added Colin's about info
+
+commit 48151700886361f280f55150655d041473e93105
+Author: Zihao <zihaozhu@utexas.edu>
+Date:   Mon Mar 20 00:37:50 2017 -0500
+
+    Added more to model.py and fixed them
+
+commit bba49587f3cc359e64d42ba58e92ca83e25c4fbb
+Author: kbbrownn <kbbrown@utexas.edu>
+Date:   Sun Mar 19 15:31:19 2017 -0500
+
+    Fixed some formatting and updated descriptions of tools
+
+commit 07810307ec2a913493cb33c46c042b7452a2fe50
+Author: kbbrownn <kbbrown@utexas.edu>
+Date:   Sun Mar 19 15:02:31 2017 -0500
+
+    Added Warren's about page info -- also setup stats/data/tools
+
+commit 221e6f4db6c58b2ca10626d0cdc3045268f9c52f
+Author: kbbrownn <kbbrown@utexas.edu>
+Date:   Sun Mar 19 13:36:27 2017 -0500
+
+    Setup team section of about page -- changed navbar a bit
+
+commit 23319e814f12bed6dbbbcd9a4af1b9303841d1d2
+Author: kbbrownn <kbbrown@utexas.edu>
+Date:   Sun Mar 19 10:04:23 2017 -0500
+
+    Added placeholders for about page sections
+
+commit 7bac7d679d1db43e6ef03a2d930ca574d0353ea5
+Author: kbbrownn <kbbrown@utexas.edu>
+Date:   Sun Mar 19 09:59:55 2017 -0500
+
+    Fixed spacing on right of navbar -- experimenting with different styles
+
+commit 78a3df286b49f37d648370aa332e3d221426999c
+Author: Zihao <zihaozhu@utexas.edu>
+Date:   Fri Mar 17 22:56:48 2017 -0500
+
+    Implemented basic framework for sqlalchemy and basic backbone for models
+
+commit ea4ea5ee71b26e34aeb28aa62cc2f433635bd7c2
+Author: Warren Crasta <warrencrasta@gmail.com>
+Date:   Fri Mar 17 13:52:29 2017 -0500
+
+    Fix Broken Links
+
+commit 980e680711eac2728d89a577c6aa3144c345c909
+Author: Zihao <zihaozhu@utexas.edu>
+Date:   Fri Mar 17 00:26:22 2017 -0500
+
+    Created links to the html pages
+
+commit 5374e0c3389c1224b69b18740b462600b8de022e
+Author: kbbrownn <kbbrown@utexas.edu>
+Date:   Thu Mar 16 20:30:27 2017 -0500
+
+    Fixed a couple table names / site titles
+
+commit e62438a0cc01e5abbaf31cd515d59e135572d295
+Author: kbbrownn <kbbrown@utexas.edu>
+Date:   Thu Mar 16 20:28:32 2017 -0500
+
+    Setup sample data tables for each model/page -- just experimenting with things
+
+commit 96f971d92fe23c96e5228beb9451fa46e1d9d3e8
+Author: kbbrownn <kbbrown@utexas.edu>
+Date:   Thu Mar 16 19:28:13 2017 -0500
+
+    Added pages for games, platforms, studios, reviews and about -- everything is linked through the navbar
+
+commit eeea98fe877d10bf39c7aa3cf422757d53ddf7dc
+Merge: 8b1c765 6f3868a
+Author: kbbrownn <kbbrown@utexas.edu>
+Date:   Thu Mar 16 00:20:21 2017 -0500
+
+    Merge branch 'dev' of https://github.com/wcrasta/idb into dev
+
+commit 8b1c765354fecdce06179c209ac79bc2c5ae382e
+Author: kbbrownn <kbbrown@utexas.edu>
+Date:   Thu Mar 16 00:20:02 2017 -0500
+
+    Completely forgot about studios model -- updated carousel and navbar
+
+commit 6f3868ad366169119c0e6128b649ca36916547fa
+Author: Zihao <zihaozhu@utexas.edu>
+Date:   Wed Mar 15 23:55:16 2017 -0500
+
+     Added temporary .travis.yml
+
+commit 5ffc403b9e8dd5c77406057186c98363f8f29ca0
+Author: kbbrownn <kbbrown@utexas.edu>
+Date:   Wed Mar 15 23:19:56 2017 -0500
+
+    Implemented a search bar w/ button for home page
+
+commit 0346fc4d511c2fc6efee71601cf12a929d960de2
+Author: kbbrownn <kbbrown@utexas.edu>
+Date:   Wed Mar 15 20:08:06 2017 -0500
+
+    Implemented a simple navbar w/ links to future pages -- separated css
+
+commit dac709c118e26928a5dd84081430c48defc6ad32
+Author: Warren Crasta <warrencrasta@gmail.com>
+Date:   Wed Mar 15 16:59:14 2017 -0500
+
+    Clean up
+
+commit 3efc68bc662f8130b6dff7e9cf876d194138d920
+Author: Zihao <zihaozhu@utexas.edu>
+Date:   Wed Mar 15 13:21:34 2017 -0500
+
+    Hooked up homepage
+
+commit 97b55edcf9345ea67cc7623c7552b9c580e977a1
+Author: kbbrownn <kbbrown@utexas.edu>
+Date:   Tue Mar 14 22:25:16 2017 -0500
+
+    Added css/fonts/images/js files and implemented a simple carousel splash page
+
+commit c188aa5a04d13d1953aa90dbdbd1460de8866505
+Author: Warren Crasta <warrencrasta@gmail.com>
+Date:   Mon Mar 13 18:25:08 2017 -0500
+
+    First commit
