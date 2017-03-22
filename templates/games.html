@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+w﻿<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -10,13 +10,25 @@
   body {
     background: url('../static/images/bg.png');
   }
-  h2 {
+  h1 {
     color: white;
   }
-  .table-bordered {
-    font-size: 175%;
+  h2 {
     color: white;
-    background-color: #2a8958;
+    text-align: center;
+  }
+  p {
+    text-align: center;
+    color: white;
+    font-size: 1.5em;
+  }
+  img {
+    width: 200px;
+    height: 200px;
+  }
+  .center-block {
+    margin-left: auto;
+    margin-right: auto;
   }
   #myInput {
     background-repeat: no-repeat;
@@ -65,50 +77,49 @@
         </ul>
       </div>
     </nav>
-    
+
     <!-- Starting Data Table -->
     <div class="container" style="padding-top: 125px;">
-      <input type="text" id="myInput" onkeyup="search()" placeholder="Search for a game.." title="Type in a name">
-      <h2>Games Table</h2>
-      <table class="table table-bordered" id="myTable">
-        <thead>
-          <tr>
-            <th onclick ="sortTable(0)">Name</th>
-            <th onclick ="sortTable(1)">Game Studio</th>
-            <th onclick ="sortTable(2)">Genres</th>
-            <th onclick ="sortTable(3)">Release Date</th>
-            <th onclick ="sortTable(4)">Website</th>
-            <th>
-                Image
-            </th>
-            <th onclick="sortTable(6)">ESRB</th>
-            <th onclick="sortTable(7)">Rating</th>
-            <th onclick="sortTable(8)">Status</th>
-          </tr>
-        </thead>
-        <tbody>
-          {% for item in items.items %}
-          <tr>
-            <td>{{item.name}}</td>
-            <td>{{item.studio.name}}</td>
-            <td>{{item.genre}}</td>
-            <td>{{item.release_date}}</td>
-            <td> <a href="{{item.website}}" style="color: rgb(0,255,0)">{{item.website}}</a> </td>
-            {% if item.image != "None" %}
-            <td><img src ="{{item.image}}"></td>
-            {% endif %}
-            {% if item.image == "None" %}
-            <td><img src ="../static/images/no-art.png"></td>
-            {% endif %}
-            <td>{{item.esrb}}</td>
-            <td>{{item.rating}}</td>
-            <td>{{item.status}}</td>
-          </tr>
-          {% endfor %}
-          {% if items.has_prev %}<a href="{{ url_for('games', page=items.prev_num) }}" style="font-size:50px">&lt;&lt; Newer items</a>{% else %}&lt;&lt; Newer items{% endif %} |
-{% if items.has_next %}<a href="{{ url_for('games', page=items.next_num) }}" style="font-size:50px">Older items &gt;&gt;</a>{% else %}Older posts &gt;&gt;{% endif %}
-        </tbody>
-      </table>
+      <input type="text" id="myInput" onkeyup="search()"
+        placeholder="Search for a game.." title="Type in a name">
+      <h1>Games</h1>
+      <div class="underline"></div>
+      <div class="row" style="padding-top: 50px;">
+        <div class="col-sm-4">
+          <h2>The Legend of Zelda: Ocarina of Time</h2>
+          <img class="center-block" src="../static/images/zelda-oot.png" />
+          <p style="padding-top: 15px;">
+            Platforms: Virtual Console (Nintendo), Nintendo 64,
+            Nintendo GameCube
+          </p>
+          <p>
+            Studio: Nintendo EAD
+          </p>
+        </div>
+        <div class="col-sm-4">
+          <h2>FIFA 17</h2>
+          <img class="center-block" src="../static/images/fifa.png" />
+          <p style="padding-top: 15px;">
+            Platforms: PlayStation 4, Xbox One, Xbox 360,
+            PlayStation 3, PC (Microsoft Windows)
+          </p>
+          <p>
+            Studio: EA Canada
+          </p>
+        </div>
+        <div class="col-sm-4">
+          <h2>Super Mario Bros.</h2>
+          <img class="center-block" src="../static/images/mario.png" />
+          <p style="padding-top: 15px;">
+            Platforms: Nintendo Entertainment System (NES),
+            Family Computer Disk System, Game Boy Color,
+            Super Nintendo Entertainment System (SNES), Game Boy Advance
+          </p>
+          <p>
+            Studio: Nintendo Creative Department
+          </p>
+        </div>
+      </div>
     </div>
   </header>
 
