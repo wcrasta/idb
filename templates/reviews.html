@@ -63,12 +63,13 @@
             <th>Platform</th>
             <th>Date Created</th>
             <th>Views</th>
-
+<!--
             <th>Introduction</th>
             <th>Content</th>
             <th>Conclusion</th>
             <th>Positive Points</th>
             <th>Negative Points</th>
+          -->
             <th>URL</th>
           </tr>
         </thead>
@@ -76,17 +77,19 @@
           {% for item in items.items %}
           <tr>
             <td>{{item.title}}</td>
-            <td>{{item.game_id}}</td>
-            <td>{{item.platform_id}}</td>
+            <td>{{item.game.name}}</td>
+            <td>{{item.platform.name}}</td>
             <td>{{item.created_at}}</td>
             <td>{{item.views}}</td>
-
+<!--
             <td>{{item.introduction}}</td>
             <td>{{item.content}}</td>
             <td>{{item.conclusion}}</td>
             <td>{{item.positive}}</td>
             <td>{{item.negative}}</td>
+          -->
             <td>{{item.url}}</td>
+
 
           </tr>
           {% endfor %}

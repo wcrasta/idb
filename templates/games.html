@@ -67,22 +67,30 @@
             <th>Name</th>
             <th>Game Studio</th>
             <th>Genres</th>
+            <th>Ratings</th>
+            <th>ESRB </th>
+            <th>Category</th>
+            <th>status</th>
+
+
             <th>Release Date</th>
             <th>Website</th>
-            <th>
-                Image
-            </th>
+            <th>Platform </th>
           </tr>
         </thead>
         <tbody>
           {% for item in items.items %}
           <tr>
             <td>{{item.name}}</td>
-            <td>{{item.studio_id}}</td>
+            <td>{{item.studio.name}}</td>
             <td>{{item.genre}}</td>
+            <td>{{item.rating}}</td>
+            <td>{{item.esrb}}</td>
+            <td>{{item.category}}</td>
+            <td>{{item.status}}</td>
             <td>{{item.release_date}}</td>
             <td>{{item.website}}</td>
-            <td>{{item.image}}</td>
+            <td>{{item.platform.name}}</td>
           </tr>
           {% endfor %}
           {% if items.has_prev %}<a href="{{ url_for('games', page=items.prev_num) }}" style="font-size:50px">&lt;&lt; Newer items</a>{% else %}&lt;&lt; Newer items{% endif %} |

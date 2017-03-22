@@ -61,8 +61,8 @@
             <th>Name</th>
             <th>Image</th>
             <th>Website</th>
-            <th>Summary</th>
-            <th>Review</th>
+            <th>Game </th>
+            <th>Created</th>
           </tr>
         </thead>
         <tbody>
@@ -71,8 +71,8 @@
             <td>{{item.name}}</td>
             <td>{{item.image}}</td>
             <td>{{item.website}}</td>
-            <td>{{item.summary}}</td>
-            <td>{{item.review}}</td>
+            <td>{{item.games}}</td>
+            <td>{{item.created_at}}</td>
           </tr>
           {% endfor %}
           {% if items.has_prev %}<a href="{{ url_for('platforms', page=items.prev_num) }}" style="font-size:50px">&lt;&lt; Newer items</a>{% else %}&lt;&lt; Newer items{% endif %} |

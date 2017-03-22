@@ -110,9 +110,9 @@ def studio():
                 image = "https:"+entry['logo']['url']
 
             games = list()
-            if 'developed' in entry:
-                for game in entry['developed']:
-                    games.append(game)
+            # if 'developed' in entry:
+            #     for game in entry['developed']:
+            #         games.append(game)
             if 'published' in entry:
                 for game in entry['published']:
                     games.append(game)
@@ -133,7 +133,7 @@ def studio():
                 if db.session.query(Game).filter_by(api_id=game).scalar() is not None:
                     temp_game = db.session.query(Game).filter_by(api_id=game).first()
                     final_game_list.append(temp_game)
-                    platform = temp_game.platform_id
+                    platform_id = temp_game.platform_id
 
             studio = Studio()
             studio.name = name
@@ -185,6 +185,7 @@ def platform():
 
             final_game_list = list()
             for game in games:
+                #("INFINITy")
                 if db.session.query(Game).filter_by(api_id=game).scalar() is not None:
                     temp_game = db.session.query(Game).filter_by(api_id=game).first()
                     final_game_list.append(temp_game)
@@ -276,7 +277,7 @@ def game():
             db.session.add(game)
             db.session.commit()
 
-game()
+#game()
 #platform()
 #reviews()
-#studio()
+studio()

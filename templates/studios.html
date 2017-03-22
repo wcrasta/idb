@@ -63,7 +63,7 @@
             <th>Logo</th>
             <th>Description</th>
             <th>Published Games</th>
-            <th>Platforms Developed For</th>
+            <th>Primary Platform</th>
           </tr>
         </thead>
             <tbody>
@@ -73,6 +73,8 @@
                 <td>{{item.logo}}</td>
                 <td>{{item.description}}</td>
                 <td>{{item.game.name}}</td>
+                <td>{{item.platform}}</td>
+
               </tr>
               {% endfor %}
               {% if items.has_prev %}<a href="{{ url_for('studios', page=items.prev_num) }}" style="font-size:50px">&lt;&lt; Newer items</a>{% else %}&lt;&lt; Newer items{% endif %} |

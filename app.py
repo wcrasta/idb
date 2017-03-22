@@ -4,6 +4,7 @@ from flask import request
 import os
 import json
 import time
+from models import *
 # Create the Flask application.
 app = Flask(__name__)
 
@@ -15,6 +16,7 @@ app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///' + \
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 db = SQLAlchemy(app)
+
 #from models import Game, Platform, Reviews, Studio
 
 POSTS_PER_PAGE=10
