@@ -5,6 +5,11 @@ w﻿<!DOCTYPE html>
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width = device-width, initial-scale=1">
 <title>GGnoSWE · Games</title>
+
+<!-- Bootstrap Core CSS -->
+<link href="css/bootstrap.min.css" rel="stylesheet">
+
+<!-- Custom CSS -->
 <link rel="stylesheet" type="text/css" href="../static/css/home.css">
 <style type="text/css">
   body {
@@ -30,6 +35,36 @@ w﻿<!DOCTYPE html>
     margin-left: auto;
     margin-right: auto;
   }
+
+/* Added by Kaivan */
+  .caption {
+      height: 130px;
+      overflow: hidden;
+  }
+
+  .caption h4 {
+      white-space: nowrap;
+  }
+
+  .thumbnail img {
+      width: 100%;
+  }
+
+  .ratings {
+      padding-right: 10px;
+      padding-left: 10px;
+      color: #d17581;
+  }
+
+  .thumbnail {
+      padding: 0;
+  }
+
+  .thumbnail .caption-full {
+      padding: 9px;
+      color: #333;
+  }
+
   #myInput {
     background-repeat: no-repeat;
     width: 100%;
@@ -39,6 +74,7 @@ w﻿<!DOCTYPE html>
     margin-bottom: 12px;
   }
 </style>
+
 <script type="text/javascript">
   function calcTime(offset){
     var d = new Date(0)
@@ -78,52 +114,85 @@ w﻿<!DOCTYPE html>
       </div>
     </nav>
 
-    <!-- Starting Data Table -->
-    <div class="container" style="padding-top: 125px;">
-      <input type="text" id="myInput" onkeyup="search()"
-        placeholder="Search for a game.." title="Type in a name">
-      <h1>Games</h1>
-      <div class="underline"></div>
-      <div class="row" style="padding-top: 50px;">
-        <div class="col-sm-3">
-          <h1>Filtering</h1>
+    <!-- Page Content -->
+    <div class="container">
+
+      <!-- Filtering options -->
+      <div class="row">
+
+            <div class="col-md-3">
+                <p class="lead" style="padding-top: 280px">Platform</p>
+                <div class="list-group">
+                  <input type="checkbox"> <font color="white" size ="4">PlayStation 4 </font> <br>
+                  <input type="checkbox"> <font color="white" size ="4">Xbox One </font> <br>
+                  <input type="checkbox"> <font color="white" size ="4">PC </font> <br>
+                  <input type="submit" value="Submit">
+                </div>
+
+              <p class="lead" style="padding-top: 30px">Studio</p>
+                <div class="list-group">
+                  <input type="checkbox"> <font color="white" size ="4"> Guerilla Games </font> <br>
+                  <input type="checkbox"> <font color="white" size ="4">EA Sports </font> <br>
+                  <input type="checkbox"> <font color="white" size ="4"> 343 Industries </font> <br>
+                  <input type="submit" value="Submit">
+                </div>
+            </div>
+
+            <!--Load them images up -->
+            <div class = 'col-md-9' style="padding-top: 50px">
+
+                <h1>Games</h1>
+                <div class="row" style="padding-top: 75px;">
+                    <input type="text" id="myInput" onkeyup="search()" placeholder="Search for a game.." title="Type in a name">
+
+                <div class="underline"></div>
+                
+                <div class="col-sm-4 col-lg-4 col-md-4">
+                  <a href="zelda.html">
+                    <div>
+                      <h2>Horizon</h2>
+                      <img class="center-block" src="../static/images/horizon.png" />
+                      <p style="padding-top: 15px;">
+                        Platforms: PlayStation 4
+                      </p>
+                      <p>
+                        Studio: Guerrilla Games
+                      </p>
+                    </div>
+                  </a>
+              </div>
+
+              <div class="col-sm-4 col-lg-4 col-md-4">
+                <a href="fifa.html">
+                  <div>
+                    <h2>Fifa 2017</h2>
+                    <img class="center-block" src="../static/images/fifa.png" />
+                    <p style="padding-top: 15px;">
+                      Platforms: PlayStation 4, Xbox One, PC (Microsoft Windows)
+                    </p>
+                    <p>
+                      Studio: EA Sports
+                    </p>
+                  </div>
+                </a>
+              </div>
+
+            <div class="col-sm-4 col-lg-4 col-md-4">
+              <a href="mario.html">
+                <div>
+                  <h2>Halo 5: Guardians</h2>
+                  <img class="center-block" src="../static/images/halo.png" />
+                  <p style="padding-top: 15px;">
+                    Platforms: Xbox One
+                  </p>
+                  <p>
+                    Studio: 343 Industries
+                  </p>
+                </div>
+              </a>
+            </div>
+          </div>
         </div>
-        <a href="zelda.html">
-          <div class="col-sm-3" style="border-right: 1px solid white; border-left: 1px solid white;">
-            <h2>Horizon: Zero Dawn</h2>
-            <img class="center-block" src="../static/images/horizon.png" />
-            <p style="padding-top: 15px;">
-              Platforms: PlayStation 4
-            </p>
-            <p>
-              Studio: Guerrilla Games
-            </p>
-          </div>
-        </a>
-        <a href="fifa.html">
-          <div class="col-sm-3">
-            <h2>The Witcher 3: Wild Hunt</h2>
-            <img class="center-block" src="../static/images/witcher.png" />
-            <p style="padding-top: 15px;">
-              Platforms: PlayStation 4, Xbox One, PC (Microsoft Windows)
-            </p>
-            <p>
-              Studio: CD Projekt RED
-            </p>
-          </div>
-        </a>
-        <a href="mario.html">
-          <div class="col-sm-3" style="border-left: 1px solid white;">
-            <h2>Halo 5: Guardians</h2>
-            <img class="center-block" src="../static/images/halo.png" />
-            <p style="padding-top: 15px;">
-              Platforms: Xbox One
-            </p>
-            <p>
-              Studio: 343 Industries
-            </p>
-          </div>
-        </a>
       </div>
     </div>
   </header>
