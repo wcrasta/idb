@@ -1,21 +1,22 @@
+from database import db
 from flask import Flask, render_template
-from flask_sqlalchemy import SQLAlchemy
 from flask import request
 import os
 import json
 import time
-from models import *
+#from models import *
 # Create the Flask application.
+from models import Game, Platform, Reviews, Studio
 app = Flask(__name__)
 
-app.debug = True
+app.debug = False
 
 basedir = os.path.abspath(os.path.dirname(__file__))
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///' + \
     os.path.join(basedir, 'app.db')
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
-
-db = SQLAlchemy(app)
+db.init_app(app)
+# db = SQLAlchemy(app)
 
 #from models import Game, Platform, Reviews, Studio
 
