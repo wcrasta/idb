@@ -49,3 +49,11 @@ body {
 .input-group {
   width: 450px;
 }
+
+.underline {
+  width: 700px;
+  border-bottom: 1px solid #FFF;
+}
+.horizontal-divider {
+  border: 1px solid white;
+}
