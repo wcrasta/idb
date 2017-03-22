@@ -130,10 +130,11 @@ def studio():
 
             platform_id = 0
             for game in games:
-                if db.session.query(Game).filter_by(api_id=game).scalar() is not None:
-                    temp_game = db.session.query(Game).filter_by(api_id=game).first()
-                    final_game_list.append(temp_game)
-                    platform_id = temp_game.platform_id
+                temp_game = db.session.query(Game).get(game)
+                if temp_game == None:
+                    continue
+                final_game_list.append(temp_game)
+                platform_id = temp_game.platform_id
 
             studio = Studio()
             studio.name = name
@@ -155,7 +156,6 @@ def platform():
     with open('platforms.json',encoding='UTF-8') as data_file:
         data = json.load(data_file)
         for entry in data:
-            #print(entry)
             name = entry['name']
 
             api_id = entry['id']
@@ -280,7 +280,11 @@ def game():
             db.session.add(game)
             db.session.commit()
 
-#game()
+game()
+print("games done")
 platform()
-#reviews()
-#studio()
+print("platforms done")
+reviews()
+print("reviews done")
+studio()
+print("studios done")
