@@ -31,7 +31,7 @@ def scrape(name):
                 output.append(entry)
                 last_entry = entry
                 errorcount = 0
-                print(entry['id'])
+                #print(entry['id'])
         if errorcount > 200:
             break
     #for entry in output:
