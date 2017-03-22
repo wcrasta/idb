@@ -27,7 +27,7 @@ def reviews():
             if 'title' in entry:
                 name = entry['title']
 
-
+            ts = datetime.datetime.now()
             if 'created_at' in entry:
                 ts = datetime.datetime.fromtimestamp(entry['created_at']/1000)
 
@@ -58,7 +58,7 @@ def reviews():
             if 'negative_points' in entry:
                 negative = entry['negative_points']
 
-            url = "None"
+            url = ''
             if 'url' in entry:
                 url = entry['url']
 
@@ -101,7 +101,9 @@ def studio():
         data = json.load(data_file)
         for entry in data:
             #print(entry)
-            name = entry['name']
+            name = ''
+            if 'name' in entry:
+                name = entry['name']
 
 
             #reviews
@@ -109,14 +111,18 @@ def studio():
             if 'logo' in entry:
                 image = "https:"+entry['logo']['url']
 
-            games = list()
+            games = set()
             # if 'developed' in entry:
             #     for game in entry['developed']:
             #         games.append(game)
             if 'published' in entry:
                 for game in entry['published']:
-                    games.append(game)
+                    games.add(game)
+            if 'developed' in entry:
+                for game in entry['developed']:
+                    games.add(game)
 
+            ts = datetime.datetime.now()
             if 'created_at' in entry:
                 ts = datetime.datetime.fromtimestamp(entry['created_at']/1000)
 
@@ -165,11 +171,17 @@ def platform():
     with open('platforms.json',encoding='UTF-8') as data_file:
         data = json.load(data_file)
         for entry in data:
-            name = entry['name']
 
-            api_id = entry['id']
+            name = ''
+            if 'name' in entry:
+                name = entry['name']
+
+            api_id = 0
+            if 'id' in entry:
+                api_id = entry['id']
 
             #created_at = "None"
+            ts = datetime.datetime.now()
             if 'created_at' in entry:
                 ts = datetime.datetime.fromtimestamp(entry['created_at']/1000)
 
@@ -223,9 +235,14 @@ def game():
         data = json.load(data_file)
         for entry in data:
             #print(entry)
-            name = entry['name']
+            name = ''
+            if 'name' in entry:
+                name = entry['name']
+            
+            api_id = 0
+            if 'id' in entry:
+                api_id = entry['id']
 
-            api_id = entry['id']
             if 'genres' in entry:
                 genre = genres[entry['genres'][0]]
             #reviews
@@ -259,7 +276,7 @@ def game():
                 category = "https://www.youtube.com/watch?v="+entry['video']
             #do platform and studio?
             #platform = ['platform']
-
+            ts = datetime.datetime.now()
             if 'first_release_date' in entry:
                 ts = datetime.datetime.fromtimestamp(entry['first_release_date']/1000)
 
@@ -289,11 +306,11 @@ def game():
             db.session.add(game)
             db.session.commit()
 
-# game()
-# print("games done")
-# platform()
-# print("platforms done")
-# reviews()
-# print("reviews done")
+game()
+print("games done")
+platform()
+print("platforms done")
+reviews()
+print("reviews done")
 studio()
 print("studios done")

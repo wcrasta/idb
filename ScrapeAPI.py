@@ -9,7 +9,6 @@ def scrape(name):
     index = 0
     errorcount = 0
     print(sys.argv)
-    last_entry = requests.get('https://igdbcom-internet-game-database-v1.p.mashape.com/'+name+'/?fields=*&limit=1', headers=headers).json()[0]
     while True:
         url = 'https://igdbcom-internet-game-database-v1.p.mashape.com/'+name+'/'
         for i in range(index+1, index+1001):
@@ -20,19 +19,18 @@ def scrape(name):
         parsed_json = r.json()
         index += 1000
         for entry in parsed_json:
-            try:
-                x = entry['error']
-                errorcount+=1
-                output.append(last_entry)
-                if errorcount>200:
-                    output = output[0:len(output)-201]
-                    break
-            except (KeyError,TypeError):
-                output.append(entry)
-                last_entry = entry
+            output.append(entry)
+            last_entry = entry
+            if 'error' in entry:
+                errorcount +=1
+            else:
                 errorcount = 0
-                #print(entry['id'])
-        if errorcount > 200:
+                print(entry['id'])
+            if errorcount > 20000:
+                output = output[0:len(output)-20001]
+                break
+            #print(entry['id'])
+        if errorcount > 20000:
             break
     #for entry in output:
         #print(entry["name"])
