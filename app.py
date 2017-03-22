@@ -50,6 +50,11 @@ def reviews(page=1):
     #return render_template('reviews.html', title="reviews")
     return render_template('reviews.html', title='reviews', items=reviews)
 
+@app.route('/review/<name>', methods = ['GET'])
+def review_instance(name):
+    review_instance = db.session.query(Reviews).get(name)
+    return render_template('review.html', title='review_instance', items = review_instance)
+
 
 @app.route('/platforms', methods=['GET'])
 @app.route('/platforms/<int:page>', methods = ['GET'])
@@ -77,6 +82,10 @@ def studios(page=1):
     #                       posts=posts)
     return render_template('studios.html', title='studios', items=studios)
 
+@app.route('/studio/<name>', methods = ['GET'])
+def studio_instance(name):
+    studio_instance = db.session.query(Studio).get(name)
+    return render_template('studio.html', title='studio_instance', items = studio_instance)
 
 
 def populateGrid():
