@@ -9,6 +9,7 @@ def scrape(name):
     index = 0
     errorcount = 0
     print(sys.argv)
+    last_entry = None
     while True:
         url = 'https://igdbcom-internet-game-database-v1.p.mashape.com/'+name+'/'
         for i in range(index+1, index+1001):
@@ -23,12 +24,14 @@ def scrape(name):
             try:
                 x = entry['error']
                 errorcount+=1
+                output.append(last_entry)
                 if errorcount>200:
                     break
             except (KeyError,TypeError):
-                print(entry)
                 output.append(entry)
+                last_entry = entry
                 errorcount = 0
+                print(entry['id'])
         if errorcount > 200:
             break
     #for entry in output:

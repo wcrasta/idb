@@ -281,6 +281,6 @@ def game():
             db.session.commit()
 
 #game()
-#platform()
-reviews()
+platform()
+#reviews()
 #studio()

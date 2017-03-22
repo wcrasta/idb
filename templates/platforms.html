@@ -71,7 +71,7 @@
             <td>{{item.name}}</td>
             <td>{{item.image}}</td>
             <td>{{item.website}}</td>
-            <td>{{item.games}}</td>
+            <td>{{item.games.first().name}}</td>
             <td>{{item.created_at}}</td>
           </tr>
           {% endfor %}
