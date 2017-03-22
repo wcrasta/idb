@@ -87,8 +87,11 @@
                 <td><img src ="../static/images/no-art.png"></td>
                 {% endif %}
                 <td>{{item.description}}</td>
+
                 <td>{{item.game.first().name}}</td>
-                <td>{{item.platform.first().name}}</td>
+                {% if item.platform is defined %}
+                <td>{{item.platform.name}}</td>
+                {% endif %}
                 <td>
                     {{item.created_at}}
                 </td>
