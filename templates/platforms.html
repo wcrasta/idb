@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+w﻿<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -10,15 +10,27 @@
   body {
     background: url('../static/images/bg.png');
   }
+  h1 {
+    color: white;
+  }
   h2 {
     color: white;
+    text-align: center;
   }
-  .table-bordered {
-    font-size: 175%;
+  p {
+    text-align: center;
     color: white;
-    background-color: #274582;
+    font-size: 1.5em;
   }
-    #myInput {
+  img {
+    width: 200px;
+    height: 200px;
+  }
+  .center-block {
+    margin-left: auto;
+    margin-right: auto;
+  }
+  #myInput {
     background-repeat: no-repeat;
     width: 100%;
     font-size: 16px;
@@ -27,6 +39,12 @@
     margin-bottom: 12px;
   }
 </style>
+<script type="text/javascript">
+  function calcTime(offset){
+    var d = new Date(0)
+    d.setUTCSeconds(offset)
+  }
+</script>
 </head>
 <body>
 
@@ -62,41 +80,33 @@
 
     <!-- Starting Data Table -->
     <div class="container" style="padding-top: 125px;">
-      <input type="text" id="myInput" onkeyup="search()" placeholder="Search for a platform.." title="Type in a name">
-      <h2>Platforms Table</h2>
-      <table class="table table-bordered" id="myTable">
-        <thead>
-          <tr>
-            <th onclick ="sortTable(0)">Name</th>
-            <th onclick ="sortTable(1)">Generation</th>
-            <th onclick ="sortTable(2)">Website</th>
-            <th onclick ="sortTable(3)">Game</th>
-            <th onclick ="sortTable(4)">Created</th>
-          </tr>
-        </thead>
-        <tbody>
-          {% for item in items.items %}
-          <tr>
-            <td>{{item.name}}</td>
-            <td>
-                {{item.generation}}
-            </td>
-            <!-- {% if item.image != "None" %}
-            <td><img src ="{{item.image}}"></td>
-            {% endif %}
-            {% if item.image == "None" %}
-            <td><img src ="../static/images/no-art.png"></td>
-            {% endif %} -->
-
-            <td> <a href="{{item.website}}">{{item.website}}</a> </td>
-            <td>{{item.games.first().name}}</td>
-            <td>{{item.created_at}}</td>
-          </tr>
-          {% endfor %}
-          {% if items.has_prev %}<a href="{{ url_for('platforms', page=items.prev_num) }}" style="font-size:50px">&lt;&lt; Newer items</a>{% else %}&lt;&lt; Newer items{% endif %} |
-        {% if items.has_next %}<a href="{{ url_for('platforms', page=items.next_num) }}" style="font-size:50px">Older items &gt;&gt;</a>{% else %}Older posts &gt;&gt;{% endif %}
-        </tbody>
-      </table>
+      <input type="text" id="myInput" onkeyup="search()"
+        placeholder="Search for a game.." title="Type in a name">
+      <h1>Platforms</h1>
+      <div class="underline"></div>
+      <div class="row" style="padding-top: 50px;">
+        <div class="col-sm-3">
+          <h1>Filtering</h1>
+        </div>
+        <a href="ps4.html">
+          <div class="col-sm-3" style="border-right: 1px solid white; border-left: 1px solid white;">
+            <h2>PlayStation 4</h2>
+            <img class="center-block" src="../static/images/ps4.png" />
+          </div>
+        </a>
+        <a href="xbox-one.html">
+          <div class="col-sm-3">
+            <h2>Xbox One</h2>
+            <img class="center-block" src="../static/images/xbox-one.png" />
+          </div>
+        </a>
+        <a href="pc.html">
+          <div class="col-sm-3" style="border-left: 1px solid white;">
+            <h2>PC (Microsoft Windows)</h2>
+            <img class="center-block" src="../static/images/pc.png" style="width: 250px; height: 100px;"/>
+          </div>
+        </a>
+      </div>
     </div>
   </header>
 
