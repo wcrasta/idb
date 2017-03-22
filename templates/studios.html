@@ -56,14 +56,14 @@
     <!-- Starting Data Table -->
     <div class="container" style="padding-top: 125px;">
       <h2>Studios Table</h2>
-      <table class="table table-bordered">
+      <table class="table table-bordered" id="myTable">
         <thead>
           <tr>
-            <th>Name</th>
-            <th>Logo</th>
-            <th>Description</th>
-            <th>Published Games</th>
-            <th>Primary Platform</th>
+            <th onclick ="sortTable(0)">Name</th>
+            <th onclick ="sortTable(1)">Logo</th>
+            <th onclick ="sortTable(2)">Description</th>
+            <th onclick ="sortTable(3)">Published Games</th>
+            <th onclick ="sortTable(4)">Primary Platform</th>
           </tr>
         </thead>
             <tbody>
@@ -108,3 +108,7 @@
   </header>
 
 </body>
+
+
+<!-- Sort the elements -->
+<script src="../static/js/games.js"></script>
