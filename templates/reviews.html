@@ -55,14 +55,14 @@
     <!-- Starting Data Table -->
     <div class="container" style="padding-top: 125px;">
       <h2>Reviews Table</h2>
-      <table class="table table-bordered">
+      <table class="table table-bordered" id="myTable">
         <thead>
           <tr>
-            <th>Title</th>
-            <th>Game</th>
-            <th>Platform</th>
-            <th>Date Created</th>
-            <th>Views</th>
+            <th onclick ="sortTable(0)">Title</th>
+            <th onclick ="sortTable(1)">Game</th>
+            <th onclick ="sortTable(2)">Platform</th>
+            <th onclick ="sortTable(3)">Date Created</th>
+            <th onclick ="sortTable(4)">Views</th>
 <!--
             <th>Introduction</th>
             <th>Content</th>
@@ -101,3 +101,42 @@
   </header>
 
 </body>
+
+<script>
+function sortTable(n) {
+  var table, rows, switching, i, x, y, shouldSwitch, dir, switchcount = 0;
+  table = document.getElementById("myTable");
+  switching = true;
+  dir = "asc";
+  while (switching) {
+    switching = false;
+    rows = table.getElementsByTagName("TR");
+    for (i = 1; i < (rows.length - 1); i++) {
+      shouldSwitch = false;
+      x = rows[i].getElementsByTagName("TD")[n];
+      y = rows[i + 1].getElementsByTagName("TD")[n];
+      if (dir == "asc") {
+        if (x.innerHTML.toLowerCase() > y.innerHTML.toLowerCase()) {
+          shouldSwitch= true;
+          break;
+        }
+      } else if (dir == "desc") {
+        if (x.innerHTML.toLowerCase() < y.innerHTML.toLowerCase()) {
+          shouldSwitch= true;
+          break;
+        }
+      }
+    }
+    if (shouldSwitch) {
+      rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
+      switching = true;
+      switchcount ++;
+    } else {
+      if (switchcount == 0 && dir == "asc") {
+        dir = "desc";
+        switching = true;
+      }
+    }
+  }
+} 
+</script>
