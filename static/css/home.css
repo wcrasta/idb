@@ -22,6 +22,18 @@ body {
     color: white;
     font-size: 1.75em;
 }
+.navbar-fixed-top .navbar-toggle {
+  border-color: #ddd;
+}
+.navbar-fixed-top .navbar-toggle:hover {
+  background-color: #ddd;
+}
+.navbar-fixed-top .navbar-toggle .icon-bar {
+  background-color: #888;
+}
+.navbar-toggle .icon-bar {
+  border: 1px solid white;
+}
 .navbar-nav > li > a:hover {
     background-color: transparent;
     color: gray;
