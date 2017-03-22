@@ -186,9 +186,12 @@ def platform():
             final_game_list = list()
             for game in games:
                 #("INFINITy")
-                if db.session.query(Game).filter_by(api_id=game).scalar() is not None:
-                    temp_game = db.session.query(Game).filter_by(api_id=game).first()
-                    final_game_list.append(temp_game)
+                #if db.session.query(Game).filter_by(api_id=game).scalar() is not None:
+                #    temp_game = db.session.query(Game).filter_by(api_id=game).first()
+                temp_game = db.session.query(Game).get(game)
+                if temp_game == None:
+                    continue
+                final_game_list.append(temp_game)
             #print(name,summary,genre,image,ts,website)
             platform = Platform()
             platform.api_id = api_id
@@ -279,5 +282,5 @@ def game():
 
 #game()
 #platform()
-#reviews()
-studio()
+reviews()
+#studio()
