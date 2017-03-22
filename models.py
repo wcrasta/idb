@@ -34,6 +34,8 @@ class Game(db.Model):
 
     status = db.Column(db.Integer)
 
+    platform_id = db.Column(db.Integer, db.ForeignKey('platform.id'))
+
     studio_id = db.Column(db.Integer, db.ForeignKey('studio.id'))
 
     reviews = db.relationship('Reviews', backref='game')
@@ -52,6 +54,7 @@ class Platform(db.Model):
     created_at = db.Column(db.DateTime)
     name = db.Column(db.String(80), unique=True)
     summary = db.Column(db.Text)
+    games = db.relationship('Game', backref='platform')
     review = db.relationship('Reviews', backref='platform')
     # discuss relationship of game
     # games =
@@ -71,9 +74,6 @@ class Studio(db.Model):
     logo = db.Column(db.String(128))
     description = db.Column(db.Text, nullable = True)
     game = db.relationship('Game', backref = 'studio')
-
-    published_Games= db.Column(db.String(128))
-
     created_at = db.Column(db.DateTime)
     website = db.Column(db.String(128))
 

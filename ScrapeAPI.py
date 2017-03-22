@@ -31,8 +31,8 @@ def scrape(name):
                 errorcount = 0
         if errorcount > 200:
             break
-    for entry in output:
-        print(entry["name"])
+    #for entry in output:
+        #print(entry["name"])
     print(len(output))
     with open(name+'.json', 'w', encoding='utf-8') as f:
         json.dump(output, f,ensure_ascii=False)

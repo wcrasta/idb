@@ -1,4 +1,5 @@
 #from models import Game, Platform, Reviews, Studio
+from models import *
 from app import db
 from flask_sqlalchemy import SQLAlchemy
 import sqlite3
@@ -61,6 +62,10 @@ def reviews():
             if 'url' in entry:
                 url = entry['url']
 
+            video = "None"
+            if 'video' in entry:
+                video = "https://www.youtube.com/watch?v="+entry['video']
+
             review = Reviews()
 
             review.title = name
@@ -68,9 +73,11 @@ def reviews():
             review.views = view
             review.introduction = introduction
             review.content = content
-            review.conconclusion = conclusion
+            review.conclusion = conclusion
             review.positive = positive
             review.negative = negative
+
+            review.video = video
             review.url = url
             #review game
             #review platform
@@ -110,6 +117,9 @@ def studio():
                 for game in entry['published']:
                     games.append(game)
 
+            if 'created_at' in entry:
+                ts = datetime.datetime.fromtimestamp(entry['created_at']/1000)
+
 
             summary = "None"
             if 'description' in entry:
@@ -117,15 +127,20 @@ def studio():
             #print(name,summary,genre,image,ts,website)
             final_game_list = list()
 
+
+            platform_id = 0
             for game in games:
                 if db.session.query(Game).filter_by(api_id=game).scalar() is not None:
                     temp_game = db.session.query(Game).filter_by(api_id=game).first()
                     final_game_list.append(temp_game)
+                    platform = temp_game.platform_id
+
             studio = Studio()
             studio.name = name
             studio.logo = image
             studio.description=summary
-
+            studio.created_at = ts
+            studio.platform_id = platform_id
 
 
             for x in final_game_list:
@@ -145,10 +160,17 @@ def platform():
 
             api_id = entry['id']
 
+            #created_at = "None"
+            if 'created_at' in entry:
+                ts = datetime.datetime.fromtimestamp(entry['created_at']/1000)
 
-
-
+            generation = 0
+            if 'generation' in entry:
+                generation = entry['generation']
             #reviews
+            games = list()
+            if 'games' in entry:
+                games = entry['games']
 
             image = "None"
             if 'url' in entry:
@@ -160,6 +182,12 @@ def platform():
             summary = "None"
             if 'summary' in entry:
                 summary = entry['summary']
+
+            final_game_list = list()
+            for game in games:
+                if db.session.query(Game).filter_by(api_id=game).scalar() is not None:
+                    temp_game = db.session.query(Game).filter_by(api_id=game).first()
+                    final_game_list.append(temp_game)
             #print(name,summary,genre,image,ts,website)
             platform = Platform()
             platform.api_id = api_id
@@ -167,6 +195,12 @@ def platform():
             platform.image = image
             platform.website = website
             platform.summary=summary
+            platform.created_at = ts
+            platform.generation = generation
+
+            for x in final_game_list:
+                platform.games.append(x)
+
             db.session.add(platform)
             db.session.commit()
 
@@ -243,6 +277,6 @@ def game():
             db.session.commit()
 
 game()
-# platform()
-# reviews()
-# studio()
+#platform()
+#reviews()
+#studio()
