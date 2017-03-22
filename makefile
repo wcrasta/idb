@@ -1,6 +1,7 @@
 .DEFAULT_GOAL := test
 
 FILES :=            \
+    IDB1.html       \
     IDB1.log        \
     app.py          \
     models.py       \
@@ -39,9 +40,9 @@ endif
 .pylintrc:
 	$(PYLINT) --disable=locally-disabled --reports=no --generate-rcfile > $@
 
-# IDB1.html: models.py
-#	pydoc3 -w models
-#	mv models.html IDB1.html
+IDB1.html: models.py
+	pydoc3 -w models
+	mv models.html IDB1.html
 
 IDB1.log:
 	git log > IDB1.log
@@ -93,7 +94,7 @@ status:
 	git remote -v
 	git status
 
-test: IDB1.log
+test: IDB1.html IDB1.log
 	ls -al
 	make check
 

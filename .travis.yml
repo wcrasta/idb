@@ -12,8 +12,8 @@ install:
     - pip install autopep8
     - pip install coverage
     - pip install pylint
-    - pip install Flask
-    - pip install Flask-SQLAlchemy
+    - pip3 install Flask
+    - pip3 install Flask-SQLAlchemy
 
 before_script:
     - uname -a

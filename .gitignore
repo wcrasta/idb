@@ -8,3 +8,4 @@ reviews.json
 platforms.json
 __pycache__/
 venv/
+*.pyc
