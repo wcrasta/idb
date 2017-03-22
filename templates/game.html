@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width = device-width, initial-scale=1">
+<title>GGnoSWE · Game</title>
+<link rel="stylesheet" type="text/css" href="../static/css/home.css">
+<style type="text/css">
+  body {
+    background: url('../static/images/bg.png');
+    background-size: cover;
+  }
+  h1 {
+    color: white;
+    text-align: center;
+    margin-top: 60px;
+  }
+  h2 {
+    color: white;
+    font-size: 2em;
+  }
+  p{
+    font-size: 1.25em;
+    word-wrap: break-word;
+    color: white;
+  }
+  .row span {
+    color: white;
+    font-size: 1.75em;
+  }
+</style>
+</head>
+<body>
+
+  <header>
+    <!-- Starting Navigation Bar -->
+    <nav class="navbar navbar-fixed-top">
+      <div class="collapse navbar-collapse navbar-left" id="nav-col">
+        <div class="navbar-header">
+          <a class="navbar-brand" href="/">GGnoSWE
+          </a>
+        </div>
+        <ul class="nav navbar-nav">
+          <li class="nav-item active">
+            <a class="nav-link" href="{{ url_for('games')}}">Games
+              <span class="sr-only">(current)</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{{ url_for('platforms')}}">Platforms</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{{ url_for('studios')}}">Studios</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{{ url_for('reviews')}}">Reviews</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{{ url_for('about')}}">About</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+  <div class="row" style="margin-top: 125px; margin-left: 30px; margin-right: 30px; outline: 1px solid white;">
+    <div class="col-sm-12">
+      <div class="row">
+        <div class="col-sm-4">
+          <h1>Title</h1><img style="height: 50vh; width: 30vw; margin-bottom: 100px;" src="../static/images/game-shelf.png">
+        </div>
+        <div class="col-sm-5">
+          <div class="row">
+            <h2 style="text-decoration: underline;">Storyline</h2>
+            <p>
+              Example storyline...
+            </p>
+          </div>
+          <div class="row">
+            <h2 style="text-decoration: underline;">Summary</h2>
+            <p>
+              Example summary...
+            </p>
+          </div>
+        </div>
+        <div class="col-sm-3">
+          <div class="row">
+            <h2 style="display: inline-block;">Genre:	&nbsp;</h2>
+            <span>RPG</span>
+          </div>
+          <div class="row">
+            <h2 style="display: inline-block;">Rating:	&nbsp;</h2>
+            <span>100.00</span>
+          </div>
+          <div class="row">
+            <h2 style="display: inline-block;">Category:	&nbsp;</h2>
+            <span>Main game</span>
+          </div>
+          <div class="row">
+            <h2 style="display: inline-block;">Status:	&nbsp;</h2>
+            <span>Released</span>
+          </div>
+          <div class="row">
+            <h2 style="display: inline-block;">Release Date:	&nbsp;</h2>
+            <span>1/1/2017</span>
+          </div>
+          <div class="row">
+            <h2 style="display: inline-block;">Website:	&nbsp;</h2>
+            <span>www.game.com</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</body>
