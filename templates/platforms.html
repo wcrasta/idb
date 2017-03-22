@@ -68,7 +68,7 @@
         <thead>
           <tr>
             <th onclick ="sortTable(0)">Name</th>
-            <th onclick ="sortTable(1)">Image</th>
+            <th onclick ="sortTable(1)">Generation</th>
             <th onclick ="sortTable(2)">Website</th>
             <th onclick ="sortTable(3)">Game</th>
             <th onclick ="sortTable(4)">Created</th>
@@ -78,9 +78,18 @@
           {% for item in items.items %}
           <tr>
             <td>{{item.name}}</td>
-            <td>{{item.image}}</td>
+            <td>
+                {{item.generation}}
+            </td>
+            <!-- {% if item.image != "None" %}
+            <td><img src ="{{item.image}}"></td>
+            {% endif %}
+            {% if item.image == "None" %}
+            <td><img src ="../static/images/no-art.png"></td>
+            {% endif %} -->
+
             <td> <a href="{{item.website}}">{{item.website}}</a> </td>
-            <td>{{item.games}}</td>
+            <td>{{item.games.first().name}}</td>
             <td>{{item.created_at}}</td>
           </tr>
           {% endfor %}

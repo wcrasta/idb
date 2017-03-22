@@ -134,7 +134,8 @@ def studio():
                 if temp_game == None:
                     continue
                 final_game_list.append(temp_game)
-                platform_id = temp_game.platform_id
+                if temp_game.platform != None:
+                    platform_id = temp_game.platform_id
 
             studio = Studio()
             studio.name = name
@@ -149,8 +150,16 @@ def studio():
 
 
             db.session.add(studio)
-            db.session.commit()
 
+            #Needs work
+
+            for game in games:
+                temp_game = db.session.query(Game).get(game)
+                if temp_game == None:
+                    continue
+                if temp_game.platform != None:
+                    temp_game.platform.studio.append(studio)
+            db.session.commit()
 
 def platform():
     with open('platforms.json',encoding='UTF-8') as data_file:
@@ -280,11 +289,11 @@ def game():
             db.session.add(game)
             db.session.commit()
 
-game()
-print("games done")
-platform()
-print("platforms done")
-reviews()
-print("reviews done")
+# game()
+# print("games done")
+# platform()
+# print("platforms done")
+# reviews()
+# print("reviews done")
 studio()
 print("studios done")

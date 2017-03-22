@@ -72,17 +72,26 @@
             <th onclick ="sortTable(2)">Description</th>
             <th onclick ="sortTable(3)">Published Games</th>
             <th onclick ="sortTable(4)">Primary Platform</th>
+            <th onclick ="sortTable(5)">Date Created</th>
+
           </tr>
         </thead>
             <tbody>
               {% for item in items.items %}
               <tr>
                 <td>{{item.name}}</td>
-                <td>{{item.logo}}</td>
+                {% if item.logo!= "None" %}
+                <td><img src ="{{item.logo}}"></td>
+                {% endif %}
+                {% if item.logo== "None" %}
+                <td><img src ="../static/images/no-art.png"></td>
+                {% endif %}
                 <td>{{item.description}}</td>
-                <td>{{item.game.name}}</td>
-                <td>{{item.platform}}</td>
-
+                <td>{{item.game.first().name}}</td>
+                <td>{{item.platform.first().name}}</td>
+                <td>
+                    {{item.created_at}}
+                </td>
               </tr>
               {% endfor %}
               {% if items.has_prev %}<a href="{{ url_for('studios', page=items.prev_num) }}" style="font-size:50px">&lt;&lt; Newer items</a>{% else %}&lt;&lt; Newer items{% endif %} |

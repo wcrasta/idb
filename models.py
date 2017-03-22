@@ -24,7 +24,7 @@ class Game(db.Model):
 
     genre = db.Column(db.String(80))
 
-    rating = db.Column(db.Numeric(2,2))
+    rating = db.Column(db.Float)
 
     storyline = db.Column(db.Text)
 
@@ -62,6 +62,7 @@ class Platform(db.Model):
     #image = db.Column(db.LargeBinary)
     image = db.Column(db.String(128))
     website = db.Column(db.String(80))
+    studio = db.relationship('Studio', backref='platform',lazy="dynamic")
 
 
 class Studio(db.Model):
@@ -69,7 +70,8 @@ class Studio(db.Model):
     name = db.Column(db.String(80))
     #logo = db.Column(db.LargeBinary, nullable = True)
 
-    platform = db.Column(db.String(128))
+    #platform = db.Column(db.String(128))
+    platform_id = db.Column(db.Integer, db.ForeignKey('platform.id'))
 
     logo = db.Column(db.String(128))
     description = db.Column(db.Text, nullable = True)
@@ -79,7 +81,6 @@ class Studio(db.Model):
 
 #    platform = db.relationship(
 #        'Platform', secondary=studioToPlatform, backref=db.backref('studio', lazy='dynamic'))
-
 class Reviews(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     title = db.Column(db.String(128))
