@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+w﻿<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -10,15 +10,28 @@
   body {
     background: url('../static/images/bg.png');
   }
+  h1 {
+    color: white;
+  }
   h2 {
     color: white;
+    text-align: center;
   }
-  .table-bordered {
-    font-size: 175%;
+  p {
+    text-align: center;
     color: white;
-    background-color: #822727;
+    font-size: 1.5em;
+  }
+  img {
+    width: 200px;
+    height: 200px;
+  }
+  .center-block {
+    margin-left: auto;
+    margin-right: auto;
   }
   #myInput {
+    background-repeat: no-repeat;
     width: 100%;
     font-size: 16px;
     padding: 12px 20px 12px 40px;
@@ -26,6 +39,12 @@
     margin-bottom: 12px;
   }
 </style>
+<script type="text/javascript">
+  function calcTime(offset){
+    var d = new Date(0)
+    d.setUTCSeconds(offset)
+  }
+</script>
 </head>
 <body>
 
@@ -42,7 +61,6 @@
             <a class="nav-link" href="{{ url_for('games')}}">Games
               <span class="sr-only">(current)</span>
             </a>
-
           </li>
           <li class="nav-item">
             <a class="nav-link" href="{{ url_for('platforms')}}">Platforms</a>
@@ -62,77 +80,49 @@
 
     <!-- Starting Data Table -->
     <div class="container" style="padding-top: 125px;">
-    <input type="text" id="myInput" onkeyup="search()" placeholder="Search for a studio.." title="Type in a name">
-      <h2>Studios Table</h2>
-      <table class="table table-bordered" id="myTable">
-        <thead>
-          <tr>
-            <th onclick ="sortTable(0)">Name</th>
-            <th onclick ="sortTable(1)">Logo</th>
-            <th onclick ="sortTable(2)">Description</th>
-            <th onclick ="sortTable(3)">Published Games</th>
-            <th onclick ="sortTable(4)">Primary Platform</th>
-            <th onclick ="sortTable(5)">Date Created</th>
-
-          </tr>
-        </thead>
-            <tbody>
-              {% for item in items.items %}
-              <tr>
-                <td>{{item.name}}</td>
-                {% if item.logo!= "None" %}
-                <td><img src ="{{item.logo}}"></td>
-                {% endif %}
-                {% if item.logo== "None" %}
-                <td><img src ="../static/images/no-art.png"></td>
-                {% endif %}
-                <td>{{item.description}}</td>
-
-                <td>{{item.game.first().name}}</td>
-                {% if item.platform is defined %}
-                {% if item.platform_id is defined %}
-                <th><a href="{{ url_for('platform_instance', name = item.platform.id) }}"> {{item.platform.name}}</a></th>
-                {% endif %}
-                {% endif %}
-                <td>
-                    {{item.created_at}}
-                </td>
-              </tr>
-              {% endfor %}
-              {% if items.has_prev %}<a href="{{ url_for('studios', page=items.prev_num) }}" style="font-size:50px">&lt;&lt; Newer items</a>{% else %}&lt;&lt; Newer items{% endif %} |
-{% if items.has_next %}<a href="{{ url_for('studios', page=items.next_num) }}" style="font-size:50px">Older items &gt;&gt;</a>{% else %}Older posts &gt;&gt;{% endif %}
-            </tbody>
-            <!--
-          <tr>
-            <td>Studio1</td>
-            <td>studio1.png</td>
-            <td>Example description ...</td>
-            <td>Published games list1</td>
-            <td>Platforms list1</td>
-          </tr>
-          <tr>
-            <td>Studio2</td>
-            <td>studio2.png</td>
-            <td>Example description ...</td>
-            <td>Published games list2</td>
-            <td>Platforms list2</td>
-          </tr>
-          <tr>
-            <td>Studio3</td>
-            <td>studio3.png</td>
-            <td>Example description ...</td>
-            <td>Published games list3</td>
-            <td>Platforms list3</td>
-          </tr>
-      -->
-      </table>
+      <input type="text" id="myInput" onkeyup="search()"
+        placeholder="Search for a game.." title="Type in a name">
+      <h1>Studios</h1>
+      <div class="underline"></div>
+      <div class="row" style="padding-top: 50px;">
+        <div class="col-sm-3">
+          <h1>Filtering</h1>
+        </div>
+        <a href="guerrilla.html">
+          <div class="col-sm-3" style="border-right: 1px solid white; border-left: 1px solid white;">
+            <h2>Guerrilla Games</h2>
+            <img class="center-block" src="../static/images/guerrilla.png" />
+            <p style="padding-top: 15px;">
+              Platforms: PlayStation 4
+            </p>
+          </div>
+        </a>
+        <a href="red.html">
+          <div class="col-sm-3">
+            <h2>CD Projekt RED</h2>
+            <img class="center-block" src="../static/images/cd-projekt-red.png" />
+            <p style="padding-top: 15px;">
+              Platforms: PlayStation 4, Xbox One, PC (Microsoft Windows)
+            </p>
+          </div>
+        </a>
+        <a href="343.html">
+          <div class="col-sm-3" style="border-left: 1px solid white;">
+            <h2>343 Industries</h2>
+            <img class="center-block" src="../static/images/343.png" />
+            <p style="padding-top: 15px;">
+              Platforms: Xbox One
+            </p>
+          </div>
+        </a>
+      </div>
     </div>
   </header>
 
 </body>
 
-
 <!-- Sort the elements -->
 <script src="../static/js/games.js"></script>
+
 <!-- Search-->
 <script src="../static/js/search.js"></script>

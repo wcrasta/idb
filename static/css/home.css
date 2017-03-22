@@ -1,4 +1,5 @@
 @import "bootstrap.css";
+@import "bootstrap.min.css";
 
 body {
   font-size: 100%;
@@ -20,6 +21,18 @@ body {
     padding-top: 12px;
     color: white;
     font-size: 1.75em;
+}
+.navbar-fixed-top .navbar-toggle {
+  border-color: #ddd;
+}
+.navbar-fixed-top .navbar-toggle:hover {
+  background-color: #ddd;
+}
+.navbar-fixed-top .navbar-toggle .icon-bar {
+  background-color: #888;
+}
+.navbar-toggle .icon-bar {
+  border: 1px solid white;
 }
 .navbar-nav > li > a:hover {
     background-color: transparent;
