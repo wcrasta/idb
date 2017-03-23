@@ -5,10 +5,10 @@ from flask_paginate import Pagination
 import os
 import json
 import time
-from flask_sqlalchemy import SQLAlchemy
+#from flask_sqlalchemy import SQLAlchemy
 
 # Create the Flask application.
-#from models import Game, Platform, Reviews, Studio
+from models import Game, Platform, Reviews, Studio
 app = Flask(__name__)
 
 app.debug = True
@@ -17,9 +17,9 @@ basedir = os.path.abspath(os.path.dirname(__file__))
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///' + \
     os.path.join(basedir, 'app.db')
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
-#db.init_app(app)
-db = SQLAlchemy(app)
-
+db.init_app(app)
+#db = SQLAlchemy(app)
+#
 #from models import Game, Platform, Reviews, Studio
 
 POSTS_PER_PAGE=10
