@@ -79,7 +79,37 @@ class TestCase(unittest.TestCase):
 		game = Game(name="LoL")
 		self.assertTrue(game.studio_id == None)
 		
-	
+	def test_foreignkey(self):
+		studio = Studio()
+		studio.name = "Test Studio"
+		game = Game (name = "Test game")
+		studio.game.append(game)
+		self.assertTrue(game.studio_id == studio.id)
+
+	def test_lazy_dynamic(self):
+		platform = Platform()
+		platform.name = "Wii"
+		game = Game (name = "test game")
+		game.genre = "Action"
+		platform.games.append(game) 
+		self.assertTrue("Select" in platform.games.first())
+
+	def test_link(self):
+		reviews = Reviews()
+		reviews.title = "Zelda review"
+		reviews.url = "zelda.com"
+		self.assertFalse("http" in reviews.url)
+
+	def test_multiple_relationships():
+		platform = Platform(name="test")
+		game = Game(name="Zelda")
+		review = Reviews(title="review of zelda")
+		platform.games.append(game)
+		platform.review.append(review)
+		self.assertTrue(platform.games.first().id != 0)
+		self.assertTrue(platform.review.first().title == "review of zelda")
+		self.assertTrue(game.platform_id = platform.id)
+		self.assertTrue(review.platform_id = platform.id)
 
 
 if __name__ == '__main__':
