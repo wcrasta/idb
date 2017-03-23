@@ -169,12 +169,15 @@ w﻿<!DOCTYPE html>
                         <a href="{{ url_for('platform_instance', name = item.platform.id)}}" > {{item.platform.name}} </a>
                         {% endif %}
                     </p>
-                    <p style="padding-top: 15px; text-align: center;">
+
                         {% if item.studio is defined %}
+                        <p>
+
+                        Studio:
                         <a href="{{ url_for('studio_instance', name = item.studio.id)}}" >  {{item.studio.name}}
                          </a>
+                     </p>
                         {% endif %}
-                    </p>
 
                     <p> Esrb: {{item.esrb}} </p>
                     <p> Genre: {{item.genre}} </p>

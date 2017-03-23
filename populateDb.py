@@ -152,8 +152,8 @@ def studio():
             studio.website = website
 
             for x in final_game_list:
-                if x.platform == None:
-                    studio.game.append(x)
+                #if x.platform == None:
+                studio.game.append(x)
 
 
             db.session.add(studio)
@@ -195,7 +195,7 @@ def platform():
                 games = entry['games']
 
 
-            #DO IT UNDER LOGO URL    
+            #DO IT UNDER LOGO URL
             image = "None"
             if 'logo' in entry:
                 image = entry['logo']['url']
@@ -241,7 +241,7 @@ def game():
             name = ''
             if 'name' in entry:
                 name = entry['name']
-            
+
             api_id = 0
             if 'id' in entry:
                 api_id = entry['id']

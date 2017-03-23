@@ -19,8 +19,6 @@ app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///' + \
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db.init_app(app)
 #db = SQLAlchemy(app)
-#
-#from models import Game, Platform, Reviews, Studio
 
 POSTS_PER_PAGE=10
 
@@ -101,14 +99,6 @@ def studio_instance(name):
     return render_template('studio.html', title='studio_instance', items = studio_instance)
 
 
-def populateGrid():
-	with open('games.json') as json_data:
-		items = json.load(json_data)
-		for x in items:
-			if('first_release_date' in x):
-				x['first_release_date'] = time.strftime("%m-%d-%Y", time.gmtime(x['first_release_date']/1000))
-			#print(x['first_release_date'])
-		return items
 
 # Run the Flask app.
 if __name__ == '__main__':

@@ -1,17 +1,5 @@
 from database import db
 #from app import db
-#gameToPlatform = db.Table('gamestoplatform', db.Column('game_id', db.Integer, db.ForeignKey(
-#    'game.id')), db.Column('platform_id', db.Integer, db.ForeignKey('platform.id')))
-
-
-#studioToPlatform = db.Table('studioToPlatform', db.Column('studio_id', db.Integer, db.ForeignKey(
-#    'studio.id')), db.Column('platform_id', db.Integer, db.ForeignKey('platform.id')))
-
-# game_category = { 0:"Main Game", 1:"DLC/Add on", 2:"Expansion", 3:"Bundle", 4:"Standalone expansion"}
-# game_status = {0:"Released", 2:"Alpha", 3:"Beta", 4:"Early Access", 5:"offline", 6:"Cancelled"}
-# esrb = {1:"RP", 2:"EC", 3:"E", 4:"E10+", 5:"T", 6:"M", 7:"AO"}
-
-# genres={33:"Arcade", 32:"Indie", 31:"Adventure", 30:"Pinball", 26:"Quiz/Trivia", 25:"Hack and slash/Beat 'em up", 24:"Tactical", 16:"Turn-based strategy (TBS)", 15:"Strategy", 14:"Sport", 13:"Simulator", 12:"Role-playing (RPG)",11:"Real Time Strategy (RTS)", 10:"Racing", 9:"Puzzle", 8:"Platform", 7:"Music", 5:"Shooter", 4:"Fighting", 2:"Point-and-click"}
 
 
 
