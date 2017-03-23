@@ -105,7 +105,7 @@ w﻿<!DOCTYPE html>
 
             <!--Load them images up -->
             <div class = 'col-md-9' style="padding-top: 50px">
-              
+
                 <h1 class="text-center">   Platforms </h1>
 
                 <div class="dropdown" style="padding-top: 30px">
@@ -118,13 +118,15 @@ w﻿<!DOCTYPE html>
                 </div>
 
                 <div class="row" style="padding-top: 75px;">
-                    <input type="text" id="myInput" onkeyup="search()" placeholder="Search for a game.." title="Type in a name">
-              {{ pagination.info }}
+                <input type="text" id="myInput" onkeyup="search()" placeholder="Search for a game.." title="Type in a name">
+                <div style="color: white;">
+                  {{ pagination.info }}
+                </div>
               {{ pagination.links }}
                 <div class="underline"></div>
      {% for item_row in items | batch(3, '&nbsp;') %}
 
-       
+
           <div class = "row">
                    {% for item in item_row %}
             <div class = "col-md-3">
@@ -137,7 +139,7 @@ w﻿<!DOCTYPE html>
             {% endif %}
 
 <!--             <p> Studio: <a href="{{ url_for('studio_instance', name = item.studio.first().id)}}" > {{item.studio.first().name}} </a></p>
- -->            <p> Example Game: <a href="{{ url_for('game_instance', name = item.games.first().id)}}"> {{item.games.first().name}}</a> </p> 
+ -->            <p> Example Game: <a href="{{ url_for('game_instance', name = item.games.first().id)}}"> {{item.games.first().name}}</a> </p>
             {% if item.website !='None' %}
             <p> <a href="{{item.website}}"> Website </a> </p>
             {% else %}
@@ -154,7 +156,7 @@ w﻿<!DOCTYPE html>
           </div>
 
         {% endfor %}
-                
+
           </div>
         </div>
       </div>

@@ -88,7 +88,7 @@
             <div class = 'col-md-9' style="padding-top: 50px">
 
                 <h1 class="text-center">  Reviews </h1>
-                
+
                 <div class="dropdown" style="padding-top: 30px">
                   <button class="dropbtn" background-color="grey"><font color="black">Sort relevance</font></button>
                   <div class="dropdown-content">
@@ -99,13 +99,15 @@
                 </div>
 
                 <div class="row" style="padding-top: 75px;">
-                    <input type="text" id="myInput" onkeyup="search()" placeholder="Search for a game.." title="Type in a name">
-              {{ pagination.info }}
+                <input type="text" id="myInput" onkeyup="search()" placeholder="Search for a game.." title="Type in a name">
+                <div style="color: white;">
+                  {{ pagination.info }}
+                </div>
               {{ pagination.links }}
                 <div class="underline"></div>
      {% for item_row in items | batch(3, '&nbsp;') %}
 
-       
+
           <div class = "row">
                    {% for item in item_row %}
             <div class = "col-md-3">
@@ -131,7 +133,7 @@
           </div>
 
         {% endfor %}
-                
+
           </div>
         </div>
       </div>
