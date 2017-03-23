@@ -23,7 +23,7 @@ w﻿<!DOCTYPE html>
     text-align: center;
   }
   p {
-    text-align: center;
+    text-align: left;
     color: white;
     font-size: 1.5em;
   }
@@ -134,35 +134,48 @@ w﻿<!DOCTYPE html>
      {% for item_row in items | batch(3, '&nbsp;') %}
 
 
-          <div class = "row">
+          <div class = "row" style="overflow: hidden; margin-bottom: 30px;">
                    {% for item in item_row %}
-            <div class = "col-md-3">
-            <h2><a href="{{ url_for('game_instance', name = item.id)}}" > {{item.name}} </a></h2>
-            {% if item.image != 'None' %}
-            <img class="center-block" src="{{item.image}}" />
-            {% else %}
-            <img class ="center-block" src="/static/images/no-art.png"/>
-            {% endif %}
-            <p style="padding-top: 15px;">
-                {% if item.platform_id is defined %}
-                <a href="{{ url_for('platform_instance', name = item.platform.id)}}" > {{item.platform.name}} </a>
-                {% endif %}
-            </p>
-            <p style="padding-top: 15px;">
-                {% if item.studio is defined %}
-                <a href="{{ url_for('studio_instance', name = item.studio.id)}}" >  {{item.studio.name}}
-                 </a>
-                {% endif %}
-            </p>
+            <div class = "col-md-4">
+            <div class="row">
+              <div class="col-sm-12">
+                <div style="inline;">
+                  <h2 style="word-wrap: break-word; margin-bottom: 0;
+                  height: 17%; width: 100%">
+                  <a href="{{ url_for('game_instance',
+                  name = item.id)}}">{{item.name}} </a></h2>
+                  {% if item.image != 'None' %}
+                  <img class="center-block" style="height: 30%;" src="{{item.image}}" />
+                  {% else %}
+                  <img class ="center-block" style="height: 30%;" src="/static/images/no-art.png"/>
+                  {% endif %}
+                </div>
+                <div class="row">
+                  <div class="col-sm-12">
+                    <p style="padding-top: 15px; text-align: center;">
+                        {% if item.platform_id is defined %}
+                        <a href="{{ url_for('platform_instance', name = item.platform.id)}}" > {{item.platform.name}} </a>
+                        {% endif %}
+                    </p>
+                    <p style="padding-top: 15px; text-align: center;">
+                        {% if item.studio is defined %}
+                        <a href="{{ url_for('studio_instance', name = item.studio.id)}}" >  {{item.studio.name}}
+                         </a>
+                        {% endif %}
+                    </p>
 
-            <p> Esrb: {{item.esrb}} </p>
-            <p> Genre: {{item.genre}} </p>
-            <p> Rating: {{item.rating}} </p>
-            <p> Status: {{item.status}} </p>
+                    <p> Esrb: {{item.esrb}} </p>
+                    <p> Genre: {{item.genre}} </p>
+                    <p> Rating: {{item.rating}} </p>
+                    <p> Status: {{item.status}} </p>
 
-            <p>
-                Date Created: {{item.release_date}}
-            </p>
+                    <p>
+                        Date Created: {{item.release_date}}
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
                    {% endfor %}
 
