@@ -145,7 +145,7 @@ def studio():
 
             studio = Studio()
             studio.name = name
-            studio.logo = image
+            studio.logo = image.replace('t_thumb','')
             studio.description=summary
             studio.created_at = ts
             studio.platform_id = platform_id
@@ -219,7 +219,7 @@ def platform():
             platform = Platform()
             platform.api_id = api_id
             platform.name = name
-            platform.image = image
+            platform.image = image.replace('t_thumb','')
             platform.website = website
             platform.summary=summary
             platform.created_at = ts
@@ -274,8 +274,8 @@ def game():
                 status = game_status[entry['status']]
 
             video = "None"
-            if 'video' in entry:
-                category = 'https://www.youtube.com/embed/'+entry['videos'][0]['video-id']
+            if 'videos' in entry:
+                category = 'https://www.youtube.com/embed/'+entry['videos'][0]['video_id']
             #do platform and studio?
             #platform = ['platform']
             ts = datetime.datetime.now()
@@ -299,7 +299,7 @@ def game():
             game.category = category
             game.esrb = esrb
             game.status = status
-            game.image = image
+            game.image = image.replace('/t_thumb','')
             game.release_date = ts
             game.website = website
             game.summary = summary
