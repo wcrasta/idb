@@ -1,2 +1,7 @@
 app/pycache/
 *.pyc
+flask/
+__pycache__/
+*.json
+.DS_Store
+
