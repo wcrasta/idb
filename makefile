@@ -42,7 +42,7 @@ endif
 
 IDB1.html: app/models.py
 	cp app/database.py database.py
-	$(PYDOC) -w app/models.py
+	pydoc3 -w app/models.py
 	mv models.html IDB1.html
 	rm database.py	
 
