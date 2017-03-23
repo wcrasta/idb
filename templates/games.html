@@ -6,11 +6,12 @@ w﻿<!DOCTYPE html>
 <meta name="viewport" content="width = device-width, initial-scale=1">
 <title>GGnoSWE · Games</title>
 
-<!-- Bootstrap Core CSS -->
+<!-- Bootstrap Core CSS, home and common-->
 <link href="css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="../static/css/home.css">
+<link rel="stylesheet" type="text/css" href="../static/css/common.css">
 
 <!-- Custom CSS -->
-<link rel="stylesheet" type="text/css" href="../static/css/home.css">
 <style type="text/css">
   body {
     background: url('../static/images/bg.png');
@@ -34,44 +35,6 @@ w﻿<!DOCTYPE html>
   .center-block {
     margin-left: auto;
     margin-right: auto;
-  }
-
-/* Added by Kaivan */
-  .caption {
-      height: 130px;
-      overflow: hidden;
-  }
-
-  .caption h4 {
-      white-space: nowrap;
-  }
-
-  .thumbnail img {
-      width: 100%;
-  }
-
-  .ratings {
-      padding-right: 10px;
-      padding-left: 10px;
-      color: #d17581;
-  }
-
-  .thumbnail {
-      padding: 0;
-  }
-
-  .thumbnail .caption-full {
-      padding: 9px;
-      color: #333;
-  }
-
-  #myInput {
-    background-repeat: no-repeat;
-    width: 100%;
-    font-size: 16px;
-    padding: 12px 20px 12px 40px;
-    border: 1px solid #ddd;
-    margin-bottom: 12px;
   }
 </style>
 
@@ -149,10 +112,18 @@ w﻿<!DOCTYPE html>
 
             <!--Load them images up -->
             <div class = 'col-md-9' style="padding-top: 50px">
-              
+                
+                <h1 class="text-center">Games</h1>
 
+                <div class="dropdown" style="padding-top: 30px">
+                  <button class="dropbtn" background-color="grey"><font color="black">Dropdown</font></button>
+                  <div class="dropdown-content">
+                    <a href="#">Games</a>
+                    <a href="#">Platform</a>
+                    <a href="#">Studio</a>
+                  </div>
+                </div>
 
-                <h1 class="text-center">   Games </h1>
                 <div class="row" style="padding-top: 75px;">
                     <input type="text" id="myInput" onkeyup="search()" placeholder="Search for a game.." title="Type in a name">
               {{ pagination.info }}
