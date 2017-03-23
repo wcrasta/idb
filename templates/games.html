@@ -164,7 +164,7 @@ w﻿<!DOCTYPE html>
           <div class = "row">
                    {% for item in item_row %}
             <div class = "col-md-3">
-            <h2><a href="{{ url_for('game_instance', name = item.id)}}" > Games </a></h2>
+            <h2><a href="{{ url_for('game_instance', name = item.id)}}" > {{item.name}} </a></h2>
             {% if item.image != 'None' %}
             <img class="center-block" src="{{item.image}}" />
             {% else %}

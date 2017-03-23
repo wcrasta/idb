@@ -39,7 +39,7 @@ def games(page=1):
     value = request.args.get('sort', 'name')
     games = db.session.query(Game).filter(Game.api_id!=0 and Game.name!='').order_by(Game.name)
     pagination = Pagination(page=page, css_framework='foundation',total=games.count(), record_name='items')
-    return render_template('games.html', items=games[page * 9:(page+1) * 9], pagination=pagination)
+    return render_template('games.html', items=games[min(page * 9,games.count()-9):(page+1) * 9], pagination=pagination)
 
 	#items = populateGrid()
 	#return render_template('games.html', items=items, title="games")
@@ -64,9 +64,15 @@ def review_instance(name):
 @app.route('/platforms', methods=['GET'])
 @app.route('/platforms/<int:page>', methods = ['GET'])
 def platforms(page=1):
-    platforms = db.session.query(Platform).paginate(page, POSTS_PER_PAGE,False)
-    #return render_template('platforms.html', title='platforms')
-    return render_template('platforms.html', title='platforms', items=platforms)
+    # platforms = db.session.query(Platform).paginate(page, POSTS_PER_PAGE,False)
+    # #return render_template('platforms.html', title='platforms')
+    # return render_template('platforms.html', title='platforms', items=platforms)
+    value = request.args.get('sort', 'name')
+    platforms = db.session.query(Platform).filter(Platform.api_id!=0 and Platform.name!='').order_by(Platform.name)
+    pagination = Pagination(page=page, css_framework='foundation',total=platforms.count(), record_name='items')
+    return render_template('platforms.html', items=platforms[min(page * 9,platforms.count()-9):(page+1) * 9], pagination=pagination)
+
+
 
 @app.route('/platform/<name>', methods = ['GET'])
 def platform_instance(name):
