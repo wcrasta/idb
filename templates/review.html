@@ -67,7 +67,12 @@
     <div class="col-sm-12">
       <div class="row">
         <div class="col-sm-4">
-          <h1>Review</h1><img style="height: 50vh; width: 30vw; margin-bottom: 100px;" src="../static/images/high-score.png">
+          <h1>{{items.title}}</h1>
+          {% if items.game.image != 'None' %}
+            <img style="height: 50vh; width: 30vw; margin-bottom: 100px;" src={{items.game.image}}>
+          {% else %}
+            <img style="height: 50vh; width: 30vw; margin-bottom: 100px;" src="/static/images/no-art.png">
+          {% endif %}
         </div>
         <div class="col-sm-5 text-center">
           <div class="row">
