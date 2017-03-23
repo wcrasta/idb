@@ -112,11 +112,11 @@ def studio():
                 image = "https:"+entry['logo']['url']
 
             games = set()
-            if 'published' in entry:
-                for game in entry['published']:
-                    games.add(game)
             if 'developed' in entry:
                 for game in entry['developed']:
+                    games.add(game)
+            if 'published' in entry:
+                for game in entry['published']:
                     games.add(game)
 
             ts = datetime.datetime.now()
@@ -152,7 +152,8 @@ def studio():
             studio.website = website
 
             for x in final_game_list:
-                studio.game.append(x)
+                if x.platform == None:
+                    studio.game.append(x)
 
 
             db.session.add(studio)
@@ -308,11 +309,11 @@ def game():
             db.session.add(game)
             db.session.commit()
 
-game()
+#game()
 print("games done")
-platform()
+#platform()
 print("platforms done")
-reviews()
+#reviews()
 print("reviews done")
 studio()
 print("studios done")
