@@ -106,7 +106,7 @@ w﻿<!DOCTYPE html>
                       <a href="#">Studio</a>
                     </div>
                   </div>
-                  <p class="text-left" style="padding-top: 60px; margin-left: 0px; padding-left: 20px; padding-top: 20px;" > <font color="white" size ="6">Platform</font></p>
+                  <p class="text-left" style="padding-top: 60px; margin-left: 20px; padding-left: 20px; padding-top: 20px;" > <font color="white" size ="6">Platform</font></p>
                   <div class="list-group">
                     <input type="checkbox"> <font color="white" size ="4">PlayStation 4 </font> <br>
                     <input type="checkbox"> <font color="white" size ="4">Xbox One </font> <br>
@@ -114,7 +114,7 @@ w﻿<!DOCTYPE html>
                     <input type="submit" value="Submit">
                   </div>
 
-                <p class="text-left" style="padding-top: 30px; margin-left: 0px; padding-left: 20px; padding-top: 20px;" > <font color="white" size ="6">Studio</font></p>
+                <p class="text-left" style="padding-top: 30px; margin-left: 20px; padding-left: 20px; padding-top: 20px;" > <font color="white" size ="6">Studio</font></p>
                   <div class="list-group">
                     <input type="checkbox"> <font color="white" size ="4"> Guerilla Games </font> <br>
                     <input type="checkbox"> <font color="white" size ="4">EA Sports </font> <br>
@@ -126,25 +126,37 @@ w﻿<!DOCTYPE html>
             </div>
 
             <!--Load them images up -->
-            <div class = 'col-md-9' style="padding-top: 100px">
-
-                  <div class="col-sm-12">
-                    <div style="color: white; float: right; text-align: right;">
-                      {{ pagination.links }}
-                    </div>
-                      <h1>Studios</h1>
-
-                    <div class="row">
-                      <div style="color: white; float: center; text-align: center; margin-right: 15px;">
-                        {{ pagination.info }}
+            <div class ="col-md-9" style="padding-top: 100px;">
+              <div class="row">
+                <div class="col-sm-12">
+                  <div class="row">
+                    <div class="col-sm-12">
+                      <div style="color: white; float: right; text-align: right;">
+                        {{ pagination.links }}
                       </div>
-                      <div class="col-sm-12">
+                        <h1>Studios</h1>
 
-                      <div class="underline"></div>
+                      <div class="row">
+                        <div class="col-sm-6">
+                          <p>
+                            &nbsp;
+                          </p>
+                        </div>
+                        <div class="col-sm-6">
+                          <div style="color: white; text-align: right; margin-top: 10px;">
+                            {{ pagination.info }}
+                          </div>
+                        </div>
+                        <div class="col-sm-12">
+
+                        <div class="underline"></div>
+                        </div>
                       </div>
                     </div>
                   </div>
-                  <div class="row" style="margin-top: 115px; margin-bottom: 30px; background: white; opacity: 0.9; border-radius: 15px;">
+                </div>
+              </div>
+                  <div class="row" style="margin-top: 30px; margin-bottom: 30px; background: white; opacity: 0.9; border-radius: 15px;">
                     {% for item_row in items | batch(3, '&nbsp;') %}
                     <div class = "row">
                       {% for item in item_row %}
@@ -174,7 +186,12 @@ w﻿<!DOCTYPE html>
                   </div>
                   {% endfor %}
                 </div>
+                <div class="underline"></div>
+                <div style="color: white; float: right; text-align: right;">
+                  {{ pagination.info }}
+                  {{ pagination.links }}
               </div>
+            </div>
           </div>
       </div>
     </div>
