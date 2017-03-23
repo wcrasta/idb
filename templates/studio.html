@@ -67,7 +67,11 @@
     <div class="col-sm-12">
       <div class="row">
         <div class="col-sm-4">
-          <h1>Studio</h1><img style="height: 50vh; width: 30vw; margin-bottom: 100px;" src="../static/images/studio.png">
+          {% if items.logo != 'None' %}
+          <h1>Studio</h1><img style="height: 50vh; width: 30vw; margin-bottom: 100px;" src="{{items.logo}}">
+          {% else %}
+          <h1>Studio</h1><img style="height: 50vh; width: 30vw; margin-bottom: 100px;" src="/static/images/no-art.png">
+          {% endif %}
         </div>
         <div class="col-sm-5 text-center">
           <div class="row">
