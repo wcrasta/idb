@@ -4,6 +4,13 @@ from database import db
 
 
 class Game(db.Model):
+	"""
+		Game model represents the various games and contains information
+		regarding their names, esrb ratings, ratings, status, website, images
+		and more. It has relationships with other models like studio, reviews
+		and companies.
+	"""
+
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(80))
 
@@ -30,13 +37,20 @@ class Game(db.Model):
 
     video = db.Column(db.String(128))
 
-    #image = db.Column(db.LargeBinary)
     image = db.Column(db.String(128))
     release_date = db.Column(db.DateTime)
     website = db.Column(db.String(80))
 
 class Platform(db.Model):
-    id = db.Column(db.Integer, primary_key=True)
+    """
+		Platform is a model that represents the various video game consoles that exist
+		and it contains information regarding the games the console supports,
+		the reviews of the console, the generation, image, website and etc.
+		Platform models also have relationships with the other models such as 
+		game, review and studio.
+	"""
+
+	id = db.Column(db.Integer, primary_key=True)
     api_id = db.Column(db.Integer)
 
     created_at = db.Column(db.DateTime)
@@ -44,21 +58,21 @@ class Platform(db.Model):
     summary = db.Column(db.Text)
     games = db.relationship('Game', backref='platform', lazy="dynamic")
     review = db.relationship('Reviews', backref='platform', lazy="dynamic")
-    # discuss relationship of game
-    # games =
     generation = db.Column(db.Integer)
-    #image = db.Column(db.LargeBinary)
     image = db.Column(db.String(128))
     website = db.Column(db.String(80))
     studio = db.relationship('Studio', backref='platform',lazy="dynamic")
 
 
 class Studio(db.Model):
+	"""
+		Studio is a model that represents the companies that publish and develop
+		video games. Studios have informatino regarding the name, the logo, the games
+		they built/published, the website and etc. 
+		Studio models have relationships with game, platform and reviews.
+	"""
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(80))
-    #logo = db.Column(db.LargeBinary, nullable = True)
-
-    #platform = db.Column(db.String(128))
     platform_id = db.Column(db.Integer, db.ForeignKey('platform.id'))
 
     logo = db.Column(db.String(128))
@@ -67,15 +81,20 @@ class Studio(db.Model):
     created_at = db.Column(db.DateTime)
     website = db.Column(db.String(128))
 
-#    platform = db.relationship(
-#        'Platform', secondary=studioToPlatform, backref=db.backref('studio', lazy='dynamic'))
 class Reviews(db.Model):
-    id = db.Column(db.Integer, primary_key=True)
+	"""
+		Reviews is a model that represents the consumer reviews of various
+		games that involve discussing the console the game is on and the company
+		that built it. Reviews contain information regarding the title,
+		the number of views of the review, website, and written contents
+		such as introduction, content and conclusion.
+		Reviews have relationships with game,platform and studios.
+	"""    
+
+	id = db.Column(db.Integer, primary_key=True)
     title = db.Column(db.String(128))
 
-    # need to discuss
     platform_id = db.Column(db.Integer, db.ForeignKey("platform.id"))
-    #platform = db.relationship('Platform', backref="reviews")
     game_id = db.Column(db.Integer, db.ForeignKey('game.id'))
     created_at = db.Column(db.DateTime)
     views = db.Column(db.Integer)
