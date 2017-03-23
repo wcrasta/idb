@@ -11,6 +11,7 @@ body {
   margin-bottom: 0px;
   margin-top: 20px;
   position: absolute;
+  z-index: 9999;
 }
 .navbar-brand {
   color: white;
@@ -21,15 +22,6 @@ body {
     padding-top: 12px;
     color: white;
     font-size: 1.75em;
-}
-.navbar-fixed-top .navbar-toggle {
-  border-color: #ddd;
-}
-.navbar-fixed-top .navbar-toggle:hover {
-  background-color: #ddd;
-}
-.navbar-fixed-top .navbar-toggle .icon-bar {
-  background-color: #888;
 }
 .navbar-toggle .icon-bar {
   border: 1px solid white;
@@ -58,6 +50,9 @@ body {
 .carousel-caption p{
   font-size: 1.5em;
 }
+
+
+/* End Carousel Formatting */
 
 .input-group {
   width: 450px;

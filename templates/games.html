@@ -112,67 +112,51 @@ w﻿<!DOCTYPE html>
 
             <!--Load them images up -->
             <div class = 'col-md-9' style="padding-top: 50px">
-
-                <h1 class="text-center">Games</h1>
-
-                <div class="dropdown" style="padding-top: 30px">
-                  <button class="dropbtn"><font color="black">Dropdown</font></button>
-                  <div class="dropdown-content">
-                    <a href="#">Games</a>
-                    <a href="#">Platform</a>
-                    <a href="#">Studio</a>
-                  </div>
-                </div>
-
+              
                 <div class="row" style="padding-top: 75px;">
                     <input type="text" id="myInput" onkeyup="search()" placeholder="Search for a game.." title="Type in a name">
-
+              {{ pagination.info }}
+              {{ pagination.links }}
                 <div class="underline"></div>
+     {% for item_row in items | batch(3, '&nbsp;') %}
 
-                <div class="col-sm-4 col-lg-4 col-md-4">
-                  <a href="zelda.html">
-                    <div>
-                      <h2>Horizon</h2>
-                      <img class="center-block" src="../static/images/horizon.png" />
-                      <p style="padding-top: 15px;">
-                        Platforms: PlayStation 4
-                      </p>
-                      <p>
-                        Studio: Guerrilla Games
-                      </p>
-                    </div>
-                  </a>
-              </div>
+       
+          <div class = "row">
+                   {% for item in item_row %}
+            <div class = "col-md-3">
+            <h2><a href="{{ url_for('game_instance', name = item.id)}}" > Games </a></h2>
+            {% if item.image != 'None' %}
+            <img class="center-block" src="{{item.image}}" />
+            {% else %}
+            <img class ="center-block" src="/static/images/no-art.png"/>
+            {% endif %}
+            <p style="padding-top: 15px;">
+                {% if item.platform_id is defined %}
+                <a href="{{ url_for('platform_instance', name = item.platform.id)}}" > {{item.platform.name}} </a>
+                {% endif %}
+            </p>
+            <p style="padding-top: 15px;">
+                {% if item.studio is defined %}
+                <a href="{{ url_for('studio_instance', name = item.studio.id)}}" >  {{item.studio.name}}
+                 </a>
+                {% endif %}
+            </p>
+            
+            <p> Esrb: {{item.esrb}} </p>
+            <p> Genre: {{item.genre}} </p>
+            <p> Rating: {{item.rating}} </p>
+            <p> Status: {{item.status}} </p>
 
-              <div class="col-sm-4 col-lg-4 col-md-4">
-                <a href="fifa.html">
-                  <div>
-                    <h2>Fifa 2017</h2>
-                    <img class="center-block" src="../static/images/fifa.png" />
-                    <p style="padding-top: 15px;">
-                      Platforms: PlayStation 4, Xbox One, PC (Microsoft Windows)
-                    </p>
-                    <p>
-                      Studio: EA Sports
-                    </p>
-                  </div>
-                </a>
-              </div>
+            <p>
+                Date Created: {{item.release_date}}
+            </p>
+          </div>
+                   {% endfor %}
 
-            <div class="col-sm-4 col-lg-4 col-md-4">
-              <a href="mario.html">
-                <div>
-                  <h2>Halo 5: Guardians</h2>
-                  <img class="center-block" src="../static/images/halo.png" />
-                  <p style="padding-top: 15px;">
-                    Platforms: Xbox One
-                  </p>
-                  <p>
-                    Studio: 343 Industries
-                  </p>
-                </div>
-              </a>
-            </div>
+          </div>
+
+        {% endfor %}
+                
           </div>
         </div>
       </div>
