@@ -67,38 +67,44 @@
     <div class="col-sm-12">
       <div class="row">
         <div class="col-sm-4">
-          <h1>Title</h1><img style="height: 50vh; width: 30vw; margin-bottom: 100px;" src="../static/images/game-shelf.png">
+          <h1>{{items.name}}</h1><img style="height: 50vh; width: 30vw; margin-bottom: 100px;" src={{items.image}}>
         </div>
         <div class="col-sm-5">
           <div class="row">
             <h2 style="text-decoration: underline;">Storyline</h2>
             <p>
-              Example storyline...
+              {{items.storyline}}
             </p>
           </div>
           <div class="row">
             <h2 style="text-decoration: underline;">Summary</h2>
             <p>
-              Example summary...
+              {{items.summary}}
             </p>
           </div>
+          {% if items.video != 'None' %}
+            <div class="row">
+              <h2 style="text-decoration: underline;">Video</h2>
+              <iframe width="420" height="315" src={{items.video}}></iframe>
+            </div>
+          {% endif %}
         </div>
         <div class="col-sm-3">
           <div class="row">
             <h2 style="display: inline-block;">Genre:	&nbsp;</h2>
-            <span>RPG</span>
+            <span>{{items.genre}}</span>
           </div>
           <div class="row">
             <h2 style="display: inline-block;">Rating:	&nbsp;</h2>
-            <span>100.00</span>
+            <span>{{items.rating}}</span>
           </div>
           <div class="row">
             <h2 style="display: inline-block;">Category:	&nbsp;</h2>
-            <span>Main game</span>
+            <span>{{items.category}}</span>
           </div>
           <div class="row">
             <h2 style="display: inline-block;">Status:	&nbsp;</h2>
-            <span>Released</span>
+            <span>{{items.release_date}}</span>
           </div>
           <div class="row">
             <h2 style="display: inline-block;">Release Date:	&nbsp;</h2>
@@ -106,7 +112,7 @@
           </div>
           <div class="row">
             <h2 style="display: inline-block;">Website:	&nbsp;</h2>
-            <span>www.game.com</span>
+            <span>{{items.website}}</span>
           </div>
         </div>
       </div>

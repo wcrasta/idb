@@ -5,7 +5,8 @@ from flask_paginate import Pagination
 import os
 import json
 import time
-#from models import *
+#from flask_sqlalchemy import SQLAlchemy
+
 # Create the Flask application.
 from models import Game, Platform, Reviews, Studio
 app = Flask(__name__)
@@ -17,8 +18,8 @@ app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///' + \
     os.path.join(basedir, 'app.db')
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db.init_app(app)
-# db = SQLAlchemy(app)
-
+#db = SQLAlchemy(app)
+#
 #from models import Game, Platform, Reviews, Studio
 
 POSTS_PER_PAGE=10
@@ -44,7 +45,7 @@ def games(page=1):
 	#items = populateGrid()
 	#return render_template('games.html', items=items, title="games")
 
-@app.route('/review/<name>', methods = ['GET'])
+@app.route('/game/<name>', methods = ['GET'])
 def game_instance(name):
     game_instance = db.session.query(Game).get(name)
     return render_template('game.html', title='game_instance', items = game_instance)

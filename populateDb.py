@@ -64,7 +64,7 @@ def reviews():
 
             video = "None"
             if 'video' in entry:
-                video = "https://www.youtube.com/watch?v="+entry['video']
+                video = 'https://www.youtube.com/embed/'+entry['video']
 
             review = Reviews()
 
@@ -275,7 +275,7 @@ def game():
 
             video = "None"
             if 'video' in entry:
-                category = "https://www.youtube.com/watch?v="+entry['video']
+                category = 'https://www.youtube.com/embed/'+entry['videos'][0]['video-id']
             #do platform and studio?
             #platform = ['platform']
             ts = datetime.datetime.now()

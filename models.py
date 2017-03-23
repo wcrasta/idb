@@ -1,5 +1,5 @@
 from database import db
-
+#from app import db
 #gameToPlatform = db.Table('gamestoplatform', db.Column('game_id', db.Integer, db.ForeignKey(
 #    'game.id')), db.Column('platform_id', db.Integer, db.ForeignKey('platform.id')))
 
