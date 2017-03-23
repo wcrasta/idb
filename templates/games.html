@@ -112,7 +112,18 @@ w﻿<!DOCTYPE html>
 
             <!--Load them images up -->
             <div class = 'col-md-9' style="padding-top: 50px">
-              
+                
+                <h1 class="text-center">Games</h1>
+
+                <div class="dropdown" style="padding-top: 30px">
+                  <button class="dropbtn" background-color="grey"><font color="black">Dropdown</font></button>
+                  <div class="dropdown-content">
+                    <a href="#">Games</a>
+                    <a href="#">Platform</a>
+                    <a href="#">Studio</a>
+                  </div>
+                </div>
+
                 <div class="row" style="padding-top: 75px;">
                     <input type="text" id="myInput" onkeyup="search()" placeholder="Search for a game.." title="Type in a name">
               {{ pagination.info }}
