@@ -104,6 +104,10 @@
             <span><a href="{{ url_for('platform_instance', name = items.platform.id)}}">{{items.platform.name}}</a></span>
           </div>
           <div class="row">
+            <h2 style="display: inline-block;">Studio:	&nbsp;</h2>
+            <span><a href="{{ url_for('studio_instance', name = items.studio.id)}}">{{items.studio.name}}</a></span>
+          </div>
+          <div class="row">
             <h2 style="display: inline-block;">Genre:	&nbsp;</h2>
             <span>{{items.genre}}</span>
           </div>
