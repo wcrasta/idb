@@ -6,6 +6,7 @@ w﻿<!DOCTYPE html>
 <meta name="viewport" content="width = device-width, initial-scale=1">
 <title>GGnoSWE · Platforms</title>
 <link rel="stylesheet" type="text/css" href="../static/css/home.css">
+<link rel="stylesheet" type="text/css" href="../static/css/common.css">
 <style type="text/css">
   body {
     background: url('../static/images/bg.png');
@@ -29,14 +30,6 @@ w﻿<!DOCTYPE html>
   .center-block {
     margin-left: auto;
     margin-right: auto;
-  }
-  #myInput {
-    background-repeat: no-repeat;
-    width: 100%;
-    font-size: 16px;
-    padding: 12px 20px 12px 40px;
-    border: 1px solid #ddd;
-    margin-bottom: 12px;
   }
 </style>
 <script type="text/javascript">
@@ -93,7 +86,7 @@ w﻿<!DOCTYPE html>
       <div class="row">
 
             <div class="col-md-3">
-                <p class="text-left" style="padding-top: 280px" > <font color="white" size ="6">Game</font></p>
+                <p class="text-left" style="padding-top: 280px" > <font color="white" size ="6">Platform</font></p>
                 <div class="list-group">
                   <input type="checkbox"> <font color="white" size ="4">PlayStation 4 </font> <br>
                   <input type="checkbox"> <font color="white" size ="4">Xbox One </font> <br>
@@ -103,9 +96,9 @@ w﻿<!DOCTYPE html>
 
               <p class="text-left" style="padding-top: 30px" > <font color="white" size ="6">Studio</font></p>
                 <div class="list-group">
-                  <input type="checkbox"> <font color="white" size ="4"> Guerilla Games </font> <br>
+                  <input type="checkbox"> <font color="white" size ="4">Guerilla Games </font> <br>
                   <input type="checkbox"> <font color="white" size ="4">EA Sports </font> <br>
-                  <input type="checkbox"> <font color="white" size ="4"> 343 Industries </font> <br>
+                  <input type="checkbox"> <font color="white" size ="4">343 Industries </font> <br>
                   <input type="submit" value="Submit">
                 </div>
             </div>
@@ -113,9 +106,17 @@ w﻿<!DOCTYPE html>
             <!--Load them images up -->
             <div class = 'col-md-9' style="padding-top: 50px">
               
-
-
                 <h1 class="text-center">   Platforms </h1>
+
+                <div class="dropdown" style="padding-top: 30px">
+                  <button class="dropbtn" background-color="grey"><font color="black">Sort relevance</font></button>
+                  <div class="dropdown-content">
+                    <a href="#">Games</a>
+                    <a href="#">Platform</a>
+                    <a href="#">Studio</a>
+                  </div>
+                </div>
+
                 <div class="row" style="padding-top: 75px;">
                     <input type="text" id="myInput" onkeyup="search()" placeholder="Search for a game.." title="Type in a name">
               {{ pagination.info }}
