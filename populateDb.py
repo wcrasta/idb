@@ -123,7 +123,10 @@ def studio():
             if 'created_at' in entry:
                 ts = datetime.datetime.fromtimestamp(entry['created_at']/1000)
 
+            website = "None"
 
+            if 'website' in entry:
+                website = entry['website']
             summary = "None"
             if 'description' in entry:
                 summary = entry['description']
@@ -146,7 +149,7 @@ def studio():
             studio.description=summary
             studio.created_at = ts
             studio.platform_id = platform_id
-
+            studio.website = website
 
             for x in final_game_list:
                 studio.game.append(x)
@@ -190,9 +193,11 @@ def platform():
             if 'games' in entry:
                 games = entry['games']
 
+
+            #DO IT UNDER LOGO URL    
             image = "None"
-            if 'url' in entry:
-                image = entry['url']
+            if 'logo' in entry:
+                image = entry['logo']['url']
 
             website = "None"
             if 'website' in entry:
