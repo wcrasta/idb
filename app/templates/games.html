@@ -106,8 +106,8 @@
                     <button class="btn btn-secondary dropdown-toggle" style="background-color: white"><font color="black">Sort relevance &nbsp;</font><span class="caret"></span></button>
                     <div class="dropdown-content">
                       <a href="#">Games</a>
-                      <a href="#">Platform</a>
-                      <a href="#">Studio</a>
+                      <a href="#">Rating</a>
+                      <a href="#">Date Created</a>
                     </div>
                   </div>
                   <p class="text-left" style="padding-top: 60px; padding-left: 20px; padding-top: 20px;" > <font color="white" size ="6">Platform</font></p>
@@ -175,7 +175,15 @@
                       padding-top: 25px; height: 125px; width: 100%;
                       color: black; text-decoration: underline;">
                       <a href="{{ url_for('game_instance',
-                      name = item.id)}}">{{item.name}}</h2>
+                      name = item.id)}}">
+
+                      {% if item.name | length > 50 %}
+                      {{item.name[:47]}}...
+                      {% else %}
+                      {{item.name}}
+                      {% endif %}
+
+                    </h2>
                     </div>
                   </div>
                   {% if item.image != 'None' %}
