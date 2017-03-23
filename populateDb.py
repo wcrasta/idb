@@ -152,8 +152,8 @@ def studio():
             studio.website = website
 
             for x in final_game_list:
-                #if x.platform == None:
-                studio.game.append(x)
+                if x.studio == None:
+                    studio.game.append(x)
 
 
             db.session.add(studio)
@@ -227,7 +227,8 @@ def platform():
             platform.generation = generation
 
             for x in final_game_list:
-                platform.games.append(x)
+                if x.platform == None:
+                    platform.games.append(x)
 
             db.session.add(platform)
             db.session.commit()
