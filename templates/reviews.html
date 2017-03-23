@@ -68,52 +68,72 @@
       </div>
     </nav>
 
-    <!-- Starting Data Table -->
-    <div class="container" style="padding-top: 125px;">
-      <input type="text" id="myInput" onkeyup="search()" placeholder="Search for a review.." title="Type in a name">
-      <h2>Reviews Table</h2>
-      <table class="table table-bordered" id="myTable">
-        <thead>
-          <tr>
-            <th onclick ="sortTable(0)">Title</th>
-            <th onclick ="sortTable(1)">Game</th>
-            <th onclick ="sortTable(2)">Platform</th>
-            <th onclick ="sortTable(3)">Date Created</th>
-            <th onclick ="sortTable(4)">Views</th>
-<!--
-            <th>Introduction</th>
-            <th>Content</th>
-            <th>Conclusion</th>
-            <th>Positive Points</th>
-            <th>Negative Points</th>
-          -->
-            <th>URL</th>
-          </tr>
-        </thead>
-        <tbody>
-          {% for item in items.items %}
-          <tr>
-            <td>{{item.title}}</td>
-            <td>{{item.game.name}}</td>
-            <td>{{item.platform.name}}</td>
-            <td>{{item.created_at}}</td>
-            <td>{{item.views}}</td>
-            <td> <a href="{{item.url}}">{{item.url}}</a> </td>
-<!--
-            <td>{{item.introduction}}</td>
-            <td>{{item.content}}</td>
-            <td>{{item.conclusion}}</td>
-            <td>{{item.positive}}</td>
-            <td>{{item.negative}}</td>
-          -->
+ <div class="container">
+
+      <!-- Filtering options -->
+      <div class="row">
+
+            <div class="col-md-3">
+                <p class="text-left" style="padding-top: 280px" > <font color="white" size ="6">Game</font></p>
+                <div class="list-group">
+                  <input type="checkbox"> <font color="white" size ="4">PlayStation 4 </font> <br>
+                  <input type="checkbox"> <font color="white" size ="4">Xbox One </font> <br>
+                  <input type="checkbox"> <font color="white" size ="4">PC </font> <br>
+                  <input type="submit" value="Submit">
+                </div>
+
+              <p class="text-left" style="padding-top: 30px" > <font color="white" size ="6">Studio</font></p>
+                <div class="list-group">
+                  <input type="checkbox"> <font color="white" size ="4"> Guerilla Games </font> <br>
+                  <input type="checkbox"> <font color="white" size ="4">EA Sports </font> <br>
+                  <input type="checkbox"> <font color="white" size ="4"> 343 Industries </font> <br>
+                  <input type="submit" value="Submit">
+                </div>
+            </div>
+
+            <!--Load them images up -->
+            <div class = 'col-md-9' style="padding-top: 50px">
+              
 
 
-          </tr>
-          {% endfor %}
-          {% if items.has_prev %}<a href="{{ url_for('reviews', page=items.prev_num) }}" style="font-size:50px">&lt;&lt; Newer items</a>{% else %}&lt;&lt; Newer items{% endif %} |
-        {% if items.has_next %}<a href="{{ url_for('reviews', page=items.next_num) }}" style="font-size:50px">Older items &gt;&gt;</a>{% else %}Older posts &gt;&gt;{% endif %}
-        </tbody>
-      </table>
+                <h1 class="text-center">  Reviews </h1>
+                <div class="row" style="padding-top: 75px;">
+                    <input type="text" id="myInput" onkeyup="search()" placeholder="Search for a game.." title="Type in a name">
+              {{ pagination.info }}
+              {{ pagination.links }}
+                <div class="underline"></div>
+     {% for item_row in items | batch(3, '&nbsp;') %}
+
+       
+          <div class = "row">
+                   {% for item in item_row %}
+            <div class = "col-md-3">
+            <h2><a href="{{ url_for('review_instance', name = item.id)}}" > {{item.title}} </a></h2>
+            <p>
+          {% if item.game.image != 'None' %}
+            <img class="center-block" src="{{item.game.image}}" />
+            {% else %}
+            <img class ="center-block" src="/static/images/no-art.png"/>
+            {% endif %}
+            <a href="{{ url_for('game_instance', name = item.game.id)}}" >Game: {{item.game.name}} </a>
+          </p>
+          <p>
+            <a href="{{url_for('platform_instance', name=item.platform.id)}}"> Game Platform: {{item.platform.name}}</a>
+          </p>
+            <p style="color:white"> Video: {{item.video}} </p>
+            <p style="color:white"> Written Time: {{item.created_at}} </p>
+            <p style="color:white"> Views: {{item.views}} </p>
+            <p style="color:white"> Review: <a href="{{item.url}}"> {{item.title}}</a> </p>
+          </div>
+                   {% endfor %}
+
+          </div>
+
+        {% endfor %}
+                
+          </div>
+        </div>
+      </div>
     </div>
   </header>
   <script src="https://code.jquery.com/jquery-3.2.0.min.js"></script>
@@ -122,6 +142,7 @@
 
 <!-- Sort the elements -->
 <script src="../static/js/games.js"></script>
+
 <!-- Search-->
 <script src="../static/js/search.js"></script>
 </html>
