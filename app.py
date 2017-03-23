@@ -89,14 +89,10 @@ def platform_instance(name):
 @app.route('/studios', methods=['GET'])
 @app.route('/studios/<int:page>', methods = ['GET'])
 def studios(page=1):
-    #for instance in db.session.query(Studio).order_by(Studio.name):
-    studios = db.session.query(Studio).paginate(page, POSTS_PER_PAGE,False)
-    #posts = g.user.followed_posts().paginate(page, POSTS_PER_PAGE, False).items
-    #return render_template('index.html',
-    #                       title='Home',
-    #                       form=form,
-    #                       posts=posts)
-    return render_template('studios.html', title='studios', items=studios)
+    value = request.args.get('sort', 'name')
+    studios = db.session.query(Studio).filter(Studio.name!='').order_by(Studio.name)
+    pagination = Pagination(page=page, css_framework='foundation',total=studios.count(), record_name='items')
+    return render_template('studios.html', items=studios[min(page * 9,studios.count()-9):(page+1) * 9], pagination=pagination)
 
 @app.route('/studio/<name>', methods = ['GET'])
 def studio_instance(name):

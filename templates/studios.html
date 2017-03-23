@@ -87,43 +87,57 @@ w﻿<!DOCTYPE html>
       </div>
     </nav>
 
-    <!-- Starting Data Table -->
-    <div class="container" style="padding-top: 125px;">
-      <input type="text" id="myInput" onkeyup="search()"
-        placeholder="Search for a game.." title="Type in a name">
-      <h1>Studios</h1>
-      <div class="underline"></div>
-      <div class="row" style="padding-top: 50px;">
-        <div class="col-sm-3">
-          <h1>Filtering</h1>
+
+    <!-- Page Content -->
+    <div class="container">
+
+      <!-- Filtering options -->
+      <div class="row">
+            <!--Load them images up -->
+            <div class = 'col-md-9' style="padding-top: 50px">
+              
+
+
+                <h1 class="text-center"> Studios </h1>
+                <div class="row" style="padding-top: 75px;">
+                    <input type="text" id="myInput" onkeyup="search()" placeholder="Search for a game.." title="Type in a name">
+              {{ pagination.info }}
+              {{ pagination.links }}
+                <div class="underline"></div>
+     {% for item_row in items | batch(3, '&nbsp;') %}
+
+       
+          <div class = "row">
+            {% for item in item_row %}
+            <div class = "col-md-3">
+            <h2><a href="{{ url_for('studio_instance', name = item.id)}}" > {{item.name}} </a></h2>
+            {% if item.logo != 'None' %}
+            <img class="center-block" src="{{item.logo}}" />
+            {% else %}
+            <img class ="center-block" src="/static/images/no-art.png"/>
+            {% endif %}
+            <p style="padding-top: 15px;">
+                {% if item is defined %}
+                <a href="{{ url_for('studio_instance', name = item.platform.id)}}" > {{item.platform.name}} </a>
+                {% endif %}
+            </p>
+
+            <p> <a href="{{item.website}}">Website: {{item.website}} </a></p>
+            <p>
+                Date Created: {{item.created_at}}
+            </p>
+            <p>
+                Example Game: {{item.game.first().name}}
+            </p>
+          </div>
+                   {% endfor %}
+
+          </div>
+
+        {% endfor %}
+                
+          </div>
         </div>
-        <a href="guerrilla.html">
-          <div class="col-sm-3" style="border-right: 1px solid white; border-left: 1px solid white;">
-            <h2>Guerrilla Games</h2>
-            <img class="center-block" src="../static/images/guerrilla.png" />
-            <p style="padding-top: 15px;">
-              Platforms: PlayStation 4
-            </p>
-          </div>
-        </a>
-        <a href="red.html">
-          <div class="col-sm-3">
-            <h2>CD Projekt RED</h2>
-            <img class="center-block" src="../static/images/cd-projekt-red.png" />
-            <p style="padding-top: 15px;">
-              Platforms: PlayStation 4, Xbox One, PC (Microsoft Windows)
-            </p>
-          </div>
-        </a>
-        <a href="343.html">
-          <div class="col-sm-3" style="border-left: 1px solid white;">
-            <h2>343 Industries</h2>
-            <img class="center-block" src="../static/images/343.png" />
-            <p style="padding-top: 15px;">
-              Platforms: Xbox One
-            </p>
-          </div>
-        </a>
       </div>
     </div>
   </header>
