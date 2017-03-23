@@ -66,13 +66,15 @@
   <div class="row" style="margin-top: 125px; margin-left: 30px; margin-right: 30px; outline: 1px solid white;">
     <div class="col-sm-12">
       <div class="row">
-        <div class="col-sm-4">
+        <div class="col-sm-4 text-center">
           <h1>{{items.title}}</h1>
           {% if items.game.image != 'None' %}
-            <img style="height: 50vh; width: 30vw; margin-bottom: 100px;" src={{items.game.image}}>
+            <img style="height: 50vh; width: 30vw; margin-bottom: 10px;" src={{items.game.image}}>
           {% else %}
-            <img style="height: 50vh; width: 30vw; margin-bottom: 100px;" src="/static/images/no-art.png">
+            <img style="height: 50vh; width: 30vw; margin-bottom: 10px;" src="/static/images/no-art.png">
           {% endif %}
+          <h2><a href="{{url_for('game_instance',name = items.game.id)}}">{{items.game.name}}</a></h2>
+          <h2><a href="{{url_for('platform_instance',name = items.platform.id)}}">{{items.platform.name}}</a></h2>
         </div>
         <div class="col-sm-5 text-center">
           <div class="row">
@@ -96,7 +98,7 @@
           {% if items.video != 'None' %}
             <div class="row">
               <h2 style="text-decoration: underline;">Video</h2>
-              <iframe width="420" height="315" src={{items.video}}></iframe>
+              <iframe width="500" height="315" src={{items.video}} allowfullscreen></iframe>
             </div>
           {% endif %}
         </div>
@@ -111,7 +113,7 @@
           </div>
           <div class="row">
             <h2 style="display: inline-block;">URL:	&nbsp;</h2>
-            <span>{{items.url}}</span>
+            <span><a href="{{items.url}}">{{items.url}}</a></span>
           </div>
         </div>
       </div>

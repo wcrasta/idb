@@ -54,7 +54,7 @@ def game_instance(name):
 @app.route('/reviews/<int:page>', methods=['GET'])
 def reviews(page=1):
     value = request.args.get('sort', 'title')
-    reviews = db.session.query(Reviews).filter(Reviews.url!='' and Reviews.title!='').order_by(Reviews.title)
+    reviews = db.session.query(Reviews).filter(Reviews.url!='').order_by(Reviews.title)
     pagination = Pagination(page=page, css_framework='foundation',total=reviews.count(), record_name='items')
     return render_template('reviews.html', items=reviews[min(page * 9,reviews.count()-9):(page+1) * 9], pagination=pagination)
 

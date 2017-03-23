@@ -92,6 +92,10 @@
             <h2 style="display: inline-block;">Platform:	&nbsp;</h2>
             <span><a href = "{{ url_for('platform_instance', name = items.platform.id)}}">{{items.platform.name}}</a></span>
           </div>
+          <div class="row">
+            <h2 style="display: inline-block;">Website:	&nbsp;</h2>
+            <span><a href = "{{item.website}}">{{items.website}}</a></span>
+          </div>
         </div>
       </div>
     </div>
