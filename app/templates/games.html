@@ -30,6 +30,7 @@
   img {
     width: 200px;
     height: 200px;
+    border-radius: 15px;
   }
   .center-block {
     margin-left: auto;
@@ -177,11 +178,11 @@
                       name = item.id)}}">{{item.name}}</h2>
                     </div>
                   </div>
-                    {% if item.image != 'None' %}
-                    <img class="center-block" style="height: 250px" src="{{item.image}}" />
-                    {% else %}
-                    <img class ="center-block" style="height: 250px" src="/static/images/no-art.png"/>
-                    {% endif %}
+                  {% if item.image != 'None' %}
+                  <img class="center-block" style="height: 250px" src="{{item.image}}" />
+                  {% else %}
+                  <img class ="center-block" style="height: 250px" src="/static/images/no-art.png"/>
+                  {% endif %}
                 </a>
                 </div>
                 <div class="row" style="padding-left: 40px;">
