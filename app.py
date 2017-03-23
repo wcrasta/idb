@@ -1,6 +1,7 @@
 from database import db
 from flask import Flask, render_template
 from flask import request
+from flask_paginate import Pagination
 import os
 import json
 import time
@@ -9,7 +10,7 @@ import time
 from models import Game, Platform, Reviews, Studio
 app = Flask(__name__)
 
-app.debug = False
+app.debug = True
 
 basedir = os.path.abspath(os.path.dirname(__file__))
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///' + \
@@ -36,19 +37,22 @@ def about():
 @app.route('/games/<int:page>', methods=['GET'])
 def games(page=1):
     value = request.args.get('sort', 'name')
-    games = db.session.query(Game).order_by(eval('Game.'+value)).paginate(page, POSTS_PER_PAGE,True)
-
-    return render_template('games.html', title='games', items=games)
+    games = db.session.query(Game).filter(Game.api_id!=0 and Game.name!='').order_by(Game.name)
+    pagination = Pagination(page=page, css_framework='foundation',total=games.count(), record_name='items')
+    return render_template('games.html', items=games[page * 9:(page+1) * 9], pagination=pagination)
 
 	#items = populateGrid()
 	#return render_template('games.html', items=items, title="games")
 
+@app.route('/review/<name>', methods = ['GET'])
+def game_instance(name):
+    game_instance = db.session.query(Game).get(name)
+    return render_template('game.html', title='game_instance', items = game_instance)
 
 @app.route('/reviews', methods=['GET'])
 @app.route('/reviews/<int:page>', methods=['GET'])
 def reviews(page=1):
     reviews = db.session.query(Reviews).paginate(page, POSTS_PER_PAGE,False)
-    #return render_template('reviews.html', title="reviews")
     return render_template('reviews.html', title='reviews', items=reviews)
 
 @app.route('/review/<name>', methods = ['GET'])
