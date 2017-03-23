@@ -19,7 +19,7 @@ w﻿<!DOCTYPE html>
     text-align: center;
   }
   p {
-    text-align: center;
+    text-align: left;
     color: white;
     font-size: 1.5em;
   }
@@ -30,6 +30,9 @@ w﻿<!DOCTYPE html>
   .center-block {
     margin-left: auto;
     margin-right: auto;
+  }
+  .underline {
+    width: 100%;
   }
 </style>
 <script type="text/javascript">
@@ -86,7 +89,15 @@ w﻿<!DOCTYPE html>
       <div class="row">
 
             <div class="col-md-3">
-              <p class="text-left" style="padding-top: 280px" > <font color="white" size ="6">Platform</font></p>
+              <div class="dropdown" style="padding-top: 220px">
+                <button class="dropbtn" background-color="grey"><font color="black">Sort relevance</font></button>
+                <div class="dropdown-content">
+                  <a href="#">Games</a>
+                  <a href="#">Platform</a>
+                  <a href="#">Studio</a>
+                </div>
+              </div>
+              <p class="text-left" style="padding-top: 60px" > <font color="white" size ="6">Platform</font></p>
                 <div class="list-group">
                   <input type="checkbox"> <font color="white" size ="4">PlayStation 4 </font> <br>
                   <input type="checkbox"> <font color="white" size ="4">Xbox One </font> <br>
@@ -104,59 +115,68 @@ w﻿<!DOCTYPE html>
             </div>
 
             <!--Load them images up -->
-            <div class = 'col-md-9' style="padding-top: 50px">
+            <div class = 'col-md-9' style="padding-top: 100px;">
+              <div class="row">
+                <div class="col-sm-12">
+                  <div class="row">
+                    <div class="col-sm-12">
+                      <div style="color: white; float: right; text-align: right;">
+                        {{ pagination.links }}
+                      </div>
+                        <h1>Platforms</h1>
 
-                <h1 class="text-center">   Platforms </h1>
+                      <div class="row">
+                        <div style="color: white; float: right; text-align: right; margin-right: 15px;">
+                          {{ pagination.info }}
+                        </div>
+                        <div class="col-sm-12">
 
-                <div class="dropdown" style="padding-top: 30px">
-                  <button class="dropbtn" background-color="grey"><font color="black">Sort relevance</font></button>
-                  <div class="dropdown-content">
-                    <a href="#">Games</a>
-                    <a href="#">Platform</a>
-                    <a href="#">Studio</a>
+                        <div class="underline"></div>
+                        </div>
+                      </div>
+                    </div>
                   </div>
-                </div>
 
-                <div class="row" style="padding-top: 75px;">
-                <input type="text" id="myInput" onkeyup="search()" placeholder="Search for a game.." title="Type in a name">
-                <div style="color: white;">
-                  {{ pagination.info }}
-                </div>
-              {{ pagination.links }}
-                <div class="underline"></div>
      {% for item_row in items | batch(3, '&nbsp;') %}
 
 
-          <div class = "row">
+          <div class = "row" style="overflow: hidden; margin-bottom: 30px;">
                    {% for item in item_row %}
-            <div class = "col-md-3">
+            <div class = "col-md-4">
             <h2><a href="{{ url_for('platform_instance', name = item.id)}}" > {{item.name}} </a></h2>
             {% if item.image == "None" %}
-            <p> {{item.image}}</p>
-            <img class="center-block" src="{{item.image}}" />
-            {% else %}
             <img class ="center-block" src="/static/images/no-art.png"/>
+            {% else %}
+            <img class="center-block" src="{{item.image}}" />
             {% endif %}
 
-<!--             <p> Studio: <a href="{{ url_for('studio_instance', name = item.studio.first().id)}}" > {{item.studio.first().name}} </a></p>
- -->            <p> Example Game: <a href="{{ url_for('game_instance', name = item.games.first().id)}}"> {{item.games.first().name}}</a> </p>
-            {% if item.website !='None' %}
-            <p> <a href="{{item.website}}"> Website </a> </p>
-            {% else %}
-            <p>No website </p>
-            {% endif %}
-            <p> Generation: {{item.generation}}</p>
-            <p> Review: <a href="{{item.review.first().url}}"> {{item.review.first().title}}</a> </p>
-            <p>
-                Date Created: {{item.created_at}}
-            </p>
+            <div class="row">
+              <div class="col-sm-12">
+    <!--        <p> Studio: <a href="{{ url_for('studio_instance', name = item.studio.first().id)}}" > {{item.studio.first().name}} </a></p>
+    -->        <p style="padding-top: 15px;"> Example Game: <a href="{{ url_for('game_instance', name = item.games.first().id)}}"> {{item.games.first().name}}</a> </p>
+                {% if item.website !='None' %}
+                <p> <a href="{{item.website}}"> Website </a> </p>
+                {% else %}
+                <p>No website </p>
+                {% endif %}
+                <p> Generation: {{item.generation}}</p>
+                <p> Review: <a href="{{item.review.first().url}}"> {{item.review.first().title}}</a> </p>
+                <p>
+                    Date Created: {{item.created_at}}
+                </p>
+            </div>
           </div>
+        </div>
                    {% endfor %}
 
-          </div>
+        </div>
 
         {% endfor %}
-
+        <div class="underline"></div>
+        <div style="color: white; float: right; text-align: right;">
+          {{ pagination.info }}
+          {{ pagination.links }}
+        </div>
           </div>
         </div>
       </div>
