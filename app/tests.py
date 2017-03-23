@@ -100,7 +100,7 @@ class TestCase(unittest.TestCase):
 		reviews.url = "zelda.com"
 		self.assertFalse("http" in reviews.url)
 
-	def test_multiple_relationships():
+	def test_multiple_relationships(self):
 		platform = Platform(name="test")
 		game = Game(name="Zelda")
 		review = Reviews(title="review of zelda")
@@ -108,8 +108,8 @@ class TestCase(unittest.TestCase):
 		platform.review.append(review)
 		self.assertTrue(platform.games.first().id != 0)
 		self.assertTrue(platform.review.first().title == "review of zelda")
-		self.assertTrue(game.platform_id = platform.id)
-		self.assertTrue(review.platform_id = platform.id)
+		self.assertTrue(game.platform_id == platform.id)
+		self.assertTrue(review.platform_id == platform.id)
 
 
 if __name__ == '__main__':
