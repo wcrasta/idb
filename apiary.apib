@@ -1,19 +1,15 @@
 FORMAT: 1A
 HOST: http://ggnoswe.me/api
     
-# Idb
+# GGnoSWE
 
-GGnoSWE is an api that provides information for games, game developers, 
+GGnoSWE is an api that provides a user information for games, game developers, 
 game reviews and platforms.
 
-**Naming Conventions**
+Website: ggnoswe.me
 
-`Server:` **filler**
 
-`Client: ` **filler**
-
-## Games [/game]
-Video games
+## Games [/games]
 
 ### List All Games [GET]
 
@@ -23,44 +19,49 @@ Video games
     
             [
                 { 
-                    "id": "6802"
+                    "id": "6802",
                     "name": "The Witcher 3: Wild Hunt" 
                 },
                 { 
-                    "id": "6803"
+                    "id": "6803",
                     "name": "Halo 5: Guardians" 
                 },
                 ...
                 { 
-                    "id": "11156"
+                    "id": "11156",
                     "name": "Horizon: Zero Dawn" 
                 }
             ]
+
+
     
-### List Specific Game [POST]
+### List Specific Game [POST /games/{game_id}]
+
++ Parameters
+    + game_id (number) - id of the requested game in the form of an integer
 
 + Response 200 (application/json)
     
             { 
             
-                "id": "11156"
-                "name": "Horizon: Zero Dawn"
-                "summary": "Horizon Zero Dawn, an exhilarating new..."
-                "genre": "Role-playing (RPG)"
-                "rating": "94.4951771761178"
-                "storyline": "None"
-                "category": "Main Game"
-                "ESRB": "None"
-                "status": "None"
-                "image": "https://images.igdb.com/igdb/image/upload/t_thumb/yvgbtirrauwekgytcfmg.png"
-                "release_date": "2017-02-27 18:00:00.000000"
+                "id": "11156",
+                "name": "Horizon: Zero Dawn",
+                "summary": "Horizon Zero Dawn, an exhilarating new...",
+                "genre": "Role-playing (RPG)",
+                "rating": "94.4951771761178",
+                "storyline": "None",
+                "category": "Main Game",
+                "ESRB": "None",
+                "status": "None",
+                "image": "https://images.igdb.com/igdb/image/upload/t_thumb/yvgbtirrauwekgytcfmg.png",
+                "release_date": "2017-02-27 18:00:00.000000",
                 "website": "https://www.igdb.com/games/horizon-zero-dawn" 
     
             }
         
 
-## Platform [/platform]
-Platforms
+## Platform [/platforms]
+
 
 ### List All Platforms [GET]
 
@@ -83,24 +84,25 @@ Platforms
                 }
             ]
     
-### List Specific Platform [POST]
+### List Specific Platform [POST /platforms/{platform_id}]
+
++ Parameters
+    + platform_id (number) - id of the requested platform in the form of an integer
 
 + Response 200 (application/json)
     
             { 
-                "id": "48"
-                "name": "PlayStation 4"
-                "summary": "The PlayStation 4 system opens the door..."
-                "generation": "8"
-                "image": "https://www.igdb.com/platforms/ps4--1"
+                "id": "48",
+                "name": "PlayStation 4",
+                "summary": "The PlayStation 4 system opens the door...",
+                "generation": "8",
+                "image": "https://www.igdb.com/platforms/ps4--1",
                 "website": "http://www.playstation.com/ps4/"
-    
             }
             
 
             
-## Studio [/studio]
-Game Studio
+## Studio [/studios]
 
 ### List All Studios [GET]
 
@@ -123,23 +125,25 @@ Game Studio
                 }
             ]
     
-### List Specific Studio [POST]
+### List Specific Studio [POST /studios/{studio_id}]
+
++ Parameters
+    + studio_id (number) - id of the requested studio in the form of an integer
 
 + Response 200 (application/json)
     
             { 
-                "id": "1843"
-                "name": "Guerrilla Games"
-                "platform_id": "48"
-                "logo": "https://images.igdb.com/igdb/image/upload/t_thumb/bx4plbgzvxb2k6ybvilo.png"
-                "description": "Guerrilla Games is a first party video game developer..."
-                "created_at": "2014-01-08 10:17:50.724999"
+                "id": "1843",
+                "name": "Guerrilla Games",
+                "platform_id": "48",
+                "logo": "https://images.igdb.com/igdb/image/upload/t_thumb/bx4plbgzvxb2k6ybvilo.png",
+                "description": "Guerrilla Games is a first party video game developer...",
+                "created_at": "2014-01-08 10:17:50.724999",
                 "website": "https://www.guerrilla-games.com/"
             }
             
 
 ## Reviews [/reviews]
-Platforms
 
 ### List All Reviews [GET]
 
@@ -162,29 +166,32 @@ Platforms
                 }
             ]
     
-### List Specific Review [POST]
+### List Specific Review [POST /reviews/{review_id}]
+
++ Parameters
+    + review_id (number) - id of the requested review in the form of an integer
 
 + Response 200 (application/json)
     
             { 
-                "id": "1578"
-                "title": "Halo 5: Guardians Written Review"
-                "platform_id": "49"
-                "game_id": "6803"
-                "created_at": "2015-10-30 17:13:35.987999"
-                "views": "38"
-                "video": "None"
-                "introduction": "Halo 5 deals with two main characters this..."
-                "content": "EYECANDY - The visuals are astounding..."
-                "conclusion": "Halo 5 Guardians is a professional game with faults..."
+                "id": "1578",
+                "title": "Halo 5: Guardians Written Review",
+                "platform_id": "49",
+                "game_id": "6803",
+                "created_at": "2015-10-30 17:13:35.987999",
+                "views": "38",
+                "video": "None",
+                "introduction": "Halo 5 deals with two main characters this...",
+                "content": "EYECANDY - The visuals are astounding...",
+                "conclusion": "Halo 5 Guardians is a professional game with faults...",
                 "positive": "Immersive Story
                              Phenomenal Score
                              Addictive Multiplayer between
-                             ..."
+                             ...",
                 "negative": "Atrocious AI
                              Odd Post Processing Effects
                              Short and Predictable Campaign
-                             Slow side-to-side sway"
+                             Slow side-to-side sway",
                 "url": "https://www.igdb.com/games/halo-5-guardians/reviews/halo-5-guardians-written-review"
     
             }
