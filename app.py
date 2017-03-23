@@ -52,8 +52,13 @@ def game_instance(name):
 @app.route('/reviews', methods=['GET'])
 @app.route('/reviews/<int:page>', methods=['GET'])
 def reviews(page=1):
-    reviews = db.session.query(Reviews).paginate(page, POSTS_PER_PAGE,False)
-    return render_template('reviews.html', title='reviews', items=reviews)
+    value = request.args.get('sort', 'title')
+    reviews = db.session.query(Reviews).filter(Reviews.url!='' and Reviews.title!='').order_by(Reviews.title)
+    pagination = Pagination(page=page, css_framework='foundation',total=reviews.count(), record_name='items')
+    return render_template('reviews.html', items=reviews[min(page * 9,reviews.count()-9):(page+1) * 9], pagination=pagination)
+
+    # reviews = db.session.query(Reviews).paginate(page, POSTS_PER_PAGE,False)
+    # return render_template('reviews.html', title='reviews', items=reviews)
 
 @app.route('/review/<name>', methods = ['GET'])
 def review_instance(name):
