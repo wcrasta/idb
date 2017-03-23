@@ -90,7 +90,7 @@
         <div class="col-sm-3">
           <div class="row">
             <h2 style="display: inline-block;">Platform:	&nbsp;</h2>
-            <span>{{items.platform.name}}</span>
+            <span><a href = "{{ url_for('platform_instance', name = items.platform.id)}}">{{items.platform.name}}</a></span>
           </div>
         </div>
       </div>
