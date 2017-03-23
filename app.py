@@ -44,10 +44,6 @@ def games(page=1):
 	#items = populateGrid()
 	#return render_template('games.html', items=items, title="games")
 
-@app.route('/review/<name>', methods = ['GET'])
-def game_instance(name):
-    game_instance = db.session.query(Game).get(name)
-    return render_template('game.html', title='game_instance', items = game_instance)
 
 @app.route('/reviews', methods=['GET'])
 @app.route('/reviews/<int:page>', methods=['GET'])
