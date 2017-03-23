@@ -2,9 +2,9 @@
 
 FILES :=            \
     IDB1.log        \
-    app.py          \
-    models.py       \
-    tests.py        \
+    app/app.py      \
+    app/models.py   \
+    app/tests.py    \
 
 ifeq ($(shell uname), Darwin)          # Apple
     PYTHON   := python3.5
@@ -39,10 +39,6 @@ endif
 .pylintrc:
 	$(PYLINT) --disable=locally-disabled --reports=no --generate-rcfile > $@
 
-# IDB1.html: models.py
-#	pydoc3 -w models
-#	mv models.html IDB1.html
-
 IDB1.log:
 	git log > IDB1.log
 
@@ -69,22 +65,20 @@ clean:
 	rm -f  .coverage
 	rm -f  *.pyc
 	rm -rf __pycache__
+	rm -f .pylintrc
+	rm -f  IDB1.html
+	rm -f  IDB1.log
 
 config:
 	git config -l
 
 format:
-	$(AUTOPEP8) -i app.py
-	$(AUTOPEP8) -i db_create.py
-	$(AUTOPEP8) -i models.py
-	$(AUTOPEP8) -i populateDb.py
-	$(AUTOPEP8) -i tests.py
-
-scrub:
-	make clean
-	rm -f .pylintrc
-	rm -f IDB1.html
-	rm -f IDB1.log
+	$(AUTOPEP8) -i app/app.py
+	$(AUTOPEP8) -i app/database.py
+	$(AUTOPEP8) -i app/db_create.py
+	$(AUTOPEP8) -i app/models.py
+	$(AUTOPEP8) -i app/populateDb.py
+	$(AUTOPEP8) -i app/tests.py
 
 status:
 	make clean
