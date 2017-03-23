@@ -274,8 +274,8 @@ def game():
                 status = game_status[entry['status']]
 
             video = "None"
-            if 'video' in entry:
-                category = 'https://www.youtube.com/embed/'+entry['videos'][0]['video-id']
+            if 'videos' in entry:
+                category = 'https://www.youtube.com/embed/'+entry['videos'][0]['video_id']
             #do platform and studio?
             #platform = ['platform']
             ts = datetime.datetime.now()
