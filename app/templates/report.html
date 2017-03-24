@@ -4,36 +4,44 @@
 <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width = device-width, initial-scale=1">
-<title>GGnoSWE · Game</title>
+<title>GGnoSWE · Report</title>
 <link rel="stylesheet" type="text/css" href="../static/css/home.css">
 <style type="text/css">
   body {
     background: url('../static/images/bg2.png');
   }
   h1 {
-    color: white;
+    color: black;
     text-align: center;
     margin-top: 60px;
   }
   h4 {
-    color: white;
+    color: black;
     font-size: 2em;
   }
   h3 {
-    color: white;
+    color: black;
     font-size: 0.5em;
   }
   h2 {
-    color: white;
+    color: black;
     font-size: 3em;
   }
   ul {
-    color: white;
+    color: black;
+    font-size: 1.5em;
+  }
+  li {
+    color: black;
+  }
+  li:hover {
+    color: gray;
+    text-decoration: underline;
   }
   p{
     font-size: 1.35em;
     word-wrap: break-word;
-    color: white;
+    color: black;
   }
   .row span {
     color: white;
@@ -90,28 +98,31 @@
       <div class="row">
 
           <div class="row">
-            <div class="col-sm-12" style="border-bottom:1px solid white; padding-top: 40px">
-              <h1> Report </h1>
+            <div class="col-sm-12" style="border-bottom:1px solid white; padding-top: 80px">
+              <h1 style="color: white;"> Report </h1>
             </div>
           </div>
 
+          <div class="row" style="margin-top: 30px; margin-bottom: 30px; background: white; opacity: 0.8; border-radius: 15px;">
+            <div class="col-sm-12">
          <h2 style="padding-top: 15px">Table of Contents</h2>
-          <ul style="font-size:1.5em">
-              <li>Title</li>
-              <li>Introduction</li>
-              <li>Design</li>
-              <li>Tools</li>
-              <li>Hosting</li>
-              <li>Other</li>
+          <ul>
+              <a href="#title"><li>Title</li></a>
+              <a href="#intro"><li>Introduction</li></a>
+              <a href="#design"><li id="title">Design</li></a>
+              <a href="#tools"><li>Tools</li></a>
+              <a href="#hosting"><li>Hosting</li></a>
           </ul>
 
           <h2 style="padding-top: 15px">Title</h2>
           <h4 style="padding-left: 12px"> Group Name: GGnoSWE</h4>
           <h4 style="padding-left: 12px"> Group Members</h4>
-            <ul style="font-size:1.5em">
+            <ul>
               <li>Kaivan Shah</li>
               <li>Kaden Brown</li>
               <li>Zihao Zhu</li>
+
+              <li id="intro">Waren Cresta</li>
               <li>Warren Crasta</li>
               <li>Colin Thornton</li>
               <li>Anurag Papineni</li>
@@ -124,7 +135,8 @@
           <p>The Video Game industry is one of largest and fastest growing entertainment industries today. In recent history, video games have managed to reach comparable revenue numbers to movies, music and other forms of entertainment. In 2014, the video game industry earned approximately six times the amount of revenue that the music industry did, while growing to earn almost a third of the revenue of the film industry, and these numbers are still increasing! The allure of this growing market has spawned a multitude of game studios in the last 40 years, from massive multimedia powerhouses like EA or Activision to the smallest indie hopefuls. And all of them are constantly producing new content, with the industry cranking out over a thousand new games per year.</p>
           <p>All of this information can easily get very chaotic, and it becomes increasingly hard to search for titles you may like on a platform you own. Our goal at ggnoswe.me is to design a website which clearly allows you to view information and reviews about games as well as their developers and platforms. With this tool, a user will be able to browse our website and get a good understanding of what the best games for a particular platform are, what games a studio has developed, and what games they may like based on ratings and reviews.</p>
           <p>There are several scenarios where this could prove useful. If a user was trying to get into “The Legend of Zelda” for the first time they could simply search for that name and easily figure out which game(s) from the series they wanted to start with based on ratings and reviews, and what platforms they have access to.</p>
-          <p>Another example user might like “Final Fantasy” as a series, but want to find something else by the same studio with a similar feel on a different platform since that series is mainly restricted to Playstation. As before they could simply navigate to a game in the series and go to the studio. From here they can see a list of published games and look through them to see if any match what they want. For example, if they were looking for 3DS games they may be directed to titles like “Bravely Default” or “Dragonquest” which are more readily available on Nintendo platforms but developed by the same Studio with the same general aesthetic.</p>
+          <p>Another example user might like “Final Fantasy” as a series, but want to find something else by the same studio with a similar feel on a different platform since that series is mainly restricted to Playstation. As before they could simply navigate to a game in the series and go to the studio.
+          </p><p id="design">From here they can see a list of published games and look through them to see if any match what they want. For example, if they were looking for 3DS games they may be directed to titles like “Bravely Default” or “Dragonquest” which are more readily available on Nintendo platforms but developed by the same Studio with the same general aesthetic.</p>
           <p>Overall this website aims to be a tool which makes information gathering about video games easier users so they can make more effective decisions on choosing what games to play.  </p>
           </div>
         </div>
@@ -133,11 +145,11 @@
           <h2 style="padding-top: 15px">Design</h2>
 
           <h4>Apiary API:</h4>
-          <p>The API we designed through apiary works in a similar fashion for each model. For instance the games model has two different calls that can be made to the API: List All Games and List Specific Game. A user of the API can call list all games that will return to them a list of Jsons that contain two keys id and name that users may store on their own machines.</p>
+          <p>The API we designed through apiary works in a similar fashion for each model. For instance the games model has two different calls that can be made to the API: List All Games and List Specific Game. A user of the API can call list all games that will return to them a list of JSONs that contain two keys id and name that users may store on their own machines.</p>
 
           <figure>
            <img class="center-block" float="left" src="../static/images/design_1.png"/>
-           <figcaption style="color: white; text-align: center; font-size: 1.2em">Fig1. - Example of List all games JSON.</figcaption>
+           <figcaption style="color: black; text-align: center; font-size: 1.2em">Fig1. - Example of List all games JSON.</figcaption>
           </figure>
 
             <div style="float:none; padding-top: 20px;">
@@ -146,7 +158,7 @@
 
           <figure>
            <img class="center-block" float="left" src="../static/images/design_2.png"/>
-           <figcaption style="color: white; text-align: center; font-size: 1.2em">Fig2. - Example of JSON for a specific game.</figcaption>
+           <figcaption style="color: black; text-align: center; font-size: 1.2em">Fig2. - Example of JSON for a specific game.</figcaption>
           </figure>
 
             <div style="float:none; padding-top: 20px;">
@@ -154,11 +166,11 @@
             </div>
 
             <h4>IGDB API Calls:</h4>
-            <p> The API we are accessing through igdb.com returned a list of Jsons that contained the many attributes of a game such as name, created_at and url. It also comes with information such as hypes and time_to_beat which are not necessary for our project and will be filtered out before we put it into our database. We are currently scraping the api by first creating a header dictionary that contains our api key that will later be used in the url of the api request.  Then we continuously loop in order to pull all of the info from the api and break when we receive multiple error codes indicating the end to exit the loop.</p>
+            <p> The API we are accessing through igdb.com returned a list of JSONs that contains the many attributes of a game such as name, created_at and url. It also comes with information such as hypes and time_to_beat which are not necessary for our project and will be filtered out before we put it into our database. We are currently scraping the api by first creating a header dictionary that contains our api key that will later be used in the url of the api request.  Then we continuously loop in order to pull all of the info from the api and break when we receive multiple error codes indicating the end to exit the loop.</p>
 
           <figure>
            <img class="center-block" float="left" src="../static/images/design_3.png"/>
-           <figcaption style="color: white; text-align: center; font-size: 1.2em">Fig3. - Conditions for leaving the loop.</figcaption>
+           <figcaption style="color: black; text-align: center; font-size: 1.2em">Fig3. - Conditions for leaving the loop.</figcaption>
           </figure>
 
             <div style="float:none; padding-top: 20px;">
@@ -167,11 +179,11 @@
 
           <figure>
            <img class="center-block" float="left" src="../static/images/design_4.png"/>
-           <figcaption style="color: white; text-align: center; font-size: 1.2em">Fig4. - Speeding up API requests by altering URL.</figcaption>
+           <figcaption id="tools" style="color: white; text-align: center; font-size: 1.2em">Fig4. - Speeding up API requests by altering URL.</figcaption>
           </figure>
 
             <div style="float:none; padding-top: 20px;">
-              <p> This allows for a single call to return multiple Jsons with a single api call. From there we parse the Jsons so that they may be added to the output list.</p>
+              <p> This allows for a single call to return multiple JSONs with a single api call. From there we parse the JSONs so that they may be added to the output list.</p>
             </div>
 
             <!-- TOOLS-->
@@ -187,18 +199,22 @@
           <p>For our models, we embedded various pictures and logos that associate with the respective models. For instance, Game models had a picture of the game displayed if it exists, Platform models had a picture of the console if it exists and so on. These were implemented using html and the image tag, passing in the link to the image as the src. For videos of reviews and games if they existed, we used the iframe tag passing in the width and the desired lengths. For src, we passed in the link to the video if it existed.</p>
 
           <h4>Scraping Data:</h4>
+
           <p>In order to scrape the data, we first registered an API key with IGDB on http://igdb.github.io/api/. After following through their documentations, we learned the various options we had and the information each call would output. The four models we focused on were Game, Companies, Reviews and Platforms. We established these four as our primary models. We then created one general script trying to scrape data for each of our models. To accomplish this, we used the Python libraries requests, json and sys. Requests were used to connect to the API and gather the data and we save the data as a json file and we use sys to parse the various inputs that the script takes to populate a given model. Sample call is as shown in the figure:</p>
+
+          <p>In order to scrape the data, we first registered an API key with IGDB on http://igdb.github.io/api/. After following through their documentations, we learned the various options we had and the information each call would output. We then created one general script trying to scrape data for each of our models. To accomplish this, we used the Python libraries requests, JSON and sys. Requests were used to connect to the API and gather the data. From there, we saved the data as a JSON file and we used sys to parse the various inputs that the script takes to populate a given model. Sample call is as shown in the figure:</p>
+
 
           <figure>
            <img class="center-block" float="left" src="../static/images/tools_1.png" style="height: 300px; width: 550px;"/>
-           <figcaption style="color: white; text-align: center; font-size: 1.2em; ">Fig 1. scraping data</figcaption>
+           <figcaption style="color: black; text-align: center; font-size: 1.2em; ">Fig 1. scraping data</figcaption>
           </figure>
 
           <p>In the JSON files we save, they contain the different information regarding the games, platforms, reviews and game companies as shown as follows: </p>
 
           <figure>
            <img class="center-block" float="left" src="../static/images/tools_2.png" style="height: 250px; width: 600px;"/>
-           <figcaption style="color: white; text-align: center; font-size: 1.2em">Fig 2. json data</figcaption>
+           <figcaption style="color: black; text-align: center; font-size: 1.2em">Fig 2. JSON data</figcaption>
           </figure>
 
           <p>With this information, we were able to populate our database as described in the following sections.</p>
@@ -211,7 +227,7 @@
 
           <figure>
            <img class="center-block" float="left" src="../static/images/tools_3.png" style="height: 250px; width: 550px;"/>
-           <figcaption style="color: white; text-align: center; font-size: 1.2em">Fig 3. Initialize database</figcaption>
+           <figcaption style="color: black; text-align: center; font-size: 1.2em">Fig 3. Initialize database</figcaption>
           </figure>
 
           <p>Then to initialize the database, we entered the Python interactive mode and created a session for the database and called “db.create_all()”. In order to populate our database as quickly and efficiently as possible, we created a script called populateDb.py that we used to parse the JSON files we scraped as detailed above and inserted the various object models into the database. For each model, we constructed the appropriate object and initialized the information and then added the object to our database using db.session.add(). Then we committed the change if no errors occurred.</p>
@@ -221,10 +237,14 @@
 
           <figure>
            <img class="center-block" float="left" src="../static/images/tools_4.png" style="width: 550px;"/>
-           <figcaption style="color: white; text-align: center; font-size: 1.2em">Fig 4. Routing</figcaption>
+           <figcaption style="color: black; text-align: center; font-size: 1.2em">Fig 4. Routing</figcaption>
           </figure>
 
+
           <p>For pagination and populating the pages with our data, we accessed the database for the respective model and rendered the template passing in the list of objects. To easily accomplish this, we employed a flask library called flask-paginate that handled most of the work for pagination. Then we altered our html files to employ Jinja2 as a way to dynamically generate the data and provide pages limited by the number of items we want for each page. While Jinja2 may be considered front-end, since it comes with Flask, the back-end developers used it to render the various pages and their elements.</p>
+
+          <p id="hosting">For pagination and populating the pages with our data, we accessed the database for the respective model and rendered the template passing in the list of objects. To easily accomplish this, we employed a flask library called flask-paginate that handled most of the work for pagination. Then we altered our html files to employ Jinja2 as a way to dynamically generate the data and provide pages limited by the number of items we want for each page.</p>
+
 
           <!--HOSTING-->
           <h2 style="padding-top: 15px">Hosting</h2>
@@ -243,7 +263,7 @@
             <li>Once the VPC has been created, from the Services tab, select EC2. Under the Create Instance heading, click Launch Instance. Select the Free Tier Eligible Ubuntu Server.
               <figure>
                <img class="center-block" float="left" src="../static/images/hosting_1.png" style="width: 550px;"/>
-               <figcaption style="color: white; text-align: center; font-size: 0.9em">Figure 1: Free Tier Eligible Ubuntu Server</figcaption>
+               <figcaption style="color: black; text-align: center; font-size: 0.9em">Figure 1: Free Tier Eligible Ubuntu Server</figcaption>
               </figure>
               For the Instance Type, select the General Purpose, Free Tier Eligible instance type. Click Next.
             </li>
@@ -252,7 +272,7 @@
             <li>In the EC2 configuration settings, skip to Step 7: Review Instance Launch. Under the Security Groups heading, click Edit security groups > Add Rule > Type: HTTP > Source: Anywhere. Then click Review and Launch.
               <figure>
                <img class="center-block" float="left" src="../static/images/hosting_2.png" style="width: 550px;"/>
-               <figcaption style="color: white; text-align: center; font-size: 0.9em">Figure 2: Review Instance Launch Settings</figcaption>
+               <figcaption style="color: black; text-align: center; font-size: 0.9em">Figure 2: Review Instance Launch Settings</figcaption>
               </figure>
             </li>
             <li>When you launch your instance, you will need to create a new key/pair. Give it a name, and download the key/pair file. Make sure you know where you downloaded the file; you will need it to SSH into your Linux box.
@@ -260,12 +280,12 @@
             <li>To connect to your instance, select it from the EC2 Management page and click Connect. The following message will pop up. Follow the instructions and you’ll be able to connect to your instance.
               <figure>
                  <img class="center-block" float="left" src="../static/images/hosting_3.png" style="width: 550px;"/>
-                 <figcaption style="color: white; text-align: center; font-size: 0.9em">Figure 3: Instructions to access your EC2 instance</figcaption>
+                 <figcaption style="color: black; text-align: center; font-size: 0.9em">Figure 3: Instructions to access your EC2 instance</figcaption>
               </figure>
               Once you’ve connected to your Linux box, your terminal should look like this:
               <figure>
                  <img class="center-block" float="left" src="../static/images/hosting_4.png" style="width: 550px;"/>
-                 <figcaption style="color: white; text-align: center; font-size: 0.9em">Figure 4: Connecting to an EC2 instance</figcaption>
+                 <figcaption style="color: black; text-align: center; font-size: 0.9em">Figure 4: Connecting to an EC2 instance</figcaption>
               </figure>
             </li>
 
@@ -282,7 +302,7 @@
               To verify that Apache has been installed correctly, enter the IP Address of your EC2 instance in a web browser. To find the IP Address, click on your instance in the EC2 Management Console and copy the value given as the IPv4 Public IP. You should see a page like this in your web browser:
               <figure>
                  <img class="center-block" float="left" src="../static/images/hosting_6.png" style="height: 350px"/>
-                 <figcaption style="color: white; text-align: center; font-size: 0.9em">Figure 5: Sample Ubuntu Default Page</figcaption>
+                 <figcaption style="color: black; text-align: center; font-size: 0.9em">Figure 5: Sample Ubuntu Default Page</figcaption>
               </figure>
             </li>
           </ol>
@@ -296,7 +316,7 @@
             <li>n the /var/www directory, create the following project structure:
                <figure>
                  <img class="center-block" float="left" src="../static/images/hosting_8.png"/>
-                 <figcaption style="color: white; text-align: center; font-size: 0.9em">Figure 7</figcaption>
+                 <figcaption style="color: black; text-align: center; font-size: 0.9em">Figure 7</figcaption>
               </figure>
 
                 NOTE: From here on, replace any instances of GGnoSWE with the desired name of your application.<br>
@@ -312,7 +332,7 @@
             <li>Create a file in /etc/apache2/sites-available/ named GGnoSWEApp.conf with the following contents, replacing XXXXXXXX with the IP Address of your EC2 instance and the ServerAdmin’s e-mail with your email:
               <figure>
                  <img class="center-block" float="left" src="../static/images/hosting_9.png"/>
-                 <figcaption style="color: white; text-align: center; font-size: 0.9em">Figure 8</figcaption>
+                 <figcaption style="color: black; text-align: center; font-size: 0.9em">Figure 8</figcaption>
               </figure>
               Run the following commands to configure/restart Apache:<br>
               <code>sudo a2enmod wsgi<br>
@@ -344,7 +364,7 @@
               Type the IP Address of your EC2 instance in your web browser again and you should be able to see your Flask application on the Internet! As an example:
               <figure>
                  <img class="center-block" float="left" src="../static/images/hosting_13.png" style="height: 450px; width: 700px;"/>
-                 <figcaption style="color: white; text-align: center; font-size: 0.9em">Figure 9: Example of a deployed Flask application</figcaption>
+                 <figcaption style="color: black; text-align: center; font-size: 0.9em">Figure 9: Example of a deployed Flask application</figcaption>
               </figure>
             </li>
             <li>
@@ -355,6 +375,8 @@
               You have now deployed your Flask application on an EC2 instance with the help of an Apache web server.
             </li>
           </ol>
+        </div>
+      </div>
       </div>
     </div>
   </header>
