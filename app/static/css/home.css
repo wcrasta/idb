@@ -1,0 +1,63 @@
+@import "bootstrap.css";
+@import "bootstrap.min.css";
+
+body {
+  font-size: 100%;
+  font-family: arial;
+}
+
+/* Navbar Formatting */
+.navbar-fixed-top {
+  margin-bottom: 0px;
+  margin-top: 20px;
+  position: fixed;
+  top: 0;
+  z-index: 9999;
+}
+.navbar-fixed-top .navbar-nav > li a {
+    padding-top: 12px;
+    color: white;
+    font-size: 1.75em;
+}
+.navbar-toggle .icon-bar {
+  border: 1px solid white;
+}
+.navbar-nav > li > a:hover {
+    background-color: transparent;
+    color: gray;
+    text-decoration: underline;
+}
+.navbar .navbar-collapse {
+  text-align: center;
+}
+
+/* Carousel Slide Formatting */
+.slide{
+  height: 100vh;
+}
+.carousel {
+  position: relative;
+}
+
+.carousel-caption h1{
+  font-size: 6em;
+  font-family: 'invasion2000';
+}
+.carousel-caption p{
+  font-size: 1.5em;
+}
+
+
+/* End Carousel Formatting */
+
+.input-group {
+  width: 450px;
+}
+
+.underline {
+  width: 700px;
+  border-bottom: 1px solid #FFF;
+}
+.horizontal-divider {
+  border: 1px solid white;
+}

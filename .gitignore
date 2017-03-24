@@ -1,3 +1,7 @@
-.idea/
+app/pycache/
+*.pyc
 flask/
-To Do.docx
+__pycache__/
+*.json
+.DS_Store
+
