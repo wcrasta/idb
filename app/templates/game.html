@@ -110,11 +110,19 @@
         <div class="col-sm-3">
           <div class="row">
             <h2 style="display: inline-block;">Platform:	&nbsp;</h2>
-            <span><a href="{{ url_for('platform_instance', name = items.platform.id)}}">{{items.platform.name}}</a></span>
+            {% if items.platform.name != 'None' %}
+            <span><a style = "color: white; text-decoration: underline" href="{{ url_for('platform_instance', name = items.platform.id)}}">{{items.platform.name}}</a></span>
+            {% else %}
+            <span style = "color: white; text-decoration: underline">{{items.platform.name}}</span>
+            {% endif %}
           </div>
           <div class="row">
             <h2 style="display: inline-block;">Studio:	&nbsp;</h2>
-            <span><a href="{{ url_for('studio_instance', name = items.studio.id)}}">{{items.studio.name}}</a></span>
+            {% if items.studio.name != 'None' %}
+            <span><a style = "color: white; text-decoration: underline" href="{{ url_for('studio_instance', name = items.studio.id)}}">{{items.studio.name}}</a></span>
+            {% else %}
+            <span style = "color: white; text-decoration: underline">{{items.studio.name}}</span>
+            {% endif %}
           </div>
           <div class="row">
             <h2 style="display: inline-block;">Genre:	&nbsp;</h2>
@@ -134,7 +142,11 @@
           </div>
           <div class="row">
             <h2 style="display: inline-block;">Website:	&nbsp;</h2>
-            <span><a href = "{{items.website}}">{{items.website}}</a></span>
+            {% if items.website != 'None' %}
+            <span><a style = "color: white; text-decoration: underline" href = "{{items.website}}">{{items.website}}</a></span>
+            {% else %}
+            <span style = "color: white; text-decoration: underline">{{items.website}}</span>
+            {% endif %}
           </div>
           <div class="row">
             <h2 style="display: inline-block;">Reviews:	&nbsp;</h2>
