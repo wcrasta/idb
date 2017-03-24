@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width = device-width, initial-scale=1">
+<title>GGnoSWE · Game</title>
+<link rel="stylesheet" type="text/css" href="../static/css/home.css">
+<style type="text/css">
+  body {
+    background: url('../static/images/bg2.png');
+    background-size: cover;
+  }
+  h1 {
+    color: white;
+    text-align: center;
+    margin-top: 60px;
+  }
+  h4 {
+    color: white;
+    font-size: 2em;
+  }
+  h3 {
+    color: white;
+    font-size: 0.5em;
+  }
+  h2 {
+    color: white;
+    font-size: 3em;
+  }
+  ul {
+    color: white;
+    font-size: 1.5em;
+  }
+  p{
+    font-size: 1.25em;
+    word-wrap: break-word;
+    color: white;
+  }
+  .row span {
+    color: white;
+    font-size: 1.75em;
+  }
+</style>
+</head>
+
+<body>
+
+  <header>
+    <!-- Starting Navigation Bar -->
+    <nav class="navbar navbar-toggleable-md navbar-fixed-top" style="background-color: black; margin-top: 0;">
+      <div class="container">
+        <div class="navbar-header">
+          <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#nav-col">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <div class="collapse navbar-collapse navbar-left" id="nav-col">
+            <div class="navbar-header">
+              <a class="navbar-brand" href="/">GGnoSWE
+              </a>
+            </div>
+            <ul class="nav navbar-nav">
+              <li class="nav-item active">
+                <a class="nav-link" href="{{ url_for('games')}}">Games
+                  <span class="sr-only">(current)</span>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{{ url_for('platforms')}}">Platforms</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{{ url_for('studios')}}">Studios</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{{ url_for('reviews')}}">Reviews</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{{ url_for('about')}}">About</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+     <!-- Page Content -->
+    <div class="container">
+      <!-- Filtering options -->
+      <div class="row">
+          
+          <div class="row">
+            <div class="col-sm-12" style="border-bottom:1px solid white; padding-top: 40px">
+              <h1> Report </h1>
+            </div>
+          </div>
+          
+         <h2 style="padding-top: 15px">Table of Contents</h2>
+          <ul>
+              <li>Title</li>
+              <li>Introduction</li>
+              <li>Design</li>
+              <li>Tools</li>
+              <li>Hosting</li>
+              <li>Other</li>
+          </ul>
+
+          <h2 style="padding-top: 15px">Title</h2>
+          <h4 style="padding-left: 12px"> Group Name: GGnoSWE</h4>
+          <h4 style="padding-left: 12px"> Group Members</h4>
+            <ul>
+              <li>Kaivan Shah</li>
+              <li>Kaden Brown</li>
+              <li>Zihao Zhu</li>
+              <li>Waren Cresta</li>
+              <li>Colin Thornton</li>
+              <li>Anurag Papineni</li>
+            </ul>
+
+          <!-- INTRODUCTION-->
+          <div class="row">
+          <div class="col-sm-12">
+          <h2 style="padding-top: 15px">Introduction</h2>
+          <p>The Video Game industry is one of largest and fastest growing entertainment industries today. In recent history, video games have managed to reach comparable revenue numbers to movies, music and other forms of entertainment. In 2014, the video game industry earned approximately six times the amount of revenue that the music industry did, while growing to earn almost a third of the revenue of the film industry, and these numbers are still increasing! The allure of this growing market has spawned a multitude of game studios in the last 40 years, from massive multimedia powerhouses like EA or Activision to the smallest indie hopefuls. And all of them are constantly producing new content, with the industry cranking out over a thousand new games per year.</p>
+          <p>All of this information can easily get very chaotic, and it becomes increasingly hard to search for titles you may like on a platform you own. Our goal at ggnoswe.me is to design a website which clearly allows you to view information and reviews about games as well as their developers and platforms. With this tool, a user will be able to browse our website and get a good understanding of what the best games for a particular platform are, what games a studio has developed, and what games they may like based on ratings and reviews.</p>
+          <p>There are several scenarios where this could prove useful. If a user was trying to get into “The Legend of Zelda” for the first time they could simply search for that name and easily figure out which game(s) from the series they wanted to start with based on ratings and reviews, and what platforms they have access to.</p>
+          <p>Another example user might like “Final Fantasy” as a series, but want to find something else by the same studio with a similar feel on a different platform since that series is mainly restricted to Playstation. As before they could simply navigate to a game in the series and go to the studio. From here they can see a list of published games and look through them to see if any match what they want. For example, if they were looking for 3DS games they may be directed to titles like “Bravely Default” or “Dragonquest” which are more readily available on Nintendo platforms but developed by the same Studio with the same general aesthetic.</p>
+          <p>Overall this website aims to be a tool which makes information gathering about video games easier users so they can make more effective decisions on choosing what games to play.  </p>
+          </div>
+        </div>
+
+          <!-- DESIGN -->
+          <h2 style="padding-top: 15px">Design</h2>
+          
+          <h4>Apiary API:</h4>
+          <p>The API we designed through apiary works in a similar fashion for each model. For instance the games model has two different calls that can be made to the API: List All Games and List Specific Game. A user of the API can call list all games that will return to them a list of Jsons that contain two keys id and name that users may store on their own machines.</p>
+          
+          <figure>
+           <img class="center-block" float="left" src="../static/images/design_1.png"/>
+           <figcaption style="color: white; text-align: center; font-size: 1.2em">Fig1. - Example of List all games JSON.</figcaption>
+          </figure>
+
+            <div style="float:none; padding-top: 20px;">
+              <p> With this information the user is now able to make a call to the List Specific Game API call using the value of id. This call will return to a single JSON that contains the information for game such as id, name, summary, genre, rating, ect.</p>
+            </div>
+
+          <figure>
+           <img class="center-block" float="left" src="../static/images/design_2.png"/>
+           <figcaption style="color: white; text-align: center; font-size: 1.2em">Fig2. - Example of JSON for a specific game.</figcaption>
+          </figure>
+
+            <div style="float:none; padding-top: 20px;">
+              <p> This process remains the same for Platform, Studio as well as Reviews allowing the user to find information for the specific topic they want in each model rather than sending them all of the information in the database.</p>
+            </div>
+
+            <h4>IGDB API Calls:</h4>
+            <p> The API we are accessing through igdb.com returned a list of Jsons that contained the many attributes of a game such as name, created_at and url. It also comes with information such as hypes and time_to_beat which are not necessary for our project and will be filtered out before we put it into our database. We are currently scraping the api by first creating a header dictionary that contains our api key that will later be used in the url of the api request.  Then we continuously loop in order to pull all of the info from the api and break when we receive multiple error codes indicating the end to exit the loop.</p>
+
+          <figure>
+           <img class="center-block" float="left" src="../static/images/design_3.png"/>
+           <figcaption style="color: white; text-align: center; font-size: 1.2em">Fig3. - Conditions for leaving the loop.</figcaption>
+          </figure>
+
+            <div style="float:none; padding-top: 20px;">
+              <p> Inside of the loop in order speed up the process we concatenate our current index into the dataset with all entries up to index+1000 separated by a comma.</p>
+            </div>
+
+          <figure>
+           <img class="center-block" float="left" src="../static/images/design_4.png"/>
+           <figcaption style="color: white; text-align: center; font-size: 1.2em">Fig4. - Speeding up API requests by altering URL.</figcaption>
+          </figure>
+
+            <div style="float:none; padding-top: 20px;">
+              <p> This allows for a single call to return multiple Jsons with a single api call. From there we parse the Jsons so that they may be added to the output list.</p>
+            </div>
+
+            <!-- TOOLS-->
+          <h2 style="padding-top: 15px">Tools</h2>
+          <h4>Front-End:</h4>
+          <p>The front-end technologies we will be using include CSS, Bootstrap, HTML, Javascript and ReactJS. Cascading style sheets are used to cleanly handle formatting, placement, and fonts. Bootstrap is a front end framework used to make pages dynamic and responsive. It makes organization easier. Javascript is a front end language used to do logic in the front end such as handle user inputs and trigger events. ReactJS is a JavaScript library that gives the ability to create very dynamic, interactive webpages that give a great user experience. It will be used for sorting, filtering, routing and used for its ability to dynamically change the DOM in our html. Another tool that was used was Bootstrap, a css and javascript component that was used to make our website look presentable. The tool used to embed the company image and game image is simple css and bootstrap css that makes the image responsive and change the size of the image to fit into the div correctly and nicely.</p>
+
+          <h4>Back-End:</h4>
+          <p> For the backend of our application, we focused mainly on using the tools Flask paired with Jinja2 for rendering and SQLAlchemy for populating our grids and model instances with data. While it was only necessary to populate 3 instances (rows) for each models, we decided to scrape data from the API we’re using (https://igdb.github.io/api/)  and populated a local database using SQLAlchemy. Doing so allowed us to easily access the data and create dynamically linked pages with more information and embedded images along with creating paginations. We chose this route over hard-coding and parsing made-up JSON files because we will eventually implement a database and doing so will save work in the long run.</p>
+
+          <h4>Scraping Data:</h4>
+          <p>In order to scrape the data, we first registered an API key with IGDB on http://igdb.github.io/api/. After following through their documentations, we learned the various options we had and the information each call would output. We then created one general script trying to scrape data for each of our models. To accomplish this, we used the Python libraries requests, json and sys. Requests were used to connect to the API and gather the data and we save the data as a json file and we use sys to parse the various inputs that the script takes to populate a given model. Sample call is as shown in the figure:</p>
+
+          <figure>
+           <img class="center-block" float="left" src="../static/images/tools_1.png" style="height: 300px; width: 550px;"/>
+           <figcaption style="color: white; text-align: center; font-size: 1.2em; ">Fig 1. Hola</figcaption>
+          </figure>
+
+          <p>In the JSON files we save, they contain the different information regarding the games, platforms, reviews and game companies as shown as follows: </p>
+
+          <figure>
+           <img class="center-block" float="left" src="../static/images/tools_2.png" style="height: 250px; width: 750px;"/>
+           <figcaption style="color: white; text-align: center; font-size: 1.2em">Fig 2. Hola</figcaption>
+          </figure>
+
+          <p>With this information, we were able to populate our database as described in the following sections.</p>
+
+          <h4>Models:</h4>
+          <p>A major part of ORM(object relational mapping) is models. In our application, we defined four models: game, platform, studio and reviews. In models.py, we created a model for each of our four classes and defined the attributes we wanted them to have. Since models.py works closely with SQLAlchemy, for each attribute of each model, we defined the expected type for the attribute. In cases in which there’s a one to many or many to one relationship, we employed the method db.relationship() with parameters backref and lazy=”dynamic” to set up the relationship so that we can access the respective model. Backref allows the objects to link to each other while lazy=”dynamic” allows us to display the query results when we render it in Jinja2. In other words, backref is a simple way to declare some new property of the class you’re linking a model to. Whereas lazy defines when SQLAlchemy will load the data from the database you create. Setting up the models.py allowed us to create objects for each model and be able to use data in a declarative way as we did in app.py. Having defined the relationships, it made it easier for us to get the attributes a certain object was connected it. </p>          
+
+      </div>
+    </div>
+  </header>
+</body>
