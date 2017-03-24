@@ -1,3 +1,72 @@
+commit b95e34a3f50e8389be4b1fef257be1ea9ff841c2
+Author: wcrasta <wcrasta@utexas.edu>
+Date:   Thu Mar 23 18:46:58 2017 -0500
+
+    FIX TRAVISgit add .
+
+commit 8d6f0966791721dfab8da0a27f7bbbee4928ff70
+Author: wcrasta <wcrasta@utexas.edu>
+Date:   Thu Mar 23 18:44:35 2017 -0500
+
+    requirements.txt
+
+commit 8a6ebf5ad63b34567520a9b6135d5856dd69ad8d
+Author: wcrasta <wcrasta@utexas.edu>
+Date:   Thu Mar 23 18:39:20 2017 -0500
+
+    Comments and makefile change
+
+commit 61b427cbfa2c0631f2102f02d64f51cf50d6046b
+Merge: 6e86336 16c3ee7
+Author: kbbrownn <kbbrown@utexas.edu>
+Date:   Thu Mar 23 18:34:31 2017 -0500
+
+    Merge branch 'update' of https://github.com/wcrasta/idb into update
+
+commit 6e8633654f6098483cb45d3b11935160a871b630
+Author: kbbrownn <kbbrown@utexas.edu>
+Date:   Thu Mar 23 18:34:23 2017 -0500
+
+    Updated about page project leader / tools
+
+commit 16c3ee7d63bfa39ddd2ccf6f107f2b46e4ab0557
+Merge: 24540cc c5c1c41
+Author: Kaden Brown <kbb555@cs.utexas.edu>
+Date:   Thu Mar 23 17:31:51 2017 -0500
+
+    Merge branch 'update' of https://github.com/wcrasta/idb into update
+
+commit 24540cc9a0cbccefaac964fb60b246328ba78d48
+Author: Kaden Brown <kbb555@cs.utexas.edu>
+Date:   Thu Mar 23 17:31:30 2017 -0500
+
+    Fixed Sort and name length
+
+commit c5c1c41e3ed32ed96e08a108e8624b9491e9957c
+Author: kbbrownn <kbbrown@utexas.edu>
+Date:   Thu Mar 23 17:30:51 2017 -0500
+
+    Added functionality for mobile navbar
+
+commit 8e05bfccc182be7efb6663e7efd0c227ebbefdc2
+Merge: 142b51a cd38854
+Author: Kaden Brown <kbb555@cs.utexas.edu>
+Date:   Thu Mar 23 17:05:07 2017 -0500
+
+    Merge branch 'update' of https://github.com/wcrasta/idb into update
+
+commit 142b51a5535bfb6b3564f23d6c76e79f71258a8b
+Author: Kaden Brown <kbb555@cs.utexas.edu>
+Date:   Thu Mar 23 17:04:32 2017 -0500
+
+    Finished studios and fixed platform background for large lists
+
+commit 1bac534a29e00b86f373fbe7d6469d8fadcbe962
+Author: Kaden Brown <kbb555@cs.utexas.edu>
+Date:   Thu Mar 23 17:03:17 2017 -0500
+
+    Finished studios and fixed platform background for large lists
+
 commit cd3885417aa113ebecf254dc595fba52ebe70036
 Merge: 37eec08 2a99368
 Author: wcrasta <wcrasta@utexas.edu>
