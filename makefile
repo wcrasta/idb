@@ -5,6 +5,7 @@ FILES :=            \
     app/app.py      \
     app/models.py   \
     app/tests.py    \
+    IDB1.html       \
 
 ifeq ($(shell uname), Darwin)          # Apple
     PYTHON   := python3.5
@@ -38,6 +39,12 @@ endif
 
 .pylintrc:
 	$(PYLINT) --disable=locally-disabled --reports=no --generate-rcfile > $@
+
+IDB1.html: app/models.py
+	cp app/database.py database.py
+	pydoc3 -w app/models.py
+	mv models.html IDB1.html
+	rm database.py	
 
 IDB1.log:
 	git log > IDB1.log
@@ -87,7 +94,7 @@ status:
 	git remote -v
 	git status
 
-test: IDB1.log
+test: IDB1.html IDB1.log
 	ls -al
 	make check
 
