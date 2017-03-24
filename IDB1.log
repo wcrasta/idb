@@ -1,3 +1,67 @@
+commit d5c303b0b9423c47321a13a74e49486ac6ea4a50
+Merge: aeaaeda da1f24d
+Author: Warren Crasta <warrencrasta@gmail.com>
+Date:   Fri Mar 24 17:28:03 2017 -0500
+
+    Merging update into master
+
+commit da1f24dce7f0688134b876b18be7b718b4c238cb
+Merge: 8d1fcb8 c5c82dd
+Author: Kaivan Shah <kaivan29@utexas.edu>
+Date:   Thu Mar 23 21:50:00 2017 -0500
+
+    Merge branch 'update' of https://github.com/wcrasta/idb into update
+
+commit 8d1fcb83a6c97d47e8bd00c369fc40af9aeaaec6
+Author: Kaivan Shah <kaivan29@utexas.edu>
+Date:   Thu Mar 23 21:49:57 2017 -0500
+
+    comon
+
+commit 9ef6f29ddf6e3059c61a45f04f6abdb0fd3a600c
+Author: Kaivan Shah <kaivan29@utexas.edu>
+Date:   Thu Mar 23 21:49:14 2017 -0500
+
+    abput page
+
+commit c5c82dd706cda95be9b58cd2863a68c7f11d0062
+Merge: 41edcda 8078d0e
+Author: wcrasta <wcrasta@utexas.edu>
+Date:   Thu Mar 23 21:44:18 2017 -0500
+
+    hola
+
+commit 41edcda361c677316c0c15fe020d8702bc37e8f2
+Author: wcrasta <wcrasta@utexas.edu>
+Date:   Thu Mar 23 21:43:24 2017 -0500
+
+    report changes
+
+commit 8078d0e06dd1e660e23d9a2329981249b59efd62
+Author: Colin Thornton <colin@cs.utexas.edu>
+Date:   Thu Mar 23 21:38:45 2017 -0500
+
+    Finished report page
+
+commit 329235780407ec2c02ac2359de90fe98f3723385
+Author: wcrasta <wcrasta@utexas.edu>
+Date:   Thu Mar 23 21:35:16 2017 -0500
+
+    PDF
+
+commit 661e63cd4e42285f84c852933c9d5c8ba0a8bfc6
+Merge: 81963cb 2ad0447
+Author: Kaivan Shah <kaivan29@utexas.edu>
+Date:   Thu Mar 23 21:34:39 2017 -0500
+
+    Merge branch 'update' of https://github.com/wcrasta/idb into update
+
+commit 81963cb0ab9b4577c3e35725f6877f2c52b27612
+Author: Kaivan Shah <kaivan29@utexas.edu>
+Date:   Thu Mar 23 21:34:35 2017 -0500
+
+    about is cool now
+
 commit 2ad0447e782e0cc136627fcbddcf5e075b2e19ed
 Author: wcrasta <wcrasta@utexas.edu>
 Date:   Thu Mar 23 21:25:57 2017 -0500
@@ -35,6 +99,12 @@ Author: wcrasta <wcrasta@utexas.edu>
 Date:   Thu Mar 23 21:02:06 2017 -0500
 
     Commented models
+
+commit da80d57cac0926838e6e53da82d176912b226c1e
+Author: Kaivan Shah <kaivan29@utexas.edu>
+Date:   Thu Mar 23 21:00:51 2017 -0500
+
+    report changes
 
 commit c88caf5a55cbb4c9074c0c11e6ba32ca604c762f
 Merge: 381b8a4 4226388
@@ -302,6 +372,12 @@ Date:   Thu Mar 23 15:45:40 2017 -0500
 
     background and navbar change for invidual pages
 
+commit aeaaeda7bb2df983673e9263001c087669e4ba70
+Author: Colin-Thornton <colin_thornton0366@utexas.edu>
+Date:   Thu Mar 23 15:36:07 2017 -0500
+
+    Added Foreign keys to games
+
 commit 1b97c9fed830b74b7f66fd526185d5432ae3090c
 Author: kbbrownn <kbbrown@utexas.edu>
 Date:   Thu Mar 23 15:36:01 2017 -0500
@@ -319,6 +395,12 @@ Author: kbbrownn <kbbrown@utexas.edu>
 Date:   Thu Mar 23 14:45:21 2017 -0500
 
     Possibly fixed games formatting with new bg
+
+commit 35c777efe61056277f1c93c9b661297eb74a3d73
+Author: Colin-Thornton <colin_thornton0366@utexas.edu>
+Date:   Thu Mar 23 13:33:59 2017 -0500
+
+    Finished Api for Apiary
 
 commit 7c2bd23b86fae7b575ebbf9b6e7e9a3b512baadf
 Author: Zihao <zihaozhu@utexas.edu>
@@ -630,6 +712,12 @@ Date:   Wed Mar 22 20:06:25 2017 -0500
 
     added studios
 
+commit d2acb01f6a119e8816eb4f552bb22f1cfeef2729
+Author: Colin-Thornton <colin_thornton0366@utexas.edu>
+Date:   Wed Mar 22 20:04:03 2017 -0500
+
+    Finished filling content
+
 commit c584aa7607f93776ce0f9fa86f8f1bf9244a123f
 Author: Kaivan Shah <kaivan29@utexas.edu>
 Date:   Wed Mar 22 19:54:36 2017 -0500
@@ -863,6 +951,12 @@ Author: kbbrownn <kbbrown@utexas.edu>
 Date:   Wed Mar 22 14:25:34 2017 -0500
 
     Updated games page to reflect a static grid style
+
+commit dd5af85b1c2a801efc6d6d938398ef888f37556e
+Author: Colin-Thornton <colin_thornton0366@utexas.edu>
+Date:   Wed Mar 22 13:56:11 2017 -0500
+
+    Finished base for apiary need to add example info
 
 commit 36572a0351c12b912fa2fc0bc7da405bbf7eef19
 Author: wcrasta <wcrasta@utexas.edu>
@@ -1161,6 +1255,18 @@ Date:   Tue Mar 21 17:59:27 2017 -0500
 
     added info on about.html
 
+commit 4e8818d95fc2ffee2856c3e08aa5e19c9ed47bac
+Author: Kaivan Shah <kaivan29@utexas.edu>
+Date:   Tue Mar 21 17:44:54 2017 -0500
+
+    added my image
+
+commit 9d2bbaecb7e570c7c903e54b338b602d77f3052c
+Author: Kaivan Shah <kaivan29@utexas.edu>
+Date:   Tue Mar 21 17:44:17 2017 -0500
+
+    added info in about.html
+
 commit 8a13f8cfd9b83f6a384bfe6bbe655fa5305ff38d
 Author: Zihao <zihaozhu@utexas.edu>
 Date:   Tue Mar 21 16:34:53 2017 -0500
@@ -1265,6 +1371,18 @@ Date:   Mon Mar 20 18:04:45 2017 -0500
 
     Populating grids and fixed time
 
+commit bb85fccc1954650f8758a71ffe665c1dfff5c0f4
+Author: kbbrownn <kbbrown@utexas.edu>
+Date:   Mon Mar 20 17:14:51 2017 -0500
+
+    Fixed glyphicons among browsers
+
+commit 5ccda6af0cdfc1fd7b1201fa52e1ba65f7e7e0d3
+Author: kbbrownn <kbbrown@utexas.edu>
+Date:   Mon Mar 20 16:42:26 2017 -0500
+
+    Fixed navbar styling among browsers
+
 commit 36f9a0f21996c3600c11a683b2be99cf5162be31
 Author: Zihao <zihaozhu@utexas.edu>
 Date:   Mon Mar 20 15:36:21 2017 -0500
@@ -1277,17 +1395,38 @@ Date:   Mon Mar 20 15:29:44 2017 -0500
 
     Fixed up relationship in sqlalc
 
+commit 8e01b2e73bd12f794bc00c1418e2ef8c8d45334d
+Author: kbbrownn <kbbrown@utexas.edu>
+Date:   Mon Mar 20 15:19:27 2017 -0500
+
+    Removed a hex coloring for navbar that possibly caused miscoloring on Firefox
+
 commit b82452fe2abce307cb83fbe1f200a6bfae922a7e
 Author: wcrasta <wcrasta@utexas.edu>
 Date:   Mon Mar 20 14:34:18 2017 -0500
 
     Making things work on Flask again.
 
+commit 0a2c26a1cb921d6798df57a3f3cda0d0b3073b17
+Merge: 20dc857 e5058c7
+Author: Zihao <zihaozhu@utexas.edu>
+Date:   Mon Mar 20 13:54:21 2017 -0500
+
+    Merge branch 'master' of https://github.com/wcrasta/idb
+    
+    Updating master to contain what we developed
+
 commit 20dc857efb41857df2a07e265d27890108a1a7fb
 Author: kbbrownn <kbbrown@utexas.edu>
 Date:   Mon Mar 20 13:50:34 2017 -0500
 
     Fixed navbar styling on home page
+
+commit e5058c7879b58980aa7f48a4fd72baf2e10ac4f5
+Author: Warren Crasta <warrencrasta@gmail.com>
+Date:   Mon Mar 20 13:45:31 2017 -0500
+
+    Transferring API Description file from Apiary.io
 
 commit 03ea6767ee32291e8ee3dc2fee3ab53c70ec6c73
 Author: kbbrownn <kbbrown@utexas.edu>
