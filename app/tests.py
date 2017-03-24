@@ -10,6 +10,7 @@ class TestCase(unittest.TestCase):
     # Zihao's unit tests
 
     # Tests that reviews are being properly stored in games
+
     def test_game_to_review(self):
         game = Game(name="Zelda", api_id=1)
         reviews = Reviews(title="Review of Zelda")
@@ -76,7 +77,7 @@ class TestCase(unittest.TestCase):
         self.assertTrue(game.reviews != None)
         self.assertTrue(game.reviews.count() == 0)
 
-    # Makes sure that it is not possible to make a list 
+    # Makes sure that it is not possible to make a list
     # attribute none
     def test_list_can_never_be_none(self):
         game = Game()
