@@ -1,5 +1,4 @@
 from models import app
-from database import db
 from flask import Flask, render_template
 from flask import request
 from flask_paginate import Pagination
@@ -8,7 +7,7 @@ import json
 import time
 from flask_sqlalchemy import SQLAlchemy
 
-from models import Game, Platform, Reviews, Studio
+from models import Game, Platform, Reviews, Studio, app, db
 
 POSTS_PER_PAGE = 10
 

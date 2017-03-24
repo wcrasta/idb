@@ -2,7 +2,7 @@
 
 FILES :=            \
     IDB1.log        \
-    app/app.py      \
+    app/__init__.py      \
     app/models.py   \
     app/tests.py    \
     IDB1.html       \
@@ -77,10 +77,9 @@ config:
 	git config -l
 
 format:
-	$(AUTOPEP8) -i app/app.py
-	$(AUTOPEP8) -i app/database.py
-	$(AUTOPEP8) -i app/db_create.py
+	$(AUTOPEP8) -i app/__init__.py
 	$(AUTOPEP8) -i app/models.py
+	$(AUTOPEP8) -i app/ScrapeAPI.py
 	$(AUTOPEP8) -i app/populateDb.py
 	$(AUTOPEP8) -i app/tests.py
 
