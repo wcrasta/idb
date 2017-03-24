@@ -1,3 +1,48 @@
+commit 8415b0b4fa6c200f3bce3f9cf538fa1ec88fd7b1
+Author: wcrasta <wcrasta@utexas.edu>
+Date:   Thu Mar 23 19:10:37 2017 -0500
+
+    Makefile
+
+commit bcb2b5634472d1a40b8486bf65c513e4149ace74
+Merge: a5693aa f9da15e
+Author: Kaivan Shah <kaivan29@utexas.edu>
+Date:   Thu Mar 23 19:08:35 2017 -0500
+
+    Merge branch 'update' of https://github.com/wcrasta/idb into update
+
+commit a5693aa4024da631bca2413f44ca206a9420aae2
+Author: Kaivan Shah <kaivan29@utexas.edu>
+Date:   Thu Mar 23 19:08:30 2017 -0500
+
+    report stuff
+
+commit f9da15e702005a8bd26f0ed1315587b47861e546
+Merge: 9b6c21c e4479c3
+Author: wcrasta <wcrasta@utexas.edu>
+Date:   Thu Mar 23 19:04:35 2017 -0500
+
+    Merge branch 'update' of https://github.com/wcrasta/idb into update
+
+commit 9b6c21c500a7bf61b7f3f865bfa7a0805604b6fd
+Author: wcrasta <wcrasta@utexas.edu>
+Date:   Thu Mar 23 19:04:14 2017 -0500
+
+    Travis pls
+
+commit e4479c3fe14d8fa9facd14ab0e0e397672999fb0
+Merge: d5401f8 b95e34a
+Author: kbbrownn <kbbrown@utexas.edu>
+Date:   Thu Mar 23 19:03:32 2017 -0500
+
+    Merge branch 'update' of https://github.com/wcrasta/idb into update
+
+commit d5401f836794628eee65545955eabf165c4b0677
+Author: kbbrownn <kbbrown@utexas.edu>
+Date:   Thu Mar 23 19:03:20 2017 -0500
+
+    Updated navbar
+
 commit b95e34a3f50e8389be4b1fef257be1ea9ff841c2
 Author: wcrasta <wcrasta@utexas.edu>
 Date:   Thu Mar 23 18:46:58 2017 -0500

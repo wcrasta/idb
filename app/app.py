@@ -9,15 +9,15 @@ from flask_sqlalchemy import SQLAlchemy
 
 # Create the Flask application.
 from models import Game, Platform, Reviews, Studio
-app = Flask(__name__)
+# app = Flask(__name__)
 
-app.debug = True
+# app.debug = True
 
-basedir = os.path.abspath(os.path.dirname(__file__))
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///' + \
-    os.path.join(basedir, 'app.db')
-app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
-db.init_app(app)
+# basedir = os.path.abspath(os.path.dirname(__file__))
+# app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///' + \
+#     os.path.join(basedir, 'app.db')
+# app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+# db.init_app(app)
 # db = SQLAlchemy(app)
 
 POSTS_PER_PAGE = 10
@@ -143,5 +143,5 @@ def studio_instance(name):
 
 
 # Run the Flask app.
-if __name__ == '__main__':
-    app.run()
+#if __name__ == '__main__':
+#    app.run()
