@@ -12,6 +12,12 @@ from models import Game, Platform, Reviews, Studio
 
 POSTS_PER_PAGE = 10
 
+@app.route('/report')
+def report():
+    """
+        Renders the report page
+    """
+    return render_template('report.html')
 
 @app.route('/')
 def index():
