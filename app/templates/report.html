@@ -199,7 +199,11 @@
           <p>For our models, we embedded various pictures and logos that associate with the respective models. For instance, Game models had a picture of the game displayed if it exists, Platform models had a picture of the console if it exists and so on. These were implemented using html and the image tag, passing in the link to the image as the src. For videos of reviews and games if they existed, we used the iframe tag passing in the width and the desired lengths. For src, we passed in the link to the video if it existed.</p>
 
           <h4>Scraping Data:</h4>
+
+          <p>In order to scrape the data, we first registered an API key with IGDB on http://igdb.github.io/api/. After following through their documentations, we learned the various options we had and the information each call would output. The four models we focused on were Game, Companies, Reviews and Platforms. We established these four as our primary models. We then created one general script trying to scrape data for each of our models. To accomplish this, we used the Python libraries requests, json and sys. Requests were used to connect to the API and gather the data and we save the data as a json file and we use sys to parse the various inputs that the script takes to populate a given model. Sample call is as shown in the figure:</p>
+
           <p>In order to scrape the data, we first registered an API key with IGDB on http://igdb.github.io/api/. After following through their documentations, we learned the various options we had and the information each call would output. We then created one general script trying to scrape data for each of our models. To accomplish this, we used the Python libraries requests, JSON and sys. Requests were used to connect to the API and gather the data. From there, we saved the data as a JSON file and we used sys to parse the various inputs that the script takes to populate a given model. Sample call is as shown in the figure:</p>
+
 
           <figure>
            <img class="center-block" float="left" src="../static/images/tools_1.png" style="height: 300px; width: 550px;"/>
@@ -216,10 +220,10 @@
           <p>With this information, we were able to populate our database as described in the following sections.</p>
 
           <h4>Models:</h4>
-          <p>A major part of ORM(object relational mapping) is models. In our application, we defined four models: game, platform, studio and reviews. In models.py, we created a model for each of our four classes and defined the attributes we wanted them to have. Since models.py works closely with SQLAlchemy, for each attribute of each model, we defined the expected type for the attribute. In cases in which there’s a one to many or many to one relationship, we employed the method db.relationship() with parameters backref and lazy=”dynamic” to set up the relationship so that we can access the respective model. Backref allows the objects to link to each other while lazy=”dynamic” allows us to display the query results when we render it in Jinja2. In other words, backref is a simple way to declare some new property of the class you’re linking a model to. Whereas lazy defines when SQLAlchemy will load the data from the database you create. Setting up the models.py allowed us to create objects for each model and be able to use data in a declarative way as we did in app.py. Having defined the relationships, it made it easier for us to get the attributes a certain object was connected it. </p>
+          <p>A major part of ORM(object relational mapping) is models. In our application, we defined four models: game, platform, studio and reviews. In models.py, we created a model for each of our four classes and defined the attributes we wanted them to have. Since models.py works closely with SQLAlchemy, for each attribute of each model, we defined the expected type for the attribute. In cases in which there’s a one to many or many to one relationship, we employed the method db.relationship() with parameters backref and lazy=”dynamic” to set up the relationship so that we can access the respective model. Backref allows the objects to link to each other while lazy=”dynamic” allows us to display the query results when we render it in Jinja2. In other words, backref is a simple way to declare some new property of the class you’re linking a model to. Whereas lazy defines when SQLAlchemy will load the data from the database you create. Setting up the models.py allowed us to create objects for each model and be able to use data in a declarative way as we did in __init__.py. Having defined the relationships, it made it easier for us to get the attributes a certain object was connected it. We overwrote __init__ for each model and then we declared them as we made our objects. We used assertions throughout the init methods to make sure that the data being passed in are what we were expecting. </p>
 
           <h4>Database:</h4>
-          <p>We used SQLAlchemy with our Flask application as a means of easily storing data and accessing them when needed. We first configured our application to use the local database in app.py as show below:<p>
+          <p>We used SQLAlchemy with our Flask application as a means of easily storing data and accessing them when needed. We first configured our application to use the local database in __init__.py as show below:<p>
 
           <figure>
            <img class="center-block" float="left" src="../static/images/tools_3.png" style="height: 250px; width: 550px;"/>
@@ -228,15 +232,19 @@
 
           <p>Then to initialize the database, we entered the Python interactive mode and created a session for the database and called “db.create_all()”. In order to populate our database as quickly and efficiently as possible, we created a script called populateDb.py that we used to parse the JSON files we scraped as detailed above and inserted the various object models into the database. For each model, we constructed the appropriate object and initialized the information and then added the object to our database using db.session.add(). Then we committed the change if no errors occurred.</p>
 
-          <h4>App.py</h4>
-          <p>App.py is the main file for our application. In it, we defined the different routes to the html/css files in templates and we configured basic information for our application such as the database path as shown:</p>
+          <h4>__init__.py</h4>
+          <p>__init__.py is the main file for our application. __init__.py is our file from which we run the application on the server. In it, we defined the different routes to the html/css files in templates and we configured basic information for our application such as the database path as shown:</p>
 
           <figure>
            <img class="center-block" float="left" src="../static/images/tools_4.png" style="width: 550px;"/>
            <figcaption style="color: black; text-align: center; font-size: 1.2em">Fig 4. Routing</figcaption>
           </figure>
 
+
+          <p>For pagination and populating the pages with our data, we accessed the database for the respective model and rendered the template passing in the list of objects. To easily accomplish this, we employed a flask library called flask-paginate that handled most of the work for pagination. Then we altered our html files to employ Jinja2 as a way to dynamically generate the data and provide pages limited by the number of items we want for each page. While Jinja2 may be considered front-end, since it comes with Flask, the back-end developers used it to render the various pages and their elements.</p>
+
           <p id="hosting">For pagination and populating the pages with our data, we accessed the database for the respective model and rendered the template passing in the list of objects. To easily accomplish this, we employed a flask library called flask-paginate that handled most of the work for pagination. Then we altered our html files to employ Jinja2 as a way to dynamically generate the data and provide pages limited by the number of items we want for each page.</p>
+
 
           <!--HOSTING-->
           <h2 style="padding-top: 15px">Hosting</h2>
