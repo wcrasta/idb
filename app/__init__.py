@@ -1,5 +1,4 @@
 from models import app
-from database import db
 from flask import Flask, render_template
 from flask import request
 from flask_paginate import Pagination
@@ -8,9 +7,10 @@ import json
 import time
 from flask_sqlalchemy import SQLAlchemy
 
-from models import Game, Platform, Reviews, Studio
+from models import Game, Platform, Reviews, Studio, app, db
 
 POSTS_PER_PAGE = 10
+
 
 @app.route('/report')
 def report():
@@ -18,6 +18,7 @@ def report():
         Renders the report page
     """
     return render_template('report.html')
+
 
 @app.route('/')
 def index():
@@ -39,7 +40,7 @@ def about():
 @app.route('/games/<int:page>', methods=['GET'])
 def games(page=1):
     """
-        Renders the games page 
+        Renders the games page
         passing in Game objects for dynamic generation of pages
     """
 
@@ -50,11 +51,11 @@ def games(page=1):
         page=page, css_framework='foundation', total=games.count(), record_name='items')
     return render_template('games.html', items=games[min(page * 9, games.count() - 9):(page + 1) * 9], pagination=pagination)
 
-       
+
 @app.route('/game/<name>', methods=['GET'])
 def game_instance(name):
     """
-        Renders the game_instance page populating items 
+        Renders the game_instance page populating items
         with Game objects
     """
     game_instance = db.session.query(Game).get(name)
@@ -65,7 +66,7 @@ def game_instance(name):
 @app.route('/reviews/<int:page>', methods=['GET'])
 def reviews(page=1):
     """
-        Renders the reviews page 
+        Renders the reviews page
         passing in Reviews objects for dynamic generation of pages
     """
     value = request.args.get('sort', 'title')
@@ -76,11 +77,10 @@ def reviews(page=1):
     return render_template('reviews.html', items=reviews[min(page * 9, reviews.count() - 9):(page + 1) * 9], pagination=pagination)
 
 
-
 @app.route('/review/<name>', methods=['GET'])
 def review_instance(name):
     """
-        Renders the review_instance page populating items 
+        Renders the review_instance page populating items
         with Reviews objects
     """
     review_instance = db.session.query(Reviews).get(name)
@@ -91,7 +91,7 @@ def review_instance(name):
 @app.route('/platforms/<int:page>', methods=['GET'])
 def platforms(page=1):
     """
-        Renders the platforms  page 
+        Renders the platforms  page
         passing in Platform objects for dynamic generation of pages
     """
     value = request.args.get('sort', 'name')
@@ -105,11 +105,11 @@ def platforms(page=1):
 @app.route('/platform/<name>', methods=['GET'])
 def platform_instance(name):
     """
-        Renders the platform_instance page populating items 
+        Renders the platform_instance page populating items
         with platform objects
     """
     platform_instance = db.session.query(Platform).get(name)
-   
+
     return render_template('platform.html', title='platform_instance', items=platform_instance)
 
 
@@ -117,7 +117,7 @@ def platform_instance(name):
 @app.route('/studios/<int:page>', methods=['GET'])
 def studios(page=1):
     """
-        Renders the studio  page 
+        Renders the studio  page
         passing in Studios objects for dynamic generation of pages
     """
     value = request.args.get('sort', 'name')
@@ -131,13 +131,12 @@ def studios(page=1):
 @app.route('/studio/<name>', methods=['GET'])
 def studio_instance(name):
     """
-        Renders the studio_instance page populating items 
+        Renders the studio_instance page populating items
         with studio objects
     """
     studio_instance = db.session.query(Studio).get(name)
     return render_template('studio.html', title='studio_instance', items=studio_instance)
 
 
-
-if __name__=='__main__':
+if __name__ == '__main__':
     app.run()

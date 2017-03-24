@@ -4,16 +4,17 @@
 # pylint: disable = missing-docstring
 # pylint: disable = invalid-name
 # pylint: disable = too-few-public-methods
+# pylint: disable = too-many-arguments
+# pylint: disable = too-many-instance-attributes
+# pylint: disable = too-many-locals
+# pylint: disable = line-too-long
 
-
-#from database import db
-# from app import db
+import os
 from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
-import os 
 app = Flask(__name__)
 
-app.debug = True
+app.debug = False
 
 basedir = os.path.abspath(os.path.dirname(__file__))
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///' + \
@@ -21,6 +22,7 @@ app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///' + \
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 # db.init_app(app)
 db = SQLAlchemy(app)
+
 
 class Game(db.Model):
 
@@ -61,6 +63,41 @@ class Game(db.Model):
     release_date = db.Column(db.DateTime)
     website = db.Column(db.String(80))
 
+    # inits a game object
+    def __init__(self, name, api_id, summary, genre,
+                 rating, storyline, category, esrb, status, platform_id,
+                 studio_id, reviews, video, image, release_date, website):
+        assert name != None
+        assert api_id > 0
+        assert summary != None
+        assert genre != None
+        assert rating > -1
+        assert storyline != None
+        assert category > -1
+        assert category < 50
+        assert esrb > -1
+        assert status > -1 and status < 50
+        assert video != None
+        assert image != None
+        assert release_date != None
+        assert website != None
+        self.name = name
+        self.api_id = api_id
+        self.summary = summary
+        self.genre = genre
+        self.rating = rating
+        self.storyline = storyline
+        self.category = category
+        self.esrb = esrb
+        self.status = status
+        self.platform_id = platform_id
+        self.studio_id = studio_id
+        self.reviews = reviews
+        self.video = video
+        self.image = image
+        self.release_date = release_date
+        self.website = website
+
 
 class Platform(db.Model):
 
@@ -84,6 +121,30 @@ class Platform(db.Model):
     website = db.Column(db.String(80))
     studio = db.relationship('Studio', backref='platform', lazy="dynamic")
 
+    # makes a platform object
+    def __init__(self, api_id, created_at, name, summary, games, review, generation, image, website, studio):
+        assert api_id > 0
+        assert created_at != None
+        assert name != ''
+        assert summary != None
+        assert games != None
+        assert review != None
+        assert generation > -1 and generation < 100
+        assert image != None
+        assert website != None
+        assert studio != None
+
+        self.api_id = api_id
+        self.created_at = created_at
+        self.name = name
+        self.summary = summary
+        self.games = games
+        self.review = review
+        self.generation = generation
+        self.image = image
+        self.website = website
+        self.studio = studio
+
 
 class Studio(db.Model):
 
@@ -102,6 +163,23 @@ class Studio(db.Model):
     game = db.relationship('Game', backref='studio', lazy="dynamic")
     created_at = db.Column(db.DateTime)
     website = db.Column(db.String(128))
+
+    # makes a studio model
+    def __init__(self, name, platform_id, logo, description, game, created_at, website):
+        assert name != ''
+        assert platform_id >= 0
+        assert logo != None
+        assert description != None
+        assert game != None
+        assert created_at != None
+        assert website != None
+        self.name = name
+        self.platform_id = platform_id
+        self.logo = logo
+        self.description = description
+        self.game = game
+        self.created_at = created_at
+        self.website = website
 
 
 class Reviews(db.Model):
@@ -129,4 +207,31 @@ class Reviews(db.Model):
     positive = db.Column(db.Text)
     negative = db.Column(db.Text)
     url = db.Column(db.String(80))
-    assert(id is not None)
+
+    # makes a reviews model
+    def __init__(self, title, platform_id, game_id, created_at, views, video,
+                 introduction, content, conclusion, positive, negative, url):
+        assert title != ''
+        assert platform_id != None
+        assert game_id != None
+        assert created_at != None
+        assert views >= 0
+        assert video != None
+        assert introduction != None
+        assert content != None
+        assert conclusion != None
+        assert positive != None
+        assert negative != None
+        assert url != None
+        self.title = title
+        self.platform_id = platform_id
+        self.game_id = game_id
+        self.created_at = created_at
+        self.views = views
+        self.video = video
+        self.introduction = introduction
+        self.content = content
+        self.conclusion = conclusion
+        self.positive = positive
+        self.negative = negative
+        self.url = url

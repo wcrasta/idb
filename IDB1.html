@@ -60,14 +60,7 @@ and&nbsp;companies.<br>&nbsp;</tt></td></tr>
 </dl>
 <hr>
 Methods defined here:<br>
-<dl><dt><a name="Game-__init__"><strong>__init__</strong></a>(self, **kwargs)</dt><dd><tt>A&nbsp;simple&nbsp;constructor&nbsp;that&nbsp;allows&nbsp;initialization&nbsp;from&nbsp;kwargs.<br>
-&nbsp;<br>
-Sets&nbsp;attributes&nbsp;on&nbsp;the&nbsp;constructed&nbsp;instance&nbsp;using&nbsp;the&nbsp;names&nbsp;and<br>
-values&nbsp;in&nbsp;``kwargs``.<br>
-&nbsp;<br>
-Only&nbsp;keys&nbsp;that&nbsp;are&nbsp;present&nbsp;as<br>
-attributes&nbsp;of&nbsp;the&nbsp;instance's&nbsp;class&nbsp;are&nbsp;allowed.&nbsp;These&nbsp;could&nbsp;be,<br>
-for&nbsp;example,&nbsp;any&nbsp;mapped&nbsp;columns&nbsp;or&nbsp;relationships.</tt></dd></dl>
+<dl><dt><a name="Game-__init__"><strong>__init__</strong></a>(self, name, api_id, summary, genre, rating, storyline, category, esrb, status, platform_id, studio_id, reviews, video, image, release_date, website)</dt></dl>
 
 <hr>
 Data descriptors defined here:<br>
@@ -107,7 +100,7 @@ Data descriptors defined here:<br>
 </dl>
 <hr>
 Data and other attributes defined here:<br>
-<dl><dt><strong>__mapper__</strong> = &lt;Mapper at 0x7f206b28a150; Game&gt;</dl>
+<dl><dt><strong>__mapper__</strong> = &lt;Mapper at 0x7fca6e470190; Game&gt;</dl>
 
 <dl><dt><strong>__table__</strong> = Table('game', MetaData(bind=None), Column('id', ...', String(length=80), table=&lt;game&gt;), schema=None)</dl>
 
@@ -154,14 +147,7 @@ game,&nbsp;review&nbsp;and&nbsp;studio.<br>&nbsp;</tt></td></tr>
 </dl>
 <hr>
 Methods defined here:<br>
-<dl><dt><a name="Platform-__init__"><strong>__init__</strong></a>(self, **kwargs)</dt><dd><tt>A&nbsp;simple&nbsp;constructor&nbsp;that&nbsp;allows&nbsp;initialization&nbsp;from&nbsp;kwargs.<br>
-&nbsp;<br>
-Sets&nbsp;attributes&nbsp;on&nbsp;the&nbsp;constructed&nbsp;instance&nbsp;using&nbsp;the&nbsp;names&nbsp;and<br>
-values&nbsp;in&nbsp;``kwargs``.<br>
-&nbsp;<br>
-Only&nbsp;keys&nbsp;that&nbsp;are&nbsp;present&nbsp;as<br>
-attributes&nbsp;of&nbsp;the&nbsp;instance's&nbsp;class&nbsp;are&nbsp;allowed.&nbsp;These&nbsp;could&nbsp;be,<br>
-for&nbsp;example,&nbsp;any&nbsp;mapped&nbsp;columns&nbsp;or&nbsp;relationships.</tt></dd></dl>
+<dl><dt><a name="Platform-__init__"><strong>__init__</strong></a>(self, api_id, created_at, name, summary, games, review, generation, image, website, studio)</dt></dl>
 
 <hr>
 Data descriptors defined here:<br>
@@ -189,7 +175,7 @@ Data descriptors defined here:<br>
 </dl>
 <hr>
 Data and other attributes defined here:<br>
-<dl><dt><strong>__mapper__</strong> = &lt;Mapper at 0x7f206b28aa10; Platform&gt;</dl>
+<dl><dt><strong>__mapper__</strong> = &lt;Mapper at 0x7fca6e470a50; Platform&gt;</dl>
 
 <dl><dt><strong>__table__</strong> = Table('platform', MetaData(bind=None), Column('i...tring(length=80), table=&lt;platform&gt;), schema=None)</dl>
 
@@ -237,14 +223,7 @@ such&nbsp;as&nbsp;introduction,&nbsp;content&nbsp;and&nbsp;conclusion.<br>
 </dl>
 <hr>
 Methods defined here:<br>
-<dl><dt><a name="Reviews-__init__"><strong>__init__</strong></a>(self, **kwargs)</dt><dd><tt>A&nbsp;simple&nbsp;constructor&nbsp;that&nbsp;allows&nbsp;initialization&nbsp;from&nbsp;kwargs.<br>
-&nbsp;<br>
-Sets&nbsp;attributes&nbsp;on&nbsp;the&nbsp;constructed&nbsp;instance&nbsp;using&nbsp;the&nbsp;names&nbsp;and<br>
-values&nbsp;in&nbsp;``kwargs``.<br>
-&nbsp;<br>
-Only&nbsp;keys&nbsp;that&nbsp;are&nbsp;present&nbsp;as<br>
-attributes&nbsp;of&nbsp;the&nbsp;instance's&nbsp;class&nbsp;are&nbsp;allowed.&nbsp;These&nbsp;could&nbsp;be,<br>
-for&nbsp;example,&nbsp;any&nbsp;mapped&nbsp;columns&nbsp;or&nbsp;relationships.</tt></dd></dl>
+<dl><dt><a name="Reviews-__init__"><strong>__init__</strong></a>(self, title, platform_id, game_id, created_at, views, video, introduction, content, conclusion, positive, negative, url)</dt></dl>
 
 <hr>
 Data descriptors defined here:<br>
@@ -280,7 +259,7 @@ Data descriptors defined here:<br>
 </dl>
 <hr>
 Data and other attributes defined here:<br>
-<dl><dt><strong>__mapper__</strong> = &lt;Mapper at 0x7f206b2b9ad0; Reviews&gt;</dl>
+<dl><dt><strong>__mapper__</strong> = &lt;Mapper at 0x7fca6e49eb10; Reviews&gt;</dl>
 
 <dl><dt><strong>__table__</strong> = Table('reviews', MetaData(bind=None), Column('id...String(length=80), table=&lt;reviews&gt;), schema=None)</dl>
 
@@ -326,14 +305,7 @@ they&nbsp;built/published,&nbsp;the&nbsp;website&nbsp;and&nbsp;etc.<br>
 </dl>
 <hr>
 Methods defined here:<br>
-<dl><dt><a name="Studio-__init__"><strong>__init__</strong></a>(self, **kwargs)</dt><dd><tt>A&nbsp;simple&nbsp;constructor&nbsp;that&nbsp;allows&nbsp;initialization&nbsp;from&nbsp;kwargs.<br>
-&nbsp;<br>
-Sets&nbsp;attributes&nbsp;on&nbsp;the&nbsp;constructed&nbsp;instance&nbsp;using&nbsp;the&nbsp;names&nbsp;and<br>
-values&nbsp;in&nbsp;``kwargs``.<br>
-&nbsp;<br>
-Only&nbsp;keys&nbsp;that&nbsp;are&nbsp;present&nbsp;as<br>
-attributes&nbsp;of&nbsp;the&nbsp;instance's&nbsp;class&nbsp;are&nbsp;allowed.&nbsp;These&nbsp;could&nbsp;be,<br>
-for&nbsp;example,&nbsp;any&nbsp;mapped&nbsp;columns&nbsp;or&nbsp;relationships.</tt></dd></dl>
+<dl><dt><a name="Studio-__init__"><strong>__init__</strong></a>(self, name, platform_id, logo, description, game, created_at, website)</dt></dl>
 
 <hr>
 Data descriptors defined here:<br>
@@ -357,7 +329,7 @@ Data descriptors defined here:<br>
 </dl>
 <hr>
 Data and other attributes defined here:<br>
-<dl><dt><strong>__mapper__</strong> = &lt;Mapper at 0x7f206b2b9110; Studio&gt;</dl>
+<dl><dt><strong>__mapper__</strong> = &lt;Mapper at 0x7fca6e49e150; Studio&gt;</dl>
 
 <dl><dt><strong>__table__</strong> = Table('studio', MetaData(bind=None), Column('id'...String(length=128), table=&lt;studio&gt;), schema=None)</dl>
 

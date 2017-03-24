@@ -1,3 +1,98 @@
+commit 9f21f609e0a218c3bc7a5f219e41c3457e84f6d3
+Author: wcrasta <wcrasta@utexas.edu>
+Date:   Thu Mar 23 21:02:06 2017 -0500
+
+    Commented models
+
+commit c88caf5a55cbb4c9074c0c11e6ba32ca604c762f
+Merge: 381b8a4 4226388
+Author: Colin Thornton <colin@cs.utexas.edu>
+Date:   Thu Mar 23 20:59:50 2017 -0500
+
+    Merge branch 'update' of https://github.com/wcrasta/idb into update
+
+commit 381b8a46211e7f6db6436f1d0ed75c97af52312a
+Author: Colin Thornton <colin@cs.utexas.edu>
+Date:   Thu Mar 23 20:59:33 2017 -0500
+
+    Finished comments in...
+
+commit 42263880cc20ac722c36564fa79a9f46473c7a16
+Author: Kaivan Shah <kaivan29@utexas.edu>
+Date:   Thu Mar 23 20:54:49 2017 -0500
+
+    grammar changes lol
+
+commit 648f2530673502b246b71b0ad2cef59135698470
+Author: kbbrownn <kbbrown@utexas.edu>
+Date:   Thu Mar 23 20:47:11 2017 -0500
+
+    Fixed about page link formatting
+
+commit c06231ac0a40d41507dc3382e3e7896b13c49e9a
+Merge: 8285168 de184f7
+Author: Kaivan Shah <kaivan29@utexas.edu>
+Date:   Thu Mar 23 20:37:05 2017 -0500
+
+    Merge branch 'update' of https://github.com/wcrasta/idb into update
+
+commit 8285168af25e3236902708a84a7cb9f4c07ed4e7
+Author: Kaivan Shah <kaivan29@utexas.edu>
+Date:   Thu Mar 23 20:37:01 2017 -0500
+
+    reportgit statusgit status
+
+commit de184f7fd06fe4447b400bea17e8945c18c597c0
+Author: kbbrownn <kbbrown@utexas.edu>
+Date:   Thu Mar 23 20:36:06 2017 -0500
+
+    Added link to technical report page
+
+commit a98ed1cfd54e278eb4801e7599af384e06f37059
+Merge: 8a6ba91 ee737d4
+Author: kbbrownn <kbbrown@utexas.edu>
+Date:   Thu Mar 23 20:14:53 2017 -0500
+
+    Merge branch 'update' of https://github.com/wcrasta/idb into update
+
+commit 8a6ba91365607dc27c9cfd3186c8ade8b56a8fb3
+Author: kbbrownn <kbbrown@utexas.edu>
+Date:   Thu Mar 23 20:14:46 2017 -0500
+
+    Updated navbar with logo / other formatting
+
+commit ee737d4da913f4f2fa877c4c0aaf65711a3db5bc
+Author: wcrasta <wcrasta@utexas.edu>
+Date:   Thu Mar 23 20:12:09 2017 -0500
+
+    init.py
+
+commit 03307f0999d90de5b7afdc21d51c80b101d68a71
+Merge: 9245b62 94947cc
+Author: wcrasta <wcrasta@utexas.edu>
+Date:   Thu Mar 23 19:35:28 2017 -0500
+
+    Merge branch 'update' of https://github.com/wcrasta/idb into update
+
+commit 9245b626e45a15acdcaf343cff1a9aaeccbce2d1
+Author: wcrasta <wcrasta@utexas.edu>
+Date:   Thu Mar 23 19:35:12 2017 -0500
+
+    Zihao Travis
+
+commit 94947cc1d728adf8412fd2f59daa4e95448cc10d
+Merge: d821a26 8415b0b
+Author: Kaden Brown <kbb555@cs.utexas.edu>
+Date:   Thu Mar 23 19:21:04 2017 -0500
+
+    Merge branch 'update' of https://github.com/wcrasta/idb into update
+
+commit d821a260fe40b43d4c72cee52acf28b2dbbf471d
+Author: Kaden Brown <kbb555@cs.utexas.edu>
+Date:   Thu Mar 23 19:20:43 2017 -0500
+
+    Fixed coloring to white and fixed bad links for things without websites
+
 commit 8415b0b4fa6c200f3bce3f9cf538fa1ec88fd7b1
 Author: wcrasta <wcrasta@utexas.edu>
 Date:   Thu Mar 23 19:10:37 2017 -0500
