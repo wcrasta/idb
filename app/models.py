@@ -4,9 +4,23 @@
 # pylint: disable = missing-docstring
 # pylint: disable = invalid-name
 # pylint: disable = too-few-public-methods
-from database import db
-# from app import db
 
+
+#from database import db
+# from app import db
+from flask import Flask
+from flask_sqlalchemy import SQLAlchemy
+import os 
+app = Flask(__name__)
+
+app.debug = True
+
+basedir = os.path.abspath(os.path.dirname(__file__))
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///' + \
+    os.path.join(basedir, 'app.db')
+app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+# db.init_app(app)
+db = SQLAlchemy(app)
 
 class Game(db.Model):
 

@@ -83,8 +83,8 @@
           {% else %}
             <img style="height: 50vh; width: 30vw; margin-bottom: 10px;" src="/static/images/no-art.png">
           {% endif %}
-          <h2><a href="{{url_for('game_instance',name = items.game.id)}}">{{items.game.name}}</a></h2>
-          <h2><a href="{{url_for('platform_instance',name = items.platform.id)}}">{{items.platform.name}}</a></h2>
+          <h2><a style = "color: white; text-decoration: underline" href="{{url_for('game_instance',name = items.game.id)}}">{{items.game.name}}</a></h2>
+          <h2><a style = "color: white; text-decoration: underline" href="{{url_for('platform_instance',name = items.platform.id)}}">{{items.platform.name}}</a></h2>
         </div>
         <div class="col-sm-5 text-center">
           <div class="row">
@@ -123,7 +123,7 @@
           </div>
           <div class="row">
             <h2 style="display: inline-block;">URL:	&nbsp;</h2>
-            <span><a href="{{items.url}}">{{items.url}}</a></span>
+            <span><a style = "color: white; text-decoration: underline" href="{{items.url}}">{{items.url}}</a></span>
           </div>
         </div>
       </div>

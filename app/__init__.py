@@ -1,3 +1,4 @@
+from models import app
 from database import db
 from flask import Flask, render_template
 from flask import request
@@ -7,18 +8,7 @@ import json
 import time
 from flask_sqlalchemy import SQLAlchemy
 
-# Create the Flask application.
 from models import Game, Platform, Reviews, Studio
-# app = Flask(__name__)
-
-# app.debug = True
-
-# basedir = os.path.abspath(os.path.dirname(__file__))
-# app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///' + \
-#     os.path.join(basedir, 'app.db')
-# app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
-# db.init_app(app)
-# db = SQLAlchemy(app)
 
 POSTS_PER_PAGE = 10
 
@@ -142,6 +132,6 @@ def studio_instance(name):
     return render_template('studio.html', title='studio_instance', items=studio_instance)
 
 
-# Run the Flask app.
-#if __name__ == '__main__':
-#    app.run()
+
+if __name__=='__main__':
+    app.run()

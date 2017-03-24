@@ -40,11 +40,8 @@ endif
 .pylintrc:
 	$(PYLINT) --disable=locally-disabled --reports=no --generate-rcfile > $@
 
-IDB1.html: app/models.py
-	cp app/database.py database.py
-	pydoc3 -w app/models.py
-	mv models.html IDB1.html
-	rm database.py	
+IDB1.html: 
+	./pydoc3.sh
 
 IDB1.log:
 	git log > IDB1.log
