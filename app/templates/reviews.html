@@ -9,22 +9,35 @@
 <link rel="stylesheet" type="text/css" href="../static/css/common.css">
 <style type="text/css">
   body {
-    background: url('../static/images/bg.png');
+    background: url('../static/images/bg2.png');
   }
   h1 {
     color: white;
   }
   h2 {
-    color: white;
+    color: black;
+    text-align: center;
+  }
+  p {
+    text-align: left;
+    color: black;
+    font-size: 1.5em;
   }
   img {
-    width: 150px;
-    height: 150px;
+    width: 200px;
+    height: 200px;
+    border-radius: 15px;
   }
-  .table-bordered {
-    font-size: 175%;
-    color: white;
-    background-color: #58247f;
+  .center-block {
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .underline {
+    width: 100%;
+  }
+  .list-group {
+    padding-left: 20px;
+    padding-top: 20px;
   }
 </style>
 </head>
@@ -32,7 +45,7 @@
 
   <header>
     <!-- Starting Navigation Bar -->
-    <nav class="navbar navbar-toggleable-md navbar-fixed-top">
+    <nav class="navbar navbar-toggleable-md navbar-fixed-top" style="background-color: black; margin-top: 0;">
       <div class="container">
         <div class="navbar-header">
           <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#nav-col">
@@ -41,12 +54,11 @@
             <span class="icon-bar"></span>
           </button>
           <div class="collapse navbar-collapse navbar-left" id="nav-col">
-            <div class="navbar-header">
-              <a class="navbar-brand" href="/">GGnoSWE
-              </a>
-            </div>
             <ul class="nav navbar-nav">
-              <li class="nav-item active">
+              <li class="nav-item">
+                <a class="nav-link" href="/">GGnoSWE</a>
+              </li>
+              <li class="nav-item">
                 <a class="nav-link" href="{{ url_for('games')}}">Games
                   <span class="sr-only">(current)</span>
                 </a>
@@ -69,72 +81,115 @@
       </div>
     </nav>
 
- <div class="container">
+    <!-- Page Content -->
+    <div class="container">
 
       <!-- Filtering options -->
       <div class="row">
 
-            <div class="col-md-3">
-                <p class="text-left" style="padding-top: 280px" > <font color="white" size ="6">Reviews</font></p>
-                <div class="list-group">
-                  <input type="checkbox"> <font color="white" size ="4">Views </font> <br>
-                  <input type="checkbox"> <font color="white" size ="4">Video </font> <br>
-                  <input type="submit" value="Submit">
-                </div>
+            <div class="col-md-3"  style="margin-top: 220px">
+              <div class="row" style="padding-right: 50px;">
+                <div clas="col-sm-4"  style="border: 1px solid white;">
+                  <div class="dropdown" style="padding-left: 20px; padding-top: 20px;">
+                    <button class="btn btn-secondary dropdown-toggle" style="background-color: white"><font color="black">Sort relevance &nbsp;</font><span class="caret"></span></button>
+                    <div class="dropdown-content">
+                      <a href="#">Games</a>
+                      <a href="#">Platform</a>
+                      <a href="#">Views</a>
+                    </div>
+                  </div>
+                  <p class="text-left" style="padding-top: 60px; padding-left: 20px; padding-top: 20px;" > <font color="white" size ="6">Platform</font></p>
+                  <div class="list-group">
+                    <input type="checkbox"> <font color="white" size ="4">PlayStation 4 </font> <br>
+                    <input type="checkbox"> <font color="white" size ="4">Xbox One </font> <br>
+                    <input type="checkbox"> <font color="white" size ="4">PC </font> <br>
+                    <input type="submit" value="Submit">
+                  </div>
 
-              <p class="text-left" style="padding-top: 30px" > <font color="white" size ="6">Studio</font></p>
-                <div class="list-group">
-                  <input type="checkbox"> <font color="white" size ="4"> Guerilla Games </font> <br>
-                  <input type="checkbox"> <font color="white" size ="4">EA Sports </font> <br>
-                  <input type="checkbox"> <font color="white" size ="4"> 343 Industries </font> <br>
-                  <input type="submit" value="Submit">
+                <p class="text-left" style="padding-top: 30px; padding-left: 20px; padding-top: 20px;" ></p>
                 </div>
+              </div>
             </div>
 
             <!--Load them images up -->
-            <div class = 'col-md-9' style="padding-top: 50px">
+            <div class = 'col-md-9' style="padding-top: 100px">
+              <div class="row">
+                <div class="col-sm-12">
+                  <div class="row">
+                    <div class="col-sm-12">
+                      <div style="color: white; float: right; text-align: right;">
+                        {{ pagination.links }}
+                      </div>
+                        <h1>Reviews</h1>
 
-                <h1 class="text-center">  Reviews </h1>
+                      <div class="row">
+                        <div class="col-sm-6">
+                          <p>
+                            &nbsp;
+                          </p>
+                        </div>
+                        <div class="col-sm-6">
+                          <div style="color: white; text-align: right; margin-top: 10px;">
+                            {{ pagination.info }}
+                          </div>
+                        </div>
+                        <div class="col-sm-12">
 
-                <div class="dropdown" style="padding-top: 30px">
-                  <button class="dropbtn" background-color="grey"><font color="black">Sort relevance</font></button>
-                  <div class="dropdown-content">
-                    <a href="#">Games</a>
-                    <a href="#">Platform</a>
-                    <a href="#">Studio</a>
+                        <div class="underline"></div>
+                        </div>
+                      </div>
+                    </div>
                   </div>
                 </div>
+              </div>
+          <div class="row" style="margin-top: 30px; margin-bottom: 30px; background: white; opacity: 0.9; border-radius: 15px;">
 
-                <div class="row" style="padding-top: 75px;">
-                <input type="text" id="myInput" onkeyup="search()" placeholder="Search for a game.." title="Type in a name">
-                <div style="color: white;">
-                  {{ pagination.info }}
-                </div>
-              {{ pagination.links }}
-                <div class="underline"></div>
-     {% for item_row in items | batch(3, '&nbsp;') %}
-
-
-          <div class = "row">
-                   {% for item in item_row %}
-            <div class = "col-md-3">
-            <h2><a href="{{ url_for('review_instance', name = item.id)}}" > {{item.title}} </a></h2>
+          {% for item_row in items | batch(3, '&nbsp;') %}
+          <div class = "row" style="overflow: hidden; margin-bottom: 30px;">
+           {% for item in item_row %}
+           <div class = "col-md-4">
+           <div class="row">
+             <div class="col-sm-12">
+               <div style="inline;">
+                 <div class="row">
+                   <div class="col-sm-12">
+                     <h2 style="word-wrap: break-word; margin-bottom: 0;
+                     padding-top: 25px; height: 125px; width: 100%;
+                     color: black; text-decoration: underline;">
+                     <a href="{{ url_for('review_instance',
+                     name = item.id)}}">
+                     {% if item.title | length > 50 %}
+                     {{item.title[:47]}}...
+                     {% else %}
+                      {{item.title}}
+                      {% endif %}
+                    </h2>
+                   </div>
+                 </div>
             <p>
           {% if item.game.image != 'None' %}
-            <img class="center-block" src="{{item.game.image}}" />
-            {% else %}
-            <img class ="center-block" src="/static/images/no-art.png"/>
-            {% endif %}
-            <a href="{{ url_for('game_instance', name = item.game.id)}}" >Game: {{item.game.name}} </a>
+          <img class="center-block" style="height: 250px" src="{{item.game.image}}" />
+          {% else %}
+          <img class ="center-block" style="height: 250px" src="/static/images/no-art.png"/>
+          {% endif %}
+          </a>
+          </div>
+          <div class="row" style="padding-left: 40px;">
+            <div class="col-sm-12">
+              <p><a href="{{ url_for('game_instance', name = item.game.id)}}" >Game: {{item.game.name}} </a></p>
           </p>
           <p>
-            <a href="{{url_for('platform_instance', name=item.platform.id)}}"> Game Platform: {{item.platform.name}}</a>
+            <p><a href="{{url_for('platform_instance', name=item.platform.id)}}"> Game Platform: {{item.platform.name}}</a></p>
           </p>
-            <p style="color:white"> Video: {{item.video}} </p>
-            <p style="color:white"> Written Time: {{item.created_at}} </p>
-            <p style="color:white"> Views: {{item.views}} </p>
-            <p style="color:white"> Review: <a href="{{item.url}}"> {{item.title}}</a> </p>
+            <p> Video: {{item.video}} </p>
+            <p> Written Time: {{item.created_at}} </p>
+            <p> Views: {{item.views}} </p>
+            <p> Review: <a href="{{item.url}}"> {{item.title}}</a> </p>
           </div>
+        </div>
+      </div>
+    </div>
+  </div>
                    {% endfor %}
 
           </div>
