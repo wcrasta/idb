@@ -1,3 +1,203 @@
+commit b95e34a3f50e8389be4b1fef257be1ea9ff841c2
+Author: wcrasta <wcrasta@utexas.edu>
+Date:   Thu Mar 23 18:46:58 2017 -0500
+
+    FIX TRAVISgit add .
+
+commit 8d6f0966791721dfab8da0a27f7bbbee4928ff70
+Author: wcrasta <wcrasta@utexas.edu>
+Date:   Thu Mar 23 18:44:35 2017 -0500
+
+    requirements.txt
+
+commit 8a6ebf5ad63b34567520a9b6135d5856dd69ad8d
+Author: wcrasta <wcrasta@utexas.edu>
+Date:   Thu Mar 23 18:39:20 2017 -0500
+
+    Comments and makefile change
+
+commit 61b427cbfa2c0631f2102f02d64f51cf50d6046b
+Merge: 6e86336 16c3ee7
+Author: kbbrownn <kbbrown@utexas.edu>
+Date:   Thu Mar 23 18:34:31 2017 -0500
+
+    Merge branch 'update' of https://github.com/wcrasta/idb into update
+
+commit 6e8633654f6098483cb45d3b11935160a871b630
+Author: kbbrownn <kbbrown@utexas.edu>
+Date:   Thu Mar 23 18:34:23 2017 -0500
+
+    Updated about page project leader / tools
+
+commit 16c3ee7d63bfa39ddd2ccf6f107f2b46e4ab0557
+Merge: 24540cc c5c1c41
+Author: Kaden Brown <kbb555@cs.utexas.edu>
+Date:   Thu Mar 23 17:31:51 2017 -0500
+
+    Merge branch 'update' of https://github.com/wcrasta/idb into update
+
+commit 24540cc9a0cbccefaac964fb60b246328ba78d48
+Author: Kaden Brown <kbb555@cs.utexas.edu>
+Date:   Thu Mar 23 17:31:30 2017 -0500
+
+    Fixed Sort and name length
+
+commit c5c1c41e3ed32ed96e08a108e8624b9491e9957c
+Author: kbbrownn <kbbrown@utexas.edu>
+Date:   Thu Mar 23 17:30:51 2017 -0500
+
+    Added functionality for mobile navbar
+
+commit 8e05bfccc182be7efb6663e7efd0c227ebbefdc2
+Merge: 142b51a cd38854
+Author: Kaden Brown <kbb555@cs.utexas.edu>
+Date:   Thu Mar 23 17:05:07 2017 -0500
+
+    Merge branch 'update' of https://github.com/wcrasta/idb into update
+
+commit 142b51a5535bfb6b3564f23d6c76e79f71258a8b
+Author: Kaden Brown <kbb555@cs.utexas.edu>
+Date:   Thu Mar 23 17:04:32 2017 -0500
+
+    Finished studios and fixed platform background for large lists
+
+commit 1bac534a29e00b86f373fbe7d6469d8fadcbe962
+Author: Kaden Brown <kbb555@cs.utexas.edu>
+Date:   Thu Mar 23 17:03:17 2017 -0500
+
+    Finished studios and fixed platform background for large lists
+
+commit cd3885417aa113ebecf254dc595fba52ebe70036
+Merge: 37eec08 2a99368
+Author: wcrasta <wcrasta@utexas.edu>
+Date:   Thu Mar 23 16:42:49 2017 -0500
+
+    Merge branch 'update' of https://github.com/wcrasta/idb into update
+
+commit 37eec08815d5f4b571134c0297bf86f0ea8a3358
+Author: wcrasta <wcrasta@utexas.edu>
+Date:   Thu Mar 23 16:42:21 2017 -0500
+
+    Updated tests
+
+commit 2a99368800d3e77938a1306af170ebb4e29c3faf
+Author: kbbrownn <kbbrown@utexas.edu>
+Date:   Thu Mar 23 16:28:26 2017 -0500
+
+    Updated platforms page with new style
+
+commit 48edc7ba1e9f88e12d831ffc2f18d250d007bb52
+Merge: 0a5e95b 5a49591
+Author: kbbrownn <kbbrown@utexas.edu>
+Date:   Thu Mar 23 16:27:58 2017 -0500
+
+    Merge branch 'update' of https://github.com/wcrasta/idb into update
+
+commit 5a495916256cc1311f0f15a7ee06e437a33d4e79
+Author: Kaivan Shah <kaivan29@utexas.edu>
+Date:   Thu Mar 23 16:07:48 2017 -0500
+
+    platform fixed
+
+commit 934683050eba6055ec0aab4e17b91c3774d0437f
+Author: Anurag Papineni <anurag@cs.utexas.edu>
+Date:   Thu Mar 23 16:00:43 2017 -0500
+
+    studios style changed
+
+commit 32508844bbcee6466500f80a4227dd45c0616043
+Author: Kaivan Shah <kaivan29@utexas.edu>
+Date:   Thu Mar 23 15:53:37 2017 -0500
+
+    minor change
+
+commit 0a5e95b5b91da117933206957bbc3070d006d14f
+Author: kbbrownn <kbbrown@utexas.edu>
+Date:   Thu Mar 23 15:49:08 2017 -0500
+
+    Fixed linking for individual platforms
+
+commit 95be29a849c828c34521f111043cfa3f919be65c
+Merge: 3cf4569 1b97c9f
+Author: Kaivan Shah <kaivan29@utexas.edu>
+Date:   Thu Mar 23 15:45:45 2017 -0500
+
+    Merge branch 'update' of https://github.com/wcrasta/idb into update
+
+commit 3cf456921af0c1882775d877882ad266f34989dd
+Author: Kaivan Shah <kaivan29@utexas.edu>
+Date:   Thu Mar 23 15:45:40 2017 -0500
+
+    background and navbar change for invidual pages
+
+commit 1b97c9fed830b74b7f66fd526185d5432ae3090c
+Author: kbbrownn <kbbrown@utexas.edu>
+Date:   Thu Mar 23 15:36:01 2017 -0500
+
+    New style on platforms page -- added image rounding
+
+commit 7c8e5ca6647c5055a809d5c3a0a7345c3a11131e
+Author: kbbrownn <kbbrown@utexas.edu>
+Date:   Thu Mar 23 15:02:52 2017 -0500
+
+    Fixed more formatting
+
+commit 672dee32d92c484121d453f2cb571f4c4403ae65
+Author: kbbrownn <kbbrown@utexas.edu>
+Date:   Thu Mar 23 14:45:21 2017 -0500
+
+    Possibly fixed games formatting with new bg
+
+commit 7c2bd23b86fae7b575ebbf9b6e7e9a3b512baadf
+Author: Zihao <zihaozhu@utexas.edu>
+Date:   Thu Mar 23 13:28:16 2017 -0500
+
+    removed templates and ds_store
+
+commit 63dfa569c8c9995ad30b62ae3f497e3a2b771dc7
+Author: Zihao <zihaozhu@utexas.edu>
+Date:   Thu Mar 23 13:27:07 2017 -0500
+
+    fixed gitignore
+
+commit 9a0ca058c648460ef3022e12a3d7773ffe198e75
+Merge: 1053206 ca35fda
+Author: Zihao <zihaozhu@utexas.edu>
+Date:   Thu Mar 23 13:21:42 2017 -0500
+
+    Fixed up models.py and app.db
+
+commit 1053206d1a0868cf3c2f1058ed3295a1ee0a52b5
+Author: Zihao <zihaozhu@utexas.edu>
+Date:   Thu Mar 23 13:17:02 2017 -0500
+
+    Fixed db and models.py
+
+commit ca35fda81a32300c7e69ef3905948def6dcb20c9
+Merge: 76d2fb4 5019aa8
+Author: wcrasta <wcrasta@utexas.edu>
+Date:   Thu Mar 23 13:16:18 2017 -0500
+
+    Updated structure.
+
+commit 76d2fb418573aa1daa750910de1968bb45aaf0d4
+Author: wcrasta <wcrasta@utexas.edu>
+Date:   Thu Mar 23 13:10:36 2017 -0500
+
+    Changing repo structure.
+
+commit 5019aa8eeabc187bc54490476f08439e66c5c82d
+Author: Zihao <zihaozhu@utexas.edu>
+Date:   Thu Mar 23 12:32:58 2017 -0500
+
+    Doc string for models.py
+
+commit a92bbb435ea9e9fbb2c23fcafbf2dd7c42c003e3
+Author: Anurag Papineni <anuragpapineni@gmail.com>
+Date:   Thu Mar 23 12:10:56 2017 -0500
+
+    Studio page now shows studio name properly
+
 commit fcec2b79cdcd9936e0a42a1836ff2a1c3e5a4a2e
 Author: Warren Crasta <warrencrasta@gmail.com>
 Date:   Thu Mar 23 11:54:42 2017 -0500

@@ -1,10 +1,3 @@
-.DEFAULT_GOAL := test
-
-FILES :=            \
-    IDB1.log        \
-    app/app.py      \
-    app/models.py   \
-    app/tests.py    \
 
 ifeq ($(shell uname), Darwin)          # Apple
     PYTHON   := python3.5
@@ -36,60 +29,12 @@ else                                   # UTCS
     AUTOPEP8 := autopep8
 endif
 
-.pylintrc:
-	$(PYLINT) --disable=locally-disabled --reports=no --generate-rcfile > $@
-
-IDB1.log:
-	git log > IDB1.log
-
-check:
-	@not_found=0;                                 \
-    for i in $(FILES);                            \
-    do                                            \
-        if [ -e $$i ];                            \
-        then                                      \
-            echo "$$i found";                     \
-        else                                      \
-            echo "$$i NOT FOUND";                 \
-            not_found=`expr "$$not_found" + "1"`; \
-        fi                                        \
-    done;                                         \
-    if [ $$not_found -ne 0 ];                     \
-    then                                          \
-        echo "$$not_found failures";              \
-        exit 1;                                   \
-    fi;                                           \
-    echo "success";
-
+subsystem:
+	cd app && $(MAKE)
+test:
+	cd app && $(MAKE) test
 clean:
-	rm -f  .coverage
-	rm -f  *.pyc
-	rm -rf __pycache__
-	rm -f .pylintrc
-	rm -f  IDB1.html
-	rm -f  IDB1.log
-
-config:
-	git config -l
-
-format:
-	$(AUTOPEP8) -i app/app.py
-	$(AUTOPEP8) -i app/database.py
-	$(AUTOPEP8) -i app/db_create.py
-	$(AUTOPEP8) -i app/models.py
-	$(AUTOPEP8) -i app/populateDb.py
-	$(AUTOPEP8) -i app/tests.py
-
-status:
-	make clean
-	@echo
-	git branch
-	git remote -v
-	git status
-
-test: IDB1.log
-	ls -al
-	make check
+	cd app && $(MAKE) clean
 
 versions:
 	which make

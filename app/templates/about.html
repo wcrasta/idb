@@ -43,12 +43,11 @@
             <span class="icon-bar"></span>
           </button>
           <div class="collapse navbar-collapse navbar-left" id="nav-col">
-            <div class="navbar-header">
-              <a class="navbar-brand" href="/">GGnoSWE
-              </a>
-            </div>
             <ul class="nav navbar-nav">
-              <li class="nav-item active">
+              <li class="nav-item">
+                <a class="nav-link" href="/">GGnoSWE</a>
+              </li>
+              <li class="nav-item">
                 <a class="nav-link" href="{{ url_for('games')}}">Games
                   <span class="sr-only">(current)</span>
                 </a>
@@ -97,6 +96,7 @@
             I fell in love with.
           </p>
           <hr/>
+          <h1>Project Leader for Phase 1</h1>
           <h1>Responsibilities: Frontend</h1>
           <h1>No. of commits: 0</h1>
           <h1>No. of issues: 0</h1>
@@ -258,85 +258,100 @@
   <!-- Beginning Tools -->
   <div class="container">
     <div class="row">
-      <div class="col-sm-4" style="padding-top: 150px;">
-        <h2>Tools</h2>
-        <div class="underline" style="border-bottom: 1px solid #FFF;"></div>
+      <div class="col-sm-12">
+        <div class="col-sm-4" style="padding-top: 150px;">
+          <h2>Tools</h2>
+          <div class="underline" style="border-bottom: 1px solid #FFF;"></div>
+        </div>
       </div>
+      <div class="row">
+        <div class="col-sm-6" style="padding-left: 60px; padding-right: 60px;">
+          <div class="row">
+            <h1>Bootstrap: </h1>
+            <p>
+              Bootstrap is an HTML/CSS/JS framework used to aid in the design of our
+              website. It provided a library of useful and fluid design tools, such
+              as the splash page's carousel, navbar and more.
+            </p>
+          </div>
+          <div class="row">
+            <h1>React: </h1>
+            <p>
+              React is a Javascript framework used to aid in the functionality of
+              our website. We used it to link things such as the search bar to our
+              database.
+            </p>
+          </div>
+          <div class="row">
+            <h1>Namecheap: </h1>
+            <p>
+              Namecheap is a service that we used to claim our domain for our
+              website.
+            </p>
+          </div>
+        </div>
+        <div class="col-sm-6" style="padding-left: 60px; padding-right: 60px;">
+          <div class="row">
+            <h1>Flask: </h1>
+            <p>
+              Flask is a Python framework used to help implement our backend and
+              serve our website.
+            </p>
+          </div>
+          <div class="row">
+            <h1>SQLAlchemy: </h1>
+            <p>
+              SQLAlchemy is a Python-SQL framework used to build and query our
+              database on the backend.
+            </p>
+          </div>
+          <div class="row">
+            <h1>Apiary: </h1>
+            <p>
+              Apiary is a tool used to build/manage/document our API. We then use
+              this to allow others to scrape our site.
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-6" style="padding-left: 60px; padding-right: 60px;">
+          <div class="row">
+            <h1>Amazon Web Services (AWS): </h1>
+            <p>
+              AWS is a website hosting / management service, served by Amazon, that
+              we used to deploy our website with.
+            </p>
+          </div>
+          <div class="row">
+            <h1>Slack: </h1>
+            <p>
+              Slack is a team communication application that we used to discuss
+              design decisions, scheduling and much more. We also integrated our
+              GitHub repo directly to our main chat channel so that we could all
+              receive real-time updates on the project.
+            </p>
+          </div>
+        </div>
+        <div class="col-sm-6" style="padding-left: 60px; padding-right: 60px;">
+          <div class="row">
+            <h1>GitHub: </h1>
+            <p>
+              GitHub is the version control site we used to store our project files
+              and documentation, with the help of git.
+            </p>
+          </div>
+          <div class="row">
+            <h1>SQLite: </h1>
+            <p>
+              SQLite is a light-weight, embedded, open-source database engine that
+              we used to create and populate our database with.
+            </p>
+          </div>
+        </div>
+      </div>
+      <br /><br />
     </div>
-    <div class="row">
-      <div class="col-sm-6">
-        <h1>Bootstrap: </h1>
-        <p>
-          Bootstrap is an HTML/CSS/JS framework used to aid in the design of our
-          website. It provided a library of useful and fluid design tools, such
-          as the splash page's carousel, navbar and more.
-        </p>
-      </div>
-      <div class="col-sm-6">
-        <h1>React: </h1>
-        <p>
-          React is a Javascript framework used to aid in the functionality of
-          our website. We used it to link things such as the search bar to our
-          database.
-        </p>
-      </div>
-      <div class="col-sm-6">
-        <h1>Flask: </h1>
-        <p>
-          Flask is a Python framework used to help implement our backend and
-          serve our website.
-        </p>
-      </div>
-      <div class="col-sm-6">
-        <h1>SQLAlchemy: </h1>
-        <p>
-          SQLAlchemy is a Python-SQL framework used to build and query our
-          database on the backend.
-        </p>
-      </div>
-      <div class="col-sm-6">
-        <h1>Apiary: </h1>
-        <p>
-          Apiary is a tool used to build/manage/document our API. We then use
-          this to allow others to scrape our site.
-        </p>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-sm-6">
-        <h1>Namecheap: </h1>
-        <p>
-          Namecheap is a service that we used to claim our domain for our
-          website.
-        </p>
-      </div>
-      <div class="col-sm-6">
-        <h1>Amazon Web Services (AWS): </h1>
-        <p>
-          AWS is a website hosting / management service, served by Amazon, that
-          we used to deploy our website with.
-        </p>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-sm-6">
-        <h1>Slack: </h1>
-        <p>
-          Slack is a team communication application that we used to discuss
-          design decisions, scheduling and much more. We also integrated our
-          GitHub repo directly to our main chat channel so that we could all
-          receive real-time updates on the project.
-        </p>
-      </div>
-      <div class="col-sm-6">
-        <h1>GitHub: </h1>
-        <p>
-          GitHub is the version control site we used to store our project files
-          and documentation, with the help of git.
-        </p>
-      </div>
-    </div>
-    <br /><br />
   </div>
   <script src="https://code.jquery.com/jquery-3.2.0.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
