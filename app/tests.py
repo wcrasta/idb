@@ -1,7 +1,6 @@
 import os
 import unittest
 
-from app import db
 from models import *
 
 

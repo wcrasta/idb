@@ -64,39 +64,92 @@ class Game(db.Model):
     website = db.Column(db.String(80))
 
     # inits a game object
-    def __init__(self, name, api_id, summary, genre,
-                 rating, storyline, category, esrb, status, platform_id,
-                 studio_id, reviews, video, image, release_date, website):
-        assert name != None
-        assert api_id > 0
-        assert summary != None
-        assert genre != None
-        assert rating > -1
-        assert storyline != None
-        assert category > -1
-        assert category < 50
-        assert esrb > -1
-        assert status > -1 and status < 50
-        assert video != None
-        assert image != None
-        assert release_date != None
-        assert website != None
-        self.name = name
-        self.api_id = api_id
-        self.summary = summary
-        self.genre = genre
-        self.rating = rating
-        self.storyline = storyline
-        self.category = category
-        self.esrb = esrb
-        self.status = status
-        self.platform_id = platform_id
-        self.studio_id = studio_id
-        self.reviews = reviews
-        self.video = video
-        self.image = image
-        self.release_date = release_date
-        self.website = website
+    def __init__(self, name=None, api_id=None, summary=None, genre=None,
+                 rating = None, storyline = None, category = None, esrb = None, status= None, platform_id=None,
+                 studio_id = None, reviews = None, video = None, image=None, release_date=None, website=None):
+
+
+        if name != None:
+            assert name != ''
+            self.name = name
+
+        if api_id != None:
+            assert api_id > 0
+            self.api_id = api_id
+
+        if summary != None:
+            assert summary != ""
+            self.summary = summary
+
+        if genre != None:
+            assert genre != ""
+            self.genre = genre
+
+        if rating != None:
+            assert rating > -1
+            self.rating = rating 
+
+        if storyline != None:
+            assert storyline != ""
+            self.storyline = storyline
+
+        if category != None:
+            assert category > -1 and category < 50
+            self.category = category
+
+        if esrb != None:
+            assert esrb > -1
+            self.esrb = esrb
+
+        if status != None:
+            assert status >-1 and status <50
+            self.statis = status
+
+        if video != None:
+            assert video != ""
+            self.video = video
+
+        if image != None:
+            assert image != ""
+            self.image = image
+
+        if release_date != None:
+            assert isinstance(release_date, DateTime)
+            self.release_date = release_date
+
+        if website != None:
+            assert website != ""
+            self.website = website
+
+        # assert api_id > 0
+        # assert summary != None
+        # assert genre != None
+        # assert rating > -1
+        # assert storyline != None
+        # assert category > -1
+        # assert category < 50
+        # assert esrb > -1
+        # assert status > -1 and status < 50
+        # assert video != None
+        # assert image != None
+        # assert release_date != None
+        # assert website != None
+        # self.name = name
+        # self.api_id = api_id
+        # self.summary = summary
+        # self.genre = genre
+        # self.rating = rating
+        # self.storyline = storyline
+        # self.category = category
+        # self.esrb = esrb
+        # self.status = status
+        # self.platform_id = platform_id
+        # self.studio_id = studio_id
+        # self.reviews = reviews
+        # self.video = video
+        # self.image = image
+        # self.release_date = release_date
+        # self.website = website
 
 
 class Platform(db.Model):
@@ -122,28 +175,68 @@ class Platform(db.Model):
     studio = db.relationship('Studio', backref='platform', lazy="dynamic")
 
     # makes a platform object
-    def __init__(self, api_id, created_at, name, summary, games, review, generation, image, website, studio):
-        assert api_id > 0
-        assert created_at != None
-        assert name != ''
-        assert summary != None
-        assert games != None
-        assert review != None
-        assert generation > -1 and generation < 100
-        assert image != None
-        assert website != None
-        assert studio != None
+    def __init__(self, api_id = None, created_at = None, name = None, summary = None, games = None, review = None, generation = None, image = None, website = None, studio = None):
+        
+        if api_id != None:
+            assert api_id > -1
+            self.api_id = api_id
 
-        self.api_id = api_id
-        self.created_at = created_at
-        self.name = name
-        self.summary = summary
-        self.games = games
-        self.review = review
-        self.generation = generation
-        self.image = image
-        self.website = website
-        self.studio = studio
+        if created_at != None:
+            assert isinstance(created_at, DateTime)       
+
+        if name != None:
+            assert name != "None"
+            self.name = name
+
+        if summary != None:
+            assert summary != ""
+            self.summary = summary
+
+        if games != None:
+            assert isinstance(games, Game)
+            self.games = games
+
+        if review != None:
+            assert isinstance(review, Reviews)
+            self.review  = reviews
+
+        if generation!=None:
+            assert generation > -1 and generation<100
+            self.generation = generation
+
+        if image != None:
+            assert image != ""
+            self.image = image
+
+        if website != None:
+            assert website != ""
+            self.website = website 
+
+        if studio != None:
+            assert isinstance(studio,Studio)
+            self.studio = studio
+
+        # assert api_id > 0
+        # assert created_at != None
+        # assert name != ''
+        # assert summary != None
+        # assert games != None
+        # assert review != None
+        # assert generation > -1 and generation < 100
+        # assert image != None
+        # assert website != None
+        # assert studio != None
+
+        # self.api_id = api_id
+        # self.created_at = created_at
+        # self.name = name
+        # self.summary = summary
+        # self.games = games
+        # self.review = review
+        # self.generation = generation
+        # self.image = image
+        # self.website = website
+        # self.studio = studio
 
 
 class Studio(db.Model):
@@ -165,21 +258,49 @@ class Studio(db.Model):
     website = db.Column(db.String(128))
 
     # makes a studio model
-    def __init__(self, name, platform_id, logo, description, game, created_at, website):
-        assert name != ''
-        assert platform_id >= 0
-        assert logo != None
-        assert description != None
-        assert game != None
-        assert created_at != None
-        assert website != None
-        self.name = name
-        self.platform_id = platform_id
-        self.logo = logo
-        self.description = description
-        self.game = game
-        self.created_at = created_at
-        self.website = website
+    def __init__(self, name = None, platform_id = None, logo = None, description = None, game = None, created_at = None, website = None):
+
+        if name != None:
+            assert name != "None"
+            self.name = name
+
+        if platform_id != None:
+            assert platform_id>=0
+            self.platform_id = platform_id
+
+        if logo != None:
+            assert logo != ""
+            self.logo = logo
+
+        if description != None:
+            assert description != ""
+            self.description = description
+
+        if game != None:
+            assert isinstance(game,Game)
+            self.game = game
+
+        if created_at != None:
+            assert isinstance(created_at, DateTime)
+            self.created_at = created_at
+
+        if website!=None:
+            assert website!=""
+            self.website = website 
+        # assert name != ''
+        # assert platform_id >= 0
+        # assert logo != None
+        # assert description != None
+        # assert game != None
+        # assert created_at != None
+        # assert website != None
+        # self.name = name
+        # self.platform_id = platform_id
+        # self.logo = logo
+        # self.description = description
+        # self.game = game
+        # self.created_at = created_at
+        # self.website = website
 
 
 class Reviews(db.Model):
@@ -209,29 +330,76 @@ class Reviews(db.Model):
     url = db.Column(db.String(80))
 
     # makes a reviews model
-    def __init__(self, title, platform_id, game_id, created_at, views, video,
-                 introduction, content, conclusion, positive, negative, url):
-        assert title != ''
-        assert platform_id != None
-        assert game_id != None
-        assert created_at != None
-        assert views >= 0
-        assert video != None
-        assert introduction != None
-        assert content != None
-        assert conclusion != None
-        assert positive != None
-        assert negative != None
-        assert url != None
-        self.title = title
-        self.platform_id = platform_id
-        self.game_id = game_id
-        self.created_at = created_at
-        self.views = views
-        self.video = video
-        self.introduction = introduction
-        self.content = content
-        self.conclusion = conclusion
-        self.positive = positive
-        self.negative = negative
-        self.url = url
+    def __init__(self, title = None, platform_id = None, game_id = None, created_at = None, views = None, video = None,
+                 introduction = None, content = None, conclusion = None, positive = None, negative = None, url = None):
+        if title != None:
+            assert title != ""
+            self.title = title
+
+        if platform_id != None:
+            assert platform_id >=0
+            self.platform_id = platform_id
+
+        if game_id != None:
+            assert game_id>=0
+            self.game_id = game_id
+
+        if created_at!=None:
+            assert isinstance(created_at, DateTime)
+            self.created_at = created_at
+
+        if views != None:
+            assert views >=0
+            self.views = views
+
+        if video != None:
+            assert video != ""
+            self.video = video
+
+        if introduction!=None:
+            assert introduction != ""
+            self.introduction = introduction
+
+        if content != None:
+            assert content != ""
+            self.content = content
+
+        if conclusion != None:
+            assert conclusion != ""
+            self.conclusion = conclusion
+
+        if positive != None:
+            assert positive != ""
+            self.positive = positive
+
+        if negative != None:
+            assert negative != ""
+            self.negative = negative
+
+        if url != None:
+            assert url != "None"
+            self. url = url
+        # assert title != ''
+        # assert platform_id != None
+        # assert game_id != None
+        # assert created_at != None
+        # assert views >= 0
+        # assert video != None
+        # assert introduction != None
+        # assert content != None
+        # assert conclusion != None
+        # assert positive != None
+        # assert negative != None
+        # assert url != None
+        # self.title = title
+        # self.platform_id = platform_id
+        # self.game_id = game_id
+        # self.created_at = created_at
+        # self.views = views
+        # self.video = video
+        # self.introduction = introduction
+        # self.content = content
+        # self.conclusion = conclusion
+        # self.positive = positive
+        # self.negative = negative
+        # self.url = url
