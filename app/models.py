@@ -14,7 +14,7 @@ from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
 app = Flask(__name__)
 
-app.debug = False
+app.debug = True
 
 basedir = os.path.abspath(os.path.dirname(__file__))
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///' + \

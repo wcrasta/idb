@@ -43,14 +43,14 @@ def games(page=1):
         Renders the games page
         passing in Game objects for dynamic generation of pages
     """
-
-    value = request.args.get('sort', 'name')
+    sort = request.args.get('sort', 'name')
     games = db.session.query(Game).filter(
-        Game.api_id != 0 and Game.name != '').order_by(Game.name)
+        Game.api_id != 0 and Game.name != '').order_by(eval('Game.'+sort))
     pagination = Pagination(
-        page=page, css_framework='foundation', total=games.count(), record_name='items')
+        page=page, css_framework='foundation', total=games.count(), per_page=9, record_name='items')
+    
     return render_template('games.html', items=games[min(page * 9, games.count() - 9):(page + 1) * 9], pagination=pagination)
-
+    #return render_template('games.html', items = games , pagination= pagination)
 
 @app.route('/game/<name>', methods=['GET'])
 def game_instance(name):

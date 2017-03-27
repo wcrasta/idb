@@ -283,7 +283,7 @@ def game():
 
             video = "None"
             if 'videos' in entry:
-                category = 'https://www.youtube.com/embed/' + \
+                video = 'https://www.youtube.com/embed/' + \
                     entry['videos'][0]['video_id']
             # do platform and studio?
             # platform = ['platform']
