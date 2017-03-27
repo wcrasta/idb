@@ -6,6 +6,7 @@ FILES :=            \
     app/models.py   \
     app/tests.py    \
     IDB1.html       \
+    app/tests.out \
 
 ifeq ($(shell uname), Darwin)          # Apple
     PYTHON   := python3.5
@@ -39,6 +40,12 @@ endif
 
 .pylintrc:
 	$(PYLINT) --disable=locally-disabled --reports=no --generate-rcfile > $@
+
+app/tests.out: .pylintrc
+	-$(PYLINT) app/tests.py
+	-$(COVERAGE) run    --branch app/tests.py >  app/tests.out 2>&1
+	-$(COVERAGE) report -m                      >> app/tests.out
+	cat app/tests.out
 
 IDB1.html: 
 	./pydoc3.sh
@@ -90,7 +97,7 @@ status:
 	git remote -v
 	git status
 
-test: IDB1.html IDB1.log
+test: IDB1.html IDB1.log app/tests.out
 	ls -al
 	make check
 

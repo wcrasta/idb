@@ -9,7 +9,7 @@
 <td valign=bottom>&nbsp;<br>
 <font color="#ffffff" face="helvetica, arial">&nbsp;<br><big><big><strong>models</strong></big></big></font></td
 ><td align=right valign=bottom
-><font color="#ffffff" face="helvetica, arial"><a href=".">index</a><br><a href="file:/v/filer4b/v38q001/wcrasta/idb/app/models.py">/v/filer4b/v38q001/wcrasta/idb/app/models.py</a></font></td></tr></table>
+><font color="#ffffff" face="helvetica, arial"><a href=".">index</a><br><a href="file:/v/filer4b/v38q001/zz3686/Desktop/swe/idb/app/models.py">/v/filer4b/v38q001/zz3686/Desktop/swe/idb/app/models.py</a></font></td></tr></table>
     <p><tt>#&nbsp;pylint:&nbsp;disable&nbsp;=&nbsp;no-member<br>
 #&nbsp;pylint:&nbsp;disable&nbsp;=&nbsp;missing-docstring<br>
 #&nbsp;pylint:&nbsp;disable&nbsp;=&nbsp;invalid-name<br>
@@ -25,8 +25,9 @@
 <font color="#ffffff" face="helvetica, arial"><big><strong>Modules</strong></big></font></td></tr>
     
 <tr><td bgcolor="#aa55cc"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
-<td width="100%"><table width="100%" summary="list"><tr><td width="25%" valign=top><a href="os.html">os</a><br>
-</td><td width="25%" valign=top></td><td width="25%" valign=top></td><td width="25%" valign=top></td></tr></table></td></tr></table><p>
+<td width="100%"><table width="100%" summary="list"><tr><td width="25%" valign=top><a href="datetime.html">datetime</a><br>
+</td><td width="25%" valign=top><a href="os.html">os</a><br>
+</td><td width="25%" valign=top></td><td width="25%" valign=top></td></tr></table></td></tr></table><p>
 <table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
 <tr bgcolor="#ee77aa">
 <td colspan=3 valign=bottom>&nbsp;<br>
@@ -64,7 +65,7 @@ and&nbsp;companies.<br>&nbsp;</tt></td></tr>
 </dl>
 <hr>
 Methods defined here:<br>
-<dl><dt><a name="Game-__init__"><strong>__init__</strong></a>(self, name, api_id, summary, genre, rating, storyline, category, esrb, status, platform_id, studio_id, reviews, video, image, release_date, website)</dt></dl>
+<dl><dt><a name="Game-__init__"><strong>__init__</strong></a>(self, name<font color="#909090">=None</font>, api_id<font color="#909090">=None</font>, summary<font color="#909090">=None</font>, genre<font color="#909090">=None</font>, rating<font color="#909090">=None</font>, storyline<font color="#909090">=None</font>, category<font color="#909090">=None</font>, esrb<font color="#909090">=None</font>, status<font color="#909090">=None</font>, platform_id<font color="#909090">=None</font>, studio_id<font color="#909090">=None</font>, reviews<font color="#909090">=None</font>, video<font color="#909090">=None</font>, image<font color="#909090">=None</font>, release_date<font color="#909090">=None</font>, website<font color="#909090">=None</font>)</dt></dl>
 
 <hr>
 Data descriptors defined here:<br>
@@ -104,9 +105,9 @@ Data descriptors defined here:<br>
 </dl>
 <hr>
 Data and other attributes defined here:<br>
-<dl><dt><strong>__mapper__</strong> = &lt;Mapper at 0x7f3490a5c0d0; Game&gt;</dl>
+<dl><dt><strong>__mapper__</strong> = &lt;Mapper at 0x7f836ac653d0; Game&gt;</dl>
 
-<dl><dt><strong>__table__</strong> = Table('game', MetaData(bind=None), Column('id', ...', String(length=80), table=&lt;game&gt;), schema=None)</dl>
+<dl><dt><strong>__table__</strong> = Table('game', MetaData(bind=None), Column('id', ..., String(length=256), table=&lt;game&gt;), schema=None)</dl>
 
 <hr>
 Methods inherited from flask_sqlalchemy.Model:<br>
@@ -151,7 +152,7 @@ game,&nbsp;review&nbsp;and&nbsp;studio.<br>&nbsp;</tt></td></tr>
 </dl>
 <hr>
 Methods defined here:<br>
-<dl><dt><a name="Platform-__init__"><strong>__init__</strong></a>(self, api_id, created_at, name, summary, games, review, generation, image, website, studio)</dt></dl>
+<dl><dt><a name="Platform-__init__"><strong>__init__</strong></a>(self, api_id<font color="#909090">=None</font>, created_at<font color="#909090">=None</font>, name<font color="#909090">=None</font>, summary<font color="#909090">=None</font>, games<font color="#909090">=None</font>, review<font color="#909090">=None</font>, generation<font color="#909090">=None</font>, image<font color="#909090">=None</font>, website<font color="#909090">=None</font>, studio<font color="#909090">=None</font>)</dt></dl>
 
 <hr>
 Data descriptors defined here:<br>
@@ -179,7 +180,7 @@ Data descriptors defined here:<br>
 </dl>
 <hr>
 Data and other attributes defined here:<br>
-<dl><dt><strong>__mapper__</strong> = &lt;Mapper at 0x7f3490a5c990; Platform&gt;</dl>
+<dl><dt><strong>__mapper__</strong> = &lt;Mapper at 0x7f836ac65c50; Platform&gt;</dl>
 
 <dl><dt><strong>__table__</strong> = Table('platform', MetaData(bind=None), Column('i...tring(length=80), table=&lt;platform&gt;), schema=None)</dl>
 
@@ -227,7 +228,7 @@ such&nbsp;as&nbsp;introduction,&nbsp;content&nbsp;and&nbsp;conclusion.<br>
 </dl>
 <hr>
 Methods defined here:<br>
-<dl><dt><a name="Reviews-__init__"><strong>__init__</strong></a>(self, title, platform_id, game_id, created_at, views, video, introduction, content, conclusion, positive, negative, url)</dt></dl>
+<dl><dt><a name="Reviews-__init__"><strong>__init__</strong></a>(self, title<font color="#909090">=None</font>, platform_id<font color="#909090">=None</font>, game_id<font color="#909090">=None</font>, created_at<font color="#909090">=None</font>, views<font color="#909090">=None</font>, video<font color="#909090">=None</font>, introduction<font color="#909090">=None</font>, content<font color="#909090">=None</font>, conclusion<font color="#909090">=None</font>, positive<font color="#909090">=None</font>, negative<font color="#909090">=None</font>, url<font color="#909090">=None</font>)</dt></dl>
 
 <hr>
 Data descriptors defined here:<br>
@@ -263,7 +264,7 @@ Data descriptors defined here:<br>
 </dl>
 <hr>
 Data and other attributes defined here:<br>
-<dl><dt><strong>__mapper__</strong> = &lt;Mapper at 0x7f3490a87a50; Reviews&gt;</dl>
+<dl><dt><strong>__mapper__</strong> = &lt;Mapper at 0x7f836ac9bc90; Reviews&gt;</dl>
 
 <dl><dt><strong>__table__</strong> = Table('reviews', MetaData(bind=None), Column('id...String(length=80), table=&lt;reviews&gt;), schema=None)</dl>
 
@@ -309,7 +310,7 @@ they&nbsp;built/published,&nbsp;the&nbsp;website&nbsp;and&nbsp;etc.<br>
 </dl>
 <hr>
 Methods defined here:<br>
-<dl><dt><a name="Studio-__init__"><strong>__init__</strong></a>(self, name, platform_id, logo, description, game, created_at, website)</dt></dl>
+<dl><dt><a name="Studio-__init__"><strong>__init__</strong></a>(self, name<font color="#909090">=None</font>, platform_id<font color="#909090">=None</font>, logo<font color="#909090">=None</font>, description<font color="#909090">=None</font>, game<font color="#909090">=None</font>, created_at<font color="#909090">=None</font>, website<font color="#909090">=None</font>)</dt></dl>
 
 <hr>
 Data descriptors defined here:<br>
@@ -333,7 +334,7 @@ Data descriptors defined here:<br>
 </dl>
 <hr>
 Data and other attributes defined here:<br>
-<dl><dt><strong>__mapper__</strong> = &lt;Mapper at 0x7f3490a87090; Studio&gt;</dl>
+<dl><dt><strong>__mapper__</strong> = &lt;Mapper at 0x7f836ac9b310; Studio&gt;</dl>
 
 <dl><dt><strong>__table__</strong> = Table('studio', MetaData(bind=None), Column('id'...String(length=128), table=&lt;studio&gt;), schema=None)</dl>
 
@@ -367,6 +368,6 @@ Data descriptors inherited from <a href="flask_sqlalchemy.html#Model">flask_sqla
     
 <tr><td bgcolor="#55aa55"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
 <td width="100%"><strong>app</strong> = &lt;Flask 'models'&gt;<br>
-<strong>basedir</strong> = '/v/filer4b/v38q001/wcrasta/idb/app'<br>
-<strong>db</strong> = &lt;SQLAlchemy engine=sqlite:////v/filer4b/v38q001/wcrasta/idb/app/app.db&gt;</td></tr></table>
+<strong>basedir</strong> = '/v/filer4b/v38q001/zz3686/Desktop/swe/idb/app'<br>
+<strong>db</strong> = &lt;SQLAlchemy engine=postgresql://wcrasta:***@ggno...cpgg3gqlefhf.us-west-2.rds.amazonaws.com/ggnoswe&gt;</td></tr></table>
 </body></html>

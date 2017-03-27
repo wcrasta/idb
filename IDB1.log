@@ -1,3 +1,96 @@
+commit 6e615f6080109377b7d954eb90e79dbf27bf833d
+Author: Zihao Zhu <zz3686@cs.utexas.edu>
+Date:   Mon Mar 27 17:23:39 2017 -0500
+
+    Added unit test button
+
+commit 0ca7a7455e792b63a9c1333105cf1931083f65a7
+Author: Zihao Zhu <zz3686@cs.utexas.edu>
+Date:   Mon Mar 27 16:54:08 2017 -0500
+
+    fixed game layout
+
+commit cae6eede53b0faf3bb8420bdeae9dc622a6b8c9a
+Author: Zihao <zihaozhu@utexas.edu>
+Date:   Mon Mar 27 16:49:48 2017 -0500
+
+    repopulated db
+
+commit f8c345183de75e54d44a231f952638272a94c820
+Author: Zihao <zihaozhu@utexas.edu>
+Date:   Mon Mar 27 16:36:14 2017 -0500
+
+    Added csv files for migration
+
+commit 5a510b4d0b0216041a72d6104598acd0e3699132
+Author: Zihao Zhu <zz3686@cs.utexas.edu>
+Date:   Mon Mar 27 16:02:40 2017 -0500
+
+    sorting for games and populateDb fix
+
+commit 012468e3f02945bdfee4d018eb3da4da7a6fa8ce
+Author: Zihao Zhu <zz3686@cs.utexas.edu>
+Date:   Mon Mar 27 14:41:24 2017 -0500
+
+    Fixed models assertions
+
+commit da1f24dce7f0688134b876b18be7b718b4c238cb
+Merge: 8d1fcb8 c5c82dd
+Author: Kaivan Shah <kaivan29@utexas.edu>
+Date:   Thu Mar 23 21:50:00 2017 -0500
+
+    Merge branch 'update' of https://github.com/wcrasta/idb into update
+
+commit 8d1fcb83a6c97d47e8bd00c369fc40af9aeaaec6
+Author: Kaivan Shah <kaivan29@utexas.edu>
+Date:   Thu Mar 23 21:49:57 2017 -0500
+
+    comon
+
+commit 9ef6f29ddf6e3059c61a45f04f6abdb0fd3a600c
+Author: Kaivan Shah <kaivan29@utexas.edu>
+Date:   Thu Mar 23 21:49:14 2017 -0500
+
+    abput page
+
+commit c5c82dd706cda95be9b58cd2863a68c7f11d0062
+Merge: 41edcda 8078d0e
+Author: wcrasta <wcrasta@utexas.edu>
+Date:   Thu Mar 23 21:44:18 2017 -0500
+
+    hola
+
+commit 41edcda361c677316c0c15fe020d8702bc37e8f2
+Author: wcrasta <wcrasta@utexas.edu>
+Date:   Thu Mar 23 21:43:24 2017 -0500
+
+    report changes
+
+commit 8078d0e06dd1e660e23d9a2329981249b59efd62
+Author: Colin Thornton <colin@cs.utexas.edu>
+Date:   Thu Mar 23 21:38:45 2017 -0500
+
+    Finished report page
+
+commit 329235780407ec2c02ac2359de90fe98f3723385
+Author: wcrasta <wcrasta@utexas.edu>
+Date:   Thu Mar 23 21:35:16 2017 -0500
+
+    PDF
+
+commit 661e63cd4e42285f84c852933c9d5c8ba0a8bfc6
+Merge: 81963cb 2ad0447
+Author: Kaivan Shah <kaivan29@utexas.edu>
+Date:   Thu Mar 23 21:34:39 2017 -0500
+
+    Merge branch 'update' of https://github.com/wcrasta/idb into update
+
+commit 81963cb0ab9b4577c3e35725f6877f2c52b27612
+Author: Kaivan Shah <kaivan29@utexas.edu>
+Date:   Thu Mar 23 21:34:35 2017 -0500
+
+    about is cool now
+
 commit 2ad0447e782e0cc136627fcbddcf5e075b2e19ed
 Author: wcrasta <wcrasta@utexas.edu>
 Date:   Thu Mar 23 21:25:57 2017 -0500
@@ -35,6 +128,12 @@ Author: wcrasta <wcrasta@utexas.edu>
 Date:   Thu Mar 23 21:02:06 2017 -0500
 
     Commented models
+
+commit da80d57cac0926838e6e53da82d176912b226c1e
+Author: Kaivan Shah <kaivan29@utexas.edu>
+Date:   Thu Mar 23 21:00:51 2017 -0500
+
+    report changes
 
 commit c88caf5a55cbb4c9074c0c11e6ba32ca604c762f
 Merge: 381b8a4 4226388
