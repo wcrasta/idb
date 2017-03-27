@@ -1,6 +1,6 @@
 # from models import Game, Platform, Reviews, Studio
 from models import *
-from app import db
+#from app import db
 from flask_sqlalchemy import SQLAlchemy
 import sqlite3
 import json

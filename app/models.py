@@ -10,6 +10,7 @@
 # pylint: disable = line-too-long
 
 import os
+import datetime
 from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
 app = Flask(__name__)
@@ -17,6 +18,8 @@ app = Flask(__name__)
 app.debug = True
 
 basedir = os.path.abspath(os.path.dirname(__file__))
+#app.config['SQLALCHEMY_DATABASE_URI'] = "postgresql://wcrasta:ggnoswe123@ggnoswe.cpgg3gqlefhf.us-west-2.rds.amazonaws.com/ggnoswe"
+
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///' + \
     os.path.join(basedir, 'app.db')
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
@@ -34,22 +37,22 @@ class Game(db.Model):
     """
 
     id = db.Column(db.Integer, primary_key=True)
-    name = db.Column(db.String(80))
+    name = db.Column(db.String(256))
 
     api_id = db.Column(db.Integer)
     summary = db.Column(db.Text)
 
-    genre = db.Column(db.String(80))
+    genre = db.Column(db.String(256))
 
     rating = db.Column(db.Float)
 
     storyline = db.Column(db.Text)
 
-    category = db.Column(db.Integer)
+    category = db.Column(db.String(256))
 
-    esrb = db.Column(db.Integer)
+    esrb = db.Column(db.String(256))
 
-    status = db.Column(db.Integer)
+    status = db.Column(db.String(256))
 
     platform_id = db.Column(db.Integer, db.ForeignKey('platform.id'))
 
@@ -57,11 +60,11 @@ class Game(db.Model):
 
     reviews = db.relationship('Reviews', backref='game', lazy="dynamic")
 
-    video = db.Column(db.String(128))
+    video = db.Column(db.String(256))
 
-    image = db.Column(db.String(128))
+    image = db.Column(db.String(256))
     release_date = db.Column(db.DateTime)
-    website = db.Column(db.String(80))
+    website = db.Column(db.String(256))
 
     # inits a game object
     def __init__(self, name=None, api_id=None, summary=None, genre=None,
@@ -87,22 +90,22 @@ class Game(db.Model):
 
         if rating != None:
             assert rating > -1
-            self.rating = rating 
+            self.rating = rating
 
         if storyline != None:
             assert storyline != ""
             self.storyline = storyline
 
         if category != None:
-            assert category > -1 and category < 50
+            assert category != ''
             self.category = category
 
         if esrb != None:
-            assert esrb > -1
+            assert esrb != ''
             self.esrb = esrb
 
         if status != None:
-            assert status >-1 and status <50
+            assert status != ''
             self.statis = status
 
         if video != None:
@@ -114,7 +117,7 @@ class Game(db.Model):
             self.image = image
 
         if release_date != None:
-            assert isinstance(release_date, DateTime)
+            assert isinstance(release_date, datetime)
             self.release_date = release_date
 
         if website != None:
@@ -176,13 +179,13 @@ class Platform(db.Model):
 
     # makes a platform object
     def __init__(self, api_id = None, created_at = None, name = None, summary = None, games = None, review = None, generation = None, image = None, website = None, studio = None):
-        
+
         if api_id != None:
             assert api_id > -1
             self.api_id = api_id
 
         if created_at != None:
-            assert isinstance(created_at, DateTime)       
+            assert isinstance(created_at, datetime)
 
         if name != None:
             assert name != "None"
@@ -198,7 +201,7 @@ class Platform(db.Model):
 
         if review != None:
             assert isinstance(review, Reviews)
-            self.review  = reviews
+            self.review  = review
 
         if generation!=None:
             assert generation > -1 and generation<100
@@ -210,7 +213,7 @@ class Platform(db.Model):
 
         if website != None:
             assert website != ""
-            self.website = website 
+            self.website = website
 
         if studio != None:
             assert isinstance(studio,Studio)
@@ -281,12 +284,12 @@ class Studio(db.Model):
             self.game = game
 
         if created_at != None:
-            assert isinstance(created_at, DateTime)
+            assert isinstance(created_at, datetime)
             self.created_at = created_at
 
         if website!=None:
             assert website!=""
-            self.website = website 
+            self.website = website
         # assert name != ''
         # assert platform_id >= 0
         # assert logo != None
@@ -345,7 +348,7 @@ class Reviews(db.Model):
             self.game_id = game_id
 
         if created_at!=None:
-            assert isinstance(created_at, DateTime)
+            assert isinstance(created_at, datetime)
             self.created_at = created_at
 
         if views != None:
