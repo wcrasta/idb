@@ -5,6 +5,8 @@ from flask_paginate import Pagination
 import os
 import json
 import time
+import subprocess
+
 from flask_sqlalchemy import SQLAlchemy
 
 from models import Game, Platform, Reviews, Studio, app, db
@@ -27,6 +29,13 @@ def index():
     """
     return render_template('home.html')
 
+@app.route('/unit_tests')
+def unit_tests():
+    """
+        Renders the home page
+    """
+    return subprocess.check_output(['python3','tests.py'], stderr=subprocess.STDOUT)
+
 
 @app.route('/about', methods=['GET'])
 def about():
@@ -48,7 +57,6 @@ def games(page=1):
         Game.api_id != 0 and Game.name != '').order_by(eval('Game.'+sort))
     pagination = Pagination(
         page=page, css_framework='foundation', total=games.count(), per_page=9, record_name='items')
-    
     return render_template('games.html', items=games[min(page * 9, games.count() - 9):(page + 1) * 9], pagination=pagination)
     #return render_template('games.html', items = games , pagination= pagination)
 
