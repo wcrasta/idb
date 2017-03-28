@@ -124,7 +124,7 @@
               <li>Kaivan Shah</li>
               <li>Kaden Brown</li>
               <li>Zihao Zhu</li>
-              <li>Warren Crasta</li>
+              <li id="intro">Warren Crasta</li>
               <li>Colin Thornton</li>
               <li>Anurag Papineni</li>
             </ul>
@@ -180,7 +180,7 @@
 
           <figure>
            <img class="center-block" float="left" src="../static/images/design_4.png"/>
-           <figcaption id="tools" style="color: white; text-align: center; font-size: 1.2em">Fig4. - Speeding up API requests by altering URL.</figcaption>
+           <figcaption style="color: white; text-align: center; font-size: 1.2em">Fig4. - Speeding up API requests by altering URL.</figcaption>
           </figure>
 
             <div style="float:none; padding-top: 20px;">
@@ -199,9 +199,9 @@
             <p>
             The above is an example usage of db.relationship. Calling this will allow SQLAlchemy to populate a foreign key between the two models automatically. And in addition, by providing the fields backref and lazy, it adds more functionality to what gets returned. Backref allows the two models to be able to call upon each other. Whereas normally without backref, only the model that sets the relationship will have knowledge of the other model it's connected to but not the other way around. Having this option, we can easily create links between the models on our website to easily navigate back and forth. In addition, lazy="dynamic", allows the query to be loaded lazily, or whenever it is called. For us, we were able to use the query as a way to generate our data dynamically through a loop using jinja2. Each time an object is called upon, it generates it on the spot and displays it.
         </p>
-            <p>
+            <p id="tools">
                  After setting up the database and models.py in this way, we create the relationships needed to represent each object and that allows us to accurately represent the connections between one model to the other in addition to displaying the correct attributes.
-            </p>
+            </p><br />
 
             <!-- TOOLS-->
           <h2 style="padding-top: 15px">Tools</h2>
