@@ -121,8 +121,6 @@
               <li>Kaivan Shah</li>
               <li>Kaden Brown</li>
               <li>Zihao Zhu</li>
-
-              <li id="intro">Waren Cresta</li>
               <li>Warren Crasta</li>
               <li>Colin Thornton</li>
               <li>Anurag Papineni</li>
@@ -185,6 +183,22 @@
             <div style="float:none; padding-top: 20px;">
               <p> This allows for a single call to return multiple JSONs with a single api call. From there we parse the JSONs so that they may be added to the output list.</p>
             </div>
+            <h4> DB Models</h4>
+            <p>
+                After designing our UML diagram, it was rather simple to translate what we've already designed into code. For our database model design, we modeled the attribute types based on the JSON files returned from data scraping and we based our relationships based on the design we opted for in the very beginning. Before writing code to models.py, we first scraped the data and saved it as a JSON file. From the JSON file, we inspected the various return fields and for things we saw a numerical value for, we chose the model's attribute to be one of float or integer. Else, if it's a sentence or a string, we chose the attributes to either be of String type or Text type. The only other type we used was DateTime, as we collected data involving dates.
+            </p>
+            <p>
+                 For those attributes that are linked by a relationship, either one to one or one to many or many to many, we used SQLAlchemy's feature db.relationship() to establish that.
+            </p>
+            <code>
+                game = db.relationship('Game', backref='studio', lazy="dynamic")
+            </code>
+            <p>
+            The above is an example usage of db.relationship. Calling this will allow SQLAlchemy to populate a foreign key between the two models automatically. And in addition, by providing the fields backref and lazy, it adds more functionality to what gets returned. Backref allows the two models to be able to call upon each other. Whereas normally without backref, only the model that sets the relationship will have knowledge of the other model it's connected to but not the other way around. Having this option, we can easily create links between the models on our website to easily navigate back and forth. In addition, lazy="dynamic", allows the query to be loaded lazily, or whenever it is called. For us, we were able to use the query as a way to generate our data dynamically through a loop using jinja2. Each time an object is called upon, it generates it on the spot and displays it.
+        </p>
+            <p>
+                 After setting up the database and models.py in this way, we create the relationships needed to represent each object and that allows us to accurately represent the connections between one model to the other in addition to displaying the correct attributes.
+            </p>
 
             <!-- TOOLS-->
           <h2 style="padding-top: 15px">Tools</h2>
@@ -202,7 +216,7 @@
 
           <p>In order to scrape the data, we first registered an API key with IGDB on http://igdb.github.io/api/. After following through their documentations, we learned the various options we had and the information each call would output. The four models we focused on were Game, Companies, Reviews and Platforms. We established these four as our primary models. We then created one general script trying to scrape data for each of our models. To accomplish this, we used the Python libraries requests, json and sys. Requests were used to connect to the API and gather the data and we save the data as a json file and we use sys to parse the various inputs that the script takes to populate a given model. Sample call is as shown in the figure:</p>
 
-          <p>In order to scrape the data, we first registered an API key with IGDB on http://igdb.github.io/api/. After following through their documentations, we learned the various options we had and the information each call would output. We then created one general script trying to scrape data for each of our models. To accomplish this, we used the Python libraries requests, JSON and sys. Requests were used to connect to the API and gather the data. From there, we saved the data as a JSON file and we used sys to parse the various inputs that the script takes to populate a given model. Sample call is as shown in the figure:</p>
+          <!-- <p>In order to scrape the data, we first registered an API key with IGDB on http://igdb.github.io/api/. After following through their documentations, we learned the various options we had and the information each call would output. We then created one general script trying to scrape data for each of our models. To accomplish this, we used the Python libraries requests, JSON and sys. Requests were used to connect to the API and gather the data. From there, we saved the data as a JSON file and we used sys to parse the various inputs that the script takes to populate a given model. Sample call is as shown in the figure:</p> -->
 
 
           <figure>
@@ -231,6 +245,9 @@
           </figure>
 
           <p>Then to initialize the database, we entered the Python interactive mode and created a session for the database and called “db.create_all()”. In order to populate our database as quickly and efficiently as possible, we created a script called populateDb.py that we used to parse the JSON files we scraped as detailed above and inserted the various object models into the database. For each model, we constructed the appropriate object and initialized the information and then added the object to our database using db.session.add(). Then we committed the change if no errors occurred.</p>
+          <p>
+              In addition, to utilize postgresql for the remainder of our project, we set up a postgresql database on AWS using RDS. Postgresql handles production usage better than local testing and we chose to use AWS to host it due to the free tier and ease of usage. Setting it up only required us to config the database on the cloud to our application and from there, we populated the database similarly as we did previously but this time we added all the instances of the models to postgresql directly. Another way we could've done it was through exporting our existing SQLITE3 database as a CSV and then importing it to postgres but we figured doing it our way was easier. Once the data is on postgresql, the way to access them remains the same as before with sqlite3.
+          </p>
 
           <h4>__init__.py</h4>
           <p>__init__.py is the main file for our application. __init__.py is our file from which we run the application on the server. In it, we defined the different routes to the html/css files in templates and we configured basic information for our application such as the database path as shown:</p>

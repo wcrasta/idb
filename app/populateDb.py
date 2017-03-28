@@ -318,8 +318,8 @@ def game():
             db.session.add(game)
             db.session.commit()
 
-game()
-print("games done")
+#game()
+#print("games done")
 platform()
 print("platforms done")
 reviews()

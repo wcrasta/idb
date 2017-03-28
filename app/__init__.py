@@ -34,7 +34,7 @@ def unit_tests():
     """
         Renders the home page
     """
-    return subprocess.check_output(['python3','tests.py'], stderr=subprocess.STDOUT)
+    return subprocess.check_output(['python3',os.getcwd()+'/'+'tests.py'], stderr=subprocess.STDOUT)
 
 
 @app.route('/about', methods=['GET'])
