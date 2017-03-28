@@ -21,7 +21,7 @@ basedir = os.path.abspath(os.path.dirname(__file__))
 app.config['SQLALCHEMY_DATABASE_URI'] = "postgresql://wcrasta:ggnoswe123@ggnoswe.cpgg3gqlefhf.us-west-2.rds.amazonaws.com/ggnoswe"
 
 #app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///' + \
-#    os.path.join(basedir, 'app.db')
+#   os.path.join(basedir, 'app.db')
 
 
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
@@ -253,14 +253,14 @@ class Studio(db.Model):
         Studio models have relationships with game, platform and reviews.
     """
     id = db.Column(db.Integer, primary_key=True)
-    name = db.Column(db.String(80))
+    name = db.Column(db.String(256))
     platform_id = db.Column(db.Integer, db.ForeignKey('platform.id'))
 
-    logo = db.Column(db.String(128))
+    logo = db.Column(db.String(256))
     description = db.Column(db.Text, nullable=True)
     game = db.relationship('Game', backref='studio', lazy="dynamic")
     created_at = db.Column(db.DateTime)
-    website = db.Column(db.String(128))
+    website = db.Column(db.String(256))
 
     # makes a studio model
     def __init__(self, name = None, platform_id = None, logo = None, description = None, game = None, created_at = None, website = None):
@@ -319,20 +319,20 @@ class Reviews(db.Model):
         Reviews have relationships with game,platform and studios.
     """
     id = db.Column(db.Integer, primary_key=True)
-    title = db.Column(db.String(128))
+    title = db.Column(db.String(256))
 
     platform_id = db.Column(db.Integer, db.ForeignKey("platform.id"))
     game_id = db.Column(db.Integer, db.ForeignKey('game.id'))
     created_at = db.Column(db.DateTime)
     views = db.Column(db.Integer)
 
-    video = db.Column(db.String(128))
+    video = db.Column(db.String(256))
     introduction = db.Column(db.Text, nullable=True)
     content = db.Column(db.Text)
     conclusion = db.Column(db.Text)
     positive = db.Column(db.Text)
     negative = db.Column(db.Text)
-    url = db.Column(db.String(80))
+    url = db.Column(db.String(256))
 
     # makes a reviews model
     def __init__(self, title = None, platform_id = None, game_id = None, created_at = None, views = None, video = None,
