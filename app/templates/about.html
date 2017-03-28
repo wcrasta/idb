@@ -21,6 +21,10 @@
     color: white;
     font-size: 2em;
   }
+  h4 {
+    color: white;
+    font-size: 1.5em;
+  }
   h3:hover {
     color: gray;
     text-decoration: underline;
@@ -227,17 +231,6 @@
     </div>
   </div>
 
-    <!-- Beginning Stats -->
-  <div class="container">
-    <div class="row">
-      <div class="col-sm-4" style="padding-top: 150px;">
-        <button type="button">
-          <a href="{{url_for('unit_tests')}}">Run Unit Tests</a>
-        </button>
-      </div>
-    </div>
-  </div>
-
   <!-- Beginning Stats -->
   <div class="container">
     <div class="row">
@@ -294,7 +287,7 @@
       </div>
       <div class="row">
         <div class="col-sm-6" style="padding-left: 60px; padding-right: 60px;">
- 
+
          <div class="row">
             <h1>Bootstrap: </h1>
 
@@ -333,7 +326,7 @@
             </p>
           </div>
         </div>
-        
+
         <div class="col-sm-6" style="padding-left: 60px; padding-right: 60px;">
           <div class="row">
             <h1>Flask: </h1>
@@ -345,12 +338,12 @@
               serve our website.
             </p>
           </div>
-          
+
           <div class="row">
             <h1>SQLAlchemy: </h1>
             <a href="https://www.sqlalchemy.org/">
               <img class="logo--image center-block" src="../static/images/sqla.png" style="height: 250px; width: 250px; padding-bottom: 15px" >
-            </a>            
+            </a>
             <p>
               SQLAlchemy is a Python-SQL framework used to build and query our
               database on the backend.
@@ -369,7 +362,7 @@
           </div>
         </div>
       </div>
-      
+
       <div class="row">
         <div class="col-sm-6" style="padding-left: 60px; padding-right: 60px;">
           <div class="row">
@@ -421,6 +414,31 @@
         </div>
       </div>
       <br /><br />
+    </div>
+    <div class="row">
+      <h2>Unit Tests</h2>
+      <div class="underline" style="border-bottom: 1px solid #FFF; margin-bottom: 20px;"></div>
+      <button type="button" class="btn btn-primary" style="margin-bottom: 40px;"
+      data-toggle="modal" data-target="#testsModal"><h4>
+      Run Unit Tests</h4>
+      </button>
+      <div class="modal fade" id="testsModal" style="margin-top: 200px;">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h1 style="color:black; text-align: center;">Results</h1>
+            </div>
+            <div class="modal-body" id="body">
+              <object type="text/html" data="{{url_for('unit_tests')}}" style="width: 100%;"></object>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-outline" data-dismiss="modal"
+              >Close</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
     </div>
   </div>
   <script src="https://code.jquery.com/jquery-3.2.0.min.js"></script>
