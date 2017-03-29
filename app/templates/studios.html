@@ -189,7 +189,7 @@
                         Date Created: {{item.created_at}}
                       </p>
                       <p>
-                        Example Game: {{item.game.first().name}}
+                        Example Game: <a href="{{url_for('game_instance', name = item.game.first().id)}}">{{item.game.first().name}} </a>
                       </p>
                       </div>
                     {% endfor %}

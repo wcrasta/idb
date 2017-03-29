@@ -1,7 +1,9 @@
-import os
+# pylint: disable = import-error
+# pylint: disable = missing-docstring
 import unittest
 
-from models import *
+
+from models import Game, Studio, Platform, Reviews
 
 
 class TestCase(unittest.TestCase):
@@ -51,7 +53,7 @@ class TestCase(unittest.TestCase):
         studio = Studio()
         platform.studio.append(studio)
         self.assertTrue(studio.platform == platform)
-        self.assertTrue(platform.studio != None)
+        self.assertTrue(platform.studio is not None)
 
     # Tests to see that relationships will properly override when
     # a variable is changed
@@ -68,12 +70,12 @@ class TestCase(unittest.TestCase):
     # Checks default values are set to none
     def test_unpopulated_is_none(self):
         game = Game()
-        self.assertTrue(game.platform_id == None)
+        self.assertTrue(game.platform_id is not None)
 
     # Makes sure that the lists are initalized to empty lists
-    def test_unpopulated_list_is_not_none(self):
+    def test_unpopulated_list_not_none(self):
         game = Game()
-        self.assertTrue(game.reviews != None)
+        self.assertTrue(game.reviews is not None)
         self.assertTrue(game.reviews.count() == 0)
 
     # Makes sure that it is not possible to make a list
@@ -84,7 +86,7 @@ class TestCase(unittest.TestCase):
             game.reviews = None
 
     # Tests that keys can be set by name
-    def test_nonkey_attributes_populated(self):
+    def test_noattributes_populated(self):
         platform = Platform(generation=4)
         studio = Studio()
         platform.studio.append(studio)
@@ -92,9 +94,8 @@ class TestCase(unittest.TestCase):
 
     # Tests that no relationship exist before establishing
     def test_no_relationship(self):
-        studio = Studio(name="Riot")
         game = Game(name="LoL")
-        self.assertTrue(game.studio_id == None)
+        self.assertTrue(game.studio_id is None)
 
     # Tests that the relationship automatically set up the foreign keys
     def test_foreignkey(self):
