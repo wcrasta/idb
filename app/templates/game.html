@@ -88,7 +88,7 @@
           <img style="height: 50vh; width: 30vw; margin-bottom: 100px;" src={{items.image}}> {% else %}
           <img style="height: 50vh; width: 30vw; margin-bottom: 100px;" src="/static/images/no-art.png"> {% endif %}
         </div>
-        <div class="col-sm-5">
+        <div class="col-sm-5" style="padding-left: 50px; padding-right: 50px;">
           <div class="row">
             <h2 style="text-decoration: underline;">Storyline</h2>
             <p>
@@ -104,11 +104,11 @@
           {% if items.video != 'None' %}
           <div class="row">
             <h2 style="text-decoration: underline;">Video</h2>
-            <iframe width="500" height="315" src={{items.video}} allowfullscreen></iframe>
+            <iframe width="90%" height="300px;" src={{items.video}} allowfullscreen></iframe>
           </div>
           {% endif %}
         </div>
-        <div class="col-sm-3">
+        <div class="col-sm-3" style="padding-right: 50px;">
           <div class="row">
             <h2 style="display: inline-block;">Platform:	&nbsp;</h2> {% if items.platform.name != 'None' %}
             <span><a style = "color: white; text-decoration: underline" href="{{ url_for('platform_instance', name = items.platform.id)}}">{{items.platform.name}}</a></span> {% else %}

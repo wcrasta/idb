@@ -90,7 +90,7 @@
           <h2><a style = "color: white; text-decoration: underline" href="{{url_for('game_instance',name = items.game.id)}}">{{items.game.name}}</a></h2>
           <h2><a style = "color: white; text-decoration: underline" href="{{url_for('platform_instance',name = items.platform.id)}}">{{items.platform.name}}</a></h2>
         </div>
-        <div class="col-sm-5 text-center">
+        <div class="col-sm-5 text-center" style="padding-left: 50px; padding-right: 50px;">
           <div class="row">
             <h2 style="text-decoration: underline;">Introduction</h2>
             <p>
@@ -116,7 +116,7 @@
           </div>
           {% endif %}
         </div>
-        <div class="col-sm-3">
+        <div class="col-sm-3" style="padding-right: 50px;">
           <div class="row">
             <h2 style="display: inline-block;">Positive:	&nbsp;</h2>
             <span>{{items.positive}}</span>
