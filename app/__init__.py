@@ -29,14 +29,15 @@ def index():
     """
     return render_template('home.html')
 
+
 @app.route('/unit_tests')
 def unit_tests():
     """
         Renders the home page
     """
-    #Use full path on server
+    # Use full path on server
     print(os.path.realpath(__file__)[:-11])
-    return subprocess.check_output(['python3',os.path.realpath(__file__)[:-11]+'tests.py'], stderr=subprocess.STDOUT)
+    return subprocess.check_output(['python3', os.path.realpath(__file__)[:-11] + 'tests.py'], stderr=subprocess.STDOUT)
 
 
 @app.route('/about', methods=['GET'])
@@ -56,11 +57,13 @@ def games(page=1):
     """
     sort = request.args.get('sort', 'name')
     games = db.session.query(Game).filter(
-        Game.api_id != 0 and Game.name != '').order_by(eval('Game.'+sort))
+        Game.api_id != 0 and Game.name != '').order_by(eval('Game.' + sort))
     pagination = Pagination(
         page=page, css_framework='foundation', total=games.count(), per_page=9, record_name='items')
     return render_template('games.html', items=games[min(page * 9, games.count() - 9):(page + 1) * 9], pagination=pagination)
-    #return render_template('games.html', items = games , pagination= pagination)
+    # return render_template('games.html', items = games , pagination=
+    # pagination)
+
 
 @app.route('/game/<name>', methods=['GET'])
 def game_instance(name):

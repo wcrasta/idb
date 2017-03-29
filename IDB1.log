@@ -1,3 +1,28 @@
+commit 218762c97dd45842ba4c8df4b25c7aa30d6b3a23
+Author: Zihao Zhu <zz3686@cs.utexas.edu>
+Date:   Wed Mar 29 13:19:45 2017 -0500
+
+    Fixed unit test hopefully forever
+
+commit e660983c5c570d02b861cb99759473325a870b45
+Merge: 1c3db92 9c98cc2
+Author: kbbrownn <kbbrown@utexas.edu>
+Date:   Wed Mar 29 13:06:26 2017 -0500
+
+    Merge branch 'phase2' of https://github.com/wcrasta/idb into phase2
+
+commit 1c3db92dad8a0cf53b0e6ba07e7c2b80a866282a
+Author: kbbrownn <kbbrown@utexas.edu>
+Date:   Wed Mar 29 13:06:14 2017 -0500
+
+    Unit test results should be back in modal -- reformatted code
+
+commit 9c98cc2c5c39c75195ee1297183553fb8168fdcb
+Author: Zihao <zihaozhu@utexas.edu>
+Date:   Wed Mar 29 00:31:44 2017 -0500
+
+    Fixed pylint for tests.py, need to check makefile tmr
+
 commit 9c0493850de9e363bf47484e59d0a4780eedae26
 Author: Zihao <zihaozhu@utexas.edu>
 Date:   Wed Mar 29 00:15:09 2017 -0500

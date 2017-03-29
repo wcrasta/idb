@@ -43,7 +43,7 @@ endif
 
 app/tests.out: .pylintrc
 	-$(PYLINT) app/tests.py
-	-$(COVERAGE) run    --branch app/tests.py >  app/tests.out 2>&1
+	-$(COVERAGE) run    --branch --include=app/tests.py app/tests.py >  app/tests.out 2>&1
 	-$(COVERAGE) report -m                      >> app/tests.out
 	cat app/tests.out
 

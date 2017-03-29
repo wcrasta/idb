@@ -18,9 +18,10 @@ app = Flask(__name__)
 app.debug = True
 
 basedir = os.path.abspath(os.path.dirname(__file__))
-app.config['SQLALCHEMY_DATABASE_URI'] = "postgresql://wcrasta:ggnoswe123@ggnoswe.cpgg3gqlefhf.us-west-2.rds.amazonaws.com/ggnoswe"
+app.config[
+    'SQLALCHEMY_DATABASE_URI'] = "postgresql://wcrasta:ggnoswe123@ggnoswe.cpgg3gqlefhf.us-west-2.rds.amazonaws.com/ggnoswe"
 
-#app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///' + \
+# app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///' + \
 #   os.path.join(basedir, 'app.db')
 
 
@@ -70,9 +71,8 @@ class Game(db.Model):
 
     # inits a game object
     def __init__(self, name=None, api_id=None, summary=None, genre=None,
-                 rating = None, storyline = None, category = None, esrb = None, status= None, platform_id=None,
-                 studio_id = None, reviews = None, video = None, image=None, release_date=None, website=None):
-
+                 rating=None, storyline=None, category=None, esrb=None, status=None, platform_id=None,
+                 studio_id=None, reviews=None, video=None, image=None, release_date=None, website=None):
 
         if name != None:
             assert name != ''
@@ -180,7 +180,7 @@ class Platform(db.Model):
     studio = db.relationship('Studio', backref='platform', lazy="dynamic")
 
     # makes a platform object
-    def __init__(self, api_id = None, created_at = None, name = None, summary = None, games = None, review = None, generation = None, image = None, website = None, studio = None):
+    def __init__(self, api_id=None, created_at=None, name=None, summary=None, games=None, review=None, generation=None, image=None, website=None, studio=None):
 
         if api_id != None:
             assert api_id > -1
@@ -203,10 +203,10 @@ class Platform(db.Model):
 
         if review != None:
             assert isinstance(review, Reviews)
-            self.review  = review
+            self.review = review
 
-        if generation!=None:
-            assert generation > -1 and generation<100
+        if generation != None:
+            assert generation > -1 and generation < 100
             self.generation = generation
 
         if image != None:
@@ -218,7 +218,7 @@ class Platform(db.Model):
             self.website = website
 
         if studio != None:
-            assert isinstance(studio,Studio)
+            assert isinstance(studio, Studio)
             self.studio = studio
 
         # assert api_id > 0
@@ -263,14 +263,14 @@ class Studio(db.Model):
     website = db.Column(db.String(256))
 
     # makes a studio model
-    def __init__(self, name = None, platform_id = None, logo = None, description = None, game = None, created_at = None, website = None):
+    def __init__(self, name=None, platform_id=None, logo=None, description=None, game=None, created_at=None, website=None):
 
         if name != None:
             assert name != "None"
             self.name = name
 
         if platform_id != None:
-            assert platform_id>=0
+            assert platform_id >= 0
             self.platform_id = platform_id
 
         if logo != None:
@@ -282,15 +282,15 @@ class Studio(db.Model):
             self.description = description
 
         if game != None:
-            assert isinstance(game,Game)
+            assert isinstance(game, Game)
             self.game = game
 
         if created_at != None:
             assert isinstance(created_at, datetime)
             self.created_at = created_at
 
-        if website!=None:
-            assert website!=""
+        if website != None:
+            assert website != ""
             self.website = website
         # assert name != ''
         # assert platform_id >= 0
@@ -335,33 +335,34 @@ class Reviews(db.Model):
     url = db.Column(db.String(256))
 
     # makes a reviews model
-    def __init__(self, title = None, platform_id = None, game_id = None, created_at = None, views = None, video = None,
-                 introduction = None, content = None, conclusion = None, positive = None, negative = None, url = None):
+    def __init__(
+        self, title=None, platform_id=None, game_id=None, created_at=None, views=None, video=None,
+                 introduction=None, content=None, conclusion=None, positive=None, negative=None, url=None):
         if title != None:
             assert title != ""
             self.title = title
 
         if platform_id != None:
-            assert platform_id >=0
+            assert platform_id >= 0
             self.platform_id = platform_id
 
         if game_id != None:
-            assert game_id>=0
+            assert game_id >= 0
             self.game_id = game_id
 
-        if created_at!=None:
+        if created_at != None:
             assert isinstance(created_at, datetime)
             self.created_at = created_at
 
         if views != None:
-            assert views >=0
+            assert views >= 0
             self.views = views
 
         if video != None:
             assert video != ""
             self.video = video
 
-        if introduction!=None:
+        if introduction != None:
             assert introduction != ""
             self.introduction = introduction
 
