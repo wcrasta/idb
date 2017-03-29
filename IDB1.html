@@ -1,7 +1,6 @@
-
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
 <html><head><title>Python: module models</title>
-<meta charset="utf-8">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 </head><body bgcolor="#f0f0f8">
 
 <table width="100%" cellspacing=0 cellpadding=2 border=0 summary="heading">
@@ -9,7 +8,7 @@
 <td valign=bottom>&nbsp;<br>
 <font color="#ffffff" face="helvetica, arial">&nbsp;<br><big><big><strong>models</strong></big></big></font></td
 ><td align=right valign=bottom
-><font color="#ffffff" face="helvetica, arial"><a href=".">index</a><br><a href="file:/Users/zihaozhu/Desktop/sem6/softwareEngineering/project3/idb/app/models.py">/Users/zihaozhu/Desktop/sem6/softwareEngineering/project3/idb/app/models.py</a></font></td></tr></table>
+><font color="#ffffff" face="helvetica, arial"><a href=".">index</a><br><a href="file:/v/filer4b/v38q001/wcrasta/idb/app/models.py">/v/filer4b/v38q001/wcrasta/idb/app/models.py</a></font></td></tr></table>
     <p><tt>#&nbsp;pylint:&nbsp;disable&nbsp;=&nbsp;no-member<br>
 #&nbsp;pylint:&nbsp;disable&nbsp;=&nbsp;missing-docstring<br>
 #&nbsp;pylint:&nbsp;disable&nbsp;=&nbsp;invalid-name<br>
@@ -61,11 +60,11 @@ and&nbsp;companies.<br>&nbsp;</tt></td></tr>
 <dd><a href="models.html#Game">Game</a></dd>
 <dd>flask_sqlalchemy.Model</dd>
 <dd><a href="flask_sqlalchemy.html#Model">flask_sqlalchemy.Model</a></dd>
-<dd><a href="__builtin__.html#object">__builtin__.object</a></dd>
+<dd><a href="builtins.html#object">builtins.object</a></dd>
 </dl>
 <hr>
 Methods defined here:<br>
-<dl><dt><a name="Game-__init__"><strong>__init__</strong></a>(self, name<font color="#909090">=None</font>, api_id<font color="#909090">=None</font>, summary<font color="#909090">=None</font>, genre<font color="#909090">=None</font>, rating<font color="#909090">=None</font>, storyline<font color="#909090">=None</font>, category<font color="#909090">=None</font>, esrb<font color="#909090">=None</font>, status<font color="#909090">=None</font>, platform_id<font color="#909090">=None</font>, studio_id<font color="#909090">=None</font>, reviews<font color="#909090">=None</font>, video<font color="#909090">=None</font>, image<font color="#909090">=None</font>, release_date<font color="#909090">=None</font>, website<font color="#909090">=None</font>)</dt></dl>
+<dl><dt><a name="Game-__init__"><strong>__init__</strong></a>(self, name=None, api_id=None, summary=None, genre=None, rating=None, storyline=None, category=None, esrb=None, status=None, platform_id=None, studio_id=None, reviews=None, video=None, image=None, release_date=None, website=None)</dt></dl>
 
 <hr>
 Data descriptors defined here:<br>
@@ -105,16 +104,15 @@ Data descriptors defined here:<br>
 </dl>
 <hr>
 Data and other attributes defined here:<br>
-<dl><dt><strong>__mapper__</strong> = &lt;Mapper at 0x111210350; Game&gt;</dl>
+<dl><dt><strong>__mapper__</strong> = &lt;Mapper at 0x7f6187df5c18; Game&gt;</dl>
 
 <dl><dt><strong>__table__</strong> = Table('game', MetaData(bind=None), Column('id', ..., String(length=256), table=&lt;game&gt;), schema=None)</dl>
 
 <hr>
-Methods inherited from flask_sqlalchemy.Model:<br>
-<strong>query</strong> = &lt;flask_sqlalchemy.BaseQuery object&gt;
-<hr>
 Data and other attributes inherited from flask_sqlalchemy.Model:<br>
 <dl><dt><strong>metadata</strong> = MetaData(bind=None)</dl>
+
+<dl><dt><strong>query</strong> = &lt;flask_sqlalchemy.BaseQuery object&gt;</dl>
 
 <dl><dt><strong>query_class</strong> = &lt;class 'flask_sqlalchemy.BaseQuery'&gt;<dd><tt>SQLAlchemy&nbsp;:class:`~sqlalchemy.orm.query.Query`&nbsp;subclass&nbsp;with&nbsp;convenience&nbsp;methods&nbsp;for&nbsp;querying&nbsp;in&nbsp;a&nbsp;web&nbsp;application.<br>
 &nbsp;<br>
@@ -148,11 +146,11 @@ game,&nbsp;review&nbsp;and&nbsp;studio.<br>&nbsp;</tt></td></tr>
 <dd><a href="models.html#Platform">Platform</a></dd>
 <dd>flask_sqlalchemy.Model</dd>
 <dd><a href="flask_sqlalchemy.html#Model">flask_sqlalchemy.Model</a></dd>
-<dd><a href="__builtin__.html#object">__builtin__.object</a></dd>
+<dd><a href="builtins.html#object">builtins.object</a></dd>
 </dl>
 <hr>
 Methods defined here:<br>
-<dl><dt><a name="Platform-__init__"><strong>__init__</strong></a>(self, api_id<font color="#909090">=None</font>, created_at<font color="#909090">=None</font>, name<font color="#909090">=None</font>, summary<font color="#909090">=None</font>, games<font color="#909090">=None</font>, review<font color="#909090">=None</font>, generation<font color="#909090">=None</font>, image<font color="#909090">=None</font>, website<font color="#909090">=None</font>, studio<font color="#909090">=None</font>)</dt></dl>
+<dl><dt><a name="Platform-__init__"><strong>__init__</strong></a>(self, api_id=None, created_at=None, name=None, summary=None, games=None, review=None, generation=None, image=None, website=None, studio=None)</dt></dl>
 
 <hr>
 Data descriptors defined here:<br>
@@ -180,16 +178,15 @@ Data descriptors defined here:<br>
 </dl>
 <hr>
 Data and other attributes defined here:<br>
-<dl><dt><strong>__mapper__</strong> = &lt;Mapper at 0x111210bd0; Platform&gt;</dl>
+<dl><dt><strong>__mapper__</strong> = &lt;Mapper at 0x7f6187d9c550; Platform&gt;</dl>
 
 <dl><dt><strong>__table__</strong> = Table('platform', MetaData(bind=None), Column('i...tring(length=80), table=&lt;platform&gt;), schema=None)</dl>
 
 <hr>
-Methods inherited from flask_sqlalchemy.Model:<br>
-<strong>query</strong> = &lt;flask_sqlalchemy.BaseQuery object&gt;
-<hr>
 Data and other attributes inherited from flask_sqlalchemy.Model:<br>
 <dl><dt><strong>metadata</strong> = MetaData(bind=None)</dl>
+
+<dl><dt><strong>query</strong> = &lt;flask_sqlalchemy.BaseQuery object&gt;</dl>
 
 <dl><dt><strong>query_class</strong> = &lt;class 'flask_sqlalchemy.BaseQuery'&gt;<dd><tt>SQLAlchemy&nbsp;:class:`~sqlalchemy.orm.query.Query`&nbsp;subclass&nbsp;with&nbsp;convenience&nbsp;methods&nbsp;for&nbsp;querying&nbsp;in&nbsp;a&nbsp;web&nbsp;application.<br>
 &nbsp;<br>
@@ -224,11 +221,11 @@ such&nbsp;as&nbsp;introduction,&nbsp;content&nbsp;and&nbsp;conclusion.<br>
 <dd><a href="models.html#Reviews">Reviews</a></dd>
 <dd>flask_sqlalchemy.Model</dd>
 <dd><a href="flask_sqlalchemy.html#Model">flask_sqlalchemy.Model</a></dd>
-<dd><a href="__builtin__.html#object">__builtin__.object</a></dd>
+<dd><a href="builtins.html#object">builtins.object</a></dd>
 </dl>
 <hr>
 Methods defined here:<br>
-<dl><dt><a name="Reviews-__init__"><strong>__init__</strong></a>(self, title<font color="#909090">=None</font>, platform_id<font color="#909090">=None</font>, game_id<font color="#909090">=None</font>, created_at<font color="#909090">=None</font>, views<font color="#909090">=None</font>, video<font color="#909090">=None</font>, introduction<font color="#909090">=None</font>, content<font color="#909090">=None</font>, conclusion<font color="#909090">=None</font>, positive<font color="#909090">=None</font>, negative<font color="#909090">=None</font>, url<font color="#909090">=None</font>)</dt></dl>
+<dl><dt><a name="Reviews-__init__"><strong>__init__</strong></a>(self, title=None, platform_id=None, game_id=None, created_at=None, views=None, video=None, introduction=None, content=None, conclusion=None, positive=None, negative=None, url=None)</dt></dl>
 
 <hr>
 Data descriptors defined here:<br>
@@ -264,16 +261,15 @@ Data descriptors defined here:<br>
 </dl>
 <hr>
 Data and other attributes defined here:<br>
-<dl><dt><strong>__mapper__</strong> = &lt;Mapper at 0x11124ac10; Reviews&gt;</dl>
+<dl><dt><strong>__mapper__</strong> = &lt;Mapper at 0x7f6187db8470; Reviews&gt;</dl>
 
 <dl><dt><strong>__table__</strong> = Table('reviews', MetaData(bind=None), Column('id...tring(length=256), table=&lt;reviews&gt;), schema=None)</dl>
 
 <hr>
-Methods inherited from flask_sqlalchemy.Model:<br>
-<strong>query</strong> = &lt;flask_sqlalchemy.BaseQuery object&gt;
-<hr>
 Data and other attributes inherited from flask_sqlalchemy.Model:<br>
 <dl><dt><strong>metadata</strong> = MetaData(bind=None)</dl>
+
+<dl><dt><strong>query</strong> = &lt;flask_sqlalchemy.BaseQuery object&gt;</dl>
 
 <dl><dt><strong>query_class</strong> = &lt;class 'flask_sqlalchemy.BaseQuery'&gt;<dd><tt>SQLAlchemy&nbsp;:class:`~sqlalchemy.orm.query.Query`&nbsp;subclass&nbsp;with&nbsp;convenience&nbsp;methods&nbsp;for&nbsp;querying&nbsp;in&nbsp;a&nbsp;web&nbsp;application.<br>
 &nbsp;<br>
@@ -306,11 +302,11 @@ they&nbsp;built/published,&nbsp;the&nbsp;website&nbsp;and&nbsp;etc.<br>
 <dd><a href="models.html#Studio">Studio</a></dd>
 <dd>flask_sqlalchemy.Model</dd>
 <dd><a href="flask_sqlalchemy.html#Model">flask_sqlalchemy.Model</a></dd>
-<dd><a href="__builtin__.html#object">__builtin__.object</a></dd>
+<dd><a href="builtins.html#object">builtins.object</a></dd>
 </dl>
 <hr>
 Methods defined here:<br>
-<dl><dt><a name="Studio-__init__"><strong>__init__</strong></a>(self, name<font color="#909090">=None</font>, platform_id<font color="#909090">=None</font>, logo<font color="#909090">=None</font>, description<font color="#909090">=None</font>, game<font color="#909090">=None</font>, created_at<font color="#909090">=None</font>, website<font color="#909090">=None</font>)</dt></dl>
+<dl><dt><a name="Studio-__init__"><strong>__init__</strong></a>(self, name=None, platform_id=None, logo=None, description=None, game=None, created_at=None, website=None)</dt></dl>
 
 <hr>
 Data descriptors defined here:<br>
@@ -334,16 +330,15 @@ Data descriptors defined here:<br>
 </dl>
 <hr>
 Data and other attributes defined here:<br>
-<dl><dt><strong>__mapper__</strong> = &lt;Mapper at 0x11124a290; Studio&gt;</dl>
+<dl><dt><strong>__mapper__</strong> = &lt;Mapper at 0x7f6187d9cb70; Studio&gt;</dl>
 
 <dl><dt><strong>__table__</strong> = Table('studio', MetaData(bind=None), Column('id'...String(length=256), table=&lt;studio&gt;), schema=None)</dl>
 
 <hr>
-Methods inherited from flask_sqlalchemy.Model:<br>
-<strong>query</strong> = &lt;flask_sqlalchemy.BaseQuery object&gt;
-<hr>
 Data and other attributes inherited from flask_sqlalchemy.Model:<br>
 <dl><dt><strong>metadata</strong> = MetaData(bind=None)</dl>
+
+<dl><dt><strong>query</strong> = &lt;flask_sqlalchemy.BaseQuery object&gt;</dl>
 
 <dl><dt><strong>query_class</strong> = &lt;class 'flask_sqlalchemy.BaseQuery'&gt;<dd><tt>SQLAlchemy&nbsp;:class:`~sqlalchemy.orm.query.Query`&nbsp;subclass&nbsp;with&nbsp;convenience&nbsp;methods&nbsp;for&nbsp;querying&nbsp;in&nbsp;a&nbsp;web&nbsp;application.<br>
 &nbsp;<br>
@@ -367,8 +362,7 @@ Data descriptors inherited from <a href="flask_sqlalchemy.html#Model">flask_sqla
 <font color="#ffffff" face="helvetica, arial"><big><strong>Data</strong></big></font></td></tr>
     
 <tr><td bgcolor="#55aa55"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
-<td width="100%"><strong>__warningregistry__</strong> = {("Not importing directory './flask': missing __init__.py", &lt;type 'exceptions.ImportWarning'&gt;, 14): True}<br>
-<strong>app</strong> = &lt;Flask 'models'&gt;<br>
-<strong>basedir</strong> = '/Users/zihaozhu/Desktop/sem6/softwareEngineering/project3/idb/app'<br>
+<td width="100%"><strong>app</strong> = &lt;Flask 'models'&gt;<br>
+<strong>basedir</strong> = '/v/filer4b/v38q001/wcrasta/idb/app'<br>
 <strong>db</strong> = &lt;SQLAlchemy engine=postgresql://wcrasta:***@ggno...cpgg3gqlefhf.us-west-2.rds.amazonaws.com/ggnoswe&gt;</td></tr></table>
 </body></html>

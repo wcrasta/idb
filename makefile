@@ -1,13 +1,13 @@
 .DEFAULT_GOAL := test
 
-FILES :=            \
-    IDB1.log        \
-    app/__init__.py      \
-    app/models.py   \
-    app/tests.py    \
-    IDB1.html       \
-    app/tests.out \
-
+FILES :=                \
+    app/__init__.py     \
+    app/models.py       \
+    app/tests.py        \
+    app/tests.out       \
+    IDB1.log            \
+    IDB1.html           \
+    
 ifeq ($(shell uname), Darwin)          # Apple
     PYTHON   := python3.5
     PIP      := pip3.5
@@ -43,12 +43,13 @@ endif
 
 app/tests.out: .pylintrc
 	-$(PYLINT) app/tests.py
-	-$(COVERAGE) run    --branch app/tests.py >  app/tests.out 2>&1
+	-$(COVERAGE) run    --branch --include=app/tests.py app/tests.py >  app/tests.out 2>&1
 	-$(COVERAGE) report -m                      >> app/tests.out
 	cat app/tests.out
 
 IDB1.html: 
-	./pydoc3.sh
+	pydoc3 -w app/models.py
+	mv models.html IDB1.html
 
 IDB1.log:
 	git log > IDB1.log
