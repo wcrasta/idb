@@ -34,7 +34,8 @@ def unit_tests():
     """
         Renders the home page
     """
-    return subprocess.check_output(['python3',os.getcwd()+'/'+'tests.py'], stderr=subprocess.STDOUT)
+    #Use full path on server
+    return subprocess.check_output(['python3',os.path.realpath(__file__)[:-11]+'/tests.py'], stderr=subprocess.STDOUT)
 
 
 @app.route('/about', methods=['GET'])
