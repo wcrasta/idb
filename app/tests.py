@@ -133,6 +133,6 @@ class TestCase(unittest.TestCase):
         self.assertTrue(game.platform_id == platform.id)
         self.assertTrue(review.platform_id == platform.id)
 
-
 if __name__ == '__main__':
     unittest.main()
+    

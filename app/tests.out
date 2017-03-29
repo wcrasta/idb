@@ -5,4 +5,4 @@ Ran 15 tests in 0.026s
 OK
 Name           Stmts   Miss Branch BrPart  Cover   Missing
 ----------------------------------------------------------
-app/tests.py      92      0      2      1    99%   137->exit
+app/tests.py      92      0      2      1    99%   136->exit

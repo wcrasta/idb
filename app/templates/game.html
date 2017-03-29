@@ -1,36 +1,43 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-<meta charset="UTF-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width = device-width, initial-scale=1">
-<title>GGnoSWE · {{items.name}}</title>
-<link rel="stylesheet" type="text/css" href="../static/css/home.css">
-<style type="text/css">
-  body {
-    background: url('../static/images/bg2.png');
-    background-size: cover;
-  }
-  h1 {
-    color: white;
-    text-align: center;
-    margin-top: 60px;
-  }
-  h2 {
-    color: white;
-    font-size: 2em;
-  }
-  p{
-    font-size: 1.25em;
-    word-wrap: break-word;
-    color: white;
-  }
-  .row span {
-    color: white;
-    font-size: 1.75em;
-  }
-</style>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width = device-width, initial-scale=1">
+  <title>GGnoSWE · {{items.name}}</title>
+  <link rel="shortcut icon" type="image/png" href="../static/images/favicon.png" />
+  <link rel="stylesheet" type="text/css" href="../static/css/home.css">
+  <style type="text/css">
+    body {
+      background: url('../static/images/bg2.png');
+      background-size: cover;
+    }
+
+    h1 {
+      color: white;
+      text-align: center;
+      margin-top: 60px;
+    }
+
+    h2 {
+      color: white;
+      font-size: 2em;
+    }
+
+    p {
+      font-size: 1.25em;
+      word-wrap: break-word;
+      color: white;
+    }
+
+    .row span {
+      color: white;
+      font-size: 1.75em;
+    }
+  </style>
 </head>
+
 <body>
 
   <header>
@@ -47,7 +54,7 @@
             <ul class="nav navbar-nav">
               <li class="nav-item">
                 <a class="nav-link" href="/">
-                  <img src="../static/images/logo.png" style="width: 100px; height: 50px; padding-top: -20px;"/>
+                  <img src="../static/images/logo.png" style="width: 100px; height: 50px; padding-top: -20px;" />
                 </a>
               </li>
               <li class="nav-item" style="padding-top: 15px;">
@@ -77,12 +84,9 @@
     <div class="col-sm-12">
       <div class="row">
         <div class="col-sm-4">
-          <h1>{{items.name}}</h1>
-          {% if items.image!='None' %}
-            <img style="height: 50vh; width: 30vw; margin-bottom: 100px;" src={{items.image}}>
-          {% else %}
-            <img style="height: 50vh; width: 30vw; margin-bottom: 100px;" src="/static/images/no-art.png">
-          {% endif %}
+          <h1>{{items.name}}</h1> {% if items.image!='None' %}
+          <img style="height: 50vh; width: 30vw; margin-bottom: 100px;" src={{items.image}}> {% else %}
+          <img style="height: 50vh; width: 30vw; margin-bottom: 100px;" src="/static/images/no-art.png"> {% endif %}
         </div>
         <div class="col-sm-5">
           <div class="row">
@@ -98,34 +102,28 @@
             </p>
           </div>
           {% if items.video != 'None' %}
-            <div class="row">
-              <h2 style="text-decoration: underline;">Video</h2>
-              <iframe width="500" height="315" src={{items.video}} allowfullscreen></iframe>
-            </div>
+          <div class="row">
+            <h2 style="text-decoration: underline;">Video</h2>
+            <iframe width="500" height="315" src={{items.video}} allowfullscreen></iframe>
+          </div>
           {% endif %}
         </div>
         <div class="col-sm-3">
           <div class="row">
-            <h2 style="display: inline-block;">Platform:	&nbsp;</h2>
-            {% if items.platform.name != 'None' %}
-            <span><a style = "color: white; text-decoration: underline" href="{{ url_for('platform_instance', name = items.platform.id)}}">{{items.platform.name}}</a></span>
-            {% else %}
-            <span style = "color: white; text-decoration: underline">{{items.platform.name}}</span>
-            {% endif %}
+            <h2 style="display: inline-block;">Platform:	&nbsp;</h2> {% if items.platform.name != 'None' %}
+            <span><a style = "color: white; text-decoration: underline" href="{{ url_for('platform_instance', name = items.platform.id)}}">{{items.platform.name}}</a></span> {% else %}
+            <span style="color: white; text-decoration: underline">{{items.platform.name}}</span> {% endif %}
           </div>
           <div class="row">
-            <h2 style="display: inline-block;">Studio:	&nbsp;</h2>
-            {% if items.studio.name != 'None' %}
-            <span><a style = "color: white; text-decoration: underline" href="{{ url_for('studio_instance', name = items.studio.id)}}">{{items.studio.name}}</a></span>
-            {% else %}
-            <span style = "color: white; text-decoration: underline">{{items.studio.name}}</span>
-            {% endif %}
+            <h2 style="display: inline-block;">Studio:	&nbsp;</h2> {% if items.studio.name != 'None' %}
+            <span><a style = "color: white; text-decoration: underline" href="{{ url_for('studio_instance', name = items.studio.id)}}">{{items.studio.name}}</a></span> {% else %}
+            <span style="color: white; text-decoration: underline">{{items.studio.name}}</span> {% endif %}
           </div>
           <div class="row">
             <h2 style="display: inline-block;">Genre:	&nbsp;</h2>
             <span>{{items.genre}}</span>
           </div>
-            <div class="row">
+          <div class="row">
             <h2 style="display: inline-block;">Category: &nbsp;</h2>
             <span>{{items.category}}</span>
           </div>
@@ -142,12 +140,9 @@
             <span>{{items.release_date}}</span>
           </div>
           <div class="row">
-            <h2 style="display: inline-block;">Website:	&nbsp;</h2>
-            {% if items.website != 'None' %}
-            <span><a style = "color: white; text-decoration: underline" href = "{{items.website}}">{{items.website}}</a></span>
-            {% else %}
-            <span style = "color: white; text-decoration: underline">{{items.website}}</span>
-            {% endif %}
+            <h2 style="display: inline-block;">Website:	&nbsp;</h2> {% if items.website != 'None' %}
+            <span><a style = "color: white; text-decoration: underline" href = "{{items.website}}">{{items.website}}</a></span> {% else %}
+            <span style="color: white; text-decoration: underline">{{items.website}}</span> {% endif %}
           </div>
           <div class="row">
             <h2 style="display: inline-block;">Reviews:	&nbsp;</h2>
