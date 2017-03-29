@@ -55,13 +55,19 @@ def games(page=1):
         Renders the games page
         passing in Game objects for dynamic generation of pages
     """
+    platform = db.session.query(Platform).filter(Platform.api_id != 0 and Platform.name != '').order_by('Platform.name')
+    studio = db.session.query(Studio).filter(Studio.name != '').order_by('Studio.name')
     sort = request.args.get('sort', 'name')
     asc = request.args.get('asc', 'asc')
-    games = db.session.query(Game).filter(
-        Game.api_id != 0 and Game.name != '').order_by(('Game.' + sort+" "+asc))
+    sortPlatform = request.args.getlist('platform')
+    print("ahhhhhhhhhhhhhhhhhhhhhhhhhhhhh",sortPlatform)
+    if len(sortPlatform)>0:
+        games = db.session.query(Game).filter(Game.platform_id.in_(sortPlatform))
+    else:
+        games = db.session.query(Game).filter(Game.api_id != 0 and Game.name != '').order_by(('Game.' + sort+" "+asc))
     pagination = Pagination(
         page=page, css_framework='foundation', total=games.count(), per_page=9, record_name='items')
-    return render_template('games.html', items=games[min(page * 9, games.count() - 9):(page + 1) * 9], pagination=pagination)
+    return render_template('games.html', items=games[min(page * 9, games.count() - 9):(page + 1) * 9], pagination=pagination, platforms = platform, studios=studio)
     # return render_template('games.html', items = games , pagination=
     # pagination)
 
