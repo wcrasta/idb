@@ -83,9 +83,10 @@ def reviews(page=1):
         Renders the reviews page
         passing in Reviews objects for dynamic generation of pages
     """
-    value = request.args.get('sort', 'title')
+    sort = request.args.get('sort', 'title')
+    asc = request.args.get('asc', 'asc')
     reviews = db.session.query(Reviews).filter(
-        Reviews.url != '').order_by(Reviews.title)
+        Reviews.url != '').order_by(('Reviews.'+sort+" "+asc))
     pagination = Pagination(
         page=page, css_framework='foundation', total=reviews.count(), record_name='items')
     return render_template('reviews.html', items=reviews[min(page * 9, reviews.count() - 9):(page + 1) * 9], pagination=pagination)
@@ -108,9 +109,10 @@ def platforms(page=1):
         Renders the platforms  page
         passing in Platform objects for dynamic generation of pages
     """
-    value = request.args.get('sort', 'name')
+    sort = request.args.get('sort', 'name')
+    asc = request.args.get('asc', 'asc')
     platforms = db.session.query(Platform).filter(
-        Platform.api_id != 0 and Platform.name != '').order_by(Platform.name)
+        Platform.api_id != 0 and Platform.name != '').order_by(('Platform.'+sort+" "+asc))
     pagination = Pagination(
         page=page, css_framework='foundation', total=platforms.count(), record_name='items')
     return render_template('platforms.html', items=platforms[min(page * 9, platforms.count() - 9):(page + 1) * 9], pagination=pagination)
@@ -134,9 +136,10 @@ def studios(page=1):
         Renders the studio  page
         passing in Studios objects for dynamic generation of pages
     """
-    value = request.args.get('sort', 'name')
+    sort = request.args.get('sort', 'name')
+    asc = request.args.get('asc', 'asc')
     studios = db.session.query(Studio).filter(
-        Studio.name != '').order_by(Studio.name)
+        Studio.name != '').order_by(('Studio.'+sort+" "+asc))
     pagination = Pagination(
         page=page, css_framework='foundation', total=studios.count(), record_name='items')
     return render_template('studios.html', items=studios[min(page * 9, studios.count() - 9):(page + 1) * 9], pagination=pagination)
