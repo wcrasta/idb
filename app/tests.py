@@ -70,7 +70,7 @@ class TestCase(unittest.TestCase):
     # Checks default values are set to none
     def test_unpopulated_is_none(self):
         game = Game()
-        self.assertTrue(game.platform_id is not None)
+        self.assertTrue(game.platform_id is None)
 
     # Makes sure that the lists are initalized to empty lists
     def test_unpopulated_list_not_none(self):
