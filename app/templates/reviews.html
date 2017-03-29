@@ -105,9 +105,12 @@
               <div class="dropdown" style="padding-left: 20px; padding-top: 20px;">
                 <button class="btn btn-secondary dropdown-toggle" style="background-color: white"><font color="black">Sort relevance &nbsp;</font><span class="caret"></span></button>
                 <div class="dropdown-content">
-                  <a href="#">Games</a>
-                  <a href="#">Platform</a>
-                  <a href="#">Views</a>
+                  <a href="{{url_for('reviews', sort='title', asc='asc')}}">Review Title: A-Z</a>
+                  <a href="{{url_for('reviews', sort='title', asc='desc')}}">Review Title: Z-A</a>
+     <a href="{{url_for('reviews', sort='created_at', asc='desc')}}">Newest</a>
+     <a href="{{url_for('reviews', sort='created_at', asc='asc')}}">Oldest</a>
+                  <a href="{{url_for('reviews', sort='views', asc='asc')}}">Views: Low-High</a>
+                 <a href="{{url_for('reviews', sort='views', asc='desc')}}">Views: High-Low</a>
                 </div>
               </div>
               <p class="text-left" style="padding-top: 60px; padding-left: 20px; padding-top: 20px;"> <font color="white" size="6">Platform</font></p>

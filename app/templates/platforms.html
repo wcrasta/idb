@@ -112,10 +112,12 @@
                 <button class="btn btn-secondary dropdown-toggle" style="background-color: white"><font color="black">Sort relevance &nbsp;</font><span class="caret"></span></button>
                 <div class="dropdown-content">
 
-                  <a href="{{ url_for('platforms', sort='name')}}">Name: A-Z</a>
-                  <a href="#">Generation</a>
-                  <a href="#">Platform</a>
-                  <a href="#">Date Created</a>
+                  <a href="{{ url_for('platforms', sort='name', asc='asc')}}">Name: A-Z</a>
+                  <a href="{{ url_for('platforms', sort='name', asc='desc')}}">Name: Z-A</a>
+                  <a href="{{url_for('platforms', sort='generation', asc='asc')}}">Generation: Old-New</a>
+                  <a href="{{url_for('platforms', sort='generation', asc='desc')}}">Generation: New-Old</a>
+                  <a href="{{url_for('platforms', sort='created_at', asc='desc')}}">Newest</a>
+<a href="{{url_for('platforms', sort='created_at', asc='asc')}}">Oldest</a>                  
                 </div>
               </div>
               <p class="text-left" style="padding-top: 60px; padding-left: 20px; padding-top: 20px;"> <font color="white" size="6">Generation</font></p>
