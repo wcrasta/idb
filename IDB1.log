@@ -1,3 +1,76 @@
+commit 9c0493850de9e363bf47484e59d0a4780eedae26
+Author: Zihao <zihaozhu@utexas.edu>
+Date:   Wed Mar 29 00:15:09 2017 -0500
+
+    Added links from studio to game instance
+
+commit e6084b976ec74c942181f322369188a2bc5cdc18
+Author: Zihao <zihaozhu@utexas.edu>
+Date:   Wed Mar 29 00:10:25 2017 -0500
+
+    Fixed unit test to be relative to file
+
+commit c922db36d0fa010581c871463c83b6af511fd363
+Author: kbbrownn <kbbrown@utexas.edu>
+Date:   Tue Mar 28 22:45:36 2017 -0500
+
+    Fixed links to platforms / broken website links on studios page
+
+commit af848b1a931e5818f45f8912a5e692b17aad7035
+Author: kbbrownn <kbbrown@utexas.edu>
+Date:   Tue Mar 28 16:18:54 2017 -0500
+
+    Fixed a jump link on report page / spacing
+
+commit 47ae690bacdeab4a3345fedaf140a914ce588bc0
+Author: kbbrownn <kbbrown@utexas.edu>
+Date:   Tue Mar 28 16:05:58 2017 -0500
+
+    Fixed navbar font size / text acting like links on report page
+
+commit 69a185fda584d2424c383b92d113bb93f9bed3b9
+Author: kbbrownn <kbbrown@utexas.edu>
+Date:   Tue Mar 28 15:56:57 2017 -0500
+
+    Moved unit tests results to a fade in modal, with new button
+
+commit c5f10871e9045daa06671aa39aefc54b9513e441
+Merge: 718c718 c619cc3
+Author: Zihao <zihaozhu@utexas.edu>
+Date:   Tue Mar 28 00:10:15 2017 -0500
+
+    Merge branch 'phase2' of https://github.com/wcrasta/idb into phase2
+
+commit 718c7184db1496c2219aafd018d4a01deb4b34b8
+Author: Zihao <zihaozhu@utexas.edu>
+Date:   Tue Mar 28 00:09:17 2017 -0500
+
+    Postgres migration
+
+commit c619cc39766688aec95353581906ff8f4ebb222e
+Author: wcrasta <wcrasta@utexas.edu>
+Date:   Mon Mar 27 21:50:21 2017 -0500
+
+    Clean up.
+
+commit b47bc8877c991de1abcda14075f5a90b8d627f71
+Author: Zihao <zihaozhu@utexas.edu>
+Date:   Mon Mar 27 19:43:31 2017 -0500
+
+    Wrote my section of report and fixed unit tests
+
+commit 2ef5a034364369a4e752298f308af51f22601b74
+Author: Zihao Zhu <zz3686@cs.utexas.edu>
+Date:   Mon Mar 27 18:08:40 2017 -0500
+
+    updated requirements.txt
+
+commit 8ef781cb4b9dd60b18d3139b992c5a916ce7fa19
+Author: Zihao Zhu <zz3686@cs.utexas.edu>
+Date:   Mon Mar 27 18:04:37 2017 -0500
+
+    updated makefile
+
 commit 6e615f6080109377b7d954eb90e79dbf27bf833d
 Author: Zihao Zhu <zz3686@cs.utexas.edu>
 Date:   Mon Mar 27 17:23:39 2017 -0500
