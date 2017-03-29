@@ -1,46 +1,56 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-<meta charset="UTF-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width = device-width, initial-scale=1">
-<title>GGnoSWE · Reviews</title>
-<link rel="stylesheet" type="text/css" href="../static/css/common.css">
-<link rel="stylesheet" type="text/css" href="../static/css/home.css">
-<style type="text/css">
-  body {
-    background: url('../static/images/bg2.png');
-  }
-  h1 {
-    color: white;
-  }
-  h2 {
-    color: black;
-    text-align: center;
-  }
-  p {
-    text-align: left;
-    color: black;
-    font-size: 1.5em;
-  }
-  img {
-    width: 200px;
-    height: 200px;
-    border-radius: 15px;
-  }
-  .center-block {
-    margin-left: auto;
-    margin-right: auto;
-  }
-  .underline {
-    width: 100%;
-  }
-  .list-group {
-    padding-left: 20px;
-    padding-top: 20px;
-  }
-</style>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width = device-width, initial-scale=1">
+  <title>GGnoSWE · Reviews</title>
+  <link rel="shortcut icon" type="image/png" href="../static/images/favicon.png" />
+  <link rel="stylesheet" type="text/css" href="../static/css/common.css">
+  <link rel="stylesheet" type="text/css" href="../static/css/home.css">
+  <style type="text/css">
+    body {
+      background: url('../static/images/bg2.png');
+    }
+
+    h1 {
+      color: white;
+    }
+
+    h2 {
+      color: black;
+      text-align: center;
+    }
+
+    p {
+      text-align: left;
+      color: black;
+      font-size: 1.5em;
+    }
+
+    img {
+      width: 200px;
+      height: 200px;
+      border-radius: 15px;
+    }
+
+    .center-block {
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .underline {
+      width: 100%;
+    }
+
+    .list-group {
+      padding-left: 20px;
+      padding-top: 20px;
+    }
+  </style>
 </head>
+
 <body>
 
   <header>
@@ -57,7 +67,7 @@
             <ul class="nav navbar-nav">
               <li class="nav-item">
                 <a class="nav-link" href="/">
-                  <img src="../static/images/logo.png" style="width: 100px; height: 50px; padding-top: -20px;"/>
+                  <img src="../static/images/logo.png" style="width: 100px; height: 50px; padding-top: -20px;" />
                 </a>
               </li>
               <li class="nav-item" style="padding-top: 15px;">
@@ -89,73 +99,76 @@
       <!-- Filtering options -->
       <div class="row">
 
-            <div class="col-md-3"  style="margin-top: 220px">
-              <div class="row" style="padding-right: 50px;">
-                <div clas="col-sm-4"  style="border: 1px solid white;">
-                  <div class="dropdown" style="padding-left: 20px; padding-top: 20px;">
-                    <button class="btn btn-secondary dropdown-toggle" style="background-color: white"><font color="black">Sort relevance &nbsp;</font><span class="caret"></span></button>
-                    <div class="dropdown-content">
-                      <a href="#">Games</a>
-                      <a href="#">Platform</a>
-                      <a href="#">Views</a>
+        <div class="col-md-3" style="margin-top: 220px">
+          <div class="row" style="padding-right: 50px;">
+            <div clas="col-sm-4" style="border: 1px solid white;">
+              <div class="dropdown" style="padding-left: 20px; padding-top: 20px;">
+                <button class="btn btn-secondary dropdown-toggle" style="background-color: white"><font color="black">Sort relevance &nbsp;</font><span class="caret"></span></button>
+                <div class="dropdown-content">
+                  <a href="#">Games</a>
+                  <a href="#">Platform</a>
+                  <a href="#">Views</a>
+                </div>
+              </div>
+              <p class="text-left" style="padding-top: 60px; padding-left: 20px; padding-top: 20px;"> <font color="white" size="6">Platform</font></p>
+              <div class="list-group">
+                <input type="checkbox"> <font color="white" size="4">PlayStation 4 </font>
+                <br>
+                <input type="checkbox"> <font color="white" size="4">Xbox One </font>
+                <br>
+                <input type="checkbox"> <font color="white" size="4">PC </font>
+                <br>
+                <input type="submit" value="Submit">
+              </div>
+
+              <p class="text-left" style="padding-top: 30px; padding-left: 20px; padding-top: 20px;"></p>
+            </div>
+          </div>
+        </div>
+
+        <!--Load them images up -->
+        <div class='col-md-9' style="padding-top: 100px">
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="row">
+                <div class="col-sm-12">
+                  <div style="color: white; float: right; text-align: right;">
+                    {{ pagination.links }}
+                  </div>
+                  <h1>Reviews</h1>
+
+                  <div class="row">
+                    <div class="col-sm-6">
+                      <p>
+                        &nbsp;
+                      </p>
+                    </div>
+                    <div class="col-sm-6">
+                      <div style="color: white; text-align: right; margin-top: 10px;">
+                        {{ pagination.info }}
+                      </div>
+                    </div>
+                    <div class="col-sm-12">
+
+                      <div class="underline"></div>
                     </div>
                   </div>
-                  <p class="text-left" style="padding-top: 60px; padding-left: 20px; padding-top: 20px;" > <font color="white" size ="6">Platform</font></p>
-                  <div class="list-group">
-                    <input type="checkbox"> <font color="white" size ="4">PlayStation 4 </font> <br>
-                    <input type="checkbox"> <font color="white" size ="4">Xbox One </font> <br>
-                    <input type="checkbox"> <font color="white" size ="4">PC </font> <br>
-                    <input type="submit" value="Submit">
-                  </div>
-
-                <p class="text-left" style="padding-top: 30px; padding-left: 20px; padding-top: 20px;" ></p>
                 </div>
               </div>
             </div>
-
-            <!--Load them images up -->
-            <div class = 'col-md-9' style="padding-top: 100px">
-              <div class="row">
-                <div class="col-sm-12">
-                  <div class="row">
-                    <div class="col-sm-12">
-                      <div style="color: white; float: right; text-align: right;">
-                        {{ pagination.links }}
-                      </div>
-                        <h1>Reviews</h1>
-
-                      <div class="row">
-                        <div class="col-sm-6">
-                          <p>
-                            &nbsp;
-                          </p>
-                        </div>
-                        <div class="col-sm-6">
-                          <div style="color: white; text-align: right; margin-top: 10px;">
-                            {{ pagination.info }}
-                          </div>
-                        </div>
-                        <div class="col-sm-12">
-
-                        <div class="underline"></div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
+          </div>
           <div class="row" style="margin-top: 30px; margin-bottom: 30px; background: white; opacity: 0.9; border-radius: 15px;">
 
-          {% for item_row in items | batch(3, '&nbsp;') %}
-          <div class = "row" style="overflow: hidden; margin-bottom: 30px;">
-           {% for item in item_row %}
-           <div class = "col-md-4">
-           <div class="row">
-             <div class="col-sm-12">
-               <div style="inline;">
-                 <div class="row">
-                   <div class="col-sm-12">
-                     <h2 style="word-wrap: break-word; margin-bottom: 0;
+            {% for item_row in items | batch(3, '&nbsp;') %}
+            <div class="row" style="overflow: hidden; margin-bottom: 30px;">
+              {% for item in item_row %}
+              <div class="col-md-4">
+                <div class="row">
+                  <div class="col-sm-12">
+                    <div style="inline;">
+                      <div class="row">
+                        <div class="col-sm-12">
+                          <h2 style="word-wrap: break-word; margin-bottom: 0;
                      padding-top: 25px; height: 125px; width: 100%;
                      color: black; text-decoration: underline;">
                      <a href="{{ url_for('review_instance',
@@ -166,37 +179,35 @@
                       {{item.title}}
                       {% endif %}
                     </h2>
-                   </div>
-                 </div>
-            <p>
-          {% if item.game.image != 'None' %}
-          <img class="center-block" style="height: 250px" src="{{item.game.image}}" />
-          {% else %}
-          <img class ="center-block" style="height: 250px" src="/static/images/no-art.png"/>
-          {% endif %}
-          </a>
-          </div>
-          <div class="row" style="padding-left: 40px;">
-            <div class="col-sm-12">
-              <p><a href="{{ url_for('game_instance', name = item.game.id)}}" >Game: {{item.game.name}} </a></p>
-          </p>
-          <p>
-            <p><a href="{{url_for('platform_instance', name=item.platform.id)}}"> Game Platform: {{item.platform.name}}</a></p>
-          </p>
-            <p> Video: {{item.video}} </p>
-            <p> Written Time: {{item.created_at}} </p>
-            <p> Views: {{item.views}} </p>
-            <p> Review: <a href="{{item.url}}"> {{item.title}}</a> </p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-                   {% endfor %}
+                        </div>
+                      </div>
+                      <p>
+                        {% if item.game.image != 'None' %}
+                        <img class="center-block" style="height: 250px" src="{{item.game.image}}" /> {% else %}
+                        <img class="center-block" style="height: 250px" src="/static/images/no-art.png" /> {% endif %}
+                        </a>
+                    </div>
+                    <div class="row" style="padding-left: 40px;">
+                      <div class="col-sm-12">
+                        <p><a href="{{ url_for('game_instance', name = item.game.id)}}">Game: {{item.game.name}} </a></p>
+                        </p>
+                        <p>
+                          <p><a href="{{url_for('platform_instance', name=item.platform.id)}}"> Game Platform: {{item.platform.name}}</a></p>
+                        </p>
+                        <p> Video: {{item.video}} </p>
+                        <p> Written Time: {{item.created_at}} </p>
+                        <p> Views: {{item.views}} </p>
+                        <p> Review: <a href="{{item.url}}"> {{item.title}}</a> </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              {% endfor %}
 
-          </div>
+            </div>
 
-        {% endfor %}
+            {% endfor %}
 
           </div>
         </div>
@@ -212,4 +223,5 @@
 
 <!-- Search-->
 <script src="../static/js/search.js"></script>
+
 </html>
