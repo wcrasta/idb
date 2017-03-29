@@ -1,4 +1,4 @@
-w﻿<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -175,10 +175,16 @@ w﻿<!DOCTYPE html>
                       {% endif %}
                       <p style="padding-top: 15px;">
                           {% if item is defined %}
-                          <a href="{{ url_for('studio_instance', name = item.platform.id)}}" > {{item.platform.name}} </a>
+                          <a href="{{ url_for('platform_instance', name = item.platform.id)}}" > {{item.platform.name}} </a>
                           {% endif %}
                       </p>
-                      <p> <a href="{{item.website}}">Website: {{item.website}} </a></p>
+                      <p>
+                        {% if item.website != 'None' %}
+                        <a href="{{item.website}}">Website: {{item.website}} </a>
+                        {% else %}
+                        Website: None
+                        {% endif %}
+                      </p>
                       <p>
                         Date Created: {{item.created_at}}
                       </p>
