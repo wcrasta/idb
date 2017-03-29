@@ -116,11 +116,11 @@
                     <button class="btn btn-secondary dropdown-toggle" style="background-color: white"><font color="black">Sort relevance &nbsp;</font><span class="caret"></span></button>
                     <div class="dropdown-content">
                       <a href="{{ url_for('games', sort='name')}}">Name: A-Z</a>
-                      <a href="{{ url_for('games', sort='name')}}">Name: Z-A</a>
-                      <a href="{{ url_for('games', sort='rating')}}">Rating: High-Low</a>
+                      <a href="{{ url_for('games', sort='name', asc='desc')}}">Name: Z-A</a>
+                      <a href="{{ url_for('games', sort='rating', asc='desc')}}">Rating: High-Low</a>
                      <a href="{{ url_for('games', sort='rating')}}">Rating: Low-High</a>
-                      <a href="{{ url_for('games', sort='release_date')}}">Newest</a>
-                      <a href="{{ url_for('games', sort='release_date')}}">Oldest</a>
+                      <a href="{{ url_for('games', sort='release_date', asc='desc')}}">Newest</a>
+                      <a href="{{ url_for('games', sort='release_date', asc='asc')}}">Oldest</a>
                     </div>
                   </div>
                   <p class="text-left" style="padding-top: 60px; padding-left: 20px; padding-top: 20px;" > <font color="white" size ="6">Platform</font></p>
