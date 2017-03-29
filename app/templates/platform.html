@@ -83,22 +83,26 @@
     <div class="col-sm-12">
       <div class="row">
         <div class="col-sm-4">
-          <h1>{{items.name}}</h1> {% if items.image != 'None'%}
+          <h1>{{items.name}}</h1>
+          {% if items.image != 'None'%}
           <img style="height: 30vh; width: 30vw; margin-bottom: 100px; padding-top: 50px; padding-left: 50px;" src={{items.image}}> {% else %}
           <img style="height: 30vh; width: 30vw; margin-bottom: 100px; padding-top: 50px; padding-left: 50px;" src="/static/images/no-art.png"> {% endif %}
         </div>
-        <div class="col-sm-5 text-center">
+        <div class="col-sm-5 text-center" style="padding-left: 50px; padding-right: 50px;">
           <div class="row">
             <h2 style="text-decoration: underline;">Summary</h2>
             <p>
               {{items.summary}}
             </p>
-            <h2 style="text-decoration: underline;">Games</h2> {% for game in items.games %}
-            <p><a style="color: white; text-decoration: underline" href="{{ url_for('game_instance', name = game.id)}}">{{game.name}}</a></p>
-            {% endfor %}
+            <h2 style="text-decoration: underline;">Games</h2>
+            <div class="row pre-scrollable" style="padding-bottom: 50px;">
+              {% for game in items.games %}
+              <p><a style="color: white; text-decoration: underline" href="{{ url_for('game_instance', name = game.id)}}">{{game.name}}</a></p>
+              {% endfor %}
+            </div>
           </div>
         </div>
-        <div class="col-sm-3">
+        <div class="col-sm-3" style="padding-left: 50px; padding-right: 50px;">
           <div class="row">
             <h2 style="display: inline-block;">Release Date:	&nbsp;</h2>
             <span>{{items.created_at}}</span>
