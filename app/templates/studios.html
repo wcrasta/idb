@@ -173,6 +173,8 @@
             {% for item_row in items | batch(3, '&nbsp;') %}
             <div class="row">
               {% for item in item_row %}
+              {% if item.id %}
+
               <div class="col-md-4">
                 <h2 style="word-wrap: break-word; margin-bottom: 0;
                       padding-top: 25px; height: 90px; width: 100%;
@@ -203,6 +205,8 @@
                   Example Game: <a href="{{url_for('game_instance', name = item.game.first().id)}}">{{item.game.first().name}} </a>
                 </p>
               </div>
+              {% endif %}
+
               {% endfor %}
             </div>
             {% endfor %}

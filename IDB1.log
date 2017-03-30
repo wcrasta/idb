@@ -1,3 +1,128 @@
+commit 45a0b59e50706313ad99ed40e872d048adb3fe35
+Author: kbbrownn <kbbrown@utexas.edu>
+Date:   Wed Mar 29 21:44:43 2017 -0500
+
+    New design for dynamic pages
+
+commit a7c5f1ef1bd32b8c5476ffa98840df5ddd95b0e0
+Merge: 61d3cec 82554ab
+Author: Zihao Zhu <zz3686@cs.utexas.edu>
+Date:   Wed Mar 29 15:56:27 2017 -0500
+
+    Merge branch 'phase2' of https://github.com/wcrasta/idb into phase2
+
+commit 61d3cec3e7aaf68fb9c10be047b996d7ac64e2d0
+Author: Zihao Zhu <zz3686@cs.utexas.edu>
+Date:   Wed Mar 29 15:56:13 2017 -0500
+
+    Made a huge dent in filtering
+
+commit 82554abba5a2d5c506ca0c491bd54c267e7080a3
+Author: kbbrownn <kbbrown@utexas.edu>
+Date:   Wed Mar 29 15:38:52 2017 -0500
+
+    Fixed formatting of dynamic pages
+
+commit cb9a3d3608be787f4a2db02adf1a1b1a439d6765
+Author: kbbrownn <kbbrown@utexas.edu>
+Date:   Wed Mar 29 15:17:28 2017 -0500
+
+    Made games list scrollable on platform page
+
+commit a2d02f10ae2eeeb0367cae1490e98316abf0de8c
+Merge: ceac4aa d3f8e3e
+Author: wcrasta <wcrasta@utexas.edu>
+Date:   Wed Mar 29 15:03:39 2017 -0500
+
+    Merge branch 'phase2' of https://github.com/wcrasta/idb into phase2
+
+commit ceac4aab325904c1526aeee73d2b3cd7cadef77a
+Author: wcrasta <wcrasta@utexas.edu>
+Date:   Wed Mar 29 15:03:30 2017 -0500
+
+    Hiding stuff.
+
+commit d3f8e3ef727ac0cb4418a225d701f935649bb3e5
+Author: Zihao Zhu <zz3686@cs.utexas.edu>
+Date:   Wed Mar 29 14:50:25 2017 -0500
+
+    Added sorting for platform and reviews
+
+commit 8cdbb5c6e28a25b4b4c4004ceddb48b2e69c0c2c
+Author: Colin Thornton <colin@cs.utexas.edu>
+Date:   Wed Mar 29 14:47:27 2017 -0500
+
+    Added sorting options for studios need to fix platform sort
+
+commit c96d432b97efa5239be405502828cdd5d571a52f
+Author: Colin Thornton <colin@cs.utexas.edu>
+Date:   Wed Mar 29 14:32:19 2017 -0500
+
+    Fixed Filtering alignment studios
+
+commit 015d54736662e27430846dfc0dab3ccd89f69b21
+Author: Zihao Zhu <zz3686@cs.utexas.edu>
+Date:   Wed Mar 29 14:28:23 2017 -0500
+
+    push
+
+commit a8261889950c3fc3b734fbc4e4d0b1cc647c0544
+Merge: b65d406 1433ff0
+Author: Colin Thornton <colin@cs.utexas.edu>
+Date:   Wed Mar 29 14:26:28 2017 -0500
+
+    Merge branch 'phase2' of https://github.com/wcrasta/idb into phase2
+
+commit b65d406c47f3ccd009d834040bd8511c2a4b73ba
+Author: Colin Thornton <colin@cs.utexas.edu>
+Date:   Wed Mar 29 14:25:55 2017 -0500
+
+    Rounded edges for pictures
+
+commit 1433ff04dc5144a17cd35ec751a16e324d3f128d
+Merge: 632fa2f 854d84a
+Author: wcrasta <wcrasta@utexas.edu>
+Date:   Wed Mar 29 14:24:31 2017 -0500
+
+    Testing Makefile
+
+commit 632fa2f70a70a73ae20bb7d1c38fc3b4a738eca4
+Author: wcrasta <wcrasta@utexas.edu>
+Date:   Wed Mar 29 14:22:56 2017 -0500
+
+    Testing Makefile
+
+commit 854d84aa38b625a42a0f93351dfb36fa57b62bf7
+Author: Zihao Zhu <zz3686@cs.utexas.edu>
+Date:   Wed Mar 29 14:20:53 2017 -0500
+
+    Added sorting
+
+commit 69b14a6996e6cd43dc5aec255a4622888ba2a765
+Author: Zihao Zhu <zz3686@cs.utexas.edu>
+Date:   Wed Mar 29 14:11:40 2017 -0500
+
+    Fixed games.html formatting
+
+commit 83ba00f27fbc20a32d91bb842415e2283857146e
+Merge: 571a222 c6472f2
+Author: Zihao Zhu <zz3686@cs.utexas.edu>
+Date:   Wed Mar 29 14:08:10 2017 -0500
+
+    fixed make file
+
+commit 571a222b1d1c8ac11d2bb2b9547ade27479ef8cc
+Author: Zihao Zhu <zz3686@cs.utexas.edu>
+Date:   Wed Mar 29 14:07:05 2017 -0500
+
+    fixed makefile
+
+commit c6472f231f7cf3c47b641a4e78fbe0eeea20f730
+Author: kbbrownn <kbbrown@utexas.edu>
+Date:   Wed Mar 29 13:40:17 2017 -0500
+
+    Added a favicon / reformatted all other template code
+
 commit 218762c97dd45842ba4c8df4b25c7aa30d6b3a23
 Author: Zihao Zhu <zz3686@cs.utexas.edu>
 Date:   Wed Mar 29 13:19:45 2017 -0500

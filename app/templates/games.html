@@ -61,7 +61,7 @@
   </script>
 </head>
 
-<body>
+<body onload>
 
   <header>
     <!-- Starting Navigation Bar -->
@@ -153,12 +153,63 @@
                     {% endfor %}
                   </div>
                     <input type="submit" value="Submit">
-
-                </form>
-
+                <p class="text-left" style="padding-top: 30px; padding-left: 20px; padding-top: 20px;" > <font color="white" size ="6">Genre</font></p>
+                  <div class="list-group pre-scrollable">
+                    {% for g in genre %}
+                    {% if g|string() in genreTemp %}
+                    <input type="checkbox" name="genre" value=
+                    "{{g}}" checked="true"> <font color="white" size ="4"> {{g}} </font> <br>
+                    {% else %}
+                    <input type="checkbox" name="genre" value=
+                    "{{g}}" > <font color="white" size ="4"> {{g}} </font> <br>
+                    {% endif %}
+                    {% endfor %}
+                  </div>
+                    <input type="submit" value="Submit">
+                <p class="text-left" style="padding-top: 30px; padding-left: 20px; padding-top: 20px;" > <font color="white" size ="6">Status</font></p>
+                  <div class="list-group pre-scrollable">
+                    {% for g in status %}
+                    {% if g|string() in statusTemp %}
+                    <input type="checkbox" name="status" value=
+                    "{{g}}" checked="true"> <font color="white" size ="4"> {{g}} </font> <br>
+                    {% else %}
+                    <input type="checkbox" name="status" value=
+                    "{{g}}" > <font color="white" size ="4"> {{g}} </font> <br>
+                    {% endif %}
+                    {% endfor %}
+                  </div>
+                    <input type="submit" value="Submit">
+                <p class="text-left" style="padding-top: 30px; padding-left: 20px; padding-top: 20px;" > <font color="white" size ="6">Esrb</font></p>
+                  <div class="list-group pre-scrollable">
+                    {% for g in esrb %}
+                    {% if g|string() in esrbTemp %}
+                    <input type="checkbox" name="esrb" value=
+                    "{{g}}" checked="true"> <font color="white" size ="4"> {{g}} </font> <br>
+                    {% else %}
+                    <input type="checkbox" name="esrb" value=
+                    "{{g}}" > <font color="white" size ="4"> {{g}} </font> <br>
+                    {% endif %}
+                    {% endfor %}
+                  </div>
+                    <input type="submit" value="Submit">
+                <p class="text-left" style="padding-top: 30px; padding-left: 20px; padding-top: 20px;" > <font color="white" size ="6">Category</font></p>
+                  <div class="list-group pre-scrollable">
+                    {% for g in category %}
+                    {% if g|string() in categoryTemp %}
+                    <input type="checkbox" name="category" value=
+                    "{{g}}" checked="true"> <font color="white" size ="4"> {{g}} </font> <br>
+                    {% else %}
+                    <input type="checkbox" name="category" value=
+                    "{{g}}" > <font color="white" size ="4"> {{g}} </font> <br>
+                    {% endif %}
+                    {% endfor %}
+                  </div>
+                    <input type="submit" value="Submit">
+                                </form>
+                  </div>
                 </div>
               </div>
-            </div>
+
         <!--Load them images up -->
         <div class="col-md-9" style="padding-top: 100px;">
           <div class="row">
@@ -195,6 +246,7 @@
             {% for item_row in items | batch(3, '&nbsp;') %}
             <div class="row" style="overflow: hidden; margin-bottom: 30px;">
               {% for item in item_row %}
+              {% if item.id %}
               <div class="col-md-4">
                 <div class="row">
                   <div class="col-sm-12">
@@ -217,8 +269,10 @@
                         </div>
                       </div>
                       {% if item.image != 'None' %}
-                      <img class="center-block" style="height: 250px" src="{{item.image}}" /> {% else %}
-                      <img class="center-block" style="height: 250px" src="/static/images/no-art.png" /> {% endif %}
+                      <img class="center-block" style="height: 250px" src="{{item.image}}" />
+                      {% else %}
+                      <img class="center-block" style="height: 250px" src="/static/images/no-art.png" />
+                      {% endif %}
                       </a>
                     </div>
                     <div class="row" style="padding-left: 40px;">
@@ -246,6 +300,7 @@
                   </div>
                 </div>
               </div>
+              {% endif %}
               {% endfor %}
 
             </div>

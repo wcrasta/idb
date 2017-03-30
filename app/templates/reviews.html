@@ -165,6 +165,7 @@
             {% for item_row in items | batch(3, '&nbsp;') %}
             <div class="row" style="overflow: hidden; margin-bottom: 30px;">
               {% for item in item_row %}
+              {% if item.id %}
               <div class="col-md-4">
                 <div class="row">
                   <div class="col-sm-12">
@@ -206,6 +207,7 @@
                   </div>
                 </div>
               </div>
+              {% endif %}
               {% endfor %}
 
             </div>
