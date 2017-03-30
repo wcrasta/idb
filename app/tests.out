@@ -1,16 +1,8 @@
-.F.............
-======================================================================
-FAIL: test_game_to_review (__main__.TestCase)
+...............
 ----------------------------------------------------------------------
-Traceback (most recent call last):
-  File "app/tests.py", line 20, in test_game_to_review
-    self.assertTrue(reviews.game == None)
-AssertionError: False is not true
+Ran 15 tests in 0.034s
 
-----------------------------------------------------------------------
-Ran 15 tests in 0.039s
-
-FAILED (failures=1)
+OK
 Name           Stmts   Miss Branch BrPart  Cover   Missing
 ----------------------------------------------------------
 app/tests.py      92      0      2      1    99%   136->exit
