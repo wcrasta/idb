@@ -57,17 +57,27 @@ def games(page=1):
     """
     platform = db.session.query(Platform).filter(Platform.api_id != 0 and Platform.name != '').order_by('Platform.name')
     studio = db.session.query(Studio).filter(Studio.name != '').order_by('Studio.name')
-    sort = request.args.get('sort', 'name')
-    asc = request.args.get('asc', 'asc')
+    sort = request.args.get('sort', 'name asc')
+    #asc = request.args.get('asc', 'asc')
     sortPlatform = request.args.getlist('platform')
+    sortStudio = request.args.getlist('studio')
     print("ahhhhhhhhhhhhhhhhhhhhhhhhhhhhh",sortPlatform)
     if len(sortPlatform)>0:
-        games = db.session.query(Game).filter(Game.platform_id.in_(sortPlatform))
+        # if "-" in sort:
+        #     games = db.session.query(Game).filter(Game.platform_id.in_(sortPlatform)).order_by(('Game.' + sort[1:]+" desc"))
+        # else:
+        games = db.session.query(Game).filter(Game.platform_id.in_(sortPlatform)).order_by(('Game.' + sort))
+    elif len(sortStudio)>0:
+        # if "-" in sort:
+        #     games = db.session.query(Game).filter(Game.studio_id.in_(sortStudio)).order_by(('Game.' + sort+" asc"))
+        # else:
+        games = db.session.query(Game).filter(Game.studio_id.in_(sortStudio)).order_by(('Game.' + sort))
+
     else:
-        games = db.session.query(Game).filter(Game.api_id != 0 and Game.name != '').order_by(('Game.' + sort+" "+asc))
+        games = db.session.query(Game).filter(Game.api_id != 0 and Game.name != '').order_by(('Game.' + sort))
     pagination = Pagination(
         page=page, css_framework='foundation', total=games.count(), per_page=9, record_name='items')
-    return render_template('games.html', items=games[min(page * 9, games.count() - 9):(page + 1) * 9], pagination=pagination, platforms = platform, studios=studio)
+    return render_template('games.html', items=games[(page - 1) * 9:min(page * 9, games.count())], pagination=pagination, platforms = platform, selected_platforms=sortPlatform, selected_studios=sortStudio,studios=studio)
     # return render_template('games.html', items = games , pagination=
     # pagination)
 
@@ -95,7 +105,7 @@ def reviews(page=1):
         Reviews.url != '').order_by(('Reviews.'+sort+" "+asc))
     pagination = Pagination(
         page=page, css_framework='foundation', total=reviews.count(), record_name='items')
-    return render_template('reviews.html', items=reviews[min(page * 9, reviews.count() - 9):(page + 1) * 9], pagination=pagination)
+    return render_template('reviews.html', items=reviews[(page - 1) * 9:min(page * 9, reviews.count())], pagination=pagination)
 
 
 @app.route('/review/<name>', methods=['GET'])
