@@ -1,3 +1,52 @@
+commit 7511a7942163632c0730da62a033682b21159cd5
+Author: wcrasta <wcrasta@utexas.edu>
+Date:   Thu Mar 30 17:14:04 2017 -0500
+
+    Going back to latest working commit
+
+commit 4013b3b997a7e0da06553a7517f9c1cface23515
+Author: wcrasta <wcrasta@utexas.edu>
+Date:   Thu Mar 30 16:48:08 2017 -0500
+
+    If only I had a dollar for everytime Travis did something nonsensical...
+
+commit 33dab3dd9c42a5939fe541caf39b5a57e7afcb24
+Author: wcrasta <wcrasta@utexas.edu>
+Date:   Thu Mar 30 16:37:02 2017 -0500
+
+    Fixig Travis, I hope.
+
+commit 4d248643f20290e7e196314f68517e18f6546365
+Author: wcrasta <wcrasta@utexas.edu>
+Date:   Thu Mar 30 16:33:56 2017 -0500
+
+    Purposely breaking Travis, test.
+
+commit 35d899c7ca9602acd487636a3bc56a03731795dc
+Merge: 1377552 5f7fb67
+Author: Zihao <zihaozhu@utexas.edu>
+Date:   Thu Mar 30 01:16:33 2017 -0500
+
+    Finished filtering for Games
+
+commit 1377552276ba2103be41bb629880571c21d98998
+Author: Zihao <zihaozhu@utexas.edu>
+Date:   Wed Mar 29 22:27:49 2017 -0500
+
+    Working on games
+
+commit 5f7fb67c2d25215f63704405262b8f8f8c157ad5
+Author: wcrasta <wcrasta@utexas.edu>
+Date:   Wed Mar 29 21:58:38 2017 -0500
+
+    Fixing things again.
+
+commit c5096ed3f973cf29b06ddddf4c81b64923605e96
+Author: wcrasta <wcrasta@utexas.edu>
+Date:   Wed Mar 29 21:54:31 2017 -0500
+
+    This is my test of Travis CI
+
 commit 45a0b59e50706313ad99ed40e872d048adb3fe35
 Author: kbbrownn <kbbrown@utexas.edu>
 Date:   Wed Mar 29 21:44:43 2017 -0500
