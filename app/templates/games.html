@@ -112,19 +112,18 @@
             <div class="col-md-3"  style="margin-top: 220px">
               <div class="row" style="padding-right: 50px;">
                 <div clas="col-sm-4"  style="border: 1px solid white;">
-
-                  <p class="text-left" style="padding-top: 60px; padding-left: 20px; padding-top: 20px;" > <font color="white" size ="6">Platform</font></p>
-                  <form name = "filterPlatform" action="{{url_for('games')}}" method="get" >
-                        <select name="sort">
-
-                          <option value="name asc">Name: A-Z</option>
+                    <form name = "filterPlatform" action="{{url_for('games')}}" method="get" style="padding-top: 20px;">
+                      <p style="display: inline; color: white; padding-left: 15px;">Sort by: &nbsp;</p>
+                        <select name="sort" id="sort" class="btn btn-secondary" onchange="this.form.submit()">
+                          <option value="name asc" selected>Name: A-Z</option>
                           <option value="name desc">Name: Z-A</option>
                           <option value="rating asc">Rating: High-Low</option>
                           <option value="rating desc">Rating: Low-High</option>
                           <option value="release_date desc">Newest</option>
                           <option value="release_date asc">Oldest</option>
-                      </select>
+                        </select>
 
+                  <p class="text-left" style="padding-top: 60px; padding-left: 20px; padding-top: 20px;" > <font color="white" size ="6">Platform</font></p>
 
                   <div class="list-group pre-scrollable">
                     {% for platform in platforms %}
@@ -137,7 +136,7 @@
                     {% endif %}
                     {% endfor %}
                   </div>
-                    <input type="submit" value="Submit">
+                    <input class="center-block" type="submit" value="Submit">
 
 
                 <p class="text-left" style="padding-top: 30px; padding-left: 20px; padding-top: 20px;" > <font color="white" size ="6">Studio</font></p>
@@ -152,7 +151,7 @@
                     {% endif %}
                     {% endfor %}
                   </div>
-                    <input type="submit" value="Submit">
+                    <input class="center-block" type="submit" value="Submit">
                 <p class="text-left" style="padding-top: 30px; padding-left: 20px; padding-top: 20px;" > <font color="white" size ="6">Genre</font></p>
                   <div class="list-group pre-scrollable">
                     {% for g in genre %}
@@ -165,7 +164,7 @@
                     {% endif %}
                     {% endfor %}
                   </div>
-                    <input type="submit" value="Submit">
+                    <input class="center-block" type="submit" value="Submit">
                 <p class="text-left" style="padding-top: 30px; padding-left: 20px; padding-top: 20px;" > <font color="white" size ="6">Status</font></p>
                   <div class="list-group pre-scrollable">
                     {% for g in status %}
@@ -178,7 +177,7 @@
                     {% endif %}
                     {% endfor %}
                   </div>
-                    <input type="submit" value="Submit">
+                    <input class="center-block" type="submit" value="Submit">
                 <p class="text-left" style="padding-top: 30px; padding-left: 20px; padding-top: 20px;" > <font color="white" size ="6">Esrb</font></p>
                   <div class="list-group pre-scrollable">
                     {% for g in esrb %}
@@ -191,7 +190,7 @@
                     {% endif %}
                     {% endfor %}
                   </div>
-                    <input type="submit" value="Submit">
+                    <input class="center-block" type="submit" value="Submit">
                 <p class="text-left" style="padding-top: 30px; padding-left: 20px; padding-top: 20px;" > <font color="white" size ="6">Category</font></p>
                   <div class="list-group pre-scrollable">
                     {% for g in category %}
@@ -204,8 +203,8 @@
                     {% endif %}
                     {% endfor %}
                   </div>
-                    <input type="submit" value="Submit">
-                                </form>
+                    <input class="center-block" type="submit" value="Submit">
+                </form>
                   </div>
                 </div>
               </div>
