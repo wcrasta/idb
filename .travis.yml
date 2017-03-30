@@ -13,9 +13,7 @@ install:
     - pip install coverage
     - pip install pylint
     - pip install Flask
-    - pip3 install Flask
     - pip install Flask-SQLAlchemy
-    - pip3 install Flask-SQLAlchemy
     - pip install -r app/requirements.txt
 
 before_script:
