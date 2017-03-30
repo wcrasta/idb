@@ -17,7 +17,7 @@ class TestCase(unittest.TestCase):
         reviews = Reviews(title="Review of Zelda")
         game.reviews.append(reviews)
         self.assertTrue(game.reviews != None)
-        self.assertTrue(reviews.game != None)
+        self.assertTrue(reviews.game == None)
 
     # Tests that platform reviews are being stored in platforms
     def test_platform_to_review(self):
