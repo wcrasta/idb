@@ -16,7 +16,7 @@ class TestCase(unittest.TestCase):
         game = Game(name="Zelda", api_id=1)
         reviews = Reviews(title="Review of Zelda")
         game.reviews.append(reviews)
-        self.assertTrue(game.reviews == None)
+        self.assertTrue(game.reviews != None)
         self.assertTrue(reviews.game != None)
 
     # Tests that platform reviews are being stored in platforms
