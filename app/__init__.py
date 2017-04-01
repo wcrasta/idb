@@ -231,13 +231,18 @@ def studios(page=1):
         Renders the studio  page
         passing in Studios objects for dynamic generation of pages
     """
-    sort = request.args.get('sort', 'name')
-    asc = request.args.get('asc', 'asc')
-    studios = db.session.query(Studio).filter(
-        Studio.name != '').order_by(('Studio.'+sort+" "+asc))
+    sort = request.args.get('sort', 'name asc')
+    platformFilter = request.args.getlist('platform')
+    platform = db.session.query(Platform).filter(Platform.api_id != 0 and Platform.name != '').order_by('Platform.name')
+    if len(platformFilter)>0:
+        studios = db.session.query(Studio).filter(
+        Studio.name != '' and Studio.platform_id.in_(platformFilter)).order_by('Studio.'+sort)
+    else:
+        studios = db.session.query(Studio).filter(
+        Studio.name != '').order_by('Studio.'+sort)
     pagination = Pagination(
         page=page, css_framework='foundation', total=studios.count(), record_name='items')
-    return render_template('studios.html', items=studios[(page - 1) * 9:min(page * 9, studios.count())], pagination=pagination)
+    return render_template('studios.html', items=studios[(page - 1) * 9:min(page * 9, studios.count())], pagination=pagination, platforms=platform, selected_platforms=platformFilter)
 
 
 @app.route('/studio/<name>', methods=['GET'])

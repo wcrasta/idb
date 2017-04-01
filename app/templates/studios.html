@@ -111,29 +111,35 @@
         <div class="col-md-3" style="margin-top: 220px">
           <div class="row" style="padding-right: 50px;">
             <div clas="col-sm-4" style="border: 1px solid white;">
+              <form name = "filterPlatform" action="{{url_for('studios')}}" method="get" style="padding-top: 20px;">
+                <p style="display: inline; color: white; padding-left: 15px;">Sort by: &nbsp;</p>
               <div class="dropdown" style="padding-left: 20px; padding-top: 20px;">
-                <button class="btn btn-secondary dropdown-toggle" style="background-color: white"><font color="black">Sort relevance &nbsp;</font><span class="caret"></span></button>
-                <div class="dropdown-content">
-                  <a href="{{ url_for('studios', sort='name')}}">Name: A-Z</a>
-                  <a href="{{ url_for('studios', sort='name', asc='desc')}}">Name: Z-A</a>
-                  <a href="{{ url_for('studios', sort='created_at', asc='desc')}}">Founded: Newest-Oldest</a>
-                  <a href="{{ url_for('studios', sort='created_at')}}">Founded: Oldest-Newest</a>
-                  <a href="{{ url_for('studios', sort='name')}}">Platform: A-Z</a>
-                  <a href="{{ url_for('studios', sort='name', asc='desc')}}">Platform: Z-A</a>
-                </div>
+                <p style="display: inline; color: white; padding-left: 15px;">Sort by: &nbsp;</p>
+                <select name="sort" id="sort" class="btn btn-secondary" onchange="this.form.submit()">
+                  <option value="name asc" selected>Name: A-Z</option>
+                  <option value="name desc">Name: Z-A</option>
+                  <option value="created_at asc">Founded: Newest-Oldest</option>
+                  <option value="created_at desc">Founded: Oldest-Newest</option>
+                  <option value="platform_id asc">Platform</option>
+                </select>
               </div>
-              <p class="text-left" style="padding-top: 60px; margin-left: 20px; padding-top: 20px;"> <font color="white" size="6">Platform</font></p>
-              <div class="list-group">
-                <input type="checkbox"> <font color="white" size="4">PlayStation 4 </font>
-                <br>
-                <input type="checkbox"> <font color="white" size="4">Xbox One </font>
-                <br>
-                <input type="checkbox"> <font color="white" size="4">PC </font>
-                <br>
-                <input type="submit" value="Submit">
+              <p class="text-left" style="padding-top: 60px; padding-left: 20px; padding-top: 20px;" > <font color="white" size ="6">Platform</font></p>
+
+              <div class="list-group pre-scrollable">
+                {% for platform in platforms %}
+                {% if platform.id|string() in selected_platforms %}
+                <input type="checkbox" name="platform" id="filterPlat" value=
+              "{{platform.id}}" checked="true"> <font color="white" size ="4"> {{platform.name}} </font> <br>
+              {% else %}
+                <input type="checkbox" name="platform" id="filterPlat" value=
+              "{{platform.id}}"> <font color="white" size ="4"> {{platform.name}} </font> <br>
+                {% endif %}
+                {% endfor %}
               </div>
+              <input class="center-block" type="submit" value="Submit">
 
               <p class="text-left" style="padding-top: 30px; margin-left: 20px; padding-left: 20px; padding-top: 20px;"></p>
+            </form>
             </div>
           </div>
         </div>
