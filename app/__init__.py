@@ -204,10 +204,10 @@ def platforms(page=1):
     filterGeneration = request.args.getlist('generation')
     if len(filterGeneration)>0:
         platforms = db.session.query(Platform).filter(
-            Platform.api_id != 0 and Platform.name != '' and Platform.generation.in_(filterGeneration)).order_by(('Platform.'+sort))
+            Platform.api_id != 0 and Platform.name != '' and Platform.generation.in_(filterGeneration)).order_by('Platform.'+sort)
     else:
         platforms = db.session.query(Platform).filter(
-            Platform.api_id != 0 and Platform.name != '').order_by(('Platform.'+sort))
+            Platform.api_id != 0 and Platform.name != '').order_by('Platform.'+sort)
     pagination = Pagination(
         page=page, css_framework='foundation', total=platforms.count(), record_name='items')
     return render_template('platforms.html', items=platforms[(page - 1) * 9:min(page * 9, platforms.count())], pagination=pagination, selected_generations=filterGeneration)
