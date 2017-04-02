@@ -159,11 +159,11 @@ def reviews(page=1):
             if review.game.name in gameFilter:
                 filteredReviews.append(review)
         pagination = Pagination(
-            page=page, css_framework='foundation', total=len(filteredReviews), record_name='items')
+            page=page, css_framework='foundation', per_page=9, total=len(filteredReviews), record_name='items')
         return render_template('reviews.html', items=filteredReviews[(page - 1) * 9:min(page * 9, len(filteredReviews))], games=games, pagination=pagination, platforms=platform, selected_platforms=platformFilter, selected_games=gameFilter)
     else:
         pagination = Pagination(
-            page=page, css_framework='foundation', total=reviews.count(), record_name='items')
+            page=page, css_framework='foundation',per_page=9, total=reviews.count(), record_name='items')
         return render_template('reviews.html', items=reviews[(page - 1) * 9:min(page * 9, reviews.count())], games=games, pagination=pagination, platforms=platform, selected_platforms=platformFilter, selected_games=gameFilter)
 
 
@@ -193,7 +193,7 @@ def platforms(page=1):
         platforms = db.session.query(Platform).filter(
             Platform.api_id != 0 and Platform.name != '').order_by('Platform.'+sort)
     pagination = Pagination(
-        page=page, css_framework='foundation', total=platforms.count(), record_name='items')
+        page=page, css_framework='foundation', per_page=9,total=platforms.count(), record_name='items')
     return render_template('platforms.html', items=platforms[(page - 1) * 9:min(page * 9, platforms.count())], pagination=pagination, selected_generations=filterGeneration)
 
 
@@ -225,7 +225,7 @@ def studios(page=1):
         studios = db.session.query(Studio).filter(
         Studio.name != '').order_by('Studio.'+sort)
     pagination = Pagination(
-        page=page, css_framework='foundation', total=studios.count(), record_name='items')
+        page=page, css_framework='foundation', per_page=9, total=studios.count(), record_name='items')
     return render_template('studios.html', items=studios[(page - 1) * 9:min(page * 9, studios.count())], pagination=pagination, platforms=platform, selected_platforms=platformFilter)
 
 
