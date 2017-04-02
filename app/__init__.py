@@ -6,6 +6,7 @@ import os
 import json
 import time
 import subprocess
+import tests
 
 from flask_sqlalchemy import SQLAlchemy
 
@@ -87,8 +88,7 @@ def games(page=1):
     categoryTemp = sortCategory
     platformTemp = sortPlatform
     if not sortPlatform:
-        allGamePlatforms = db.session.query(Game).all()
-        sortPlatform = [g.platform_id for g in allGamePlatforms]
+        sortPlatform = db.session.query(Platform.id)
     if not sortGenre:
         # allGenres = db.session.query(Game.genre).distinct()
         # print(allGenres)
@@ -106,9 +106,9 @@ def games(page=1):
         # if "-" in sort:
         #     games = db.session.query(Game).filter(Game.platform_id.in_(sortPlatform)).order_by(('Game.' + sort[1:]+" desc"))
         # else:
-        games = db.session.query(Game.id, Game.name, Game.esrb, Game.rating, Game.genre, Game.release_date, Game.image).filter(Game.platform_id.in_(sortPlatform)).filter(Game.genre.in_(sortGenre)).filter(Game.status.in_(sortStatus)).filter(Game.category.in_(sortCategory)).filter(Game.esrb.in_(sortEsrb)).order_by(('Game.' + sort))
+        games = db.session.query(Game.id, Game.name, Game.esrb, Game.rating, Game.genre, Game.release_date, Game.status, Game.image).filter(Game.platform_id.in_(sortPlatform)).filter(Game.genre.in_(sortGenre)).filter(Game.status.in_(sortStatus)).filter(Game.category.in_(sortCategory)).filter(Game.esrb.in_(sortEsrb)).order_by(('Game.' + sort))
     else:
-        games = db.session.query(Game.id, Game.name, Game.esrb, Game.rating, Game.genre, Game.release_date, Game.image).filter(Game.api_id != 0 and Game.name != '').filter(Game.genre.in_(sortGenre)).filter(Game.status.in_(sortStatus)).filter(Game.category.in_(sortCategory)).filter(Game.esrb.in_(sortEsrb)).order_by(('Game.' + sort))
+        games = db.session.query(Game.id, Game.name, Game.esrb, Game.rating, Game.genre, Game.release_date, Game.status, Game.image).filter(Game.api_id != 0 and Game.name != '').filter(Game.genre.in_(sortGenre)).filter(Game.status.in_(sortStatus)).filter(Game.category.in_(sortCategory)).filter(Game.esrb.in_(sortEsrb)).order_by(('Game.' + sort))
         #.filter(Game.genre.in_(sortGenre)).filter(Game.status.in_(sortStatus)).filter(Game.category.in_(sortCategory)).filter(Game.esrb.in_(sortEsrb))
 #.filter(Game.genre.in_(sortGenre)).filter(Game.status.in_(sortStatus)).filter(Game.category.in_(sortCategory)).filter(Game.esrb.in_(sortEsrb))
 #filter(Game.studio_id.in_(sortStudio)).filter(Game.platform_id.in_(sortPlatform)).
