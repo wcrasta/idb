@@ -272,12 +272,15 @@
                         </p>
 
                         <p> Esrb: {{item.esrb}} </p>
-                        <p> Genre: {{item.genre}} </p>
-                        <p> Rating: {{item.rating}} </p>
+                        <p> Genre: {{item.genre}} </p>                
+                        <p> Rating: {{'%0.2f'| format(item.rating|float)}} </p>
+                        {% if item.status is defined %}
                         <p> Status: {{item.status}} </p>
-
+                        {% else %}
+                        <p> Status: None </p>
+                        {% endif %}
                         <p>
-                          Date Created: {{item.release_date}}
+                          Date Created: {{item.release_date.date()}}
                         </p>
                       </div>
                     </div>

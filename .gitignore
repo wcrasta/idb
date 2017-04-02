@@ -1,4 +1,5 @@
 app/pycache/
+.idea/
 *.pyc
 flask/
 __pycache__/

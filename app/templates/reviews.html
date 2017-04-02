@@ -210,13 +210,13 @@
                     </div>
                     <div class="row" style="padding-left: 40px;">
                       <div class="col-sm-12">
-                        <p><a href="{{ url_for('game_instance', name = item.game.id)}}">Game: {{item.game.name}} </a></p>
+                        <p> Game: <a href="{{ url_for('game_instance', name = item.game.id)}}"> {{item.game.name}} </a></p>
                         </p>
                         <p>
-                          <p><a href="{{url_for('platform_instance', name=item.platform.id)}}"> Game Platform: {{item.platform.name}}</a></p>
+                          <p> Platform: <a href="{{url_for('platform_instance', name=item.platform.id)}}"> {{item.platform.name}} </a></p>
                         </p>
                         <p> Video: {{item.video}} </p>
-                        <p> Written Time: {{item.created_at}} </p>
+                        <p> Written Time: {{item.created_at.date()}} </p>
                         <p> Views: {{item.views}} </p>
                         <p> Review: <a href="{{item.url}}"> {{item.title}}</a> </p>
                       </div>

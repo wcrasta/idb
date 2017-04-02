@@ -194,16 +194,26 @@
 
                         <div class="row" style="padding-left: 40px;">
                           <div class="col-sm-12">
-                            <p style="padding-top: 15px;"> Example Game: <a href="{{ url_for('game_instance', name = item.games.first().id)}}"> {{item.games.first().name}}</a> </p>
+                            <p style="padding-top: 15px;">
+                              {% if item.games.first().name is defined %}
+                              <p> Example Game: <a href="{{ url_for('game_instance', name = item.games.first().id)}}"> {{item.games.first().name}}</a></p>
+                              {% else %}
+                              <p> Example Game: None </p>
+                              {% endif %}           
+                            </p>
                             {% if item.website !='None' %}
-                            <p> <a href="{{item.website}}"> Website </a> </p>
+                            <p> Website: <a href="{{item.website}}"> {{item.website}}</a> </p>
                             {% else %}
-                            <p>No website </p>
+                            <p> Website: None</p>
                             {% endif %}
                             <p> Generation: {{item.generation}}</p>
+                            {% if item.review.first().title is defined %}
                             <p> Review: <a href="{{item.review.first().url}}"> {{item.review.first().title}}</a> </p>
+                            {% else %}
+                            <p> Review: None </p>
+                            {% endif %}                            
                             <p>
-                              Date Created: {{item.created_at}}
+                              Date Created: {{item.created_at.date()}}
                             </p>
                           </div>
                         </div>
