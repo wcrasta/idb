@@ -137,21 +137,6 @@
                     {% endfor %}
                   </div>
                     <input class="center-block" type="submit" value="Submit">
-
-
-                <p class="text-left" style="padding-top: 30px; padding-left: 20px; padding-top: 20px;" > <font color="white" size ="6">Studio</font></p>
-                  <div class="list-group pre-scrollable">
-                    {% for studio in studios %}
-                    {% if studio.id|string() in selected_studios %}
-                    <input type="checkbox" name="studio" value=
-                    "{{studio.id}}" checked="true"> <font color="white" size ="4"> {{studio.name}} </font> <br>
-                    {% else %}
-                    <input type="checkbox" name="studio" value=
-                  "{{studio.id}}"> <font color="white" size ="4"> {{studio.name}} </font> <br>
-                    {% endif %}
-                    {% endfor %}
-                  </div>
-                    <input class="center-block" type="submit" value="Submit">
                 <p class="text-left" style="padding-top: 30px; padding-left: 20px; padding-top: 20px;" > <font color="white" size ="6">Genre</font></p>
                   <div class="list-group pre-scrollable">
                     {% for g in genre %}

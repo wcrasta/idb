@@ -56,8 +56,7 @@ def games(page=1):
         passing in Game objects for dynamic generation of pages
     """
     #Appended None to the dictionaries as dummies
-    platform = db.session.query(Platform).filter(Platform.api_id != 0 and Platform.name != '').order_by('Platform.name')
-    studio = db.session.query(Studio).filter(Studio.name != '').order_by('Studio.name')
+    platform = db.session.query(Platform.id, Platform.name).filter(Platform.name != '').order_by('Platform.name')
     genre = {33: "Arcade", 32: "Indie", 31: "Adventure", 30: "Pinball", 26: "Quiz/Trivia", 25: "Hack and slash/Beat 'em up", 24: "Tactical", 16:
               "Turn-based strategy (TBS)", 15: "Strategy", 14: "Sport", 13: "Simulator", 12: "Role-playing (RPG)", 11: "Real Time Strategy (RTS)", 10: "Racing", 9: "Puzzle", 8: "Platform", 7: "Music", 5: "Shooter", 4: "Fighting", 2: "Point-and-click", 99:"None"}
     genre = genre.values()
@@ -77,7 +76,6 @@ def games(page=1):
     categoryTemp = []
     sort = request.args.get('sort', 'name asc')
     sortPlatform = request.args.getlist('platform')
-    sortStudio = request.args.getlist('studio')
     sortGenre = request.args.getlist('genre')
     sortStatus = request.args.getlist('status')
     sortEsrb = request.args.getlist('esrb')
@@ -88,13 +86,9 @@ def games(page=1):
     esrbTemp = sortEsrb
     categoryTemp = sortCategory
     platformTemp = sortPlatform
-    studioTemp = sortStudio
     if not sortPlatform:
         allGamePlatforms = db.session.query(Game).all()
         sortPlatform = [g.platform_id for g in allGamePlatforms]
-        #sortPlatform=[p.id for p in platform.all()]
-    if not sortStudio:
-        sortStudio =[s.id for s in studio.all()]
     if not sortGenre:
         # allGenres = db.session.query(Game.genre).distinct()
         # print(allGenres)
@@ -108,23 +102,13 @@ def games(page=1):
     if not sortCategory:
         sortCategory = category
 
-    if len(studioTemp)>0 and len(platformTemp)>0:
-
-        games = db.session.query(Game).filter(Game.studio_id.in_(sortStudio)).filter(Game.platform_id.in_(sortPlatform)).filter(Game.genre.in_(sortGenre)).filter(Game.status.in_(sortStatus)).filter(Game.category.in_(sortCategory)).filter(Game.esrb.in_(sortEsrb)).order_by(('Game.' + sort))
-
-    elif len(platformTemp)>0:
+    if len(platformTemp)>0:
         # if "-" in sort:
         #     games = db.session.query(Game).filter(Game.platform_id.in_(sortPlatform)).order_by(('Game.' + sort[1:]+" desc"))
         # else:
-        games = db.session.query(Game).filter(Game.platform_id.in_(sortPlatform)).filter(Game.genre.in_(sortGenre)).filter(Game.status.in_(sortStatus)).filter(Game.category.in_(sortCategory)).filter(Game.esrb.in_(sortEsrb)).order_by(('Game.' + sort))
-    elif len(studioTemp)>0:
-        # if "-" in sort:
-        #     games = db.session.query(Game).filter(Game.studio_id.in_(sortStudio)).order_by(('Game.' + sort+" asc"))
-        # else:
-        games = db.session.query(Game).filter(Game.studio_id.in_(sortStudio)).filter(Game.genre.in_(sortGenre)).filter(Game.status.in_(sortStatus)).filter(Game.category.in_(sortCategory)).filter(Game.esrb.in_(sortEsrb)).order_by(('Game.' + sort))
-
+        games = db.session.query(Game.id, Game.name, Game.esrb, Game.rating, Game.genre, Game.release_date, Game.image).filter(Game.platform_id.in_(sortPlatform)).filter(Game.genre.in_(sortGenre)).filter(Game.status.in_(sortStatus)).filter(Game.category.in_(sortCategory)).filter(Game.esrb.in_(sortEsrb)).order_by(('Game.' + sort))
     else:
-        games = db.session.query(Game).filter(Game.api_id != 0 and Game.name != '').filter(Game.genre.in_(sortGenre)).filter(Game.status.in_(sortStatus)).filter(Game.category.in_(sortCategory)).filter(Game.esrb.in_(sortEsrb)).order_by(('Game.' + sort))
+        games = db.session.query(Game.id, Game.name, Game.esrb, Game.rating, Game.genre, Game.release_date, Game.image).filter(Game.api_id != 0 and Game.name != '').filter(Game.genre.in_(sortGenre)).filter(Game.status.in_(sortStatus)).filter(Game.category.in_(sortCategory)).filter(Game.esrb.in_(sortEsrb)).order_by(('Game.' + sort))
         #.filter(Game.genre.in_(sortGenre)).filter(Game.status.in_(sortStatus)).filter(Game.category.in_(sortCategory)).filter(Game.esrb.in_(sortEsrb))
 #.filter(Game.genre.in_(sortGenre)).filter(Game.status.in_(sortStatus)).filter(Game.category.in_(sortCategory)).filter(Game.esrb.in_(sortEsrb))
 #filter(Game.studio_id.in_(sortStudio)).filter(Game.platform_id.in_(sortPlatform)).
@@ -134,7 +118,7 @@ def games(page=1):
 
     return render_template('games.html', items=games[(page - 1) * 9:min(page * 9, games.count())], pagination=pagination, genreTemp = genreTemp, esrbTemp = esrbTemp, categoryTemp=categoryTemp, 
         statusTemp=statusTemp,esrb = esrb, selected_esrb = sortEsrb, platforms = platform, genre=genre, category=category, status=status, selected_genre = sortGenre, 
-        selected_status = sortStatus, selected_category = sortCategory, selected_platforms=sortPlatform, selected_studios=sortStudio,studios=studio)
+        selected_status = sortStatus, selected_category = sortCategory, selected_platforms=sortPlatform)
 
 
 
@@ -158,7 +142,7 @@ def reviews(page=1):
     sort = request.args.get('sort', 'title asc')
     reviews = db.session.query(Reviews).filter(
         Reviews.url != '')
-    platform = db.session.query(Platform).filter(Platform.api_id != 0 and Platform.name != '').order_by('Platform.name')
+    platform = db.session.query(Platform.id, Platform.name).filter(Platform.name != '').order_by('Platform.name')
     gameFilter = request.args.getlist('game')
     platformFilter = request.args.getlist('platform')
     games = set()
@@ -233,7 +217,7 @@ def studios(page=1):
     """
     sort = request.args.get('sort', 'name asc')
     platformFilter = request.args.getlist('platform')
-    platform = db.session.query(Platform).filter(Platform.api_id != 0 and Platform.name != '').order_by('Platform.name')
+    platform = db.session.query(Platform.id, Platform.name).filter(Platform.name != '').order_by('Platform.name')
     if len(platformFilter)>0:
         studios = db.session.query(Studio).filter(
         Studio.name != '' and Studio.platform_id.in_(platformFilter)).order_by('Studio.'+sort)
