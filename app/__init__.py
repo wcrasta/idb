@@ -116,7 +116,7 @@ def games(page=1):
     pagination = Pagination(
         page=page, css_framework='foundation', total=games.count(), per_page=9, record_name='items')
 
-    return render_template('games.html', items=games[(page - 1) * 9:min(page * 9, games.count())], pagination=pagination, genreTemp = genreTemp, esrbTemp = esrbTemp, categoryTemp=categoryTemp, 
+    return render_template('games.html', items=games.limit(9).offset((page - 1) * 9), pagination=pagination, genreTemp = genreTemp, esrbTemp = esrbTemp, categoryTemp=categoryTemp, 
         statusTemp=statusTemp,esrb = esrb, selected_esrb = sortEsrb, platforms = platform, genre=genre, category=category, status=status, selected_genre = sortGenre, 
         selected_status = sortStatus, selected_category = sortCategory, selected_platforms=sortPlatform)
 
@@ -147,7 +147,7 @@ def reviews(page=1):
     platformFilter = request.args.getlist('platform')
     games = set()
     for review in reviews:
-        games.add(review.game.name)
+        games.add(u''+review.game.name)
     games = sorted(games)
     if len(platformFilter)>0:
         reviews = reviews.filter(Reviews.platform_id.in_(platformFilter)).order_by('Reviews.'+sort)
@@ -160,11 +160,11 @@ def reviews(page=1):
                 filteredReviews.append(review)
         pagination = Pagination(
             page=page, css_framework='foundation', per_page=9, total=len(filteredReviews), record_name='items')
-        return render_template('reviews.html', items=filteredReviews[(page - 1) * 9:min(page * 9, len(filteredReviews))], games=games, pagination=pagination, platforms=platform, selected_platforms=platformFilter, selected_games=gameFilter)
+        return render_template('reviews.html', items=filteredReviews[(page - 1) * 9:min(len(filteredReviews), page*9)], games=games, pagination=pagination, platforms=platform, selected_platforms=platformFilter, selected_games=gameFilter)
     else:
         pagination = Pagination(
             page=page, css_framework='foundation',per_page=9, total=reviews.count(), record_name='items')
-        return render_template('reviews.html', items=reviews[(page - 1) * 9:min(page * 9, reviews.count())], games=games, pagination=pagination, platforms=platform, selected_platforms=platformFilter, selected_games=gameFilter)
+        return render_template('reviews.html', items=reviews.limit(9).offset((page - 1) * 9), games=games, pagination=pagination, platforms=platform, selected_platforms=platformFilter, selected_games=gameFilter)
 
 
 @app.route('/review/<name>', methods=['GET'])
@@ -194,7 +194,7 @@ def platforms(page=1):
             Platform.api_id != 0 and Platform.name != '').order_by('Platform.'+sort)
     pagination = Pagination(
         page=page, css_framework='foundation', per_page=9,total=platforms.count(), record_name='items')
-    return render_template('platforms.html', items=platforms[(page - 1) * 9:min(page * 9, platforms.count())], pagination=pagination, selected_generations=filterGeneration)
+    return render_template('platforms.html', items=platforms.limit(9).offset((page - 1) * 9), pagination=pagination, selected_generations=filterGeneration)
 
 
 @app.route('/platform/<name>', methods=['GET'])
@@ -226,7 +226,7 @@ def studios(page=1):
         Studio.name != '').order_by('Studio.'+sort)
     pagination = Pagination(
         page=page, css_framework='foundation', per_page=9, total=studios.count(), record_name='items')
-    return render_template('studios.html', items=studios[(page - 1) * 9:min(page * 9, studios.count())], pagination=pagination, platforms=platform, selected_platforms=platformFilter)
+    return render_template('studios.html', items=studios.limit(9).offset((page - 1) * 9), pagination=pagination, platforms=platform, selected_platforms=platformFilter)
 
 
 @app.route('/studio/<name>', methods=['GET'])
