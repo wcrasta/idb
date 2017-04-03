@@ -6,7 +6,7 @@ import os
 import json
 import time
 import subprocess
-import tests
+import sys
 
 from flask_sqlalchemy import SQLAlchemy
 
@@ -38,7 +38,7 @@ def unit_tests():
     """
     # Use full path on server
     print(os.path.realpath(__file__)[:-11])
-    return subprocess.check_output(['python3', os.path.realpath(__file__)[:-11] + 'tests.py'], stderr=subprocess.STDOUT)
+    return subprocess.check_output([sys.executable, os.path.realpath(__file__)[:-11] + 'tests.py'], stderr=subprocess.STDOUT)
 
 
 @app.route('/about', methods=['GET'])
