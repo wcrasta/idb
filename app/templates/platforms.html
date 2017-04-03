@@ -11,44 +11,47 @@
   <link rel="stylesheet" type="text/css" href="../static/css/common.css">
   <link rel="stylesheet" type="text/css" href="../static/css/home.css">
   <style type="text/css">
-    body {
-      background: url('../static/images/bg2.png');
-    }
+  body {
+    background: url('../static/images/bg2.png');
+  }
 
-    h1 {
-      color: white;
-    }
+  h1 {
+    color: white;
+  }
 
-    h2 {
-      color: black;
-      text-align: center;
-    }
+  h2 {
+    color: black;
+    text-align: center;
+  }
 
-    p {
-      text-align: left;
-      color: black;
-      font-size: 1.5em;
-    }
+  p {
+    text-align: left;
+    color: black;
+    font-size: 1.5em;
+  }
 
-    img {
-      width: 200px;
-      height: 200px;
-      border-radius: 15px;
-    }
+  img {
+    width: 200px;
+    height: 200px;
+    border-radius: 15px;
+  }
 
-    .center-block {
-      margin-left: auto;
-      margin-right: auto;
-    }
+  .center-block {
+    margin-left: auto;
+    margin-right: auto;
+  }
 
-    .underline {
-      width: 100%;
-    }
+  .underline {
+    width: 100%;
+  }
 
-    .list-group {
-      padding-left: 20px;
-      padding-top: 20px;
-    }
+  .list-group {
+    padding-left: 20px;
+    padding-top: 20px;
+  }
+  #sort {
+    width: 125px;
+  }
   </style>
   <script type="text/javascript">
     function calcTime(offset) {
@@ -199,7 +202,7 @@
                               <p> Example Game: <a href="{{ url_for('game_instance', name = item.games.first().id)}}"> {{item.games.first().name}}</a></p>
                               {% else %}
                               <p> Example Game: None </p>
-                              {% endif %}           
+                              {% endif %}
                             </p>
                             {% if item.website !='None' %}
                             <p> Website: <a href="{{item.website}}"> {{item.website}}</a> </p>
@@ -211,7 +214,7 @@
                             <p> Review: <a href="{{item.review.first().url}}"> {{item.review.first().title}}</a> </p>
                             {% else %}
                             <p> Review: None </p>
-                            {% endif %}                            
+                            {% endif %}
                             <p>
                               Date Created: {{item.created_at.date()}}
                             </p>
