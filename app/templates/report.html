@@ -228,7 +228,7 @@
               involving dates.
             </p>
             <p>
-              For those attributes that are linked by a relationship, either one to one or one to many or many to many, we used SQLAlchemy's feature db.relationship() to establish that.
+              For those attributes that are linked by a relationship, either one to one or one to many, we used SQLAlchemy's feature db.relationship() to establish that.
             </p>
             <code>
                 game = db.relationship('Game', backref='studio', lazy="dynamic")
@@ -324,15 +324,18 @@
                   <figcaption style="color: black; text-align: center; font-size: 1.2em">Fig 4. Routing</figcaption>
                 </figure>
 
-
+                <h4> Sorting </h4>
+                <p>
+                  For sorting, instead of doing it through the front-end, we realized that it could be done easily through the back end with the help of Flask and Jinja2. In the front end side, we designed the website to include forms so when you click/submit certain values, the forms will pass back the value to the backend. Once we obtain those values from the form that the user submits, we employ them to fetch data from the database using queries that sorted them by the value passed in, in addition to ordering them by ascension or descension. For a lot of our sortings, we simply had the option of sorting by asc and sorting by desc. We targeted a list of values we want users to sort by and then added those options in the front end. Most of the work is being done in our query to the database for instance: <code>        games = db.session.query(Game.id, Game.name, Game.esrb, Game.rating, Game.genre, Game.release_date, Game.status, Game.image).filter(Game.platform_id.in_(sortPlatform)).filter(Game.genre.in_(sortGenre)).filter(Game.status.in_(sortStatus)).filter(Game.category.in_(sortCategory)).filter(Game.esrb.in_(sortEsrb)).order_by(('Game.' + sort))</code>. Then as with the other things, we pass in the objects that were fetched and rendered them dynamically through use of Jinja2.
+                </p>
                 <p>For pagination and populating the pages with our data, we accessed the database for the respective model and rendered the template passing in the list of objects. To easily accomplish this, we employed a flask library called flask-paginate
                   that handled most of the work for pagination. Then we altered our html files to employ Jinja2 as a way to dynamically generate the data and provide pages limited by the number of items we want for each page. While Jinja2 may be considered
                   front-end, since it comes with Flask, the back-end developers used it to render the various pages and their elements.</p>
-
+<!-- 
                 <p id="hosting">For pagination and populating the pages with our data, we accessed the database for the respective model and rendered the template passing in the list of objects. To easily accomplish this, we employed a flask library called flask-paginate
                   that handled most of the work for pagination. Then we altered our html files to employ Jinja2 as a way to dynamically generate the data and provide pages limited by the number of items we want for each page.</p>
 
-
+ -->
                 <!--HOSTING-->
                 <h2 style="padding-top: 15px">Hosting</h2>
                 <p>To set up an AWS server that hosts a Flask application:</p>
