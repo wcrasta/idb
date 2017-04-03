@@ -117,8 +117,8 @@
                 <select name="sort" id="sort" class="btn btn-secondary" onchange="this.form.submit()">
                   <option value="name asc" selected>Name: A-Z</option>
                   <option value="name desc">Name: Z-A</option>
-                  <option value="created_at asc">Founded: Newest-Oldest</option>
-                  <option value="created_at desc">Founded: Oldest-Newest</option>
+                  <option value="created_at desc">Founded: Newest-Oldest</option>
+                  <option value="created_at asc">Founded: Oldest-Newest</option>
                   <option value="platform_id asc">Platform</option>
                 </select>
               </div>
@@ -200,7 +200,7 @@
                   <p> Platform: <a href="{{ url_for('platform_instance', name = item.platform.id)}}"> {{item.platform.name}}</a></p>
                   {% else %}
                   <p> Platform: None </p>
-                  {% endif %}     
+                  {% endif %}
                 </p>
                 <p>
                   {% if item.website != 'None' %}

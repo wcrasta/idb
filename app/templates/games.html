@@ -117,8 +117,8 @@
                         <select name="sort" id="sort" class="btn btn-secondary" onchange="this.form.submit()">
                           <option value="name asc" selected>Name: A-Z</option>
                           <option value="name desc">Name: Z-A</option>
-                          <option value="rating asc">Rating: High-Low</option>
-                          <option value="rating desc">Rating: Low-High</option>
+                          <option value="rating desc">Rating: High-Low</option>
+                          <option value="rating asc">Rating: Low-High</option>
                           <option value="release_date desc">Newest</option>
                           <option value="release_date asc">Oldest</option>
                         </select>
@@ -272,7 +272,7 @@
                         </p>
 
                         <p> Esrb: {{item.esrb}} </p>
-                        <p> Genre: {{item.genre}} </p>                
+                        <p> Genre: {{item.genre}} </p>
                         <p> Rating: {{'%0.2f'| format(item.rating|float)}} </p>
                         {% if item.status is defined %}
                         <p> Status: {{item.status}} </p>
