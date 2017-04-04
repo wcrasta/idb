@@ -114,12 +114,12 @@
 
         <div class="row">
           <div class="col-sm-12" style="border-bottom:1px solid white; padding-top: 80px">
-            <h1 style="color: white;"> Report </h1>
+            <h1 style="color: white;"> Technical Report </h1>
           </div>
         </div>
 
         <div class="row table-of-contents" style="margin-top: 30px; margin-bottom: 30px; background: white; opacity: 0.8; border-radius: 15px;">
-          <div class="col-sm-12">
+          <div class="col-sm-12" >
             <h2 style="padding-top: 15px">Table of Contents</h2>
             <ul>
               <a href="#title">
@@ -146,7 +146,7 @@
               <li>Kaivan Shah</li>
               <li>Kaden Brown</li>
               <li>Zihao Zhu</li>
-              <li id="intro">Warren Crasta</li>
+              <li>Warren Crasta</li>
               <li>Colin Thornton</li>
               <li>Anurag Papineni</li>
             </ul>
@@ -177,81 +177,73 @@
             <h2 style="padding-top: 15px">Design</h2>
 
             <h4>Apiary API:</h4>
-            <p>The API we designed through apiary works in a similar fashion for each model. For instance the games model has two different calls that can be made to the API: List All Games and List Specific Game. A user of the API can call list all games
-              that will return to them a list of JSONs that contain two keys id and name that users may store on their own machines.</p>
+            <p>The API we designed through Apiary works in a similar fashion for each model. For instance, the games model has two different calls that can be made to the API: List All Games and List Specific Game. A user of the API can call list all games, which will return to them a list of JSON objects that contain two keys: id and name that. Users are then able to store these values on their own machines.</p>
 
             <figure>
               <img class="center-block" float="left" src="../static/images/design_1.png" />
-              <figcaption style="color: black; text-align: center; font-size: 1.2em">Fig1. - Example of List all games JSON.</figcaption>
+              <figcaption style="color: black; text-align: center; font-size: 1.2em">Figure 1: Example of a List All Games call</figcaption>
             </figure>
 
             <div style="float:none; padding-top: 20px;">
-              <p> With this information the user is now able to make a call to the List Specific Game API call using the value of id. This call will return to a single JSON that contains the information for game such as id, name, summary, genre, rating, ect.</p>
+              <p> With this information the user is now able to make a call to the List Specific Game API call using the value of id. This call will return a single JSON object that contains the information for a specific game such as id, name, summary, genre, rating, etc.</p>
             </div>
 
             <figure>
               <img class="center-block" float="left" src="../static/images/design_2.png" />
-              <figcaption style="color: black; text-align: center; font-size: 1.2em">Fig2. - Example of JSON for a specific game.</figcaption>
+              <figcaption style="color: black; text-align: center; font-size: 1.2em">Figure 2: Example of a List Specific Game JSON call</figcaption>
             </figure>
 
             <div style="float:none; padding-top: 20px;">
-              <p> This process remains the same for Platform, Studio as well as Reviews allowing the user to find information for the specific topic they want in each model rather than sending them all of the information in the database.</p>
+              <p> This process remains the same for each of the other models, which allows the user to find information for the specific topic they want, rather than sending them all the information in the database.</p>
             </div>
 
             <h4>IGDB API Calls:</h4>
-            <p> The API we are accessing through igdb.com returned a list of JSONs that contains the many attributes of a game such as name, created_at and url. It also comes with information such as hypes and time_to_beat which are not necessary for our
-              project and will be filtered out before we put it into our database. We are currently scraping the api by first creating a header dictionary that contains our api key that will later be used in the url of the api request. Then we continuously
-              loop in order to pull all of the info from the api and break when we receive multiple error codes indicating the end to exit the loop.</p>
+            <p> The API we are accessing through igdb.com returned a list of JSON objects that contains many of the attributes of a game such as name, created_at, and url. However, it also comes with information such as hypes and time_to_beat which are not necessary for our project and were filtered out before we put it into our database. Currently, we are scraping the API by first creating a header dictionary that contains our API key, which will later be used in the URL of the API request. Then we continuously loop in order to pull all of the info from the API and break when we receive multiple error codes, which indicates that we should exit the loop.</p>
 
             <figure>
               <img class="center-block" float="left" src="../static/images/design_3.png" />
-              <figcaption style="color: black; text-align: center; font-size: 1.2em">Fig3. - Conditions for leaving the loop.</figcaption>
+              <figcaption style="color: black; text-align: center; font-size: 1.2em">Figure 3: Conditions for leaving the loop</figcaption>
             </figure>
 
             <div style="float:none; padding-top: 20px;">
-              <p> Inside of the loop in order speed up the process we concatenate our current index into the dataset with all entries up to index+1000 separated by a comma.</p>
+              <p> Inside of the loop, in order to speed up the process of scraping, we concatenate our current index into the dataset with all entries up to index+1000 separated by a comma.</p>
             </div>
 
             <figure>
               <img class="center-block" float="left" src="../static/images/design_4.png" />
-              <figcaption style="color: white; text-align: center; font-size: 1.2em">Fig4. - Speeding up API requests by altering URL.</figcaption>
+              <figcaption style="color: black; text-align: center; font-size: 1.2em">Figure 4: Speeding up API requests by altering the URL</figcaption>
             </figure>
 
             <div style="float:none; padding-top: 20px;">
-              <p> This allows for a single call to return multiple JSONs with a single api call. From there we parse the JSONs so that they may be added to the output list.</p>
+              <p> This implementation allows for a single call to return multiple JSON objects. From there, we parse the JSON objects so that they may be added to the output list.</p>
             </div>
             <h4> DB Models</h4>
             <p>
-              After designing our UML diagram, it was rather simple to translate what we've already designed into code. For our database model design, we modeled the attribute types based on the JSON files returned from data scraping and we based our relationships
-              based on the design we opted for in the very beginning. Before writing code to models.py, we first scraped the data and saved it as a JSON file. From the JSON file, we inspected the various return fields and for things we saw a numerical
-              value for, we chose the model's attribute to be one of float or integer. Else, if it's a sentence or a string, we chose the attributes to either be of String type or Text type. The only other type we used was DateTime, as we collected data
+              After designing our UML diagram, it was rather simple to translate what we've already designed into code. For our database model design, we modeled the attribute types based on the JSON files returned from data scraping and we based our relationships on the design we opted for in the very beginning. Before writing code for models.py, we first scraped the data and saved it as a JSON file. From the JSON file, we inspected the various return fields and for things we saw a numerical value for, we chose the model's attribute to be one of float or integer. Otherwise, if it's a sentence or a string, we chose the attributes to either be of String type or Text type. The only other type we used was DateTime, as we collected data
               involving dates.
             </p>
             <p>
               For those attributes that are linked by a relationship, either one to one or one to many, we used SQLAlchemy's feature db.relationship() to establish that.
             </p>
-            <code>
-                game = db.relationship('Game', backref='studio', lazy="dynamic")
-            </code>
+            <center><span style="color:black;border-width:1px;border-style:solid;padding:5px;font-size:1.35em">game = db.relationship('Game', backref='studio', lazy="dynamic")</span></center><br/>
             <p>
-              The above is an example usage of db.relationship. Calling this will allow SQLAlchemy to populate a foreign key between the two models automatically. And in addition, by providing the fields backref and lazy, it adds more functionality to what gets returned.
-              Backref allows the two models to be able to call upon each other. Whereas normally without backref, only the model that sets the relationship will have knowledge of the other model it's connected to but not the other way around. Having this
-              option, we can easily create links between the models on our website to easily navigate back and forth. In addition, lazy="dynamic", allows the query to be loaded lazily, or whenever it is called. For us, we were able to use the query as
-              a way to generate our data dynamically through a loop using jinja2. Each time an object is called upon, it generates it on the spot and displays it.
+              The above is an example usage of db.relationship. Calling this will allow SQLAlchemy to populate a foreign key between the two models automatically. Additionally, by providing the fields backref and lazy, more functionality is added to what gets returned.
+              Backref allows the two models to be able to call upon each other. Normally without backref, only the model that sets the relationship will have knowledge of the other model it's connected to but not the other way around. Having this
+              option, we can easily create links between the models on our website to navigate back and forth. In addition, lazy="dynamic", allows the query to be loaded lazily, or whenever it is called. For us, we were able to use the query as
+              a way to generate our data dynamically through a loop using Jinja2. Each time an object is called upon, it is generated on the spot and displayed.
             </p>
             <p id="tools">
-              After setting up the database and models.py in this way, we create the relationships needed to represent each object and that allows us to accurately represent the connections between one model to the other in addition to displaying the correct attributes.
+              After setting up the database and models.py in this way, we create the relationships needed to represent each object, which allows us to accurately represent the connections between one model and another.
             </p>
             <br />
 
             <!-- TOOLS-->
             <h2 style="padding-top: 15px">Tools</h2>
             <h4>Front-End:</h4>
-            <p>The front-end technologies we will be using include CSS, Bootstrap, HTML, Javascript and ReactJS. Cascading style sheets are used to cleanly handle formatting, placement, and fonts. Bootstrap is a front end framework used to make pages dynamic
-              and responsive. It makes organization easier. Javascript is a front end language used to do logic in the front end such as handle user inputs and trigger events. ReactJS is a JavaScript library that gives the ability to create very dynamic,
-              interactive webpages that give a great user experience. It will be used for sorting, filtering, routing and used for its ability to dynamically change the DOM in our html. Another tool that was used was Bootstrap, a css and javascript component
-              that was used to make our website look presentable. The tool used to embed the company image and game image is simple css and bootstrap css that makes the image responsive and change the size of the image to fit into the div correctly and
-              nicely.</p>
+            <p>The front-end technologies we use include CSS, Bootstrap, HTML, Javascript and ReactJS. Cascading style sheets are used to cleanly handle formatting, placement, and fonts. Bootstrap is a front end framework used to make pages dynamic and responsive, which also makes organization easier. Javascript is a front end language used to do logic in the front end such as handle user inputs and trigger events. ReactJS is a JavaScript library that gives the ability to create very dynamic,
+            interactive webpages that give a great user experience. It will be used for sorting, filtering, routing and used for its ability to dynamically change the DOM in our html. Another tool that was used was Bootstrap, a css and javascript component
+            that was used to make our website look presentable. The tool used to embed the company image and game image is simple css and bootstrap css that makes the image responsive and change the size of the image to fit into the div correctly and
+            nicely.</p>
 
             <h4>Back-End:</h4>
             <p> For the backend of our application, we focused mainly on using the tools Flask paired with Jinja2 for rendering and SQLAlchemy for populating our grids and model instances with data. While it was only necessary to populate 3 instances (rows)
