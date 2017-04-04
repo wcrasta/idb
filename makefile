@@ -7,7 +7,7 @@ FILES :=                \
     app/tests.out       \
     IDB1.log            \
     IDB1.html           \
-    
+
 ifeq ($(shell uname), Darwin)          # Apple
     PYTHON   := python3.5
     PIP      := pip3.5
@@ -47,8 +47,8 @@ app/tests.out: .pylintrc
 	-$(COVERAGE) report -m                      >> app/tests.out
 	cat app/tests.out
 
-IDB1.html: 
-	pydoc3 -w app/models.py
+IDB1.html:
+	pydoc -w app/models.py
 	mv models.html IDB1.html
 
 IDB1.log:
