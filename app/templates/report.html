@@ -219,7 +219,7 @@
             </div>
             <h4> DB Models</h4>
             <p>
-              After designing our UML diagram, it was rather simple to translate what we've already designed into code. For our database model design, we modeled the attribute types based on the JSON files returned from data scraping and we based our relationships on the design we opted for in the very beginning. Before writing code for models.py, we first scraped the data and saved it as a JSON file. From the JSON file, we inspected the various return fields and for things we saw a numerical value for, we chose the model's attribute to be one of float or integer. Otherwise, if it's a sentence or a string, we chose the attributes to either be of String type or Text type. The only other type we used was DateTime, as we collected data
+              A major part of ORM (object relational mapping) is models. After designing our UML diagram, it was rather simple to translate what we've already designed into code. In our application, we defined four models: game, platform, studio and reviews. In models.py, we created a model for each of our four classes and defined the attributes we wanted them to have. For our database model design, we modeled the attribute types based on the JSON files returned from data scraping and we based our relationships on the design we opted for in the very beginning. Before writing code for models.py, we first scraped the data and saved it as a JSON file. From the JSON file, we inspected the various return fields and for things we saw a numerical value for, we chose the model's attribute to be one of float or integer. Otherwise, if it's a sentence or a string, we chose the attributes to either be of String type or Text type. The only other type we used was DateTime, as we collected data
               involving dates.
             </p>
             <p>
@@ -232,73 +232,38 @@
               option, we can easily create links between the models on our website to navigate back and forth. In addition, lazy="dynamic", allows the query to be loaded lazily, or whenever it is called. For us, we were able to use the query as
               a way to generate our data dynamically through a loop using Jinja2. Each time an object is called upon, it is generated on the spot and displayed.
             </p>
-            <p id="tools">
-              After setting up the database and models.py in this way, we create the relationships needed to represent each object, which allows us to accurately represent the connections between one model and another.
+            <p>
+              After setting up the database and models.py in this way, we create the relationships needed to represent each object, which allows us to accurately represent the connections between one model and another.  Setting up the models.py allowed
+              us to create objects for each model and be able to use data in a declarative way as we did in __init__.py. Having defined the relationships, it made it easier for us to get the attributes a certain object was connected it. We overwrote __init__
+              for each model and then we declared them as we made our objects. We used assertions throughout the init methods to make sure that the data being passed in are what we were expecting.
             </p>
+            <h4>__init__.py</h4>
+                <p id="tools">__init__.py is the main file for our application. __init__.py is our file from which we run the application on the server. In it, we defined the different routes to the HTML/CSS files in templates as shown below:</p>
+
+                <figure>
+                  <img class="center-block" float="left" src="../static/images/tools_4.png" style="width: 550px;" />
+                  <figcaption style="color: black; text-align: center; font-size: 1.2em">Figure 5: Routing</figcaption>
+                </figure>
             <br />
 
             <!-- TOOLS-->
             <h2 style="padding-top: 15px">Tools</h2>
             <h4>Front-End:</h4>
-            <p>The front-end technologies we use include CSS, Bootstrap, HTML, Javascript and ReactJS. Cascading style sheets are used to cleanly handle formatting, placement, and fonts. Bootstrap is a front end framework used to make pages dynamic and responsive, which also makes organization easier. Javascript is a front end language used to do logic in the front end such as handle user inputs and trigger events. ReactJS is a JavaScript library that gives the ability to create very dynamic,
-            interactive webpages that give a great user experience. It will be used for sorting, filtering, routing and used for its ability to dynamically change the DOM in our html. Another tool that was used was Bootstrap, a css and javascript component
-            that was used to make our website look presentable. The tool used to embed the company image and game image is simple css and bootstrap css that makes the image responsive and change the size of the image to fit into the div correctly and
+            <p>The front-end technologies we use include CSS, Bootstrap, HTML, Javascript and ReactJS. Cascading style sheets are used to cleanly handle formatting, placement, and fonts. Bootstrap is a front end framework used to make pages dynamic, responsive, amnd also make organization easier. Javascript is a front end language used to do logic in the front end such as handle user inputs and trigger events. ReactJS is a JavaScript library that gives the ability to create very dynamic,
+            interactive webpages that give a great user experience. The tool used to embed the company image and game image is simple css and bootstrap that makes the image responsive so that it can fit into the div correctly and
             nicely.</p>
 
             <h4>Back-End:</h4>
-            <p> For the backend of our application, we focused mainly on using the tools Flask paired with Jinja2 for rendering and SQLAlchemy for populating our grids and model instances with data. While it was only necessary to populate 3 instances (rows)
-              for each models, we decided to scrape data from the API we’re using (https://igdb.github.io/api/) and populated a local database using SQLAlchemy. Doing so allowed us to easily access the data and create dynamically linked pages with more
-              information and embedded images along with creating paginations. We chose this route over hard-coding and parsing made-up JSON files because we will eventually implement a database and doing so will save work in the long run.</p>
+            <p> For the backend of our application, we focused mainly on using Flask paired with Jinja2 for rendering as well as SQLAlchemy for populating our grids and model instances with data. We scraped data from the API we’re using and populated a local database using SQLAlchemy. Doing so allowed us to easily access the data and create dynamically linked pages with more information and embedded images along with creating pagination.</p>
 
             <h4>Embedded Media Services</h4>
-
-            <p>For our models, we embedded various pictures and logos that associate with the respective models. For instance, Game models had a picture of the game displayed if it exists, Platform models had a picture of the console if it exists and so
-              on. These were implemented using html and the image tag, passing in the link to the image as the src. For videos of reviews and games if they existed, we used the iframe tag passing in the width and the desired lengths. For src, we passed
-              in the link to the video if it existed.</p>
+            <p>For our models, we embedded various pictures and logos that are associated with their respective models. For instance, Game models had a picture of the game displayed if it exists, Platform models had a picture of the console if it exists and so on. These were implemented using HTML and the image tag, passing in the link to the image as the src. For videos of reviews and games if they existed, we used the iframe tag passing in the width and the desired lengths. For src, we passed in the link to the video if it existed.</p>
 
             <h4>Scraping Data:</h4>
-
-            <p>In order to scrape the data, we first registered an API key with IGDB on http://igdb.github.io/api/. After following through their documentations, we learned the various options we had and the information each call would output. The four models
-              we focused on were Game, Companies, Reviews and Platforms. We established these four as our primary models. We then created one general script trying to scrape data for each of our models. To accomplish this, we used the Python libraries
-              requests, json and sys. Requests were used to connect to the API and gather the data and we save the data as a json file and we use sys to parse the various inputs that the script takes to populate a given model. Sample call is as shown
-              in the figure:</p>
-
-            <!-- <p>In order to scrape the data, we first registered an API key with IGDB on http://igdb.github.io/api/. After following through their documentations, we learned the various options we had and the information each call would output. We then created one general script trying to scrape data for each of our models. To accomplish this, we used the Python libraries requests, JSON and sys. Requests were used to connect to the API and gather the data. From there, we saved the data as a JSON file and we used sys to parse the various inputs that the script takes to populate a given model. Sample call is as shown in the figure:</p> -->
-
-
-            <figure>
-              <img class="center-block" float="left" src="../static/images/tools_1.png" style="height: 300px; width: 550px;" />
-              <figcaption style="color: black; text-align: center; font-size: 1.2em; ">Fig 1. scraping data</figcaption>
-            </figure>
-
-            <p>In the JSON files we save, they contain the different information regarding the games, platforms, reviews and game companies as shown as follows: </p>
-
-            <figure>
-              <img class="center-block" float="left" src="../static/images/tools_2.png" style="height: 250px; width: 600px;" />
-              <figcaption style="color: black; text-align: center; font-size: 1.2em">Fig 2. JSON data</figcaption>
-            </figure>
-
-            <p>With this information, we were able to populate our database as described in the following sections.</p>
-
-            <h4>Models:</h4>
-            <p>A major part of ORM(object relational mapping) is models. In our application, we defined four models: game, platform, studio and reviews. In models.py, we created a model for each of our four classes and defined the attributes we wanted them
-              to have. Since models.py works closely with SQLAlchemy, for each attribute of each model, we defined the expected type for the attribute. In cases in which there’s a one to many or many to one relationship, we employed the method db.relationship()
-              with parameters backref and lazy=”dynamic” to set up the relationship so that we can access the respective model. Backref allows the objects to link to each other while lazy=”dynamic” allows us to display the query results when we render
-              it in Jinja2. In other words, backref is a simple way to declare some new property of the class you’re linking a model to. Whereas lazy defines when SQLAlchemy will load the data from the database you create. Setting up the models.py allowed
-              us to create objects for each model and be able to use data in a declarative way as we did in __init__.py. Having defined the relationships, it made it easier for us to get the attributes a certain object was connected it. We overwrote __init__
-              for each model and then we declared them as we made our objects. We used assertions throughout the init methods to make sure that the data being passed in are what we were expecting. </p>
-
+            <p>In order to scrape the data, we first registered an API key with IGDB on <a href="http://igdb.github.io/api/">http://igdb.github.io/api/</a>. After going through their documentation, we learned the various options we had and the information each call would output. The four models we focused on were Game, Companies, Reviews and Platforms. We established these four as our primary models. We then created one general script trying to scrape data for each of our models. To accomplish this, we used the Python libraries requests, json and sys. Requests were used to connect to the API and gather the data we save as a JSON file. We use sys to parse the various inputs that the script takes to populate a given model. With this information, we were able to populate our database as described in the following sections.</p>
             <h4>Database:</h4>
-            <p>We used SQLAlchemy with our Flask application as a means of easily storing data and accessing them when needed. We first configured our application to use the local database in __init__.py as show below:
-              <p>
-
-                <figure>
-                  <img class="center-block" float="left" src="../static/images/tools_3.png" style="height: 250px; width: 550px;" />
-                  <figcaption style="color: black; text-align: center; font-size: 1.2em">Fig 3. Initialize database</figcaption>
-                </figure>
-
-                <p>Then to initialize the database, we entered the Python interactive mode and created a session for the database and called “db.create_all()”. In order to populate our database as quickly and efficiently as possible, we created a script
-                  called populateDb.py that we used to parse the JSON files we scraped as detailed above and inserted the various object models into the database. For each model, we constructed the appropriate object and initialized the information and
+            <p>We used SQLAlchemy with our Flask application as a means of easily storing data and accessing it when needed. We first configured our application to use PostgreSQL running in AWS in __init__.py. Then to initialize the database, we entered the Python interactive mode and created a session for the database and called “db.create_all()”. In order to populate our database as quickly and efficiently as possible, we created a script
+                  called populateDb.py that we used to parse the JSON files we scraped, as detailed above, and inserted the various object models into the database. For each model, we constructed the appropriate object and initialized the information and
                   then added the object to our database using db.session.add(). Then we committed the change if no errors occurred.</p>
                 <p>
                   In addition, to utilize postgresql for the remainder of our project, we set up a postgresql database on AWS using RDS. Postgresql handles production usage better than local testing and we chose to use AWS to host it due to the free tier and ease of usage.
@@ -307,27 +272,16 @@
                   the same as before with sqlite3.
                 </p>
 
-                <h4>__init__.py</h4>
-                <p>__init__.py is the main file for our application. __init__.py is our file from which we run the application on the server. In it, we defined the different routes to the html/css files in templates and we configured basic information for
-                  our application such as the database path as shown:</p>
-
-                <figure>
-                  <img class="center-block" float="left" src="../static/images/tools_4.png" style="width: 550px;" />
-                  <figcaption style="color: black; text-align: center; font-size: 1.2em">Fig 4. Routing</figcaption>
-                </figure>
+                
 
                 <h4> Sorting </h4>
                 <p>
                   For sorting, instead of doing it through the front-end, we realized that it could be done easily through the back end with the help of Flask and Jinja2. In the front end side, we designed the website to include forms so when you click/submit certain values, the forms will pass back the value to the backend. Once we obtain those values from the form that the user submits, we employ them to fetch data from the database using queries that sorted them by the value passed in, in addition to ordering them by ascension or descension. For a lot of our sortings, we simply had the option of sorting by asc and sorting by desc. We targeted a list of values we want users to sort by and then added those options in the front end. Most of the work is being done in our query to the database for instance: <code>        games = db.session.query(Game.id, Game.name, Game.esrb, Game.rating, Game.genre, Game.release_date, Game.status, Game.image).filter(Game.platform_id.in_(sortPlatform)).filter(Game.genre.in_(sortGenre)).filter(Game.status.in_(sortStatus)).filter(Game.category.in_(sortCategory)).filter(Game.esrb.in_(sortEsrb)).order_by(('Game.' + sort))</code>. Then as with the other things, we pass in the objects that were fetched and rendered them dynamically through use of Jinja2.
                 </p>
-                <p>For pagination and populating the pages with our data, we accessed the database for the respective model and rendered the template passing in the list of objects. To easily accomplish this, we employed a flask library called flask-paginate
+                <p id="hosting">For pagination and populating the pages with our data, we accessed the database for the respective model and rendered the template passing in the list of objects. To easily accomplish this, we employed a flask library called flask-paginate
                   that handled most of the work for pagination. Then we altered our html files to employ Jinja2 as a way to dynamically generate the data and provide pages limited by the number of items we want for each page. While Jinja2 may be considered
                   front-end, since it comes with Flask, the back-end developers used it to render the various pages and their elements.</p>
-<!-- 
-                <p id="hosting">For pagination and populating the pages with our data, we accessed the database for the respective model and rendered the template passing in the list of objects. To easily accomplish this, we employed a flask library called flask-paginate
-                  that handled most of the work for pagination. Then we altered our html files to employ Jinja2 as a way to dynamically generate the data and provide pages limited by the number of items we want for each page.</p>
-
- -->
+                  
                 <!--HOSTING-->
                 <h2 style="padding-top: 15px">Hosting</h2>
                 <p>To set up an AWS server that hosts a Flask application:</p>
@@ -376,11 +330,12 @@
                 <h4>III. Installing Apache on the EC2 Instance</h4>
 
                 <ol style="font-size: 1.3em; color:white">
-                  <li>In order to correctly host a Flask application on your EC2 instance, you need web server software, which is where Apache comes in. To install Apache run the following commands in your terminal:
-                    <code>sudo apt-get install apache2
-              <br>sudo apt-get update
-              <br>sudo apt-get install libapache2-mod-wsgi<br></code> To verify that Apache has been installed correctly, enter the IP Address of your EC2 instance in a web browser. To find the IP Address, click on your instance in
-                    the EC2 Management Console and copy the value given as the IPv4 Public IP. You should see a page like this in your web browser:
+                  <li>In order to correctly host a Flask application on your EC2 instance, you need web server software, which is where Apache comes in. To install Apache run the following commands in your terminal:<br/>
+                    <span style="display:inline-block;color:black;border-width:1px;border-style:solid;padding:5px;font-size:1em">
+                      sudo apt-get install apache2<br/>
+                      sudo apt-get update<br/>
+                      sudo apt-get install libapache2-mod-wsgi<br/></span><br/><br/>             
+                      To verify that Apache has been installed correctly, enter the IP Address of your EC2 instance in a web browser. To find the IP Address, click on your instance in the EC2 Management Console and copy the value given as the IPv4 Public IP. You should see a page like this in your web browser:
                     <figure>
                       <img class="center-block" float="left" src="../static/images/hosting_6.png" style="height: 350px" />
                       <figcaption style="color: black; text-align: center; font-size: 0.9em">Figure 5: Sample Ubuntu Default Page</figcaption>
@@ -390,74 +345,90 @@
 
                 <h4>IV. Installing and Deploying the Flask Application</h4>
                 <ol style="font-size: 1.3em; color:white">
-                  <li>Once you’ve verified that Apache has been correctly installed, install Flask with the following commands:
-                    <br>
-                    <code>sudo apt-get install python-flask
-              <br>sudo apt-get upgrade<br></code>
-
-                    <li>n the /var/www directory, create the following project structure:
+                  <li>Once you’ve verified that Apache has been correctly installed, install Flask with the following commands:<br>
+                    <span style="display:inline-block;color:black;border-width:1px;border-style:solid;padding:5px;font-size:1em">
+                      sudo apt-get install python-flask<br/>
+                      sudo apt-get upgrade<br/>
+                    </span><br/>
+                    <li>In the /var/www directory, create the following project structure:
                       <figure>
-                        <img class="center-block" float="left" src="../static/images/hosting_8.png" />
-                        <figcaption style="color: black; text-align: center; font-size: 0.9em">Figure 7</figcaption>
-                      </figure>
-
+                        <img float="left" src="../static/images/hosting_8.png" /></br>
                       NOTE: From here on, replace any instances of GGnoSWE with the desired name of your application.
-                      <br> GnoSWEApp is where your Flask application code should live. Copy any Flask application code from your local machine to this directory.
-                      <li>Install any libraries/modules that your application needs on the server. For example,
-                        <br>
-                        <code>sudo apt-get install python-pip<br>
-              sudo pip install Flask-SQLAlchemy<br>
-              </code>
+                      <br> GGnoSWEApp is where your Flask application code should live. Copy any Flask application code from your local machine to this directory.
+                      <li>Install any libraries/modules that your application needs on the server. For example,<br/>
+                        <span style="display:inline-block;color:black;border-width:1px;border-style:solid;padding:5px;font-size:1em">
+                          sudo apt-get install python-pip<br/>
+                          sudo pip install Flask-SQLAlchemy<br/>
+                          ...<br/>
+                        </span><br/>
                 </ol>
 
                 <h4>V. Configuring Apache to point to your Flask Application</h4>
                 <ol style="font-size: 1.3em; color:white">
-                  <li>Create a file in /etc/apache2/sites-available/ named GGnoSWEApp.conf with the following contents, replacing XXXXXXXX with the IP Address of your EC2 instance and the ServerAdmin’s e-mail with your email:
-                    <figure>
-                      <img class="center-block" float="left" src="../static/images/hosting_9.png" />
-                      <figcaption style="color: black; text-align: center; font-size: 0.9em">Figure 8</figcaption>
-                    </figure>
+                  <li>Create a file in /etc/apache2/sites-available/ named GGnoSWEApp.conf with the following contents, replacing XXXXXXXX with the IP Address of your EC2 instance and the ServerAdmin’s e-mail with your email:</br>
+                    <span style="display:inline-block;color:black;border-width:1px;border-style:solid;padding:5px;font-size:1em">
+                          &lt;VirtualHost *:80></br>
+                          ServerName XXXXXXXX</br>
+                          ServerAdmin admin@mywebsite.com</br> 
+                          WSGIScriptAlias / /var/www/FlaskApps/FlaskApps.wsgi</br>
+                          &lt;Directory /var/www/FlaskApps/GGnoSWEApp/></br>
+                              Order allow,deny</br>
+                              Allow from all</br>
+                          &lt;/Directory></br>
+                          &lt;Directory /var/www/FlaskApps/GGnoSWEApp/static/></br>
+                              Order allow,deny</br>
+                              Allow from all</br>
+                          &lt;/Directory></br>
+                          ErrorLog ${APACHE_LOG_DIR}/error.log</br>
+                          LogLevel warn</br>
+                          CustomLog ${APACHE_LOG_DIR}/access.log combined</br>
+                        &lt;/VirtualHost>
+                      </span></br></br>
                     Run the following commands to configure/restart Apache:
                     <br>
-                    <code>sudo a2enmod wsgi<br>
-                    sudo apachectl restart<br>
-                    sudo a2ensite GGnoSWEApp<br>
-                    service apache2 reload<br>
-                    sudo /etc/init.d/apache2 reload<br>
-              </code>
+                    <span style="display:inline-block;color:black;border-width:1px;border-style:solid;padding:5px;font-size:1em">
+                          sudo a2enmod wsgi<br/>
+                          sudo apachectl restart<br/>
+                          sudo a2ensite GGnoSWEApp<br/>
+                          service apache2 reload<br/>
+                          sudo /etc/init.d/apache2 reload<br/>
+                    </span><br/><br/>
                   </li>
                   <li>
                     To tell Apache how to run Flask, create a file named FlaskApps.wsgi in the /var/www/FlaskApps/ directory and enter the following code, replacing home with the name of the Python file that runs your Flask application:
                     <br>
-                    <code>#! /usr/bin/python<br>
-                    import sys<br>
-                    import logging<br>
-                    logging.basicConfig(stream=sys.stderr)<br>
-                    sys.path.insert(0,"/var/www/FlaskApps/GGnoSWEApp/")<br>
+                    <span style="display:inline-block;color:black;border-width:1px;border-style:solid;padding:5px;font-size:1em">
+                          #! /usr/bin/python<br>
+                          import sys<br>
+                          import logging<br>
+                          logging.basicConfig(stream=sys.stderr)<br>
+                          sys.path.insert(0,"/var/www/FlaskApps/GGnoSWEApp/")<br>
+                          <br>
+                          # home points to the home.py file<br>
+                          from home import app as application<br>
+                          application.secret_key = "somesecretsessionkey"<br>
+                    </span><br/><br/>
+                    Restart the Apache server with the following 2 commands:
                     <br>
-                    # home points to the home.py file<br>
-                    from home import app as application<br>
-                    application.secret_key = "somesecretsessionkey"<br>
-              </code> Restart the Apache server with the following 2 commands:
-                    <br>
-                    <code>
-                sudo service apache2 restart<br>
-                sudo /etc/init.d/apache2 reload<br>
-              </code>
+                    <span style="display:inline-block;color:black;border-width:1px;border-style:solid;padding:5px;font-size:1em">
+                      sudo service apache2 restart<br>
+                      sudo /etc/init.d/apache2 reload<br>
+                    </span><br/><br/>
                   </li>
                   <li>
                     Type the IP Address of your EC2 instance in your web browser again and you should be able to see your Flask application on the Internet! As an example:
                     <figure>
                       <img class="center-block" float="left" src="../static/images/hosting_13.png" style="height: 450px; width: 700px;" />
-                      <figcaption style="color: black; text-align: center; font-size: 0.9em">Figure 9: Example of a deployed Flask application</figcaption>
+                      <figcaption style="color: black; text-align: center; font-size: 0.9em">Figure 6: Example of a deployed Flask application</figcaption>
                     </figure>
                   </li>
                   <li>
                     Every time you make changes to the Flask application on your server, remember to restart Apache afterwards. Simply run the following command after each change:
                     <br>
-                    <code>
-                sudo service apache2 restart<br>
-              </code> You have now deployed your Flask application on an EC2 instance with the help of an Apache web server.
+                    <span style="display:inline-block;color:black;border-width:1px;border-style:solid;padding:5px;font-size:1em">
+                      sudo service apache2 restart
+                    </span><br/><br/>
+                      You have now deployed your Flask application on an EC2 instance with the help of an Apache web server.
                   </li>
                 </ol>
           </div>
