@@ -148,7 +148,7 @@
               <li>Zihao Zhu</li>
               <li>Warren Crasta</li>
               <li>Colin Thornton</li>
-              <li>Anurag Papineni</li>
+              <li id="intro">Anurag Papineni</li>
             </ul>
 
             <!-- INTRODUCTION-->
@@ -237,6 +237,23 @@
               us to create objects for each model and be able to use data in a declarative way as we did in __init__.py. Having defined the relationships, it made it easier for us to get the attributes a certain object was connected it. We overwrote __init__
               for each model and then we declared them as we made our objects. We used assertions throughout the init methods to make sure that the data being passed in are what we were expecting.
             </p>
+                            <h4> Sorting </h4>
+                <p>
+                  Instead of doing sorting through the front-end, we realized that it could be done easily through the back end with the help of Flask and Jinja2. On the front-end side, we designed the website to include forms so when you click/submit certain values, the forms will pass back the value to the backend. Once we obtain those values from the form that the user submits, we employ them to fetch data from the database using queries that sorted them by the value passed in, in addition to ordering them by ascension or descension. For a lot of our sortings, we simply had the option of sorting by asc and sorting by desc. We targeted a list of values we want users to sort by and then added those options in the front end. Most of the work, however, is being done in our query to the database, as shown in the following snippet:
+                   <span style="display:inline-block;color:black;border-width:1px;border-style:solid;padding:5px;font-size:1em">
+                      games = db.session.query(Game.id, Game.name, Game.esrb, Game.rating, Game.genre, Game.release_date, Game.status, Game.image)<br/>
+                      .filter(Game.platform_id.in_(sortPlatform))<br/>
+                      .filter(Game.genre.in_(sortGenre))<br/>
+                      .filter(Game.status.in_(sortStatus))<br/>
+                      .filter(Game.category.in_(sortCategory))<br/>
+                      .filter(Game.esrb.in_(sortEsrb))<br/>
+                      .order_by(('Game.' + sort))<br/>
+                    </span><br/>
+                  Then as with the other things, we pass in the objects that were fetched and rendered them dynamically through use of Jinja2.
+                </p>
+                <p>For pagination and populating the pages with our data, we accessed the database for the respective model and rendered the template passing in the list of objects. To easily accomplish this, we employed a flask library called flask-paginate
+                  that handled most of the work for pagination. Then we altered our HTML files to employ Jinja2 as a way to dynamically generate the data and provide pages, limited by the number of items we want for each page. While Jinja2 may be considered front-end, since it comes with Flask, the back-end developers used it to render the various pages and their elements.</p>
+
             <h4>__init__.py</h4>
                 <p id="tools">__init__.py is the main file for our application. __init__.py is our file from which we run the application on the server. In it, we defined the different routes to the HTML/CSS files in templates as shown below:</p>
 
@@ -245,6 +262,8 @@
                   <figcaption style="color: black; text-align: center; font-size: 1.2em">Figure 5: Routing</figcaption>
                 </figure>
             <br />
+
+
 
             <!-- TOOLS-->
             <h2 style="padding-top: 15px">Tools</h2>
@@ -265,22 +284,12 @@
             <p>We used SQLAlchemy with our Flask application as a means of easily storing data and accessing it when needed. We first configured our application to use PostgreSQL running in AWS in __init__.py. Then to initialize the database, we entered the Python interactive mode and created a session for the database and called “db.create_all()”. In order to populate our database as quickly and efficiently as possible, we created a script
                   called populateDb.py that we used to parse the JSON files we scraped, as detailed above, and inserted the various object models into the database. For each model, we constructed the appropriate object and initialized the information and
                   then added the object to our database using db.session.add(). Then we committed the change if no errors occurred.</p>
-                <p>
+                <p id="hosting">
                   In addition, to utilize postgresql for the remainder of our project, we set up a postgresql database on AWS using RDS. Postgresql handles production usage better than local testing and we chose to use AWS to host it due to the free tier and ease of usage.
                   Setting it up only required us to config the database on the cloud to our application and from there, we populated the database similarly as we did previously but this time we added all the instances of the models to postgresql directly.
                   Another way we could've done it was through exporting our existing SQLITE3 database as a CSV and then importing it to postgres but we figured doing it our way was easier. Once the data is on postgresql, the way to access them remains
                   the same as before with sqlite3.
                 </p>
-
-                
-
-                <h4> Sorting </h4>
-                <p>
-                  For sorting, instead of doing it through the front-end, we realized that it could be done easily through the back end with the help of Flask and Jinja2. In the front end side, we designed the website to include forms so when you click/submit certain values, the forms will pass back the value to the backend. Once we obtain those values from the form that the user submits, we employ them to fetch data from the database using queries that sorted them by the value passed in, in addition to ordering them by ascension or descension. For a lot of our sortings, we simply had the option of sorting by asc and sorting by desc. We targeted a list of values we want users to sort by and then added those options in the front end. Most of the work is being done in our query to the database for instance: <code>        games = db.session.query(Game.id, Game.name, Game.esrb, Game.rating, Game.genre, Game.release_date, Game.status, Game.image).filter(Game.platform_id.in_(sortPlatform)).filter(Game.genre.in_(sortGenre)).filter(Game.status.in_(sortStatus)).filter(Game.category.in_(sortCategory)).filter(Game.esrb.in_(sortEsrb)).order_by(('Game.' + sort))</code>. Then as with the other things, we pass in the objects that were fetched and rendered them dynamically through use of Jinja2.
-                </p>
-                <p id="hosting">For pagination and populating the pages with our data, we accessed the database for the respective model and rendered the template passing in the list of objects. To easily accomplish this, we employed a flask library called flask-paginate
-                  that handled most of the work for pagination. Then we altered our html files to employ Jinja2 as a way to dynamically generate the data and provide pages limited by the number of items we want for each page. While Jinja2 may be considered
-                  front-end, since it comes with Flask, the back-end developers used it to render the various pages and their elements.</p>
                   
                 <!--HOSTING-->
                 <h2 style="padding-top: 15px">Hosting</h2>
