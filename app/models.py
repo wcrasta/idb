@@ -13,9 +13,11 @@ import os
 import datetime
 from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
+from flask_restful import Resource, Api
 
 app = Flask(__name__)
 app.debug = True
+api = Api(app)
 
 basedir = os.path.abspath(os.path.dirname(__file__))
 app.config['SQLALCHEMY_DATABASE_URI'] = os.environ['our_secret']
@@ -223,7 +225,7 @@ class Studio(db.Model):
         if website != None:
             assert website != ""
             self.website = website
-       
+
 
 class Reviews(db.Model):
 

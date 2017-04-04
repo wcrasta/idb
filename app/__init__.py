@@ -1,5 +1,5 @@
 from models import app
-from flask import Flask, render_template
+from flask import Flask, render_template, jsonify
 from flask import request
 from flask_paginate import Pagination
 import os
@@ -10,9 +10,23 @@ import sys
 
 from flask_sqlalchemy import SQLAlchemy
 
-from models import Game, Platform, Reviews, Studio, app, db
+from models import Game, Platform, Reviews, Studio, app, db, api, Resource
 
 POSTS_PER_PAGE = 10
+
+
+#Api portions
+
+class Api_Games(Resource):
+
+    def get(self, id):
+
+        game = db.session.query(Game).filter(Game.api_id!=0 and Game.name !=' ')
+        #data = jsonify(json_list = game.all())
+        return {id:"Please replace me "}
+
+api.add_resource(Api_Games,'/Api/<int:id>')
+
 
 
 @app.route('/report')
