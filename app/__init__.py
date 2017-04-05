@@ -87,7 +87,34 @@ class Api_Studio(Resource):
 api.add_resource(Api_Studios,'/api/studios')
 api.add_resource(Api_Studio,'/api/studios/<int:id>')
 
+class Api_Reviews(Resource):
+   def get(self):
+       reviewlist = []
+       listholder = Reviews.query.filter(Reviews.title != "None").order_by(Reviews.id).all()
+       for i in listholder:
+           temp_dict = {}
+           temp_dict['id'] = i.id
+           temp_dict['name'] = i.title
+           if(i.game_id != None):
+               temp_dict['game_name'] = Game.query.get(i.game_id).name
+           reviewlist += [temp_dict]
+       return jsonify(reviewlist)
 
+
+class Api_Review(Resource):
+   def get(self, id):
+       review = Reviews.query.get(id)
+       if review.title == "None":
+           return "Not a valid entry"
+       return jsonify({"id": review.id, "title": review.title, "platform_id": review.platform_id,
+       "game_id": review.game_id, "created_at": review.created_at,
+       "views": review.views, "video": review.video, "introduction": review.introduction,
+       "content": review.content, "conclusion": review.conclusion,
+       "positive": review.positive, "negative": review.negative, "url": review.url})
+
+
+api.add_resource(Api_Reviews,'/api/reviews')
+api.add_resource(Api_Review,'/api/reviews/<int:id>')
 
 
 @app.route('/report')
