@@ -19,7 +19,7 @@ POSTS_PER_PAGE = 10
 class Api_Games(Resource):
     def get(self):
         gamelist = []
-        listholder = Game.query.order_by(Game.id).all()
+        listholder = Game.query.filter(Game.name != "").order_by(Game.id).all()
         for i in listholder:
             temp_dict = {}
             temp_dict['id'] = i.id
@@ -31,12 +31,36 @@ class Api_Games(Resource):
 class Api_Game(Resource):
     def get(self, id):
         game = Game.query.get(id)
-        return jsonify({"id": game.id, "name":game.name, "summary": game.summary,"genre": game.genre, "rating": game.rating, "storyline": game.storyline,"category": game.category, "ESRB": game.esrb, "status": game.status,"platform_id": game.platform_id,
+        return jsonify({"id": game.id, "name": game.name, "summary": game.summary,"genre": game.genre, "rating": game.rating, "storyline": game.storyline,"category": game.category, "ESRB": game.esrb, "status": game.status,"platform_id": game.platform_id,
         "studio_id": game.studio_id,"image": game.image, "release_date": game.release_date,"website": game.website})
 
 
 api.add_resource(Api_Games,'/api/games')
 api.add_resource(Api_Game,'/api/games/<int:id>')
+
+class Api_Platforms(Resource):
+    def get(self):
+        platformlist = []
+        listholder = Platform.query.filter(Platform.name != "").order_by(Platform.id).all()
+        for i in listholder:
+            temp_dict = {}
+            temp_dict['id'] = i.id
+            temp_dict['name'] = i.name
+            platformlist += [temp_dict]
+        return jsonify(platformlist)
+
+
+class Api_Platform(Resource):
+    def get(self, id):
+        platform = Platform.query.get(id)
+        if platform.name == "":
+            return "Not a valid entry"
+        return jsonify({"id": platform.id, "name": platform.name, "summary": platform.summary, "created_at": platform.created_at,
+        "generation": platform.generation,"image": platform.image,"website": platform.website})
+
+
+api.add_resource(Api_Platforms,'/api/platforms')
+api.add_resource(Api_Platform,'/api/platforms/<int:id>')
 
 
 
