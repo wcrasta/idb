@@ -63,6 +63,32 @@ api.add_resource(Api_Platforms,'/api/platforms')
 api.add_resource(Api_Platform,'/api/platforms/<int:id>')
 
 
+class Api_Studios(Resource):
+    def get(self):
+        studiolist = []
+        listholder = Studio.query.filter(Studio.name != "").order_by(Studio.id).all()
+        for i in listholder:
+            temp_dict = {}
+            temp_dict['id'] = i.id
+            temp_dict['name'] = i.name
+            studiolist += [temp_dict]
+        return jsonify(studiolist)
+
+
+class Api_Studio(Resource):
+    def get(self, id):
+        studio = Studio.query.get(id)
+        if studio.name == "":
+            return "Not a valid entry"
+        return jsonify({"id": studio.id, "name": studio.name, "platform_id": studio.platform_id,
+        "description": studio.description, "created_at": studio.created_at, "website": studio.website})
+
+
+api.add_resource(Api_Studios,'/api/studios')
+api.add_resource(Api_Studio,'/api/studios/<int:id>')
+
+
+
 
 @app.route('/report')
 def report():
