@@ -16,16 +16,27 @@ POSTS_PER_PAGE = 10
 
 
 #Api portions
-
 class Api_Games(Resource):
+    def get(self):
+        gamelist = []
+        listholder = Game.query.order_by(Game.id).all()
+        for i in listholder:
+            temp_dict = {}
+            temp_dict['id'] = i.id
+            temp_dict['name'] = i.name
+            gamelist += [temp_dict]
+        return jsonify(gamelist)
 
+
+class Api_Game(Resource):
     def get(self, id):
+        game = Game.query.get(id)
+        return jsonify({"id": game.id, "name":game.name, "summary": game.summary,"genre": game.genre, "rating": game.rating, "storyline": game.storyline,"category": game.category, "ESRB": game.esrb, "status": game.status,"platform_id": game.platform_id,
+        "studio_id": game.studio_id,"image": game.image, "release_date": game.release_date,"website": game.website})
 
-        game = db.session.query(Game).filter(Game.api_id!=0 and Game.name !=' ')
-        #data = jsonify(json_list = game.all())
-        return {id:"Please replace me "}
 
-api.add_resource(Api_Games,'/Api/<int:id>')
+api.add_resource(Api_Games,'/api/games')
+api.add_resource(Api_Game,'/api/games/<int:id>')
 
 
 
