@@ -281,16 +281,33 @@
             <h4>Scraping Data:</h4>
             <p>In order to scrape the data, we first registered an API key with IGDB on <a href="http://igdb.github.io/api/">http://igdb.github.io/api/</a>. After going through their documentation, we learned the various options we had and the information each call would output. The four models we focused on were Game, Companies, Reviews and Platforms. We established these four as our primary models. We then created one general script trying to scrape data for each of our models. To accomplish this, we used the Python libraries requests, json and sys. Requests were used to connect to the API and gather the data we save as a JSON file. We use sys to parse the various inputs that the script takes to populate a given model. With this information, we were able to populate our database as described in the following sections.</p>
             <h4>Database:</h4>
-            <p>We used SQLAlchemy with our Flask application as a means of easily storing data and accessing it when needed. We first configured our application to use PostgreSQL running in AWS in __init__.py. Then to initialize the database, we entered the Python interactive mode and created a session for the database and called “db.create_all()”. In order to populate our database as quickly and efficiently as possible, we created a script
-                  called populateDb.py that we used to parse the JSON files we scraped, as detailed above, and inserted the various object models into the database. For each model, we constructed the appropriate object and initialized the information and
-                  then added the object to our database using db.session.add(). Then we committed the change if no errors occurred.</p>
-                <p id="hosting">
-                  In addition, to utilize postgresql for the remainder of our project, we set up a postgresql database on AWS using RDS. Postgresql handles production usage better than local testing and we chose to use AWS to host it due to the free tier and ease of usage.
-                  Setting it up only required us to config the database on the cloud to our application and from there, we populated the database similarly as we did previously but this time we added all the instances of the models to postgresql directly.
-                  Another way we could've done it was through exporting our existing SQLITE3 database as a CSV and then importing it to postgres but we figured doing it our way was easier. Once the data is on postgresql, the way to access them remains
-                  the same as before with sqlite3.
-                </p>
-                  
+            <p>We used SQLAlchemy with our Flask application as a means of easily storing data and accessing it when needed. We first configured our application to use PostgreSQL running in AWS in models.py. Then to initialize the database, we entered the Python interactive mode and created a session for the database and called “db.create_all()”. In order to populate our database as quickly and efficiently as possible, we created a script called populateDb.py that we used to parse the JSON files we scraped, as detailed above, and inserted the various object models into the database. For each model, we constructed the appropriate object, initialized the information, and then added the object to our database using db.session.add(). If no errors occurred, we committed the changes.</p>
+            <p>
+              In Phase 1, rather than hardcode instances and their respective links to other models, we chose to employ SQLite to store the data we scraped. This was fine for Phase 1 since a DB wasn’t required, but in Phase 2, we had to transfer our data from SQLite to an AWS PostgreSQL instance. Initially, we exported the data from SQLite as a CSV and tried to import the CSV into Postgres. This turned out to be more difficult than expected because even with the CSV file, we still had to create tables and specify their attributes in Postgres, which would’ve been tedious and error-prone. Rather than exporting/importing CSV files, we also tried to populate our database from the JSON files we scraped. This approach worked and was less tedious than importing CSVs/creating tables, but we quickly found it to be very slow. For our “Games” table which has 25,000+ instances, populating the database took 2+ hours. Rather than run our script to populate Postgres, which would take hours, we found an easier way: dump the SQLite database as a .sql file and import it into Postgres. This was how we ended up populating the rest of our tables.
+            </p>
+            <p>
+              To confirm that our data was actually stored in the database and to further manage our tables, we used a fantastic GUI management tool called pgAdmin. Once we had established a connection with our DB instance on AWS, viewing the data was as simple as right clicking on a table and pressing “Show rows” or "Show first 100 rows", which displays a screen similar to this:
+            </p>
+             <figure>
+                      <img class="center-block" float="left" src="../static/images/postgres.png" style="width: 550px;"/>
+                      <figcaption style="color: black; text-align: center; font-size: 1.2em">Figure 1: Show 100 rows in pgAdmin</figcaption>
+              </figure><br/>
+            <p>
+              In regards to actually setting up the PostgreSQL instance on AWS, everything was fairly straightforward: just fire up the RDS service’s launch wizard, configure a few things, and you’re good to go. One painful problem that we ran into early on was being able to see the instance “running” on AWS, but not being able to connect to it in pgAdmin. After reading every word of the documentation, we found out that it was because, by default, our security settings do not allow incoming connections. To change that, go to the VPC associated with the Postgres instance and change its “Security Group” as follows to allow incoming connections from anywhere:
+            </p>
+            <figure>
+                      <img class="center-block" float="left" src="../static/images/postgres2.png" style="width: 550px;"/>
+                      <figcaption style="color: black; text-align: center; font-size: 1.2em">Figure 2: PostgreSQL Security Group Settings</figcaption>
+              </figure><br/>
+            <p>
+              While on the topic of security, one glaring design question that we faced was: “How do we want to store our username/password combination to connect to the Postgres instance in models.py?” The simplest thing to do would be to store them in plain text, as many other groups are doing. This, however, seemed like a very bad idea to us because anyone would then be able to access your database and drop all the tables. Instead, we set environment variables containing any secret information that we didn’t want displayed in plain text, and referenced those environment variables in our code as follows: <br/><br/>
+              <span style="color:black;border-width:1px;border-style:solid;padding:5px;font-size:1em">
+                app.config['SQLALCHEMY_DATABASE_URI'] = os.environ['our_secret']
+            </span><br/>
+            </p>                  
+            <p id="hosting">
+              Doing this ensures that our login details will not be viewable on GitHub and that only those who have the environment variable set will be able to connect to our database. Unsurprisingly, Travis CI also has a feature that supports environment variables (by encrypting them), so our code runs without any problems on Travis as well.
+            </p>
                 <!--HOSTING-->
                 <h2 style="padding-top: 15px">Hosting</h2>
                 <p>To set up an AWS server that hosts a Flask application:</p>
