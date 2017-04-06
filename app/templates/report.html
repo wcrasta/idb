@@ -237,19 +237,27 @@
               us to create objects for each model and be able to use data in a declarative way as we did in __init__.py. Having defined the relationships, it made it easier for us to get the attributes a certain object was connected it. We overwrote __init__
               for each model and then we declared them as we made our objects. We used assertions throughout the init methods to make sure that the data being passed in are what we were expecting.
             </p>
-                            <h4> Sorting </h4>
+                            <h4> Sorting and Filtering </h4>
                 <p>
                   Instead of doing sorting through the front-end, we realized that it could be done easily through the back end with the help of Flask and Jinja2. On the front-end side, we designed the website to include forms so when you click/submit certain values, the forms will pass back the value to the backend. Once we obtain those values from the form that the user submits, we employ them to fetch data from the database using queries that sorted them by the value passed in, in addition to ordering them by ascension or descension. For a lot of our sortings, we simply had the option of sorting by asc and sorting by desc. We targeted a list of values we want users to sort by and then added those options in the front end. Most of the work, however, is being done in our query to the database, as shown in the following snippet:
                    <span style="display:inline-block;color:black;border-width:1px;border-style:solid;padding:5px;font-size:1em">
                       games = db.session.query(Game.id, Game.name, Game.esrb, Game.rating, Game.genre, Game.release_date, Game.status, Game.image)<br/>
-                      .filter(Game.platform_id.in_(sortPlatform))<br/>
-                      .filter(Game.genre.in_(sortGenre))<br/>
-                      .filter(Game.status.in_(sortStatus))<br/>
-                      .filter(Game.category.in_(sortCategory))<br/>
-                      .filter(Game.esrb.in_(sortEsrb))<br/>
                       .order_by(('Game.' + sort))<br/>
                     </span><br/>
                   Then as with the other things, we pass in the objects that were fetched and rendered them dynamically through use of Jinja2.
+                </p>
+                <p>
+                  We implemented filtering in very much the same way utilizing Flask and Jinja2 as before. Much like before we had a front end design with several checkboxes which indicated which values the user wanted for specific attributes. These checkboxes were either manually cached, generated from the data on the page, or generated using separate queries. For example, a user could select two or three genres of games. It is of note that having no attributes selected is treated the same as having every attribute selected. After selecting all of the filtering options they wanted, the values will be passed as parameters in the URL when the user clicks submit. From here we can do everything through flask. All we have to do is get the desired attributes as lists and then use a simple check with the filter function to filter our results. We can extend the code above to include filtering as shown below:
+                    <span style="display:inline-block;color:black;border-width:1px;border-style:solid;padding:5px;font-size:1em">
+                      games = db.session.query(Game.id, Game.name, Game.esrb, Game.rating, Game.genre, Game.release_date, Game.status, Game.image)<br/>
+                      .filter(Game.platform_id.in_(filterPlatform))<br/>
+                      .filter(Game.genre.in_(filterGenre))<br/>
+                      .filter(Game.status.in_(filterStatus))<br/>
+                      .filter(Game.category.in_(filterCategory))<br/>
+                      .filter(Game.esrb.in_(filterEsrb))<br/>
+                      .order_by(('Game.' + sort))<br/>
+                    </span><br/>
+                  This gives us the data with the appropriate filters in the appropriate sorted order. We can also use .limit() and .offset() to control how many results we get at a time and which ones we decide to show. In our case, the limit would be 9 and the offset would be controlled by which page you are on. When you see the new page with your filtering options enabled, we pass what filtering options you had selected to the new page to ensure that you can adjust your filter as you go.
                 </p>
                 <p>For pagination and populating the pages with our data, we accessed the database for the respective model and rendered the template passing in the list of objects. To easily accomplish this, we employed a flask library called flask-paginate
                   that handled most of the work for pagination. Then we altered our HTML files to employ Jinja2 as a way to dynamically generate the data and provide pages, limited by the number of items we want for each page. While Jinja2 may be considered front-end, since it comes with Flask, the back-end developers used it to render the various pages and their elements.</p>
