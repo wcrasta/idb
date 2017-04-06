@@ -1,7 +1,12 @@
 app/pycache/
+.idea/
 *.pyc
 flask/
 __pycache__/
 *.json
 .DS_Store
-
+.coverage
+.mode
+.pylintrc
+app/static/js/node_modules/
+app/static.js/npm-debug.log

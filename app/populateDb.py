@@ -1,6 +1,6 @@
 # from models import Game, Platform, Reviews, Studio
 from models import *
-from app import db
+# from app import db
 from flask_sqlalchemy import SQLAlchemy
 import sqlite3
 import json
@@ -87,19 +87,19 @@ def reviews():
             # review platform
 
             db.session.add(review)
-            db.session.commit()
+            # db.session.commit()
 
             if 'game' in entry:
                 game1 = db.session.query(Game).filter_by(
                     api_id=entry['game']).first()
                 game1.reviews.append(review)
-                db.session.commit()
+                # db.session.commit()
             # hacky way to get around the relationship, check
             if 'platform' in entry:
                 platform1 = db.session.query(Platform).filter_by(
                     api_id=entry['platform']).first()
                 platform1.review.append(review)
-                db.session.commit()
+        # db.session.commit()
 
 
 def studio():
@@ -170,7 +170,7 @@ def studio():
                     continue
                 if temp_game.platform != None:
                     temp_game.platform.studio.append(studio)
-            db.session.commit()
+        # db.session.commit()
 
 
 def platform():
@@ -237,7 +237,7 @@ def platform():
                     platform.games.append(x)
 
             db.session.add(platform)
-            db.session.commit()
+        # db.session.commit()
 
 
 def game():
@@ -245,7 +245,7 @@ def game():
         data = json.load(data_file)
         for entry in data:
             # print(entry)
-            name = ''
+            name = ""
             if 'name' in entry:
                 name = entry['name']
 
@@ -283,7 +283,7 @@ def game():
 
             video = "None"
             if 'videos' in entry:
-                category = 'https://www.youtube.com/embed/' + \
+                video = 'https://www.youtube.com/embed/' + \
                     entry['videos'][0]['video_id']
             # do platform and studio?
             # platform = ['platform']
@@ -316,13 +316,19 @@ def game():
             game.video = video
 
             db.session.add(game)
-            db.session.commit()
+
+        # print("precommit")
+        # db.session.commit()
 
 game()
 print("games done")
+# db.session.commit()
+print("commit")
+
 platform()
 print("platforms done")
 reviews()
 print("reviews done")
 studio()
 print("studios done")
+db.session.commit()

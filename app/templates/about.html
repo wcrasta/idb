@@ -1,51 +1,68 @@
-﻿<!DOCTYPE html>
+
+<!DOCTYPE html>
 <html lang="en">
+
 <head>
-<meta charset="UTF-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width = device-width, initial-scale=1">
-<title>GGnoSWE · About</title>
-<link rel="stylesheet" type="text/css" href="../static/css/home.css">
-<style type="text/css">
-  body {
-    background: url('../static/images/bg2.png');
-  }
-  h1 {
-    color: white;
-    font-size: 2em;
-  }
-  h2 {
-    color: white;
-  }
-  h3 {
-    color: white;
-    font-size: 2em;
-  }
-  h3:hover {
-    color: gray;
-    text-decoration: underline;
-  }
-  p {
-    color: white;
-    font-size: 1.65em;
-    text-align: left;
-    margin-right: 40px;
-    margin-left: 40px;
-  }
-  hr {
-    margin-left: 40px;
-    margin-right: 40px;
-  }
-</style>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width = device-width, initial-scale=1">
+  <title>GGnoSWE · About</title>
+  <link rel="shortcut icon" type="image/png" href="../static/images/favicon.png"/>
+  <link rel="stylesheet" type="text/css" href="../static/css/home.css">
+  <style type="text/css">
+    body {
+      background: url('../static/images/bg2.png');
+    }
+
+    h1 {
+      color: white;
+      font-size: 2em;
+    }
+
+    h2 {
+      color: white;
+    }
+
+    h3 {
+      color: white;
+      font-size: 2em;
+    }
+
+    h4 {
+      color: white;
+      font-size: 1.5em;
+    }
+
+    h3:hover {
+      color: gray;
+      text-decoration: underline;
+    }
+
+    p {
+      color: white;
+      font-size: 1.65em;
+      text-align: left;
+      margin-right: 40px;
+      margin-left: 40px;
+    }
+
+    hr {
+      margin-left: 40px;
+      margin-right: 40px;
+    }
+  </style>
 </head>
+
 <body>
 
   <header>
     <!-- Starting Navigation Bar -->
-    <nav class="navbar navbar-toggleable-md navbar-fixed-top" style="background-color: black; margin-top: 0;">
+    <nav class="navbar navbar-toggleable-md navbar-fixed-top"
+    style="background-color: black; margin-top: 0;">
       <div class="container">
         <div class="navbar-header">
-          <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#nav-col">
+          <button class="navbar-toggle collapsed" type="button"
+          data-toggle="collapse" data-target="#nav-col">
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
@@ -54,7 +71,8 @@
             <ul class="nav navbar-nav">
               <li class="nav-item">
                 <a class="nav-link" href="/">
-                  <img src="../static/images/logo.png" style="width: 100px; height: 50px; padding-top: -20px;"/>
+                  <img src="../static/images/logo.png"
+                  style="width: 100px; height: 50px; padding-top: -20px;" />
                 </a>
               </li>
               <li class="nav-item" style="padding-top: 15px;">
@@ -63,7 +81,8 @@
                 </a>
               </li>
               <li class="nav-item" style="padding-top: 15px;">
-                <a class="nav-link" href="{{ url_for('platforms')}}">Platforms</a>
+                <a class="nav-link" href="{{ url_for('platforms')}}">Platforms
+                </a>
               </li>
               <li class="nav-item" style="padding-top: 15px;">
                 <a class="nav-link" href="{{ url_for('studios')}}">Studios</a>
@@ -84,7 +103,7 @@
   <!-- Beginning Team Info -->
   <div class="container">
     <div class="row">
-      <div class="col-md-3" style="margin-top:125px; margin-bottom: 30px;">
+      <div class="col-md-12" style="margin-top:125px; margin-bottom: 30px;">
         <h2>The Team</h2>
         <div class="underline"></div>
       </div>
@@ -92,148 +111,159 @@
     <div class="row">
       <div class="col-md-4">
         <h2 style="text-align: center;">Kaden Brown</h2>
-        <img class="center-block" src="../static/images/kaden.png"
-          style="padding-top: 20px; height: 300px; width: 200px;"/>
+        <div class="row center-block" style="width: 200px; height: 300px;">
+          <div class="img" id="kaden-image"></div>
+        </div>
         <div class="row text-center">
           <a href="https://github.com/kbbrownn">
-          <img src="../static/images/github-logo.png" style="height: 30px;
-          width: 30px; margin-bottom: 20px; margin-top: 20px;"/>
+            <img src="../static/images/github-logo.png" style="height: 30px;
+          width: 30px; margin-bottom: 20px; margin-top: 20px;" />
           </a>
           <p>
-            Hey! My name is Kaden and I am a junior in computer science at
-            UT Austin. I like to exercise, travel and of
-            course, game; with The Legend of Zelda being one of the first series
-            I fell in love with.
+            Hey! My name is Kaden and I am a junior in computer science at UT
+            Austin. I like to exercise, travel and of course, game; with The
+            Legend of Zelda being one of the first series I fell in love with.
           </p>
           <hr/>
           <h1>Project Leader for Phase 1</h1>
           <h1>Responsibilities: Frontend</h1>
-          <h1>No. of commits: 65</h1>
+          <h1>No. of commits: 58</h1>
           <h1>No. of issues: 19</h1>
           <h1>No. of unit tests: 0</h1>
         </div>
       </div>
       <div class="col-md-4">
         <h2 style="text-align: center;">Zihao Zhu</h2>
-        <img class="center-block" src="../static/images/zihao.png"
-          style="padding-top: 20px; height: 300px; width: 275px;"/>
+        <div class="row center-block" style="width: 200px; height: 300px;">
+          <div id="zihao-image"></div>
+        </div>
         <div class="row text-center">
           <a href="https://github.com/novuszed">
-          <img src="../static/images/github-logo.png" style="height: 30px;
-            width: 30px; margin-bottom: 20px; margin-top: 20px;"/>
+            <img src="../static/images/github-logo.png" style="height: 30px;
+            width: 30px; margin-bottom: 20px; margin-top: 20px;" />
           </a>
           <p>
             I'm a third year computer science student. I love traveling, eating
             and Netflixing. Hoping to be unemployed post college.
-            <br/><br/>
+            <br/>
+            <br/>
           </p>
           <hr/>
+          <h1>Project Leader for Phase 2</h1>
           <h1>Responsibilities: Backend</h1>
-          <h1>No. of commits: 39</h1>
+          <h1>No. of commits: 29</h1>
           <h1>No. of issues: 4</h1>
           <h1>No. of unit tests: 10</h1>
         </div>
       </div>
       <div class="col-md-4">
         <h2 style="text-align: center;">Warren Crasta</h2>
-        <img class="center-block" src="../static/images/warren.png"
-          style="padding-top: 20px; height: 300px; width: 250px;"/>
+        <div class="row center-block" style="width: 200px; height: 300px;">
+          <div id="warren-image">
+          </div>
+        </div>
         <div class="row text-center">
           <a href="https://github.com/wcrasta">
-          <img src="../static/images/github-logo.png" style="height: 30px;
-            width: 30px; margin-bottom: 20px; margin-top: 20px;"/>
+            <img src="../static/images/github-logo.png" style="height: 30px;
+            width: 30px; margin-bottom: 20px; margin-top: 20px;" />
           </a>
           <p>
-            I’m a senior studying Computer Science, and will work for
-            Capital One as a Software/Data Engineer after graduating in May.
-            Being a CS major means having no free time, but in the rare
-            instances where I have a break, I’m usually playing basketball/NBA
-            2K17 or exploring Austin!
+            I’m a senior studying Computer Science, and will work for Capital
+            One as a Software/Data Engineer after graduating in May. Being a CS
+            major means having no free time, but in the rare instances where I
+            have a break, I’m usually playing basketball/NBA 2K17
+            or exploring Austin!
           </p>
           <hr/>
           <h1>Responsibilities: Backend</h1>
-          <h1>No. of commits: 41</h1>
+          <h1>No. of commits: 37</h1>
           <h1>No. of issues: 3</h1>
           <h1>No. of unit tests: 0</h1>
         </div>
       </div>
     </div>
-      <div class="row" style="margin-top: 30px;">
-        <div class="col-md-4">
-          <h2 style="text-align: center;">Colin Thornton</h2>
-          <img class="center-block" src="../static/images/colin.png"
-            style="padding-top: 20px; height: 300px; width: 225px;"/>
-          <div class="row text-center">
-            <a href="https://github.com/Colin-Thornton">
-            <img src="../static/images/github-logo.png" style="height: 30px;
-              width: 30px; margin-bottom: 20px; margin-top: 20px;"/>
-            </a>
-            <p>
-              My name is Colin and I am a junior at the University of Texas at
-              Austin. In my free time like to play video games or go hiking.
-              Hiking allows me to reflect in a peaceful environment after a long
-              project so that I can improve for the next time.
-            </p>
-            <hr/>
-            <h1>Responsibilities: Backend</h1>
-            <h1>No. of commits: 13</h1>
-            <h1>No. of issues: 2</h1>
-            <h1>No. of unit tests: 0</h1>
+    <div class="row" style="margin-top: 30px;">
+      <div class="col-md-4">
+        <h2 style="text-align: center;">Colin Thornton</h2>
+        <div class="row center-block" style="width: 200px; height: 300px;">
+          <div id="colin-image">
           </div>
         </div>
-        <div class="col-md-4">
-          <h2 style="text-align: center;">Anurag Papineni</h2>
-          <img class="center-block" src="../static/images/anurag.png"
-            style="padding-top: 20px; height: 300px; width: 225px;"/>
-          <div class="row text-center">
-            <a href="https://github.com/anuragpapineni">
+        <div class="row text-center">
+          <a href="https://github.com/Colin-Thornton">
             <img src="../static/images/github-logo.png" style="height: 30px;
-              width: 30px; margin-bottom: 20px; margin-top: 20px;"/>
-            </a>
-            <p>
-              Hello! My name is Anurag and I'm a Senior at UT Austin. In my free
-              time I like to develop and play video games, and sometimes draw a
-              little.
-            </p>
-            <hr/>
-            <h1>Responsibilities: Backend</h1>
-            <h1>No. of commits: 24</h1>
-            <h1>No. of issues: 0</h1>
-            <h1>No. of unit tests: 5</h1>
+              width: 30px; margin-bottom: 20px; margin-top: 20px;" />
+          </a>
+          <p>
+            My name is Colin and I am a junior at the University of Texas at
+            Austin. In my free time like to play video games or go hiking.
+            Hiking allows me to reflect in a peaceful environment after a long
+            project so that I can improve for the next time.
+          </p>
+          <hr/>
+          <h1>Responsibilities: Backend</h1>
+          <h1>No. of commits: 9</h1>
+          <h1>No. of issues: 2</h1>
+          <h1>No. of unit tests: 0</h1>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <h2 style="text-align: center;">Anurag Papineni</h2>
+        <div class="row center-block" style="width: 200px; height: 300px;">
+          <div id="anurag-image">
           </div>
         </div>
-        <div class="col-md-4">
-          <h2 style="text-align: center;">Kaivan Shah</h2>
-          <img class="center-block" src="../static/images/kaivan.jpeg"
-            style="padding-top: 20px; height: 300px; width: 250px;"/>
-          <div class="row text-center">
-            <a href="https://github.com/kaivan29">
+        <div class="row text-center">
+          <a href="https://github.com/anuragpapineni">
             <img src="../static/images/github-logo.png" style="height: 30px;
-              width: 30px; margin-bottom: 20px; margin-top: 20px;"/>
-            </a>
-            <p>
-              Hey! My name is Kaivan and I am a senior in computer science at
-              UT Austin. The club of my heart is FC Barcelona and my favorite
-              football player is Messsssi. And of course in my free time I like
-              to play FIFA!!
-            </p>
-            <hr/>
-            <h1>Responsibilities: Frontend</h1>
-            <h1>No. of commits: 28</h1>
-            <h1>No. of issues: 1</h1>
-            <h1>No. of unit tests: 0</h1>
+              width: 30px; margin-bottom: 20px; margin-top: 20px;" />
+          </a>
+          <p>
+            Hello! My name is Anurag and I'm a Senior at UT Austin. In my free
+            time I like to develop and play video games, and sometimes draw a
+            little.
+          </p>
+          <hr/>
+          <h1>Responsibilities: Backend</h1>
+          <h1>No. of commits: 22</h1>
+          <h1>No. of issues: 0</h1>
+          <h1>No. of unit tests: 5</h1>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <h2 style="text-align: center;">Kaivan Shah</h2>
+        <div class="row center-block" style="width: 200px; height: 300px;">
+          <div id="kaivan-image">
           </div>
         </div>
+        <div class="row text-center">
+          <a href="https://github.com/kaivan29">
+              <img src="../static/images/github-logo.png" style="height: 30px;
+              width: 30px; margin-bottom: 20px; margin-top: 20px;" />
+          </a>
+          <p>
+            Hey! My name is Kaivan and I am a senior in computer science at UT
+            Austin. The club of my heart is FC Barcelona and my favorite
+            football player is Messsssi. And of course in my free time I like
+            to play FIFA!!
+          </p>
+          <hr/>
+          <h1>Responsibilities: Frontend</h1>
+          <h1>No. of commits: 26</h1>
+          <h1>No. of issues: 1</h1>
+          <h1>No. of unit tests: 0</h1>
+        </div>
+      </div>
     </div>
   </div>
 
   <!-- Beginning Stats -->
   <div class="container">
     <div class="row">
-      <div class="col-sm-4" style="padding-top: 150px;">
+      <div class="col-sm-12" style="padding-top: 150px;">
         <h2>Stats</h2>
-        <div class="underline" style="border-bottom: 1px solid #FFF;"></div>
-        <h1>Total No. of commits: 210</h1>
+        <div class="underline"></div>
+        <h1>Total No. of commits: 239</h1>
         <h1>Total No. of issues: 29</h1>
         <h1>Total No. of unit tests: 15</h1>
         <a href="http://docs.ggnoswe.apiary.io">
@@ -252,7 +282,7 @@
   <!-- Beginning Data -->
   <div class="container">
     <div class="row">
-      <div class="col-sm-6" style="padding-top: 150px;">
+      <div class="col-sm-12" style="padding-top: 150px;">
         <h2>Data</h2>
         <div class="underline" style="border-bottom: 1px solid #FFF;"></div>
         <br/>
@@ -267,7 +297,7 @@
           saved the data as a JSON file and then parsed it for our database.
         </p>
         <a href="{{url_for('report')}}">
-        <h3>Technical Report</h3></a>
+          <h3>Technical Report</h3></a>
       </div>
     </div>
   </div>
@@ -283,17 +313,19 @@
       </div>
       <div class="row">
         <div class="col-sm-6" style="padding-left: 60px; padding-right: 60px;">
- 
-         <div class="row">
+
+          <div class="row">
             <h1>Bootstrap: </h1>
 
             <a href="http://getbootstrap.com/">
-              <img class="logo--image center-block" src="../static/images/bootstrap.png" style="height: 250px; width: 250px; padding-bottom: 15px" >
+              <img class="logo--image center-block"
+              src="../static/images/bootstrap.png"
+              style="height: 250px; width: 250px; padding-bottom: 15px">
             </a>
             <p>
-              Bootstrap is an HTML/CSS/JS framework used to aid in the design of our
-              website. It provided a library of useful and fluid design tools, such
-              as the splash page's carousel, navbar and more.
+              Bootstrap is an HTML/CSS/JS framework used to aid in the design of
+               our website. It provided a library of useful and fluid design
+               tools, such as the splash page's carousel, navbar and more.
             </p>
           </div>
 
@@ -301,20 +333,23 @@
             <h1>React: </h1>
 
             <a href="https://facebook.github.io/react/">
-              <img class="logo--image center-block" src="../static/images/react.png" style="height: 250px; width: 250px; padding-bottom: 15px" >
+              <img class="logo--image center-block"
+              src="../static/images/react.png"
+              style="height: 250px; width: 250px; padding-bottom: 15px">
             </a>
 
             <p>
-              React is a Javascript framework used to aid in the functionality of
-              our website. We used it to link things such as the search bar to our
-              database.
+              React is a Javascript framework used to aid in the functionality
+              of our website.
             </p>
           </div>
 
           <div class="row">
             <h1>Namecheap: </h1>
             <a href="https://www.namecheap.com/">
-              <img class="logo--image center-block" src="../static/images/namecheap.png" style="height: 250px; width: 250px; padding-bottom: 15px" >
+              <img class="logo--image center-block"
+              src="../static/images/namecheap.png"
+              style="height: 250px; width: 250px; padding-bottom: 15px">
             </a>
             <p>
               Namecheap is a service that we used to claim our domain for our
@@ -322,24 +357,28 @@
             </p>
           </div>
         </div>
-        
+
         <div class="col-sm-6" style="padding-left: 60px; padding-right: 60px;">
           <div class="row">
             <h1>Flask: </h1>
             <a href="http://flask.pocoo.org/">
-              <img class="logo--image center-block" src="../static/images/flask.png" style="height: 250px; width: 250px; padding-bottom: 15px" >
+              <img class="logo--image center-block"
+              src="../static/images/flask.png"
+              style="height: 250px; width: 250px; padding-bottom: 15px">
             </a>
             <p>
               Flask is a Python framework used to help implement our backend and
-              serve our website.
+               serve our website.
             </p>
           </div>
-          
+
           <div class="row">
             <h1>SQLAlchemy: </h1>
             <a href="https://www.sqlalchemy.org/">
-              <img class="logo--image center-block" src="../static/images/sqla.png" style="height: 250px; width: 250px; padding-bottom: 15px" >
-            </a>            
+              <img class="logo--image center-block"
+              src="../static/images/sqla.png"
+              style="height: 250px; width: 250px; padding-bottom: 15px">
+            </a>
             <p>
               SQLAlchemy is a Python-SQL framework used to build and query our
               database on the backend.
@@ -349,39 +388,45 @@
           <div class="row">
             <h1>Apiary: </h1>
             <a href="https://apiary.io/">
-              <img class="logo--image center-block" src="../static/images/apiary.png" style="height: 250px; width: 250px; padding-bottom: 15px" >
+              <img class="logo--image center-block"
+              src="../static/images/apiary.png"
+              style="height: 250px; width: 250px; padding-bottom: 15px">
             </a>
             <p>
-              Apiary is a tool used to build/manage/document our API. We then use
-              this to allow others to scrape our site.
+              Apiary is a tool used to build/manage/document our API. We then
+              use this to allow others to scrape our site.
             </p>
           </div>
         </div>
       </div>
-      
+
       <div class="row">
         <div class="col-sm-6" style="padding-left: 60px; padding-right: 60px;">
           <div class="row">
             <h1>Amazon Web Services (AWS): </h1>
             <a href="https://aws.amazon.com/">
-              <img class="logo--image center-block" src="../static/images/awss3.png" style="height: 250px; width: 250px; padding-bottom: 15px" >
+              <img class="logo--image center-block"
+              src="../static/images/awss3.png"
+              style="height: 250px; width: 250px; padding-bottom: 15px">
             </a>
             <p>
-              AWS is a website hosting / management service, served by Amazon, that
-              we used to deploy our website with.
+              AWS is a website hosting / management service, served by Amazon,
+              that we used to deploy our website with.
             </p>
           </div>
 
           <div class="row">
             <h1>Slack: </h1>
             <a href="https://www.slack.com/">
-              <img class="logo--image center-block" src="../static/images/Slack_Icon.png" style="height: 250px; width: 250px; padding-bottom: 15px" >
+              <img class="logo--image center-block"
+              src="../static/images/Slack_Icon.png"
+              style="height: 250px; width: 250px; padding-bottom: 15px">
             </a>
             <p>
               Slack is a team communication application that we used to discuss
               design decisions, scheduling and much more. We also integrated our
-              GitHub repo directly to our main chat channel so that we could all
-              receive real-time updates on the project.
+              GitHub repo directly to our main chat channel so that we could
+              all receive real-time updates on the project.
             </p>
           </div>
         </div>
@@ -390,28 +435,64 @@
           <div class="row">
             <h1>GitHub: </h1>
             <a href="https://github.com/">
-              <img class="logo--image center-block" src="../static/images/github-logo.png" style="height: 250px; width: 250px; padding-bottom: 15px" >
+              <img class="logo--image center-block"
+              src="../static/images/github-logo.png"
+              style="height: 250px; width: 250px; padding-bottom: 15px">
             </a>
             <p>
-              GitHub is the version control site we used to store our project files
-              and documentation, with the help of git.
+              GitHub is the version control site we used to store our project
+              files and documentation, with the help of git.
             </p>
           </div>
           <div class="row">
-            <h1>SQLite: </h1>
-            <a href="https://www.sqlite.org/contrib">
-              <img class="logo--image center-block" src="../static/images/sqllite.png" style="height: 250px; width: 250px; padding-bottom: 15px" >
+            <h1>PostgreSQL: </h1>
+            <a href="https://www.postgresql.org/">
+              <img class="logo--image center-block"
+              src="../static/images/postgresql.png"
+              style="height: 250px; width: 250px; padding-bottom: 15px">
             </a>
             <p>
-              SQLite is a light-weight, embedded, open-source database engine that
-              we used to create and populate our database with.
+              PostgreSQL is a powerful, reliable, open-source database engine
+              that we used to create database.
             </p>
           </div>
         </div>
       </div>
-      <br /><br />
+      <br />
+      <br />
+    </div>
+    <div class="row">
+      <h2>Unit Tests</h2>
+      <div class="underline"
+      style="border-bottom: 1px solid #FFF; margin-bottom: 20px;"></div>
+      <button type="button" class="btn btn-primary" style="margin-bottom: 40px;"
+      data-toggle="modal" data-target="#testsModal">
+        <h4>
+      Run Unit Tests</h4>
+      </button>
+      <div class="modal fade" id="testsModal" style="margin-top: 200px;">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h1 style="color:black; text-align: center;">Results</h1>
+            </div>
+            <div class="modal-body" id="body">
+              <object type="text/html" data="{{url_for('unit_tests')}}"
+              style="width: 100%;"></object>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-outline"
+              data-dismiss="modal">Close</button>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
+  </div>
+  <script src="https://unpkg.com/react@15/dist/react.min.js"></script>
+  <script src="https://unpkg.com/react-dom@15/dist/react-dom.min.js"></script>
+  <script src="../static/js/bundle.js"></script>
   <script src="https://code.jquery.com/jquery-3.2.0.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </body>

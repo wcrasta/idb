@@ -55,8 +55,8 @@ body {
 }
 
 .underline {
-  width: 700px;
-  border-bottom: 1px solid #FFF;
+  width: 100%;
+  border-bottom: 1px solid white;
 }
 .horizontal-divider {
   border: 1px solid white;

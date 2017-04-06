@@ -1,11 +1,12 @@
 .DEFAULT_GOAL := test
 
-FILES :=            \
-    IDB1.log        \
-    app/__init__.py      \
-    app/models.py   \
-    app/tests.py    \
-    IDB1.html       \
+FILES :=                \
+    app/__init__.py     \
+    app/models.py       \
+    app/tests.py        \
+    app/tests.out       \
+    IDB1.log            \
+    IDB1.html           \
 
 ifeq ($(shell uname), Darwin)          # Apple
     PYTHON   := python3.5
@@ -40,8 +41,15 @@ endif
 .pylintrc:
 	$(PYLINT) --disable=locally-disabled --reports=no --generate-rcfile > $@
 
-IDB1.html: 
-	./pydoc3.sh
+app/tests.out: .pylintrc
+	-$(PYLINT) app/tests.py
+	$(COVERAGE) run    --branch --include=app/tests.py app/tests.py >  app/tests.out 2>&1
+	-$(COVERAGE) report -m                      >> app/tests.out
+	cat app/tests.out
+
+IDB1.html:
+	pydoc -w app/models.py
+	mv models.html IDB1.html
 
 IDB1.log:
 	git log > IDB1.log
@@ -72,6 +80,7 @@ clean:
 	rm -f .pylintrc
 	rm -f  IDB1.html
 	rm -f  IDB1.log
+	rm -f app/tests.out
 
 config:
 	git config -l
@@ -90,7 +99,7 @@ status:
 	git remote -v
 	git status
 
-test: IDB1.html IDB1.log
+test: IDB1.html IDB1.log app/tests.out
 	ls -al
 	make check
 
