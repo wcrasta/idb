@@ -6,7 +6,9 @@ import os
 import json
 import time
 import subprocess
+from subprocess import call
 import sys
+import binascii
 
 from flask_sqlalchemy import SQLAlchemy
 
@@ -138,10 +140,17 @@ def unit_tests():
     """
         Renders the home page
     """
-    # Use full path on server
-    print(os.path.realpath(__file__)[:-11])
-    return subprocess.check_output([sys.executable, os.path.realpath(__file__)[:-11] + 'tests.py'], stderr=subprocess.STDOUT)
+    subprocess.call("coverage run    --branch --include=tests.py tests.py > tests.out 2>&1", shell=True)
+    subprocess.call("coverage report -m >> tests.out", shell=True)
+    with open("tests.out", "r") as f:
+       output = f.read()
+    result = ""
+    for char in output :
+        result += char
+        if(char == '\n'):
+            result += "<br>"
 
+    return result
 
 @app.route('/about', methods=['GET'])
 def about():
