@@ -83,10 +83,12 @@
         <!-- Inner Slides -->
         <div class="item active">
           <div class="slide" style="background-image:
-          url(../static/images/game-shelf.png); background-size: cover;"></div>
+          url(../static/images/game-shelf.png); background-size: cover;">
+
+        </div>
           <div class="carousel-caption">
             <h1>Games</h1>
-            <p>View a list of games</p>
+            <p><a style = "color: white; text-decoration: underline;" href="{{ url_for('games')}}"> View a list of games </a></p>
           </div>
         </div>
         <div class="item">
@@ -94,7 +96,7 @@
           url(../static/images/platforms.png); background-size: cover;"></div>
           <div class="carousel-caption">
             <h1>Platforms</h1>
-            <p>Discover games by platform</p>
+            <p><a style = "color: white; text-decoration: underline;" href="{{ url_for('platforms')}}">Discover games by platform</a></p>
           </div>
         </div>
         <div class="item">
@@ -102,7 +104,7 @@
           url(../static/images/studio.png); background-size: cover;"></div>
           <div class="carousel-caption">
             <h1>Studios</h1>
-            <p>Search works of various studios</p>
+            <p><a style = "color: white; text-decoration: underline;" href="{{ url_for('studios')}}">Search works of various studios</a></p>
           </div>
         </div>
         <div class="item">
@@ -110,7 +112,7 @@
           url(../static/images/high-score.png); background-size: cover;"></div>
           <div class="carousel-caption">
             <h1>Reviews</h1>
-            <p>See reviews and ratings</p>
+            <p><a style = "color: white; text-decoration: underline;" href="{{ url_for('reviews')}}">See reviews and ratings</a></p>
           </div>
         </div>
       </div>
