@@ -9,3 +9,4 @@ __pycache__/
 .mode
 .pylintrc
 app/static/js/node_modules/
+app/static.js/npm-debug.log
