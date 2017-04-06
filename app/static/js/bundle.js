@@ -27,7 +27,7 @@ var ExampleApplication = (function (_React$Component) {
 
     _get(Object.getPrototypeOf(ExampleApplication.prototype), 'constructor', this).call(this, props);
     this.state = {
-      imgSrc: '../static/images/kaivan.jpeg'
+      imgSrc: '../static/images/kaivan.png'
     };
     this.handleMouseOver = this.handleMouseOver.bind(this);
     this.handleMouseOut = this.handleMouseOut.bind(this);
@@ -44,7 +44,7 @@ var ExampleApplication = (function (_React$Component) {
     key: 'handleMouseOut',
     value: function handleMouseOut() {
       this.setState({
-        imgSrc: '../static/images/kaivan.jpeg'
+        imgSrc: '../static/images/kaivan.png'
       });
     }
   }, {
@@ -101,7 +101,7 @@ var Kaivan = (function (_React$Component) {
 
     _get(Object.getPrototypeOf(Kaivan.prototype), 'constructor', this).call(this, props);
     this.state = {
-      imgSrc: '../static/images/kaivan.jpeg'
+      imgSrc: '../static/images/kaivan.png'
     };
     this.handleMouseOver = this.handleMouseOver.bind(this);
     this.handleMouseOut = this.handleMouseOut.bind(this);
@@ -118,7 +118,7 @@ var Kaivan = (function (_React$Component) {
     key: 'handleMouseOut',
     value: function handleMouseOut() {
       this.setState({
-        imgSrc: '../static/images/kaivan.jpeg'
+        imgSrc: '../static/images/kaivan.png'
       });
     }
   }, {
@@ -171,7 +171,9 @@ var Kaden = (function (_React$Component2) {
       return _react2['default'].createElement(
         'div',
         null,
-        _react2['default'].createElement('img', { onMouseOver: this.handleMouseOver, onMouseOut: this.handleMouseOut, src: this.state.imgSrc })
+        _react2['default'].createElement('img',
+        { onMouseOver: this.handleMouseOver, onMouseOut: this.handleMouseOut,
+          src: this.state.imgSrc})
       );
     }
   }]);
@@ -18815,7 +18817,7 @@ module.exports = camelizeStyleName;
  * LICENSE file in the root directory of this source tree. An additional grant
  * of patent rights can be found in the PATENTS file in the same directory.
  *
- * 
+ *
  */
 
 var isTextNode = require('./isTextNode');
@@ -19070,7 +19072,7 @@ module.exports = createNodesFromMarkup;
  * LICENSE file in the root directory of this source tree. An additional grant
  * of patent rights can be found in the PATENTS file in the same directory.
  *
- * 
+ *
  */
 
 function makeEmptyFunction(arg) {
@@ -19647,7 +19649,7 @@ module.exports = mapObject;
  * LICENSE file in the root directory of this source tree. An additional grant
  * of patent rights can be found in the PATENTS file in the same directory.
  *
- * 
+ *
  * @typechecks static-only
  */
 
@@ -19735,7 +19737,7 @@ module.exports = performanceNow;
  * of patent rights can be found in the PATENTS file in the same directory.
  *
  * @typechecks
- * 
+ *
  */
 
 /*eslint-disable no-self-compare */

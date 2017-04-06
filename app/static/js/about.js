@@ -1,14 +1,13 @@
 'use strict';
 import ReactDOM from 'react-dom'
 import React from 'react'
-import ExampleApplication from './ExampleApplication'
 
 class Kaivan extends React.Component {
 
   constructor(props) {
     super(props);
     this.state = {
-    	imgSrc: '../static/images/kaivan.jpeg'
+    	imgSrc: '../static/images/kaivan.png'
     };
     this.handleMouseOver = this.handleMouseOver.bind(this);
     this.handleMouseOut = this.handleMouseOut.bind(this);
@@ -22,15 +21,14 @@ class Kaivan extends React.Component {
 
   handleMouseOut() {
     this.setState({
-      imgSrc: '../static/images/kaivan.jpeg'
+      imgSrc: '../static/images/kaivan.png'
     });
   }
 
   render() {
     return (
-      <div>
-        <img onMouseOver={this.handleMouseOver} onMouseOut={this.handleMouseOut} src={this.state.imgSrc}/>
-      </div>
+      <img onMouseOver={this.handleMouseOver} onMouseOut={this.handleMouseOut}
+      src={this.state.imgSrc}/>
     );
   }
 
@@ -66,7 +64,8 @@ class Kaden extends React.Component {
   render() {
     return (
       <div>
-        <img onMouseOver={this.handleMouseOver} onMouseOut={this.handleMouseOut} src={this.state.imgSrc}/>
+        <img onMouseOver={this.handleMouseOver} onMouseOut={this.handleMouseOut}
+        src={this.state.imgSrc}/>
       </div>
     );
   }
