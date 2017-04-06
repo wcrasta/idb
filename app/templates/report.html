@@ -194,7 +194,8 @@
             </figure>
 
             <div style="float:none; padding-top: 20px;">
-              <p> This process remains the same for each of the other models, which allows the user to find information for the specific topic they want, rather than sending them all the information in the database.</p>
+              <p> This process remains the same for each of the other models, which allows the user to find information for the specific topic they want, rather than sending them all the information in the database. In order to make these apiary API calls work we must first create a path for the users of our API to access. So we use the flask_api module that allows use to specify a path for each of the different API requests by calling api.add_resource(). This command does not only require a path to take it must also have a class mapped to it that will return the data needed. So for games we can say api.add_resource(Api_Games,'/api/games')  in order to map that class to the games method and when the webpage is load it will automatically call the get method. This particular mapping allows for the user to request a list of dictionaries which contain “id”:”some_id”, “name”:”some_name” which we received by querying our database for all of the games information we had previously scrapped and add only the id and name into the list allowing us to filter out invalid information that we had gotten through our scrapping of the igdb api call. Then we can create another api resource, api.add_resource(Api_Game,'/api/games/<int:id>'), which can be used to call for specific games. This route now requires the user to provide an integer that we can use as a parameter to our get method. We then have to make a query to the games table with get(id) which returns to us the information for that game and then we return all of that in a dictionary that we finally call jsonify to properly format it into a json that others can use. This example works the same for all of the other models. We changed reviews to include that game for the list all reviews api request because most reviews do not specify what game they are talking about. This will allow for users to filter out reviews for their specific game rather than having to blindly make API request until they find the games they are looking for.
+              </p>
             </div>
 
             <h4>IGDB API Calls:</h4>
@@ -312,7 +313,7 @@
               <span style="color:black;border-width:1px;border-style:solid;padding:5px;font-size:1em">
                 app.config['SQLALCHEMY_DATABASE_URI'] = os.environ['our_secret']
             </span><br/>
-            </p>                  
+            </p>
             <p id="hosting">
               Doing this ensures that our login details will not be viewable on GitHub and that only those who have the environment variable set will be able to connect to our database. Unsurprisingly, Travis CI also has a feature that supports environment variables (by encrypting them), so our code runs without any problems on Travis as well.
             </p>
@@ -368,7 +369,7 @@
                     <span style="display:inline-block;color:black;border-width:1px;border-style:solid;padding:5px;font-size:1em">
                       sudo apt-get install apache2<br/>
                       sudo apt-get update<br/>
-                      sudo apt-get install libapache2-mod-wsgi<br/></span><br/><br/>             
+                      sudo apt-get install libapache2-mod-wsgi<br/></span><br/><br/>
                       To verify that Apache has been installed correctly, enter the IP Address of your EC2 instance in a web browser. To find the IP Address, click on your instance in the EC2 Management Console and copy the value given as the IPv4 Public IP. You should see a page like this in your web browser:
                     <figure>
                       <img class="center-block" float="left" src="../static/images/hosting_6.png" style="height: 350px" />
@@ -403,7 +404,7 @@
                     <span style="display:inline-block;color:black;border-width:1px;border-style:solid;padding:5px;font-size:1em">
                           &lt;VirtualHost *:80></br>
                           ServerName XXXXXXXX</br>
-                          ServerAdmin admin@mywebsite.com</br> 
+                          ServerAdmin admin@mywebsite.com</br>
                           WSGIScriptAlias / /var/www/FlaskApps/FlaskApps.wsgi</br>
                           &lt;Directory /var/www/FlaskApps/GGnoSWEApp/></br>
                               Order allow,deny</br>
