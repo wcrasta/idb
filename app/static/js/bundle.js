@@ -71,7 +71,15 @@ module.exports = exports['default'];
 },{"react":169}],2:[function(require,module,exports){
 'use strict';
 
+var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
+
+var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; desc = parent = undefined; continue _function; } } else if ('value' in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
 var _reactDom = require('react-dom');
 
@@ -85,9 +93,269 @@ var _ExampleApplication = require('./ExampleApplication');
 
 var _ExampleApplication2 = _interopRequireDefault(_ExampleApplication);
 
-var body = _react2['default'].createElement(_ExampleApplication2['default'], null);
+var Kaivan = (function (_React$Component) {
+  _inherits(Kaivan, _React$Component);
 
-_reactDom2['default'].render(body, document.getElementById('change-image'));
+  function Kaivan(props) {
+    _classCallCheck(this, Kaivan);
+
+    _get(Object.getPrototypeOf(Kaivan.prototype), 'constructor', this).call(this, props);
+    this.state = {
+      imgSrc: '../static/images/kaivan.jpeg'
+    };
+    this.handleMouseOver = this.handleMouseOver.bind(this);
+    this.handleMouseOut = this.handleMouseOut.bind(this);
+  }
+
+  _createClass(Kaivan, [{
+    key: 'handleMouseOver',
+    value: function handleMouseOver() {
+      this.setState({
+        imgSrc: '../static/images/flash.jpg'
+      });
+    }
+  }, {
+    key: 'handleMouseOut',
+    value: function handleMouseOut() {
+      this.setState({
+        imgSrc: '../static/images/kaivan.jpeg'
+      });
+    }
+  }, {
+    key: 'render',
+    value: function render() {
+      return _react2['default'].createElement(
+        'div',
+        null,
+        _react2['default'].createElement('img', { onMouseOver: this.handleMouseOver, onMouseOut: this.handleMouseOut, src: this.state.imgSrc })
+      );
+    }
+  }]);
+
+  return Kaivan;
+})(_react2['default'].Component);
+
+_reactDom2['default'].render(_react2['default'].createElement(Kaivan, null), document.getElementById('kaivan-image'));
+
+var Kaden = (function (_React$Component2) {
+  _inherits(Kaden, _React$Component2);
+
+  function Kaden(props) {
+    _classCallCheck(this, Kaden);
+
+    _get(Object.getPrototypeOf(Kaden.prototype), 'constructor', this).call(this, props);
+    this.state = {
+      imgSrc: '../static/images/kaden.png'
+    };
+    this.handleMouseOver = this.handleMouseOver.bind(this);
+    this.handleMouseOut = this.handleMouseOut.bind(this);
+  }
+
+  _createClass(Kaden, [{
+    key: 'handleMouseOver',
+    value: function handleMouseOver() {
+      this.setState({
+        imgSrc: '../static/images/batman.jpg'
+      });
+    }
+  }, {
+    key: 'handleMouseOut',
+    value: function handleMouseOut() {
+      this.setState({
+        imgSrc: '../static/images/kaden.png'
+      });
+    }
+  }, {
+    key: 'render',
+    value: function render() {
+      return _react2['default'].createElement(
+        'div',
+        null,
+        _react2['default'].createElement('img', { onMouseOver: this.handleMouseOver, onMouseOut: this.handleMouseOut, src: this.state.imgSrc })
+      );
+    }
+  }]);
+
+  return Kaden;
+})(_react2['default'].Component);
+
+_reactDom2['default'].render(_react2['default'].createElement(Kaden, null), document.getElementById('kaden-image'));
+
+var Zihao = (function (_React$Component3) {
+  _inherits(Zihao, _React$Component3);
+
+  function Zihao(props) {
+    _classCallCheck(this, Zihao);
+
+    _get(Object.getPrototypeOf(Zihao.prototype), 'constructor', this).call(this, props);
+    this.state = {
+      imgSrc: '../static/images/zihao.png'
+    };
+    this.handleMouseOver = this.handleMouseOver.bind(this);
+    this.handleMouseOut = this.handleMouseOut.bind(this);
+  }
+
+  _createClass(Zihao, [{
+    key: 'handleMouseOver',
+    value: function handleMouseOver() {
+      this.setState({
+        imgSrc: '../static/images/superman.jpg'
+      });
+    }
+  }, {
+    key: 'handleMouseOut',
+    value: function handleMouseOut() {
+      this.setState({
+        imgSrc: '../static/images/zihao.png'
+      });
+    }
+  }, {
+    key: 'render',
+    value: function render() {
+      return _react2['default'].createElement(
+        'div',
+        null,
+        _react2['default'].createElement('img', { onMouseOver: this.handleMouseOver, onMouseOut: this.handleMouseOut, src: this.state.imgSrc })
+      );
+    }
+  }]);
+
+  return Zihao;
+})(_react2['default'].Component);
+
+_reactDom2['default'].render(_react2['default'].createElement(Zihao, null), document.getElementById('zihao-image'));
+
+var Warren = (function (_React$Component4) {
+  _inherits(Warren, _React$Component4);
+
+  function Warren(props) {
+    _classCallCheck(this, Warren);
+
+    _get(Object.getPrototypeOf(Warren.prototype), 'constructor', this).call(this, props);
+    this.state = {
+      imgSrc: '../static/images/warren.png'
+    };
+    this.handleMouseOver = this.handleMouseOver.bind(this);
+    this.handleMouseOut = this.handleMouseOut.bind(this);
+  }
+
+  _createClass(Warren, [{
+    key: 'handleMouseOver',
+    value: function handleMouseOver() {
+      this.setState({
+        imgSrc: '../static/images/aquaman.jpg'
+      });
+    }
+  }, {
+    key: 'handleMouseOut',
+    value: function handleMouseOut() {
+      this.setState({
+        imgSrc: '../static/images/warren.png'
+      });
+    }
+  }, {
+    key: 'render',
+    value: function render() {
+      return _react2['default'].createElement(
+        'div',
+        null,
+        _react2['default'].createElement('img', { onMouseOver: this.handleMouseOver, onMouseOut: this.handleMouseOut, src: this.state.imgSrc })
+      );
+    }
+  }]);
+
+  return Warren;
+})(_react2['default'].Component);
+
+_reactDom2['default'].render(_react2['default'].createElement(Warren, null), document.getElementById('warren-image'));
+
+var Colin = (function (_React$Component5) {
+  _inherits(Colin, _React$Component5);
+
+  function Colin(props) {
+    _classCallCheck(this, Colin);
+
+    _get(Object.getPrototypeOf(Colin.prototype), 'constructor', this).call(this, props);
+    this.state = {
+      imgSrc: '../static/images/colin.png'
+    };
+    this.handleMouseOver = this.handleMouseOver.bind(this);
+    this.handleMouseOut = this.handleMouseOut.bind(this);
+  }
+
+  _createClass(Colin, [{
+    key: 'handleMouseOver',
+    value: function handleMouseOver() {
+      this.setState({
+        imgSrc: '../static/images/cyborg.jpg'
+      });
+    }
+  }, {
+    key: 'handleMouseOut',
+    value: function handleMouseOut() {
+      this.setState({
+        imgSrc: '../static/images/colin.png'
+      });
+    }
+  }, {
+    key: 'render',
+    value: function render() {
+      return _react2['default'].createElement(
+        'div',
+        null,
+        _react2['default'].createElement('img', { onMouseOver: this.handleMouseOver, onMouseOut: this.handleMouseOut, src: this.state.imgSrc })
+      );
+    }
+  }]);
+
+  return Colin;
+})(_react2['default'].Component);
+
+_reactDom2['default'].render(_react2['default'].createElement(Colin, null), document.getElementById('colin-image'));
+
+var Anurag = (function (_React$Component6) {
+  _inherits(Anurag, _React$Component6);
+
+  function Anurag(props) {
+    _classCallCheck(this, Anurag);
+
+    _get(Object.getPrototypeOf(Anurag.prototype), 'constructor', this).call(this, props);
+    this.state = {
+      imgSrc: '../static/images/anurag.png'
+    };
+    this.handleMouseOver = this.handleMouseOver.bind(this);
+    this.handleMouseOut = this.handleMouseOut.bind(this);
+  }
+
+  _createClass(Anurag, [{
+    key: 'handleMouseOver',
+    value: function handleMouseOver() {
+      this.setState({
+        imgSrc: '../static/images/greenLantern.jpg'
+      });
+    }
+  }, {
+    key: 'handleMouseOut',
+    value: function handleMouseOut() {
+      this.setState({
+        imgSrc: '../static/images/anurag.png'
+      });
+    }
+  }, {
+    key: 'render',
+    value: function render() {
+      return _react2['default'].createElement(
+        'div',
+        null,
+        _react2['default'].createElement('img', { onMouseOver: this.handleMouseOver, onMouseOut: this.handleMouseOut, src: this.state.imgSrc })
+      );
+    }
+  }]);
+
+  return Anurag;
+})(_react2['default'].Component);
+
+_reactDom2['default'].render(_react2['default'].createElement(Anurag, null), document.getElementById('anurag-image'));
 
 },{"./ExampleApplication":1,"react":169,"react-dom":4}],3:[function(require,module,exports){
 // shim for using process in browser
