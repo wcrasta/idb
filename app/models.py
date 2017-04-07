@@ -21,7 +21,7 @@ api = Api(app)
 
 basedir = os.path.abspath(os.path.dirname(__file__))
 app.config['SQLALCHEMY_DATABASE_URI'] = os.environ['our_secret']
-#app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///' + \
+# app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///' + \
 #    os.path.join(basedir, 'app.db')
 
 
@@ -112,6 +112,7 @@ class Game(db.Model):
         if website != None:
             assert website != ""
             self.website = website
+
 
 class Platform(db.Model):
 

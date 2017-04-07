@@ -124,8 +124,15 @@
               <p class="text-left" style="padding-top: 60px; padding-left: 20px; padding-top: 20px;"> <font color="white" size="6">Generation</font></p>
                 <div class="list-group pre-scrollable">
                   {% for generation in range(10) %}
+                  {% if generation|string() in selected_generations %}
+<input type="checkbox" name="generation" id="filterPlat" value=
+                "{{generation}}" checked="true"> <font color="white" size ="4"> {{generation}} </font> <br>
+                  {% else %}
+
                   <input type="checkbox" name="generation" id="filterPlat" value=
                 "{{generation}}"> <font color="white" size ="4"> {{generation}} </font> <br>
+                  {% endif %}
+
                   {% endfor %}
                 </div>
               <p class="text-left" style="padding-top: 30px; padding-left: 20px; padding-top: 20px;"></p>

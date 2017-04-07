@@ -1,8 +1,8 @@
 ...............
 ----------------------------------------------------------------------
-Ran 15 tests in 0.050s
+Ran 15 tests in 0.037s
 
 OK
-Name       Stmts   Miss Branch BrPart  Cover   Missing
-------------------------------------------------------
-tests.py      92      0      2      1    99%   136->exit
+Name           Stmts   Miss Branch BrPart  Cover   Missing
+----------------------------------------------------------
+app/tests.py      92      0      2      1    99%   136->exit
