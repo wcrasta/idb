@@ -209,9 +209,9 @@ def games(page=1):
         sortCategory = category
 
     if len(platformTemp)>0:
-        games = db.session.query(Game.id, Game.name, Game.esrb, Game.rating, Game.genre, Game.release_date, Game.status, Game.image).filter(Game.platform_id.in_(sortPlatform)).filter(Game.genre.in_(sortGenre)).filter(Game.status.in_(sortStatus)).filter(Game.category.in_(sortCategory)).filter(Game.esrb.in_(sortEsrb)).order_by(('Game.' + sort))
+        games = db.session.query(Game).filter(Game.platform_id.in_(sortPlatform)).filter(Game.genre.in_(sortGenre)).filter(Game.status.in_(sortStatus)).filter(Game.category.in_(sortCategory)).filter(Game.esrb.in_(sortEsrb)).order_by(('Game.' + sort))
     else:
-        games = db.session.query(Game.id, Game.name, Game.esrb, Game.rating, Game.genre, Game.release_date, Game.status, Game.image).filter(Game.api_id != 0 and Game.name != '').filter(Game.genre.in_(sortGenre)).filter(Game.status.in_(sortStatus)).filter(Game.category.in_(sortCategory)).filter(Game.esrb.in_(sortEsrb)).order_by(('Game.' + sort))
+        games = db.session.query(Game).filter(Game.api_id != 0 and Game.name != '').filter(Game.genre.in_(sortGenre)).filter(Game.status.in_(sortStatus)).filter(Game.category.in_(sortCategory)).filter(Game.esrb.in_(sortEsrb)).order_by(('Game.' + sort))
     pagination = Pagination(
         page=page, css_framework='foundation', total=games.count(), per_page=9, record_name='items')
 
