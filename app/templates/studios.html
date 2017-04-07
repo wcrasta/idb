@@ -114,16 +114,15 @@
         <div class="col-md-3" style="margin-top: 220px">
           <div class="row" style="padding-right: 50px;">
             <div clas="col-sm-4" style="border: 1px solid white;">
-              <form name = "filterPlatform" action="{{url_for('platforms')}}" method="get" style="padding-top: 20px;">
+              <form name = "filterPlatform" action="{{url_for('studios')}}" method="get" style="padding-top: 20px;">
                 <p style="display: inline; color: white; padding-left: 15px;">Sort by: &nbsp;</p>
               <select name="sort" id="sort" class="btn btn-secondary" onchange="this.form.submit()">
                 <option value="name asc" selected>Name: A-Z</option>
                 <option value="name desc">Name: Z-A</option>
                 <option value="created_at asc">Founded: Newest-Oldest</option>
                 <option value="created_at desc">Founded: Oldest-Newest</option>
-                <option value="platform_id asc">Platform</option>
               </select>
-              <p class="text-left" style="padding-top: 60px; padding-left: 20px; padding-top: 20px;"> <font color="white" size="6">Generation</font></p>
+              <p class="text-left" style="padding-top: 60px; padding-left: 20px; padding-top: 20px;"> <font color="white" size="6">Platform</font></p>
                 <div class="list-group pre-scrollable">
                 {% for platform in platforms %}
                 {% if platform.id|string() in selected_platforms %}
