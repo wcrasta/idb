@@ -265,15 +265,20 @@
                     <div class="row" style="padding-left: 40px;">
                       <div class="col-sm-12">
                         <p style="color: black; padding-top: 15px;">
-                          {% if item.platform_id is defined %}
-                          <a href="{{ url_for('platform_instance', name = item.platform.id)}}"> {{item.platform.name}} </a> {% endif %}
+                          {% if item.platform_id is not none %}
+                          Platform: <a href="{{ url_for('platform_instance', name = item.platform.id)}}"> {{item.platform.name}} </a>
+                          {% else %}
+                          Platform: None
+                          {% endif %}
                         </p>
                         <p style="color: black;">
-                          {% if item.studio is defined %}
-                          <a href="{{ url_for('studio_instance', name = item.studio.id)}}">  {{item.studio.name}}
-                         </a> {% endif %}
+                          {% if item.studio is not none %}
+                          Studio: <a href="{{ url_for('studio_instance', name = item.studio.id)}}">  {{item.studio.name}}
+                         </a>
+                         {% else %}
+                         Studio: None
+                         {% endif %}
                         </p>
-
                         <p> Esrb: {{item.esrb}} </p>
                         <p> Genre: {{item.genre}} </p>
                         <p> Rating: {{'%0.2f'| format(item.rating|float)}} </p>
