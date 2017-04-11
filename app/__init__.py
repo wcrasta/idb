@@ -118,6 +118,10 @@ class Api_Review(Resource):
 api.add_resource(Api_Reviews,'/api/reviews')
 api.add_resource(Api_Review,'/api/reviews/<int:id>')
 
+@app.route('/search')
+def search():
+
+    return render_template('home.html')
 
 @app.route('/report')
 def report():

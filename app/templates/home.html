@@ -66,12 +66,12 @@
       <div class="carousel-inner">
 
       <!-- Beginning Search Bar -->
-        <div class="col-sm-4 col-sm-offset-4" style="top: 50%; text-align: center; position: absolute;">
+        <div class="col-sm-4 col-sm-offset-4" action="{{url_for('search')}}" method="get" style="top: 50%; text-align: center; position: absolute;">
           <div class="row">
             <form class="form-inline" id="searchBar">
              <div class="form-group">
                <div class="input-group input-group-lg">
-                <input type="text" class="form-control" placeholder="Search">
+                <input type="text" name="search" class="form-control" placeholder="Search">
                   <span class="input-group-btn">
                    <button class="btn btn-secondary" type="button" style="float: left;">
                     <span class="glyphicon glyphicon-search"></span>
