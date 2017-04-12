@@ -14,18 +14,20 @@ import datetime
 from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
 from flask_restful import Resource, Api
+import flask_whooshalchemy as whooshalchemy
 
 app = Flask(__name__)
 app.debug = True
 api = Api(app)
 
 basedir = os.path.abspath(os.path.dirname(__file__))
-app.config['SQLALCHEMY_DATABASE_URI'] = os.environ['our_secret']
-# app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///' + \
-#    os.path.join(basedir, 'app.db')
+#app.config['SQLALCHEMY_DATABASE_URI'] = os.environ['our_secret']
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///' + \
+    os.path.join(basedir, 'app.db')
+WHOOSH_BASE = os.path.join(basedir,'app.db')
 
 
-app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = True
 db = SQLAlchemy(app)
 
 
@@ -37,6 +39,8 @@ class Game(db.Model):
         and more. It has relationships with other models like studio, reviews
         and companies.
     """
+    __tablename__ = 'game'
+    __searchable__=['name', 'summary','genre','storyline','esrb','status']
 
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(256))
@@ -122,7 +126,8 @@ class Platform(db.Model):
     etc. Platform models also have relationships with the other models such as
     game, review and studio.
     """
-
+    __tablename__ = 'platform'
+    __searchable__=['name','summary','image','website']
     id = db.Column(db.Integer, primary_key=True)
     api_id = db.Column(db.Integer)
     created_at = db.Column(db.DateTime)
@@ -187,6 +192,8 @@ class Studio(db.Model):
         they built/published, the website and etc.
         Studio models have relationships with game, platform and reviews.
     """
+    __tablename__ = 'studio'
+    __searchable__ = ['name','logo','description','website']
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(256))
     platform_id = db.Column(db.Integer, db.ForeignKey('platform.id'))
@@ -238,6 +245,8 @@ class Reviews(db.Model):
         such as introduction, content and conclusion.
         Reviews have relationships with game,platform and studios.
     """
+    __tablename__ = 'reviews'
+    __searchable__=['title','video','introduction','content','conclusion','positive','negative','url']
     id = db.Column(db.Integer, primary_key=True)
     title = db.Column(db.String(256))
     platform_id = db.Column(db.Integer, db.ForeignKey("platform.id"))
@@ -303,3 +312,7 @@ class Reviews(db.Model):
         if url != None:
             assert url != "None"
             self. url = url
+whooshalchemy.whoosh_index(app, Game)
+whooshalchemy.whoosh_index(app, Studio)
+whooshalchemy.whoosh_index(app, Reviews)
+whooshalchemy.whoosh_index(app, Platform)
