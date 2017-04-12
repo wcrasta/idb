@@ -118,9 +118,12 @@ class Api_Review(Resource):
 api.add_resource(Api_Reviews,'/api/reviews')
 api.add_resource(Api_Review,'/api/reviews/<int:id>')
 
-@app.route('/search')
+@app.route('/search', methods=["GET"])
 def search():
-
+    item= request.args.getlist('search')
+    print("ahhhhhh",item)
+    results = Game.query.whoosh_search(item[0]).all()
+    print(item[0],type(results))
     return render_template('home.html')
 
 @app.route('/report')
