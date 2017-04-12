@@ -21,10 +21,12 @@ app.debug = True
 api = Api(app)
 
 basedir = os.path.abspath(os.path.dirname(__file__))
-#app.config['SQLALCHEMY_DATABASE_URI'] = os.environ['our_secret']
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///' + \
-    os.path.join(basedir, 'app.db')
-WHOOSH_BASE = os.path.join(basedir,'app.db')
+app.config['SQLALCHEMY_DATABASE_URI'] = os.environ['our_secret']
+
+WHOOSH_BASE = os.environ['our_secret']
+#app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///' + \
+#    os.path.join(basedir, 'app.db')
+#WHOOSH_BASE = os.path.join(basedir,'app.db')
 
 
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = True
