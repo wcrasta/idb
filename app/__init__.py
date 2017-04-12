@@ -150,6 +150,12 @@ def andSearch(items):
     print(resultList)
     pass
 
+@app.route('/visualization')
+def visualization():
+    """
+        Renders the visualization page
+    """
+    return render_template('visualization.html')
 
 @app.route('/search', methods=["GET"])
 def search():

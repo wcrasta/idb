@@ -22,7 +22,7 @@
   h2 {
     color: black;
     text-align: center;
-    font-size: 2.5em;
+    font-size: 2em;
   }
 
   p {
@@ -137,7 +137,8 @@
                   {% endfor %}
                 </div>
               <p class="text-left" style="padding-top: 30px; padding-left: 20px; padding-top: 20px;"></p>
-              <input class="center-block btn-block" type="submit" value="Filter">
+              <input class="center-block btn-secondary" type="submit"
+              value="Filter" style="width: 20%;">
               </form>
             </div>
           </div>
@@ -185,7 +186,7 @@
                           <div class="row">
                             <div class="col-sm-12">
                               <h2 style="word-wrap: break-word; margin-bottom: 0;
-                        padding-top: 25px; height: 100px; width: 100%;
+                        padding-top: 25px; height: 70px; width: 100%;
                         color: black; text-decoration: underline;">
                         <a href="{{ url_for('platform_instance',
                         name = item.id)}}">
@@ -250,11 +251,5 @@
   <script src="https://code.jquery.com/jquery-3.2.0.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </body>
-
-<!-- Sort the elements -->
-<script src="../static/js/games.js"></script>
-
-<!-- Search-->
-<script src="../static/js/search.js"></script>
 
 </html>

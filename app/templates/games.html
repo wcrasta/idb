@@ -8,7 +8,7 @@
   <title>GGnoSWE · Games</title>
   <link rel="shortcut icon" type="image/png" href="../static/images/favicon.png" />
   <!-- Bootstrap Core CSS, home and common-->
-  <link href="css/bootstrap.min.css" rel="stylesheet">
+  <link href="../static/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" type="text/css" href="../static/css/common.css">
   <link rel="stylesheet" type="text/css" href="../static/css/home.css">
   <!-- Custom CSS -->
@@ -24,7 +24,7 @@
     h2 {
       color: black;
       text-align: center;
-      font-size: 2.5em;
+      font-size: 2em;
     }
 
     p {
@@ -65,7 +65,7 @@
   </script>
 </head>
 
-<body onload>
+<body>
 
   <header>
     <!-- Starting Navigation Bar -->
@@ -188,7 +188,8 @@
                     {% endif %}
                     {% endfor %}
                   </div>
-                    <input class="btn-block" type="submit" value="Filter">
+                    <input class="btn-secondary center-block" type="submit"
+                    value="Filter" style="width: 20%;">
                 </form>
                   </div>
                 </div>
@@ -238,7 +239,7 @@
                       <div class="row">
                         <div class="col-sm-12">
                           <h2 style="word-wrap: break-word; margin-bottom: 0;
-                      padding-top: 25px; height: 100px; width: 100%;
+                      padding-top: 25px; height: 70px; width: 100%;
                       color: black; text-decoration: underline;">
                       <a href="{{ url_for('game_instance',
                       name = item.id)}}">
@@ -311,17 +312,3 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
 </body>
-
-
-<!-- Sort the elements -->
-<script src="../static/js/games.js"></script>
-<script>
-    function doSomething(){
-    var value = document.getElementById("filterPlat").value;
-    alert(value)
-}
-</script>
-
-
-<!-- Search-->
-<script src="../static/js/search.js"></script>
