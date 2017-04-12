@@ -118,6 +118,13 @@ class Api_Review(Resource):
 api.add_resource(Api_Reviews,'/api/reviews')
 api.add_resource(Api_Review,'/api/reviews/<int:id>')
 
+@app.route('/visualization')
+def visualization():
+    """
+        Renders the visualization page
+    """
+    return render_template('visualization.html')
+
 @app.route('/search', methods=["GET"])
 def search():
     item= request.args.getlist('search')
