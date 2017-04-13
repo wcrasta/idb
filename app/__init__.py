@@ -33,8 +33,12 @@ class Api_Games(Resource):
 class Api_Game(Resource):
     def get(self, id):
         game = Game.query.get(id)
+        temp_list = []
+        reviews = Reviews.query.filter(Reviews.game_id == id).all()
+        for x in reviews:
+            temp_list += [x.id]
         return jsonify({"id": game.id, "name": game.name, "summary": game.summary,"genre": game.genre, "rating": game.rating, "storyline": game.storyline,"category": game.category, "ESRB": game.esrb, "status": game.status,"platform_id": game.platform_id,
-        "studio_id": game.studio_id,"image": game.image, "release_date": game.release_date,"website": game.website})
+        "studio_id": game.studio_id,"image": game.image, "release_date": game.release_date,"website": game.website, "reviews":temp_list})
 
 
 api.add_resource(Api_Games,'/api/games')
@@ -55,10 +59,14 @@ class Api_Platforms(Resource):
 class Api_Platform(Resource):
     def get(self, id):
         platform = Platform.query.get(id)
+        temp_list = []
+        studios = Studio.query.filter(Studio.platform_id == id).all()
+        for x in studios:
+            temp_list += [x.id]
         if platform.name == "":
             return "Not a valid entry"
         return jsonify({"id": platform.id, "name": platform.name, "summary": platform.summary, "created_at": platform.created_at,
-        "generation": platform.generation,"image": platform.image,"website": platform.website})
+        "generation": platform.generation,"image": platform.image,"website": platform.website, "studios":temp_list})
 
 
 api.add_resource(Api_Platforms,'/api/platforms')
@@ -80,10 +88,14 @@ class Api_Studios(Resource):
 class Api_Studio(Resource):
     def get(self, id):
         studio = Studio.query.get(id)
+        temp_list = []
+        games = Game.query.filter(Game.studio_id == id).all()
+        for x in games:
+            temp_list += [x.id]
         if studio.name == "":
             return "Not a valid entry"
         return jsonify({"id": studio.id, "name": studio.name, "platform_id": studio.platform_id,
-        "description": studio.description, "created_at": studio.created_at, "website": studio.website})
+        "description": studio.description, "created_at": studio.created_at, "website": studio.website, "games":temp_list})
 
 
 api.add_resource(Api_Studios,'/api/studios')
