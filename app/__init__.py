@@ -121,34 +121,35 @@ api.add_resource(Api_Review,'/api/reviews/<int:id>')
 def orSearch(items):
     resultList = []
 
-    gameResults = Game.query.whoosh_search(items,or_=True)
-    platformResults = Platform.query.whoosh_search(items, or_=True)
-    studioResults = Studio.query.whoosh_search(items, or_=True)
-    reviewsResults = Reviews.query.whoosh_search(items, or_=True)
+    gameResults = Game.query.whoosh_search(items,or_=True).all()
+    platformResults = Platform.query.whoosh_search(items, or_=True).all()
+    studioResults = Studio.query.whoosh_search(items, or_=True).all()
+    reviewsResults = Reviews.query.whoosh_search(items, or_=True).all()
 
-    resultList.extend(gameResults)
-    resultList.extend(platformResults)
-    resultList.extend(studioResults)
-    resultList.extend(reviewsResults)
-
-    print(resultList)
-    pass
+    # resultList.extend(gameResults)
+    # resultList.extend(platformResults)
+    # resultList.extend(studioResults)
+    # resultList.extend(reviewsResults)
+    return [gameResults,platformResults, studioResults,reviewsResults]
+    # print(resultList)
+    # pass
 
 def andSearch(items):
     resultList = []
 
-    gameResults = Game.query.whoosh_search(items,and_=True)
-    platformResults = Platform.query.whoosh_search(items, and_=True)
-    studioResults = Studio.query.whoosh_search(items, and_=True)
-    reviewsResults = Reviews.query.whoosh_search(items, and_=True)
+    gameResults = Game.query.whoosh_search(items).all()
+    platformResults = Platform.query.whoosh_search(items).all()
+    studioResults = Studio.query.whoosh_search(items).all()
+    reviewsResults = Reviews.query.whoosh_search(items).all()
+    return [gameResults,platformResults, studioResults,reviewsResults]
 
-    resultList.extend(gameResults)
-    resultList.extend(platformResults)
-    resultList.extend(studioResults)
-    resultList.extend(reviewsResults)
+    # resultList.extend(gameResults)
+    # resultList.extend(platformResults)
+    # resultList.extend(studioResults)
+    # resultList.extend(reviewsResults)
 
-    print(resultList)
-    pass
+    # print(resultList)
+    # pass
 
 @app.route('/visualization')
 def visualization():
@@ -158,14 +159,27 @@ def visualization():
     return render_template('visualization.html')
 
 @app.route('/search', methods=["GET"])
-def search():
-    item= request.args.get('search')
-    print("ahhhhhh",item)
+def search(typeSearch = None):
+    searchA = request.args.get('searchAnd')
 
+    searchO = request.args.get('searchOr')
+    #typeSearch = request.args.get("typeSearch")
+    print("ahhhhhh")
+    print(typeSearch)
+    searched = ""
+    results = []
 
-    results = Game.query.whoosh_search(item).all()
-    print(item,results)
-    return render_template('search.html')
+    if searchA == None or len(searchA)==0:
+        results = orSearch(searchO)
+        searched = searchO
+    else:
+        results = andSearch(searchA)
+        searched = searchA
+    print(results)
+    print(searched)
+    #results = Game.query.whoosh_search(item).all()
+    #print(item,results)
+    return render_template('search.html', platforms=results[1], studios=results[2], reviews=results[3], games = results[0], wordsSearched=searched)
 
 @app.route('/report')
 def report():
