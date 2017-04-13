@@ -199,23 +199,23 @@
                   <div class="col-sm-12">
                   <p style="padding-top: 15px;">
                     {% if item.platform.name != '' %}
-                    <p> Platform: <a href="{{ url_for('platform_instance', name = item.platform.id)}}"> {{item.platform.name}}</a></p>
+                    <p> <b>Platform:</b> <a href="{{ url_for('platform_instance', name = item.platform.id)}}"> {{item.platform.name}}</a></p>
                     {% else %}
-                    <p> Platform: None </p>
+                    <p> <b>Platform:</b> None </p>
                     {% endif %}
                   </p>
                   <p>
                     {% if item.website != 'None' %}
-                    Website: <a href="{{item.website}}">{{item.website}} </a> {% else %} Website: None {% endif %}
+                    <b>Website:</b> <a href="{{item.website}}">{{item.website}} </a> {% else %} <b>Website:</b> None {% endif %}
                   </p>
                   <p>
-                    Date Created: {{item.created_at.date()}}
+                    <b>Date Created:</b> {{item.created_at.date()}}
                   </p>
                   <p>
                     {% if item.game.first().name is defined %}
-                    <p> Example Game: <a href="{{ url_for('game_instance', name = item.game.first().id)}}"> {{item.game.first().name}}</a></p>
+                    <p> <b>Example Game:</b> <a href="{{ url_for('game_instance', name = item.game.first().id)}}"> {{item.game.first().name}}</a></p>
                     {% else %}
-                    <p> Example Game: None </p>
+                    <p> <b>Example Game:</b> None </p>
                     {% endif %}
                   </p>
                 </div>

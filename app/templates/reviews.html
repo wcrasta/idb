@@ -213,14 +213,14 @@
                     </div>
                     <div class="row" style="padding-left: 40px;">
                       <div class="col-sm-12">
-                        <p> Game: <a href="{{ url_for('game_instance', name = item.game.id)}}"> {{item.game.name}} </a></p>
+                        <p> <b>Game:</b> <a href="{{ url_for('game_instance', name = item.game.id)}}"> {{item.game.name}} </a></p>
                         </p>
                         <p>
-                          <p> Platform: <a href="{{url_for('platform_instance', name=item.platform.id)}}"> {{item.platform.name}} </a></p>
+                          <p> <b>Platform:</b> <a href="{{url_for('platform_instance', name=item.platform.id)}}"> {{item.platform.name}} </a></p>
                         </p>
-                        <p> Video: {{item.video}} </p>
-                        <p> Written Time: {{item.created_at.date()}} </p>
-                        <p> Views: {{item.views}} </p>
+                        <p> <b>Video:</b> {{item.video}} </p>
+                        <p> <b>Written Time:</b> {{item.created_at.date()}} </p>
+                        <p> <b>Views:</b> {{item.views}} </p>
                       </div>
                     </div>
                   </div>
