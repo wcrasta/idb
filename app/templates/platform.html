@@ -108,11 +108,11 @@
         </div>
         <div class="col-sm-3" style="padding-left: 50px; padding-right: 50px;">
           <div class="row">
-            <h2 style="display: inline-block;">Release Date:	&nbsp;</h2>
-            <span>{{items.created_at}}</span>
+            <h2 style="display: inline-block;"><b>Release Date:</b>&nbsp;</h2>
+            <span>{{items.created_at.date()}}</span>
           </div>
           <div class="row">
-            <h2 style="display: inline-block;">Website:	&nbsp;</h2>
+            <h2 style="display: inline-block;"><b>Website:</b>&nbsp;</h2>
             {% if items.website != 'None' %}
             <span><a style = "color: black; text-decoration: underline" href = "{{items.website}}">{{items.website}}</a></span>
             {% else %}
