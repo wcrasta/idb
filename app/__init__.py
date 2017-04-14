@@ -411,6 +411,9 @@ def studio_instance(name):
     studio_instance = db.session.query(Studio).get(name)
     return render_template('studio.html', title='studio_instance', items=studio_instance)
 
+@app.route('/flare', methods=['GET'])
+def flare_instance():
+    return render_template('flare.json')
 
 if __name__ == '__main__':
     app.run()
