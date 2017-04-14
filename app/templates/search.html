@@ -157,7 +157,13 @@
                   <td> {{ item.genre }} </td>
                   <td> {{item.esrb}} </td>
                   <td> {{item.status}} </td>
-                  <td> {{item.summary}} </td>
+                  <td>
+                    {% if item.summary | length >= 50 %}
+                      {{item.summary[:50]}}...
+                    {% else %}
+                      {{item.summary}}
+                    {% endif %}
+                    </td>
                 </tr>
                 {% endfor %}
         </table>
@@ -198,7 +204,12 @@
                   <td> {{item.name}} </td>
                   <td> {{ item.created_at }} </td>
                   <td> {{item.website}} </td>
-                  <td> {{item.description}} </td>
+                  <td>
+                    {% if item.description | length >= 50 %}
+                      {{item.description[:50]}}...
+                    {% else %}
+                      {{item.description}}
+                    {% endif %} </td>
                 </tr>
                 {% endfor %}
 
@@ -216,10 +227,26 @@
               {% for item in reviews %}
                 <tr>
                   <td> {{item.title}} </td>
-                  <td> {{ item.introduction }} </td>
-                  <td> {{item.content}} </td>
-                  <td> {{item.conclusion}} </td>
-                  <td> {{item.url}} </td>
+                  <td>
+                    {% if item.introduction | length >= 50 %}
+                      {{item.introduction[:50]}}...
+                    {% else %}
+                      {{item.introduction}}
+                    {% endif %} </td>
+                  <td>
+                    {% if item.content | length >= 50 %}
+                      {{item.content[:50]}}...
+                    {% else %}
+                      {{item.content}}
+                    {% endif %} </td>
+                  <td>
+                    {% if item.conclusion | length >= 50 %}
+                      {{item.conclusion[:50]}}...
+                    {% else %}
+                      {{item.conclusion}}
+                    {% endif %} </td>
+                  <td>
+                    <a href="{{item.url}}">{{item.url}}</a> </td>
 
                 </tr>
                 {% endfor %}
