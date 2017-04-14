@@ -59,7 +59,7 @@
 <body>
   <header>
     <!-- Starting Navigation Bar -->
-    <nav class="navbar navbar-toggleable-md navbar-fixed-top" style="margin-top: 0;">
+    <nav class="navbar navbar-toggleable-md navbar-fixed-top" style="background-color: black; margin-top: 0;">
       <div class="container">
         <div class="navbar-header">
           <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#nav-col">
@@ -96,12 +96,14 @@
         </div>
       </div>
     </nav>
-   
+
+  </header>
+
 
     <!-- Page Content -->
       <!-- Filtering options -->
       <!-- Beginning Search Bar -->
-        <div class="col-sm-4 col-sm-offset-4"  style="top: 10%; text-align: center; position: absolute;">
+        <div class="col-sm-4 col-sm-offset-4"  style="top: 15%; text-align: center; position: absolute;">
           <div class="row">
            <ul class="nav nav-tabs"  >
               <li class="active"><a href="#and" data-toggle="tab">And</a></li>
@@ -220,13 +222,12 @@
                   <td> {{item.url}} </td>
 
                 </tr>
-                {% endfor %}       
+                {% endfor %}
                  </table>
           </div>
         </div>
-            
+
     </div>
-  </header>
 
 <script type="text/javascript">
 $('a[data-toggle="tab"]').on('shown.bs.tab', function (e) {
