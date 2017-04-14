@@ -10,3 +10,4 @@ __pycache__/
 .pylintrc
 app/static/js/node_modules/
 app/static.js/npm-debug.log
+postgresql/

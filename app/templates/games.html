@@ -264,29 +264,29 @@
                       <div class="col-sm-12">
                         <p style="color: black; padding-top: 15px;">
                           {% if item.platform_id is not none %}
-                          Platform: <a href="{{ url_for('platform_instance', name = item.platform.id)}}"> {{item.platform.name}} </a>
+                          <b>Platform:</b> <a href="{{ url_for('platform_instance', name = item.platform.id)}}"> {{item.platform.name}} </a>
                           {% else %}
-                          Platform: None
+                          <b>Platform:</b> None
                           {% endif %}
                         </p>
                         <p style="color: black;">
                           {% if item.studio is not none %}
-                          Studio: <a href="{{ url_for('studio_instance', name = item.studio.id)}}">  {{item.studio.name}}
+                          <b>Studio:</b> <a href="{{ url_for('studio_instance', name = item.studio.id)}}">  {{item.studio.name}}
                          </a>
                          {% else %}
-                         Studio: None
+                         <b>Studio:</b> None
                          {% endif %}
                         </p>
-                        <p> Esrb: {{item.esrb}} </p>
-                        <p> Genre: {{item.genre}} </p>
-                        <p> Rating: {{'%0.2f'| format(item.rating|float)}} </p>
+                        <p> <b>ESRB:</b> {{item.esrb}} </p>
+                        <p> <b>Genre:</b> {{item.genre}} </p>
+                        <p> <b>Rating:</b> {{'%0.2f'| format(item.rating|float)}} </p>
                         {% if item.status is defined %}
-                        <p> Status: {{item.status}} </p>
+                        <p> <b>Status:</b> {{item.status}} </p>
                         {% else %}
-                        <p> Status: None </p>
+                        <p> <b>Status:</b> None </p>
                         {% endif %}
                         <p>
-                          Date Created: {{item.release_date.date()}}
+                          <b>Date Created:</b> {{item.release_date.date()}}
                         </p>
                       </div>
                     </div>

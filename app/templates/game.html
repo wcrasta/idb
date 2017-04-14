@@ -114,12 +114,12 @@
         </div>
         <div class="col-sm-3" style="padding-right: 50px;">
           <div class="row">
-            <h2 style="display: inline-block;">Platform:	&nbsp;</h2> {% if items.platform.name != 'None' %}
+            <h2 style="display: inline-block;"><b>Platform:</b>&nbsp;</h2> {% if items.platform.name != 'None' %}
             <span><a style = "color: black; text-decoration: underline" href="{{ url_for('platform_instance', name = items.platform.id)}}">{{items.platform.name}}</a></span> {% else %}
             <span style="color: black; text-decoration: underline">{{items.platform.name}}</span> {% endif %}
           </div>
           <div class="row">
-            <h2 style="display: inline-block;">Studio:	&nbsp;</h2>
+            <h2 style="display: inline-block;"><b>Studio:</b>&nbsp;</h2>
             {% if items.studio.name != 'None' %}
             <span><a style = "color: black; text-decoration: underline" href="{{ url_for('studio_instance', name = items.studio.id)}}">{{items.studio.name}}</a></span> {% else %}
             <span style="color: black; text-decoration: underline">
@@ -128,32 +128,32 @@
             {% endif %}
           </div>
           <div class="row">
-            <h2 style="display: inline-block;">Genre:	&nbsp;</h2>
+            <h2 style="display: inline-block;"><b>Genre:</b>&nbsp;</h2>
             <span>{{items.genre}}</span>
           </div>
           <div class="row">
-            <h2 style="display: inline-block;">Category: &nbsp;</h2>
+            <h2 style="display: inline-block;"><b>Category:</b>&nbsp;</h2>
             <span>{{items.category}}</span>
           </div>
           <div class="row">
-            <h2 style="display: inline-block;">Rating:	&nbsp;</h2>
-            <span>{{items.rating}}</span>
+            <h2 style="display: inline-block;"><b>Rating:</b>&nbsp;</h2>
+            <span>{{'%0.2f'| format(items.rating|float)}}</span>
           </div>
           <div class="row">
-            <h2 style="display: inline-block;">Status:	&nbsp;</h2>
+            <h2 style="display: inline-block;"><b>Status:</b>&nbsp;</h2>
             <span>{{items.status}}</span>
           </div>
           <div class="row">
-            <h2 style="display: inline-block;">Release Date:	&nbsp;</h2>
-            <span>{{items.release_date}}</span>
+            <h2 style="display: inline-block;"><b>Release Date:</b>&nbsp;</h2>
+            <span>{{items.release_date.date()}}</span>
           </div>
           <div class="row">
-            <h2 style="display: inline-block;">Website:	&nbsp;</h2> {% if items.website != 'None' %}
+            <h2 style="display: inline-block;"><b>Website:</b>&nbsp;</h2> {% if items.website != 'None' %}
             <span><a style = "color: black; text-decoration: underline" href = "{{items.website}}">{{items.website}}</a></span> {% else %}
             <span style="color: black; text-decoration: underline">{{items.website}}</span> {% endif %}
           </div>
           <div class="row">
-            <h2 style="display: inline-block;">Reviews:	&nbsp;</h2>
+            <h2 style="display: inline-block;"><b>Reviews:</b>&nbsp;</h2>
             <span>
               {% for review in items.reviews %}
                 <p><a href="{{ url_for('review_instance', name = review.id)}}">{{review.title}}</a></p>

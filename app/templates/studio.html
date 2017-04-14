@@ -106,12 +106,12 @@
         </div>
         <div class="col-sm-3">
           <div class="row">
-            <h2 style="display: inline-block;">Platform:	&nbsp;</h2> {% if items.platform.name != 'None' %}
+            <h2 style="display: inline-block;"><b>Platform:</b>&nbsp;</h2> {% if items.platform.name != 'None' %}
             <span><a style = "color: black; text-decoration: underline" href = "{{ url_for('platform_instance', name = items.platform.id)}}">{{items.platform.name}}</a></span> {% else %}
             <span style="color: black; text-decoration: underline">{{items.platform.name}}</span> {% endif %}
           </div>
           <div class="row">
-            <h2 style="display: inline-block;">Website:	&nbsp;</h2> {% if items.website != 'None' %}
+            <h2 style="display: inline-block;"><b>Website:</b>&nbsp;</h2> {% if items.website != 'None' %}
             <span><a style = "color: black; text-decoration: underline" href = "{{items.website}}">{{items.website}}</a></span> {% else %}
             <span style="color: black; text-decoration: underline">{{items.website}}</span> {% endif %}
           </div>

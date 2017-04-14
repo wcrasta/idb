@@ -208,24 +208,24 @@
                           <div class="col-sm-12">
                             <p style="padding-top: 15px;">
                               {% if item.games.first().name is defined %}
-                              <p> Example Game: <a href="{{ url_for('game_instance', name = item.games.first().id)}}"> {{item.games.first().name}}</a></p>
+                              <p> <b>Example Game:</b> <a href="{{ url_for('game_instance', name = item.games.first().id)}}"> {{item.games.first().name}}</a></p>
                               {% else %}
-                              <p> Example Game: None </p>
+                              <p> <b>Example Game:</b> None </p>
                               {% endif %}
                             </p>
                             {% if item.website !='None' %}
-                            <p> Website: <a href="{{item.website}}"> {{item.website}}</a> </p>
+                            <p> <b>Website:</b> <a href="{{item.website}}"> {{item.website}}</a> </p>
                             {% else %}
-                            <p> Website: None</p>
+                            <p> <b>Website:</b> None</p>
                             {% endif %}
-                            <p> Generation: {{item.generation}}</p>
+                            <p> <b>Generation:</b> {{item.generation}}</p>
                             {% if item.review.first().title is defined %}
-                            <p> Review: <a href="{{item.review.first().url}}"> {{item.review.first().title}}</a> </p>
+                            <p> <b>Review:</b> <a href="{{item.review.first().url}}"> {{item.review.first().title}}</a> </p>
                             {% else %}
-                            <p> Review: None </p>
+                            <p> <b>Review:</b> None </p>
                             {% endif %}
                             <p>
-                              Date Created: {{item.created_at.date()}}
+                              <b>Date Created:</b> {{item.created_at.date()}}
                             </p>
                           </div>
                         </div>
