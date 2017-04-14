@@ -299,7 +299,7 @@
         //alert(allWords[i])
         var regex = new RegExp('(' + allWords[i] + ')', 'ig');
 
-       $('#searchedText').html( $('#searchedText').html().replace(regex, "<span class='highlight'>"+allWords[i]+"</span>"));
+       $('#searchedText').html( $('#searchedText').html().replace(regex, "<span class='highlight'>$1</span>"));
 
         //var inputText = document.getElementById("#searchedText")
         //var innerHtml = inputText.innerHtml

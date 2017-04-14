@@ -2,6 +2,7 @@ from models import app
 from flask import Flask, render_template, jsonify
 from flask import request
 from flask_paginate import Pagination
+from sqlalchemy import func, or_
 import os
 import json
 import time
@@ -131,37 +132,41 @@ api.add_resource(Api_Reviews,'/api/reviews')
 api.add_resource(Api_Review,'/api/reviews/<int:id>')
 
 def orSearch(items):
-    resultList = []
 
-    gameResults = Game.query.whoosh_search(items,or_=True).all()
+    gameResults = Game.query.whoosh_search(items,or_=True)
     platformResults = Platform.query.whoosh_search(items, or_=True).all()
     studioResults = Studio.query.whoosh_search(items, or_=True).all()
     reviewsResults = Reviews.query.whoosh_search(items, or_=True).all()
 
-    # resultList.extend(gameResults)
-    # resultList.extend(platformResults)
-    # resultList.extend(studioResults)
-    # resultList.extend(reviewsResults)
     return [gameResults,platformResults, studioResults,reviewsResults]
-    # print(resultList)
-    # pass
 
 def andSearch(items):
-    resultList = []
+    caseSensitive = "%"+ items +"%"
 
-    gameResults = Game.query.whoosh_search(items).all()
-    platformResults = Platform.query.whoosh_search(items).all()
-    studioResults = Studio.query.whoosh_search(items).all()
-    reviewsResults = Reviews.query.whoosh_search(items).all()
+    gameResults = Game.query.whoosh_search(items).filter(
+        or_(Game.name.ilike(caseSensitive), Game.summary.ilike(caseSensitive),
+            Game.genre.ilike(caseSensitive), Game.storyline.ilike(caseSensitive),
+            Game.esrb.ilike(caseSensitive), Game.status.ilike(caseSensitive))
+        )
+
+    platformResults = Platform.query.whoosh_search(items).filter(
+        or_(Platform.name.ilike(caseSensitive), Platform.summary.ilike(caseSensitive),
+            Platform.image.ilike(caseSensitive), Platform.website.ilike(caseSensitive))
+        )
+
+    studioResults = Studio.query.whoosh_search(items).filter(
+        or_(Studio.name.ilike(caseSensitive), Studio.logo.ilike(caseSensitive),
+            Studio.description.ilike(caseSensitive), Studio.website.ilike(caseSensitive))
+        )
+
+    reviewsResults = Reviews.query.whoosh_search(items).filter(
+        or_(Reviews.title.ilike(caseSensitive), Reviews.video.ilike(caseSensitive),
+            Reviews.introduction.ilike(caseSensitive), Reviews.content.ilike(caseSensitive),
+            Reviews.conclusion.ilike(caseSensitive), Reviews.positive.ilike(caseSensitive),
+            Reviews.negative.ilike(caseSensitive), Reviews.url.ilike(caseSensitive))
+        )
+
     return [gameResults,platformResults, studioResults,reviewsResults]
-
-    # resultList.extend(gameResults)
-    # resultList.extend(platformResults)
-    # resultList.extend(studioResults)
-    # resultList.extend(reviewsResults)
-
-    # print(resultList)
-    # pass
 
 @app.errorhandler(404)
 def not_found_error(error):
