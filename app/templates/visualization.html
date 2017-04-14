@@ -60,7 +60,7 @@ var arc = d3.svg.arc()
 // Keep track of the node that is currently being displayed as the root.
 var node;
 
-d3.json("http://127.0.0.1:5000/flare", function(error, root) {
+d3.json("http://127.0.0.1:5000/flare", function(root) {
   node = root;
   var path = svg.datum(root).selectAll("path")
       .data(partition.nodes)
@@ -83,7 +83,6 @@ d3.json("http://127.0.0.1:5000/flare", function(error, root) {
   });
 
   function click(d) {
-    node = d;
     path.transition()
       .duration(1000)
       .attrTween("d", arcTweenZoom(d));
