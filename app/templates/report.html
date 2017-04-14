@@ -238,6 +238,18 @@
               us to create objects for each model and be able to use data in a declarative way as we did in __init__.py. Having defined the relationships, it made it easier for us to get the attributes a certain object was connected it. We overwrote __init__
               for each model and then we declared them as we made our objects. We used assertions throughout the init methods to make sure that the data being passed in are what we were expecting.
             </p>
+              <h4> Search Capability </h4>
+              <p> With search, we decided to employ a Flask library to accomplish what we needed. The other alternative was to code up all the different attributes and check if each field of the model contains a given word provided. However, we stumbled upon a library called whoosh_sqlalchemy that a well very formed search based on provided words. The only changes we had to do for Models.py was to add a __searchable__ attribute to each model               <br>   <span style="display:inline-block;color:black;border-width:1px;border-style:solid;padding:5px;font-size:1em">  __searchable__=['title','video','introduction','content','conclusion','positive','negative','url'] </span> <br>. Whoosh_sqlalchemy forms all the query parameters and you can simply perform the query in the manner shown below : <br>                  <span style="display:inline-block;color:black;border-width:1px;border-style:solid;padding:5px;font-size:1em">
+    gameResults = Game.query.whoosh_search(items).all()
+
+              </span>
+              <br>
+              After performing the query, we gather the data and serve it to our search results html file and then we render it like with all the others using Jinja2. In addition, we used jQuery to do all the hi-lighting and contextualization. With jQuery, when the document loads, a function looks through all of the fields within a div and checks to see if it contains the word[s] that we searched for. If it does, it replaces the word[s] by surrounding it with a span that gives a new style that resembles hi-lighting. We implemented both And and Or searching that allows us to either find all the things that match exactly to the words provided or it things that match to one or more words in the given search string. 
+              </p> 
+
+
+
+
                             <h4> Sorting and Filtering </h4>
                 <p>
                   Instead of doing sorting through the front-end, we realized that it could be done easily through the back end with the help of Flask and Jinja2. On the front-end side, we designed the website to include forms so when you click/submit certain values, the forms will pass back the value to the backend. Once we obtain those values from the form that the user submits, we employ them to fetch data from the database using queries that sorted them by the value passed in, in addition to ordering them by ascension or descension. For a lot of our sortings, we simply had the option of sorting by asc and sorting by desc. We targeted a list of values we want users to sort by and then added those options in the front end. Most of the work, however, is being done in our query to the database, as shown in the following snippet:
@@ -281,6 +293,10 @@
             nicely.</p>
             <p>ReactJS is a JavaScript library that gives the ability to create very dynamic, interactive webpages that give a great user experience. React is able to produce fast results by maintaining a virtual Document Object Model (DOM), a structuring of HTML elements as a tree, for each component. As a result, instead of reconstructing the entire DOM or reloading a webpage, applications need only update the html elements that change. This pattern is known as single-page application architecture. This enables you to pass data between pages and create a hierarchical system of state and properties between your pages. React’s approach to single-page application architecture allows developers to produce robust applications with ease.</p>
             <p>We use ReactJS to create animation on the about the page. When you hover the mouse over the images of the team members, the image dynamically changes to a DC superhero character they resemble. When the mouse goes out of the field of the image, it returns back to the original image. Using reactJS helped us to do it in a faster way.</p>
+            <p>
+              Furthermore, we used jQuery to perform context hi-lighting when we did search. We had a loop that ran through all the words in the text string and for each word, we looked through the document that contained those data and then surrounded them with a span tag with a class that does the hi-lighting.
+            </p>
+            </p>
             <h4>Back-End:</h4>
             <p> For the backend of our application, we focused mainly on using Flask paired with Jinja2 for rendering as well as SQLAlchemy for populating our grids and model instances with data. We scraped data from the API we’re using and populated a local database using SQLAlchemy. Doing so allowed us to easily access the data and create dynamically linked pages with more information and embedded images along with creating pagination.</p>
 
