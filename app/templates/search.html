@@ -9,6 +9,13 @@
   <link rel="shortcut icon" type="image/png" href="../static/images/favicon.png" />
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
   <link rel="stylesheet" type="text/css" href="../static/css/home.css">
+    <!-- Use following version of JQuery -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.2.0.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+  <!-- Use included version of Bootstrap -->
+  <script src="../static/js/bootstrap.min.js"></script>
   <style type="text/css"></style>
  <style type="text/css">
     body {
@@ -53,13 +60,19 @@
     #sort {
       width: 125px;
     }
+
+    .highlight
+    {
+      background-color:yellow;
+    }
+
   </style>
 </head>
 
 <body>
   <header>
     <!-- Starting Navigation Bar -->
-    <nav class="navbar navbar-toggleable-md navbar-fixed-top" style="margin-top: 0;">
+    <nav class="navbar navbar-toggleable-md navbar-fixed-top" style="background-color: black; margin-top: 0;">
       <div class="container">
         <div class="navbar-header">
           <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#nav-col">
@@ -96,12 +109,14 @@
         </div>
       </div>
     </nav>
-   
+
+  </header>
+
 
     <!-- Page Content -->
       <!-- Filtering options -->
       <!-- Beginning Search Bar -->
-        <div class="col-sm-4 col-sm-offset-4"  style="top: 10%; text-align: center; position: absolute;">
+        <div class="col-sm-4 col-sm-offset-4"  style="top: 15%; text-align: center; position: absolute;">
           <div class="row">
            <ul class="nav nav-tabs"  >
               <li class="active"><a href="#and" data-toggle="tab">And</a></li>
@@ -140,8 +155,9 @@
             </div>
 
           </div>
+          <div id = "searchedText">
           <h3 style="text:centered;color:white;"> Games </h3>
-        <table class="table table-hover"  style="background-color: white">
+        <table class="table table-hover"  style="background-color: white" >
             <tr>
             <th> Games </th>
             <th> Genre </th>
@@ -150,12 +166,18 @@
             <th> Summary </th>
             </tr>
                 {% for item in games %}
-                <tr>
+                <tr >
                   <td> {{item.name}} </td>
                   <td> {{ item.genre }} </td>
                   <td> {{item.esrb}} </td>
                   <td> {{item.status}} </td>
-                  <td> {{item.summary}} </td>
+                  <td>
+                    {% if item.summary | length >= 50 %}
+                      {{item.summary[:50]}}...
+                    {% else %}
+                      {{item.summary}}
+                    {% endif %}
+                    </td>
                 </tr>
                 {% endfor %}
         </table>
@@ -163,7 +185,7 @@
           <h3 style="text:centered;color:white;"> Platforms </h3>
 
 
-        <table class="table table-hover"  style="background-color: white">
+        <table class="table table-hover"  style="background-color: white" >
             <tr>
             <th> Platforms </th>
             <th> Created_At </th>
@@ -184,7 +206,7 @@
 
         <h3 style="text:centered;color:white;"> Studios </h3>
 
-        <table class="table table-hover"  style="background-color: white">
+        <table class="table table-hover"  style="background-color: white" >
           <tr>
             <th> Studios </th>
             <th> Created_at</th>
@@ -192,18 +214,23 @@
             <th> Description </th>
           </tr>
               {% for item in studios %}
-                <tr>
+                <tr id = "searchedText">
                   <td> {{item.name}} </td>
                   <td> {{ item.created_at }} </td>
                   <td> {{item.website}} </td>
-                  <td> {{item.description}} </td>
+                  <td>
+                    {% if item.description | length >= 50 %}
+                      {{item.description[:50]}}...
+                    {% else %}
+                      {{item.description}}
+                    {% endif %} </td>
                 </tr>
                 {% endfor %}
 
         </table>
         <h3 style="text:centered;color:white;"> Reviews </h3>
 
-        <table class="table table-hover"  style="background-color: white">
+        <table class="table table-hover"  style="background-color: white" >
           <tr>
             <th> Reviews </th>
             <th> Introduction</th>
@@ -214,35 +241,89 @@
               {% for item in reviews %}
                 <tr>
                   <td> {{item.title}} </td>
-                  <td> {{ item.introduction }} </td>
-                  <td> {{item.content}} </td>
-                  <td> {{item.conclusion}} </td>
-                  <td> {{item.url}} </td>
+                  <td>
+                    {% if item.introduction | length >= 50 %}
+                      {{item.introduction[:50]}}...
+                    {% else %}
+                      {{item.introduction}}
+                    {% endif %} </td>
+                  <td>
+                    {% if item.content | length >= 50 %}
+                      {{item.content[:50]}}...
+                    {% else %}
+                      {{item.content}}
+                    {% endif %} </td>
+                  <td>
+                    {% if item.conclusion | length >= 50 %}
+                      {{item.conclusion[:50]}}...
+                    {% else %}
+                      {{item.conclusion}}
+                    {% endif %} </td>
+                  <td>
+                    <a href="{{item.url}}">{{item.url}}</a> </td>
 
                 </tr>
-                {% endfor %}       
+                {% endfor %}
                  </table>
           </div>
         </div>
+<<<<<<< HEAD
+      </div>
             
+=======
+
+>>>>>>> 5d751f98c3f4159c75b5d54a81d2853ebbe2e957
     </div>
-  </header>
+
+<script type ="text/javascript">
+
+  $(document).ready(function(){
+
+      var wordsSearched = "{{wordsSearched}}"
+      var allWords = wordsSearched.split(" ")
+      var wordsLength = allWords.length;
+
+      //alert(wordsSearched)
+
+      for (i = 0; i<wordsLength;i++)
+      {
+        
+        // alert(allWords[i])
+        //alert(allWords[i])
+        var regex = new RegExp('(' + allWords[i] + ')', 'ig');
+
+       $('#searchedText').html( $('#searchedText').html().replace(regex, "<span class='highlight'>"+allWords[i]+"</span>"));
+
+        //var inputText = document.getElementById("#searchedText")
+        //var innerHtml = inputText.innerHtml
+        // var innerHtml = document.body.innerHtml
+        // var index = innerHtml.indexOf(allWords[i])
+        // alert(allWords[i])
+        // alert(index)
+        // if (index >=0){
+        //   alert(index)
+        //   innerHTML = innerHTML.substring(0,index) + "<span class='highlight'>" + innerHTML.substring(index,index+allWords[i].length) + "</span>" + innerHTML.substring(index + allWords[i].length);
+        //   //inputText.innerHTML = innerHTML
+        
+        //   document.body.innerHTML = innerHTML
+        // } 
+      }
+
+
+  });
+    
+
+</script>
 
 <script type="text/javascript">
 $('a[data-toggle="tab"]').on('shown.bs.tab', function (e) {
   var target = $(e.target).attr("href") // activated tab
 
-  alert(target);
+  //alert(target);
 });
 
 </script>
-  <!-- Use following version of JQuery -->
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-  <script src="https://code.jquery.com/jquery-3.2.0.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
-  <!-- Use included version of Bootstrap -->
-  <script src="../static/js/bootstrap.min.js"></script>
 </body>
 
 </html>
