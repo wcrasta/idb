@@ -133,12 +133,49 @@ api.add_resource(Api_Review,'/api/reviews/<int:id>')
 
 def orSearch(items):
 
-    gameResults = Game.query.whoosh_search(items,or_=True)
-    platformResults = Platform.query.whoosh_search(items, or_=True).all()
-    studioResults = Studio.query.whoosh_search(items, or_=True).all()
-    reviewsResults = Reviews.query.whoosh_search(items, or_=True).all()
+    gameResults = set()
+    platformResults = set()
+    studioResults = set()
+    reviewsResults = set()
+    for i in items.split(" "):
+        caseSensitive = "%"+i+"%"
+        print(caseSensitive)
+        mod = Game.query.whoosh_search(items, or_=True).filter(
+            or_(Game.name.ilike(caseSensitive), Game.summary.ilike(caseSensitive),
+                Game.genre.ilike(caseSensitive), Game.storyline.ilike(caseSensitive),
+                Game.esrb.ilike(caseSensitive), Game.status.ilike(caseSensitive))
+            ).all()
+        for m in mod:
+            gameResults.add(m)
 
-    return [gameResults,platformResults, studioResults,reviewsResults]
+        mod1 =  Platform.query.whoosh_search(items, or_=True).filter(
+            or_(Platform.name.ilike(caseSensitive), Platform.summary.ilike(caseSensitive),
+                Platform.image.ilike(caseSensitive), Platform.website.ilike(caseSensitive))
+            )
+        for m in mod1:
+            platformResults.add(m)
+
+        mod2 = Studio.query.whoosh_search(items, or_=True).filter(
+            or_(Studio.name.ilike(caseSensitive), Studio.logo.ilike(caseSensitive),
+                Studio.description.ilike(caseSensitive), Studio.website.ilike(caseSensitive))
+            )
+        for m in mod2:
+            studioResults.add(m)
+
+        mod3 = Reviews.query.whoosh_search(items, or_=True).filter(
+            or_(Reviews.title.ilike(caseSensitive), Reviews.video.ilike(caseSensitive),
+                Reviews.introduction.ilike(caseSensitive), Reviews.content.ilike(caseSensitive),
+                Reviews.conclusion.ilike(caseSensitive), Reviews.positive.ilike(caseSensitive),
+                Reviews.negative.ilike(caseSensitive), Reviews.url.ilike(caseSensitive))
+            ).all()
+        for m in mod3:
+            reviewsResults.add(m)
+    # gameResults = Game.query.whoosh_search(items,or_=True)
+    # platformResults = Platform.query.whoosh_search(items, or_=True).all()
+    # studioResults = Studio.query.whoosh_search(items, or_=True).all()
+    # reviewsResults = Reviews.query.whoosh_search(items, or_=True).all()
+
+    return [list(gameResults),list(platformResults), list(studioResults), list(reviewsResults)]
 
 def andSearch(items):
     caseSensitive = "%"+ items +"%"
