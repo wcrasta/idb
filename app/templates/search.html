@@ -188,12 +188,21 @@
                   <td> {{item.esrb}} </td>
                   <td> {{item.status}} </td>
                   <td>
-                    {% if item.summary | length >= 50 %}
-                      {{item.summary[:50]}}...
-                    {% else %}
-                      {{item.summary}}
+                  {% if wordsSearched.upper() in item.summary.upper() %}
+                    {% set index = item.summary.upper().index(wordsSearched.upper()) %}
+                    {% if index != 0 %}
+                    ... 
                     {% endif %}
-                    </td>
+                    {% set itemsum = item.summary[index:] %}
+                    {% if itemsum | length >= 100 %}
+                      {{itemsum[:100]}}...
+                    {% else %}
+                      {{itemsum}}
+                    {% endif %}
+                  {% else %}
+                    {{item.summary[:100]}}...
+                  {% endif %}
+                  </td>
                 </tr>
                 {% endfor %}
         </table>
@@ -214,13 +223,24 @@
                     <a href="{{ url_for('platform_instance',
                     name = item.id)}}">
                     {{item.name}} </a> </td>
-                  <td> {{ item.create_at }} </td>
+                  <td> {{ item.created_at.date() }} </td>
                   <td> {{item.website}} </td>
-                  <td>{% if item.summary | length >= 50 %}
-                      {{item.summary[:50]}}...
+                  <td>
+                  {% if wordsSearched.upper() in item.summary.upper() %}
+                    {% set index = item.summary.upper().index(wordsSearched.upper()) %}
+                    {% if index != 0 %}
+                    ... 
+                    {% endif %}
+                    {% set itemsum = item.summary[index:] %}
+                    {% if itemsum | length >= 100 %}
+                      {{itemsum[:100]}}...
                     {% else %}
-                      {{item.summary}}
-                    {% endif %} </td> </td>
+                      {{itemsum}}
+                    {% endif %}
+                  {% else %}
+                    {{item.summary[:100]}}...
+                  {% endif %}
+                </td>
                 </tr>
                 {% endfor %}
 
@@ -241,14 +261,24 @@
                   <td>
                     <a href="{{ url_for('studio_instance', name = item.id)}}">
                     {{item.name}}</a> </td>
-                  <td> {{ item.created_at }} </td>
+                  <td> {{ item.created_at.date() }} </td>
                   <td> {{item.website}} </td>
                   <td>
-                    {% if item.description | length >= 50 %}
-                      {{item.description[:50]}}...
+                  {% if wordsSearched.upper() in item.description.upper() %}
+                    {% set index = item.description.upper().index(wordsSearched.upper()) %}
+                    {% if index != 0 %}
+                    ... 
+                    {% endif %}
+                    {% set itemdesc = item.description[index:] %}
+                    {% if itemdesc | length >= 100 %}
+                      {{itemdesc[:100]}}...
                     {% else %}
-                      {{item.description}}
-                    {% endif %} </td>
+                      {{itemdesc}}
+                    {% endif %}
+                  {% else %}
+                    {{item.description[:100]}}...
+                  {% endif %}
+                </td>
                 </tr>
                 {% endfor %}
 
@@ -271,23 +301,53 @@
                     name = item.id)}}">
                     {{item.title}}</a> </td>
                   <td>
-                    {% if item.introduction | length >= 50 %}
-                      {{item.introduction[:50]}}...
+                    {% if wordsSearched.upper() in item.introduction.upper() %}
+                    {% set index = item.introduction.upper().index(wordsSearched.upper()) %}
+                    {% if index != 0 %}
+                    ... 
+                    {% endif %}
+                    {% set itemintro = item.introduction[index:] %}
+                    {% if itemintro | length >= 100 %}
+                      {{itemintro[:100]}}...
                     {% else %}
-                      {{item.introduction}}
-                    {% endif %} </td>
+                      {{itemintro}}
+                    {% endif %}
+                  {% else %}
+                    {{item.introduction[:100]}} ...
+                  {% endif %}
+                  </td>
                   <td>
-                    {% if item.content | length >= 50 %}
-                      {{item.content[:50]}}...
+                    {% if wordsSearched.upper() in item.content.upper() %}
+                    {% set index = item.content.upper().index(wordsSearched.upper()) %}
+                    {% if index != 0 %}
+                    ... 
+                    {% endif %}
+                    {% set itemcontent = item.content[index:] %}
+                    {% if itemcontent | length >= 100 %}
+                      {{itemcontent[:100]}}...
                     {% else %}
-                      {{item.content}}
-                    {% endif %} </td>
+                      {{itemcontent}}
+                    {% endif %}
+                  {% else %}
+                    {{item.content[:100]}} ...
+                  {% endif %}
+                  </td>
                   <td>
-                    {% if item.conclusion | length >= 50 %}
-                      {{item.conclusion[:50]}}...
+                    {% if wordsSearched.upper() in item.conclusion.upper() %}
+                    {% set index = item.conclusion.upper().index(wordsSearched.upper()) %}
+                    {% if index != 0 %}
+                    ... 
+                    {% endif %}
+                    {% set itemconclusion = item.conclusion[index:] %}
+                    {% if itemconclusion | length >= 100 %}
+                      {{itemconclusion[:100]}}...
                     {% else %}
-                      {{item.conclusion}}
-                    {% endif %} </td>
+                      {{itemconclusion}}
+                    {% endif %}
+                  {% else %}
+                    {{item.conclusion[:100]}}...
+                  {% endif %}
+                  </td>
                   <td>
                     <a href="{{item.url}}">{{item.url}}</a> </td>
 
@@ -415,7 +475,7 @@ function Pager(tableName, itemsPerPage, pagerName) {
         //alert(allWords[i])
         var regex = new RegExp('(' + allWords[i] + ')', 'ig');
 
-       $('#searchedText').html( $('#searchedText').html().replace(regex, "<span class='highlight'>$1</span>"));
+       $('#searchedText').html( $('#searchedText').html().replace(regex, "<span class='highlight'><b>$1</b></span>"));
 
         //var inputText = document.getElementById("#searchedText")
         //var innerHtml = inputText.innerHtml
