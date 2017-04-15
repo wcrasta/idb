@@ -229,7 +229,7 @@
 
         <h3 style="text:centered;color:white;"> Studios </h3>
 
-        <table class="table table-hover"  style="background-color: white" >
+        <table class="table table-hover"  style="background-color: white" id="sTable" >
           <tr>
             <th> Studios </th>
             <th> Created_at</th>
@@ -253,6 +253,7 @@
                 {% endfor %}
 
         </table>
+        <div id="sPagination"></div>
         <h3 style="text:centered;color:white;"> Reviews </h3>
 
         <table class="table table-hover"  style="background-color: white" >
@@ -302,6 +303,7 @@
 <script type ="text/javascript">
 var gpager = new Pager('gTable', 8, 'gpager'); 
 var ppager = new Pager('pTable', 5, 'ppager'); 
+var spager = new Pager('sTable', 8, 'spager'); 
 function Pager(tableName, itemsPerPage, pagerName) {
     this.tableName = tableName;
     this.itemsPerPage = itemsPerPage;
@@ -381,6 +383,10 @@ function Pager(tableName, itemsPerPage, pagerName) {
       ppager.init(); 
       ppager.showPageNav('pPagination'); 
       ppager.showPage(1);
+
+      spager.init(); 
+      spager.showPageNav('sPagination'); 
+      spager.showPage(1);
 
       var wordsSearched = "{{wordsSearched}}"
       var allWords = wordsSearched.split(" ")
