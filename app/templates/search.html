@@ -201,7 +201,7 @@
           <h3 style="text:centered;color:white;"> Platforms </h3>
 
 
-        <table class="table table-hover"  style="background-color: white" >
+        <table class="table table-hover"  style="background-color: white" id="pTable">
             <tr>
             <th> Platforms </th>
             <th> Created_At </th>
@@ -216,12 +216,16 @@
                     {{item.name}} </a> </td>
                   <td> {{ item.create_at }} </td>
                   <td> {{item.website}} </td>
-                  <td> {{item.summary}} </td>
+                  <td>{% if item.summary | length >= 50 %}
+                      {{item.summary[:50]}}...
+                    {% else %}
+                      {{item.summary}}
+                    {% endif %} </td> </td>
                 </tr>
                 {% endfor %}
 
         </table>
-
+        <div id="pPagination"></div>
 
         <h3 style="text:centered;color:white;"> Studios </h3>
 
@@ -296,14 +300,16 @@
     </div>
 
 <script type ="text/javascript">
-var gpager = new Pager('gTable', 8); 
-function Pager(tableName, itemsPerPage) {
+var gpager = new Pager('gTable', 8, 'gpager'); 
+var ppager = new Pager('pTable', 5, 'ppager'); 
+function Pager(tableName, itemsPerPage, pagerName) {
     this.tableName = tableName;
     this.itemsPerPage = itemsPerPage;
     this.currentPage = 1;
     this.pages = 0;
     this.inited = false;
-    
+    this.pagerName = pagerName;
+
     this.showRecords = function(from, to) {        
         var rows = document.getElementById(tableName).rows;
         // i starts from 1 to skip table header row
@@ -321,11 +327,11 @@ function Pager(tableName, itemsPerPage) {
         return;
       }
 
-        var oldPageAnchor = document.getElementById('pg'+this.currentPage);
+        var oldPageAnchor = document.getElementById(this.pagerName+'pg'+this.currentPage);
         oldPageAnchor.className = 'pg-normal';
         
         this.currentPage = pageNumber;
-        var newPageAnchor = document.getElementById('pg'+this.currentPage);
+        var newPageAnchor = document.getElementById(this.pagerName+'pg'+this.currentPage);
         newPageAnchor.className = 'pg-selected';
         
         var from = (pageNumber - 1) * itemsPerPage + 1;
@@ -351,17 +357,17 @@ function Pager(tableName, itemsPerPage) {
         this.inited = true;
     }
 
-    this.showPageNav = function(pagerName, positionId) {
+    this.showPageNav = function(positionId) {
       if (! this.inited) {
         alert("not inited");
         return;
       }
       var element = document.getElementById(positionId);
       
-      var pagerHtml = '<span onclick="' + pagerName + '.prev();" class="pg-normal"> &#171 Prev</span> | ';
+      var pagerHtml = '<span onclick="' + this.pagerName + '.prev();" class="pg-normal"> &#171 Prev</span> | ';
         for (var page = 1; page <= this.pages; page++) 
-            pagerHtml += '<span id="pg' + page + '" class="pg-normal" onclick="' + pagerName + '.showPage(' + page + ');">' + page + '</span> | ';
-        pagerHtml += '<span onclick="'+pagerName+'.next();" class="pg-normal"> Next &#187;</span>';            
+            pagerHtml += '<span id="'+this.pagerName+'pg' + page + '" class="pg-normal" onclick="' + this.pagerName + '.showPage(' + page + ');">' + page + '</span> | ';
+        pagerHtml += '<span onclick="'+this.pagerName+'.next();" class="pg-normal"> Next &#187;</span>';            
         
         element.innerHTML = pagerHtml;
     }
@@ -369,8 +375,12 @@ function Pager(tableName, itemsPerPage) {
 
   $(document).ready(function(){
       gpager.init(); 
-      gpager.showPageNav('gpager', 'gPagination'); 
+      gpager.showPageNav('gPagination'); 
       gpager.showPage(1);
+
+      ppager.init(); 
+      ppager.showPageNav('pPagination'); 
+      ppager.showPage(1);
 
       var wordsSearched = "{{wordsSearched}}"
       var allWords = wordsSearched.split(" ")
