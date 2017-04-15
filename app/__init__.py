@@ -175,7 +175,7 @@ def orSearch(items):
     # studioResults = Studio.query.whoosh_search(items, or_=True).all()
     # reviewsResults = Reviews.query.whoosh_search(items, or_=True).all()
 
-    return [list(gameResults)[0:399],list(platformResults)[0:249], list(studioResults)[0:399], list(reviewsResults)[0:199]]
+    return [list(gameResults)[0:400],list(platformResults)[0:400], list(studioResults)[0:400], list(reviewsResults)[0:400]]
 
 def andSearch(items):
     caseSensitive = "%"+ items +"%"
@@ -203,7 +203,7 @@ def andSearch(items):
             Reviews.negative.ilike(caseSensitive), Reviews.url.ilike(caseSensitive))
         )
 
-    return [gameResults[0:399],platformResults[0:249], studioResults[0:399],reviewsResults[0:199]]
+    return [gameResults[:400],platformResults[:400], studioResults[:400],reviewsResults[0:400]]
 
 @app.errorhandler(404)
 def not_found_error(error):

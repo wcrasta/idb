@@ -302,10 +302,10 @@
     </div>
 
 <script type ="text/javascript">
-var gpager = new Pager('gTable', 8, 'gpager'); 
-var ppager = new Pager('pTable', 5, 'ppager'); 
-var spager = new Pager('sTable', 8, 'spager'); 
-var rpager = new Pager('rTable', 4, 'rpager'); 
+var gpager = new Pager('gTable', 10, 'gpager'); 
+var ppager = new Pager('pTable', 10, 'ppager'); 
+var spager = new Pager('sTable', 10, 'spager'); 
+var rpager = new Pager('rTable', 10, 'rpager'); 
 function Pager(tableName, itemsPerPage, pagerName) {
     this.tableName = tableName;
     this.itemsPerPage = itemsPerPage;
@@ -378,21 +378,29 @@ function Pager(tableName, itemsPerPage, pagerName) {
 }
 
   $(document).ready(function(){
-      gpager.init(); 
-      gpager.showPageNav('gPagination'); 
-      gpager.showPage(1);
-
+      try{
+        gpager.init(); 
+        gpager.showPageNav('gPagination'); 
+        gpager.showPage(1);
+      }catch(err){}
+      try{
       ppager.init(); 
       ppager.showPageNav('pPagination'); 
       ppager.showPage(1);
+      }catch(err){}
 
+      try{
       spager.init(); 
       spager.showPageNav('sPagination'); 
       spager.showPage(1);
+      } catch(err){}
 
+      try{
       rpager.init(); 
       rpager.showPageNav('rPagination'); 
       rpager.showPage(1);
+
+      } catch(err){}
 
       var wordsSearched = "{{wordsSearched}}"
       var allWords = wordsSearched.split(" ")
