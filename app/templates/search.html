@@ -1,93 +1,53 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width = device-width, initial-scale=1">
-  <title>GGnoSWE</title>
-  <link rel="shortcut icon" type="image/png" href="../static/images/favicon.png" />
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+  <title>GGnoSWE · Search</title>
+  <link rel="shortcut icon" type="image/png" href="../static/images/favicon.png"/>
   <link rel="stylesheet" type="text/css" href="../static/css/home.css">
-    <!-- Use following version of JQuery -->
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
   <script src="https://code.jquery.com/jquery-3.2.0.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-  <!-- Use included version of Bootstrap -->
-  <script src="../static/js/bootstrap.min.js"></script>
-  <style type="text/css"></style>
- <style type="text/css">
+  <style type="text/css">
     body {
       background: url('../static/images/bg2.png');
     }
-
     h1 {
       color: white;
     }
-
-    h2 {
-      color: black;
-      text-align: center;
-      font-size: 2.5em;
+    .table,
+    .table tr,
+    .table td {
+      background-color: white !important;
+      opacity: 0.9;
     }
-
-    p {
-      text-align: left;
-      color: black;
-      font-size: 1.5em;
-    }
-
-    img {
-      width: 200px;
-      height: 200px;
-      border-radius: 15px;
-    }
-
-    .center-block {
-      margin-left: auto;
-      margin-right: auto;
-    }
-
-    .underline {
-      width: 100%;
-    }
-
-    .list-group {
-      padding-left: 20px;
-      padding-top: 20px;
-    }
-    #sort {
-      width: 125px;
-    }
-
-    .highlight
-    {
+    .highlight {
       background-color:yellow;
     }
     .pg-normal {
-        color: white;
-        font-weight: normal;
-        text-decoration: none;    
-        cursor: pointer;    
+      color: white;
+      font-weight: normal;
+      text-decoration: none;    
+      cursor: pointer;    
     }
     .pg-selected {
-        color: white;
-        font-weight: bold;        
-        text-decoration: underline;
-        cursor: pointer;
+      color: white;
+      font-weight: bold;        
+      text-decoration: underline;
+      cursor: pointer;
     }
-
   </style>
-  <script type="text/javascript" src="paging.js"></script>
 </head>
-
 <body>
   <header>
     <!-- Starting Navigation Bar -->
-    <nav class="navbar navbar-toggleable-md navbar-fixed-top" style="background-color: black; margin-top: 0;">
+    <nav class="navbar navbar-toggleable-md navbar-fixed-top"
+    style="background-color: black; margin-top: 0;">
       <div class="container">
         <div class="navbar-header">
-          <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#nav-col">
+          <button class="navbar-toggle collapsed" type="button"
+          data-toggle="collapse" data-target="#nav-col">
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
@@ -96,7 +56,8 @@
             <ul class="nav navbar-nav">
               <li class="nav-item">
                 <a class="nav-link" href="/">
-                  <img src="../static/images/logo.png" style="width: 100px; height: 50px; padding-top: -20px;" />
+                  <img src="../static/images/logo.png"
+                  style="width: 100px; height: 50px; padding-top: -20px;" />
                 </a>
               </li>
               <li class="nav-item" style="padding-top: 15px;">
@@ -105,7 +66,8 @@
                 </a>
               </li>
               <li class="nav-item" style="padding-top: 15px;">
-                <a class="nav-link" href="{{ url_for('platforms')}}">Platforms</a>
+                <a class="nav-link" href="{{ url_for('platforms')}}">Platforms
+                </a>
               </li>
               <li class="nav-item" style="padding-top: 15px;">
                 <a class="nav-link" href="{{ url_for('studios')}}">Studios</a>
@@ -121,245 +83,237 @@
         </div>
       </div>
     </nav>
-
   </header>
 
-
-    <!-- Page Content -->
-      <!-- Filtering options -->
-      <!-- Beginning Search Bar -->
-        <div class="col-sm-4 col-sm-offset-4"  style="top: 15%; text-align: center; position: absolute;">
-          <div class="row">
-           <ul class="nav nav-tabs"  >
-              <li class="active"><a href="#and" data-toggle="tab">And</a></li>
-            <li><a href="#or" data-toggle="tab">Or</a></li>
-          </ul>
-          <div id="myTabContent" class="tab-content">
-            <div class="tab-pane active" id="and">
-              <form class="form-inline" action="{{ url_for('search', typeSearch= 0 )}}" method="get" id="searchBar">
-               <div class="form-group">
-                 <div class="input-group input-group-lg">
-                  <input type="text" name="searchAnd" class="form-control" placeholder="Search">
-
-                    <span class="input-group-btn">
-                     <button class="btn btn-secondary" type="button" style="float: left;">
-                      <span class="glyphicon glyphicon-search"></span>
-                     </button>
-                    </span>
-                  </div>
-                </div>
-              </form>
-            </div>
-            <div class="tab-pane" id="or">
-              <form class="form-inline" action="{{ url_for('search', typeSearch= 1 ) }}" method="get" id="searchBar">
-               <div class="form-group">
-                 <div class="input-group input-group-lg">
-                  <input type="text" name="searchOr" class="form-control" placeholder="Search">
-
-                    <span class="input-group-btn">
-                     <button class="btn btn-secondary" type="button" style="float: left;">
-                      <span class="glyphicon glyphicon-search"></span>
-                     </button>
-                    </span>
-                  </div>
-                </div>
-              </form>
-            </div>
-
-          </div>
-          <div id = "searchedText">
-            <form>
-          <h3 style="text:centered;color:white;"> Games </h3>
-        <table class="table table-hover"  style="background-color: white" id="gTable">
-            <tr>
-            <th> Games </th>
-            <th> Genre </th>
-            <th> Esrb </th>
-            <th> Status </th>
-            <th> Summary </th>
-            </tr>
-                {% for item in games %}
-                <tr>
-                  <td>
-                    <a href="{{ url_for('game_instance',
-                    name = item.id)}}">
-                    {{item.name}} </a></td>
-                  <td> {{ item.genre }} </td>
-                  <td> {{item.esrb}} </td>
-                  <td> {{item.status}} </td>
-                  <td>
-                  {% if wordsSearched.upper() in item.summary.upper() %}
-                    {% set index = item.summary.upper().index(wordsSearched.upper()) %}
-                    {% if index != 0 %}
-                    ... 
-                    {% endif %}
-                    {% set itemsum = item.summary[index:] %}
-                    {% if itemsum | length >= 100 %}
-                      {{itemsum[:100]}}...
-                    {% else %}
-                      {{itemsum}}
-                    {% endif %}
-                  {% else %}
-                    {{item.summary[:100]}}...
-                  {% endif %}
-                  </td>
-                </tr>
-                {% endfor %}
-        </table>
-        <div id="gPagination"></div>
-          <h3 style="text:centered;color:white;"> Platforms </h3>
-
-
-        <table class="table table-hover"  style="background-color: white" id="pTable">
-            <tr>
-            <th> Platforms </th>
-            <th> Created_At </th>
-            <th> Website </th>
-            <th> Summary </th>
-            </tr>
-                {% for item in platforms %}
-                <tr>
-                  <td>
-                    <a href="{{ url_for('platform_instance',
-                    name = item.id)}}">
-                    {{item.name}} </a> </td>
-                  <td> {{ item.created_at.date() }} </td>
-                  <td> {{item.website}} </td>
-                  <td>
-                  {% if wordsSearched.upper() in item.summary.upper() %}
-                    {% set index = item.summary.upper().index(wordsSearched.upper()) %}
-                    {% if index != 0 %}
-                    ... 
-                    {% endif %}
-                    {% set itemsum = item.summary[index:] %}
-                    {% if itemsum | length >= 100 %}
-                      {{itemsum[:100]}}...
-                    {% else %}
-                      {{itemsum}}
-                    {% endif %}
-                  {% else %}
-                    {{item.summary[:100]}}...
-                  {% endif %}
-                </td>
-                </tr>
-                {% endfor %}
-
-        </table>
-        <div id="pPagination"></div>
-
-        <h3 style="text:centered;color:white;"> Studios </h3>
-
-        <table class="table table-hover"  style="background-color: white" id="sTable" >
+  <!-- Buttons -->
+  <div class="container" style="padding-top:100px; text-align:center;">
+    <a href="/search?searchAnd={{wordsSearched}}" class="btn btn-success" role="button">AND search</a>&emsp;
+    <a href="/search?searchOr={{wordsSearched}}" class="btn btn-success" role="button">OR search</a>
+  </div>
+  <div id = "searchedText">
+    <div class="container">
+      <h1>Games</h1>
+      <hr>
+      <div class="underline"></div>      
+      <table class="table" id="gTable">
+        <colgroup>
+          <col style="width: 20%" />
+          <col style="width: 20%" />
+          <col style="width: 20%" />
+          <col style="width: 20%" />
+          <col style="width: 20%" />
+        </colgroup>
+        <thead>
           <tr>
-            <th> Studios </th>
-            <th> Created_at</th>
-            <th> Website </th>
-            <th> Description </th>
+            <th>Name</th>
+            <th>Genre</th>
+            <th>ESRB</th>
+            <th>Status</th>
+            <th>Summary</th>
           </tr>
-              {% for item in studios %}
-                <tr>
-                  <td>
-                    <a href="{{ url_for('studio_instance', name = item.id)}}">
-                    {{item.name}}</a> </td>
-                  <td> {{ item.created_at.date() }} </td>
-                  <td> {{item.website}} </td>
-                  <td>
-                  {% if wordsSearched.upper() in item.description.upper() %}
-                    {% set index = item.description.upper().index(wordsSearched.upper()) %}
-                    {% if index != 0 %}
-                    ... 
-                    {% endif %}
-                    {% set itemdesc = item.description[index:] %}
-                    {% if itemdesc | length >= 100 %}
-                      {{itemdesc[:100]}}...
-                    {% else %}
-                      {{itemdesc}}
-                    {% endif %}
-                  {% else %}
-                    {{item.description[:100]}}...
-                  {% endif %}
-                </td>
-                </tr>
-                {% endfor %}
-
-        </table>
-        <div id="sPagination"></div>
-        <h3 style="text:centered;color:white;"> Reviews </h3>
-
-        <table class="table table-hover"  style="background-color: white" id="rTable">
+        </thead>
+        <tbody>
+          {% for item in games %}
           <tr>
-            <th> Reviews </th>
-            <th> Introduction</th>
-            <th> Content </th>
-            <th> Conclusion </th>
-            <th> Website </th>
+            <td><a href="{{ url_for('game_instance', name = item.id)}}"> {{item.name}} </a></td>
+            <td>{{ item.genre }}</td>
+            <td>{{item.esrb}}</td>
+            <td>{{item.status}}</td>
+            <td>
+              {% if wordsSearched.upper() in item.summary.upper() %}
+                {% set index = item.summary.upper().index(wordsSearched.upper()) %}
+                {% if index != 0 %}
+                ... 
+                {% endif %}
+                {% set itemsum = item.summary[index:] %}
+                {% if itemsum | length >= 100 %}
+                  {{itemsum[:100]}}...
+                {% else %}
+                  {{itemsum}}
+                {% endif %}
+              {% else %}
+                {{item.summary[:100]}}...
+              {% endif %}
+            </td>
           </tr>
-              {% for item in reviews %}
-                <tr>
-                  <td>
-                    <a href="{{ url_for('review_instance',
-                    name = item.id)}}">
-                    {{item.title}}</a> </td>
-                  <td>
-                    {% if wordsSearched.upper() in item.introduction.upper() %}
-                    {% set index = item.introduction.upper().index(wordsSearched.upper()) %}
-                    {% if index != 0 %}
-                    ... 
-                    {% endif %}
-                    {% set itemintro = item.introduction[index:] %}
-                    {% if itemintro | length >= 100 %}
-                      {{itemintro[:100]}}...
-                    {% else %}
-                      {{itemintro}}
-                    {% endif %}
-                  {% else %}
-                    {{item.introduction[:100]}} ...
-                  {% endif %}
-                  </td>
-                  <td>
-                    {% if wordsSearched.upper() in item.content.upper() %}
-                    {% set index = item.content.upper().index(wordsSearched.upper()) %}
-                    {% if index != 0 %}
-                    ... 
-                    {% endif %}
-                    {% set itemcontent = item.content[index:] %}
-                    {% if itemcontent | length >= 100 %}
-                      {{itemcontent[:100]}}...
-                    {% else %}
-                      {{itemcontent}}
-                    {% endif %}
-                  {% else %}
-                    {{item.content[:100]}} ...
-                  {% endif %}
-                  </td>
-                  <td>
-                    {% if wordsSearched.upper() in item.conclusion.upper() %}
-                    {% set index = item.conclusion.upper().index(wordsSearched.upper()) %}
-                    {% if index != 0 %}
-                    ... 
-                    {% endif %}
-                    {% set itemconclusion = item.conclusion[index:] %}
-                    {% if itemconclusion | length >= 100 %}
-                      {{itemconclusion[:100]}}...
-                    {% else %}
-                      {{itemconclusion}}
-                    {% endif %}
-                  {% else %}
-                    {{item.conclusion[:100]}}...
-                  {% endif %}
-                  </td>
-                  <td>
-                    <a href="{{item.url}}">{{item.url}}</a> </td>
-
-                </tr>
-                {% endfor %}
-                 </table>
-                <div id="rPagination"></div>
-          </div>
-        </div>
-      </div>
-
+        {% endfor %}
+        </tbody>
+      </table>
     </div>
+    <div id="gPagination" style="text-align:center;"></div>
+    <div class="container">
+      <h1>Platforms</h1>
+      <hr>    
+      <table class="table" id="pTable">
+        <colgroup>
+          <col style="width: 25%" />
+          <col style="width: 25%" />
+          <col style="width: 25%" />
+          <col style="width: 25%" />
+        </colgroup>
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Created At</th>
+            <th>Website</th>
+            <th>Summary</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for item in platforms %}
+          <tr>
+            <td><a href="{{ url_for('platform_instance', name = item.id)}}"> {{item.name}} </a></td>
+            <td>{{item.created_at.date()}}</td>
+            <td>{{item.website}}</td>
+            <td>
+              {% if wordsSearched.upper() in item.summary.upper() %}
+                {% set index = item.summary.upper().index(wordsSearched.upper()) %}
+                {% if index != 0 %}
+                ... 
+                {% endif %}
+                {% set itemsum = item.summary[index:] %}
+                {% if itemsum | length >= 100 %}
+                  {{itemsum[:100]}}...
+                {% else %}
+                  {{itemsum}}
+                {% endif %}
+              {% else %}
+                {{item.summary[:100]}}...
+              {% endif %}
+            </td>
+          </tr>
+        {% endfor %}
+        </tbody>
+      </table>
+    </div>
+    <div id="pPagination" style="text-align:center;"></div>
+    <div class="container">
+      <h1>Studios</h1>
+      <hr>    
+      <table class="table" id="sTable">
+        <colgroup>
+          <col style="width: 25%" />
+          <col style="width: 25%" />
+          <col style="width: 25%" />
+          <col style="width: 25%" />
+        </colgroup>
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Created At</th>
+            <th>Website</th>
+            <th>Description</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for item in studios %}
+          <tr>
+            <td><a href="{{ url_for('studio_instance', name = item.id)}}"> {{item.name}} </a></td>
+            <td>{{item.created_at.date()}}</td>
+            <td>{{item.website}}</td>
+            <td>
+              {% if wordsSearched.upper() in item.description.upper() %}
+                {% set index = item.description.upper().index(wordsSearched.upper()) %}
+                {% if index != 0 %}
+                ... 
+                {% endif %}
+                {% set itemdesc = item.description[index:] %}
+                {% if itemdesc | length >= 100 %}
+                  {{itemdesc[:100]}}...
+                {% else %}
+                  {{itemdesc}}
+                {% endif %}
+              {% else %}
+                {{item.description[:100]}}...
+              {% endif %}
+          </td>
+          </tr>
+        {% endfor %}
+        </tbody>
+      </table>
+    </div>
+    <div id="sPagination" style="text-align:center;"></div>
+    <div class="container">
+    <h1>Reviews</h1>
+    <hr>    
+    <table class="table" id="rTable">
+      <colgroup>
+        <col style="width: 20%" />
+        <col style="width: 20%" />
+        <col style="width: 20%" />
+        <col style="width: 20%" />
+        <col style="width: 20%" />
+      </colgroup>
+      <thead>
+        <tr>
+          <th>Title</th>
+          <th>Introduction</th>
+          <th>Content</th>
+          <th>Conclusion</th>
+          <th>Website</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for item in reviews %}
+        <tr>
+          <td><a href="{{ url_for('review_instance', name = item.id)}}"> {{item.title}} </a></td>
+          <td>
+            {% if wordsSearched.upper() in item.introduction.upper() %}
+            {% set index = item.introduction.upper().index(wordsSearched.upper()) %}
+            {% if index != 0 %}
+            ... 
+            {% endif %}
+            {% set itemintro = item.introduction[index:] %}
+            {% if itemintro | length >= 100 %}
+              {{itemintro[:100]}}...
+            {% else %}
+              {{itemintro}}
+            {% endif %}
+          {% else %}
+            {{item.introduction[:100]}} ...
+          {% endif %}
+          </td>
+          <td>
+            {% if wordsSearched.upper() in item.content.upper() %}
+            {% set index = item.content.upper().index(wordsSearched.upper()) %}
+            {% if index != 0 %}
+            ... 
+            {% endif %}
+            {% set itemcontent = item.content[index:] %}
+            {% if itemcontent | length >= 100 %}
+              {{itemcontent[:100]}}...
+            {% else %}
+              {{itemcontent}}
+            {% endif %}
+          {% else %}
+            {{item.content[:100]}} ...
+          {% endif %}
+          </td>
+          <td>
+            {% if wordsSearched.upper() in item.conclusion.upper() %}
+            {% set index = item.conclusion.upper().index(wordsSearched.upper()) %}
+            {% if index != 0 %}
+            ... 
+            {% endif %}
+            {% set itemconclusion = item.conclusion[index:] %}
+            {% if itemconclusion | length >= 100 %}
+              {{itemconclusion[:100]}}...
+            {% else %}
+              {{itemconclusion}}
+            {% endif %}
+          {% else %}
+            {{item.conclusion[:100]}}...
+          {% endif %}
+          </td>
+          <td>{{item.url}}</td>
+        </tr>
+      {% endfor %}
+      </tbody>
+    </table>
+  </div>
+  <div id="rPagination" style="text-align:center;"></div>
+</div>
+
 
 <script type ="text/javascript">
 var gpager = new Pager('gTable', 10, 'gpager'); 
@@ -387,7 +341,6 @@ function Pager(tableName, itemsPerPage, pagerName) {
     
     this.showPage = function(pageNumber) {
       if (! this.inited) {
-        alert("not inited");
         return;
       }
 
@@ -466,47 +419,18 @@ function Pager(tableName, itemsPerPage, pagerName) {
       var allWords = wordsSearched.split(" ")
       var wordsLength = allWords.length;
 
-      //alert(wordsSearched)
-
       for (i = 0; i<wordsLength;i++)
       {
-
-        // alert(allWords[i])
-        //alert(allWords[i])
         var regex = new RegExp('(' + allWords[i] + ')', 'ig');
-
        $('#searchedText').html( $('#searchedText').html().replace(regex, "<span class='highlight'><b>$1</b></span>"));
-
-        //var inputText = document.getElementById("#searchedText")
-        //var innerHtml = inputText.innerHtml
-        // var innerHtml = document.body.innerHtml
-        // var index = innerHtml.indexOf(allWords[i])
-        // alert(allWords[i])
-        // alert(index)
-        // if (index >=0){
-        //   alert(index)
-        //   innerHTML = innerHTML.substring(0,index) + "<span class='highlight'>" + innerHTML.substring(index,index+allWords[i].length) + "</span>" + innerHTML.substring(index + allWords[i].length);
-        //   //inputText.innerHTML = innerHTML
-
-        //   document.body.innerHTML = innerHTML
-        // }
       }
-
-
-  });
-
-
+});
 </script>
 
 <script type="text/javascript">
-$('a[data-toggle="tab"]').on('shown.bs.tab', function (e) {
-  var target = $(e.target).attr("href") // activated tab
-
-  //alert(target);
-});
-
+  $('a[data-toggle="tab"]').on('shown.bs.tab', function (e) {
+    var target = $(e.target).attr("href") // activated tab
+  });
 </script>
-
 </body>
-
 </html>
