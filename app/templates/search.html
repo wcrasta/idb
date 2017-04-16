@@ -28,12 +28,12 @@
     .pg-normal {
       color: white;
       font-weight: normal;
-      text-decoration: none;    
-      cursor: pointer;    
+      text-decoration: none;
+      cursor: pointer;
     }
     .pg-selected {
       color: white;
-      font-weight: bold;        
+      font-weight: bold;
       text-decoration: underline;
       cursor: pointer;
     }
@@ -94,7 +94,7 @@
     <div class="container">
       <h1>Games</h1>
       <hr>
-      <div class="underline"></div>      
+      <div class="underline"></div>
       <table class="table" id="gTable">
         <colgroup>
           <col style="width: 20%" />
@@ -120,10 +120,15 @@
             <td>{{item.esrb}}</td>
             <td>{{item.status}}</td>
             <td>
-              {% if wordsSearched.upper() in item.summary.upper() %}
-                {% set index = item.summary.upper().index(wordsSearched.upper()) %}
+                {% set found = {'fd': False} %}
+
+                {% set list1 = wordsSearched.split(' ') %}
+                {% for list in list1 %}
+            {% if list.upper() in item.summary.upper() %}
+                {% if found.update({'fd': True}) %} {% endif %}
+                {% set index = item.summary.upper().index(list.upper()) %}
                 {% if index != 0 %}
-                ... 
+                ...
                 {% endif %}
                 {% set itemsum = item.summary[index:] %}
                 {% if itemsum | length >= 100 %}
@@ -132,7 +137,17 @@
                   {{itemsum}}
                 {% endif %}
               {% else %}
-                {{item.summary[:100]}}...
+                {% if found.fd %}
+                ...
+                {% else %}
+                {% endif %}
+              {% endif %}
+
+              {% endfor %}
+              {% if found.fd %}
+              {% else %}
+              {{item.summary[:100]}}...
+
               {% endif %}
             </td>
           </tr>
@@ -143,7 +158,7 @@
     <div id="gPagination" style="text-align:center;"></div>
     <div class="container">
       <h1>Platforms</h1>
-      <hr>    
+      <hr>
       <table class="table" id="pTable">
         <colgroup>
           <col style="width: 25%" />
@@ -166,10 +181,15 @@
             <td>{{item.created_at.date()}}</td>
             <td>{{item.website}}</td>
             <td>
-              {% if wordsSearched.upper() in item.summary.upper() %}
-                {% set index = item.summary.upper().index(wordsSearched.upper()) %}
+                {% set found = {'fd': False} %}
+
+                {% set list1 = wordsSearched.split(' ') %}
+                {% for list in list1 %}
+            {% if list.upper() in item.summary.upper() %}
+                {% if found.update({'fd': True}) %} {% endif %}
+                {% set index = item.summary.upper().index(list.upper()) %}
                 {% if index != 0 %}
-                ... 
+                ...
                 {% endif %}
                 {% set itemsum = item.summary[index:] %}
                 {% if itemsum | length >= 100 %}
@@ -178,7 +198,17 @@
                   {{itemsum}}
                 {% endif %}
               {% else %}
-                {{item.summary[:100]}}...
+                {% if found.fd %}
+                ...
+                {% else %}
+                {% endif %}
+              {% endif %}
+
+              {% endfor %}
+              {% if found.fd %}
+              {% else %}
+              {{item.summary[:100]}}...
+
               {% endif %}
             </td>
           </tr>
@@ -189,7 +219,7 @@
     <div id="pPagination" style="text-align:center;"></div>
     <div class="container">
       <h1>Studios</h1>
-      <hr>    
+      <hr>
       <table class="table" id="sTable">
         <colgroup>
           <col style="width: 25%" />
@@ -212,19 +242,34 @@
             <td>{{item.created_at.date()}}</td>
             <td>{{item.website}}</td>
             <td>
-              {% if wordsSearched.upper() in item.description.upper() %}
-                {% set index = item.description.upper().index(wordsSearched.upper()) %}
+                {% set found = {'fd': False} %}
+
+                {% set list1 = wordsSearched.split(' ') %}
+                {% for list in list1 %}
+            {% if list.upper() in item.description.upper() %}
+                {% if found.update({'fd': True}) %} {% endif %}
+                {% set index = item.description.upper().index(list.upper()) %}
                 {% if index != 0 %}
-                ... 
+                ...
                 {% endif %}
-                {% set itemdesc = item.description[index:] %}
-                {% if itemdesc | length >= 100 %}
-                  {{itemdesc[:100]}}...
+                {% set itemsum = item.description[index:] %}
+                {% if itemsum | length >= 100 %}
+                  {{itemsum[:100]}}...
                 {% else %}
-                  {{itemdesc}}
+                  {{itemsum}}
                 {% endif %}
               {% else %}
-                {{item.description[:100]}}...
+                {% if found.fd %}
+                ...
+                {% else %}
+                {% endif %}
+              {% endif %}
+
+              {% endfor %}
+              {% if found.fd %}
+              {% else %}
+              {{item.description[:100]}}...
+
               {% endif %}
           </td>
           </tr>
@@ -235,7 +280,7 @@
     <div id="sPagination" style="text-align:center;"></div>
     <div class="container">
     <h1>Reviews</h1>
-    <hr>    
+    <hr>
     <table class="table" id="rTable">
       <colgroup>
         <col style="width: 20%" />
@@ -258,52 +303,97 @@
         <tr>
           <td><a href="{{ url_for('review_instance', name = item.id)}}"> {{item.title}} </a></td>
           <td>
-            {% if wordsSearched.upper() in item.introduction.upper() %}
-            {% set index = item.introduction.upper().index(wordsSearched.upper()) %}
-            {% if index != 0 %}
-            ... 
-            {% endif %}
-            {% set itemintro = item.introduction[index:] %}
-            {% if itemintro | length >= 100 %}
-              {{itemintro[:100]}}...
+              {% set found = {'fd': False} %}
+
+              {% set list1 = wordsSearched.split(' ') %}
+              {% for list in list1 %}
+          {% if list.upper() in item.introduction.upper() %}
+              {% if found.update({'fd': True}) %} {% endif %}
+              {% set index = item.introduction.upper().index(list.upper()) %}
+              {% if index != 0 %}
+              ...
+              {% endif %}
+              {% set itemsum = item.introduction[index:] %}
+              {% if itemsum | length >= 100 %}
+                {{itemsum[:100]}}...
+              {% else %}
+                {{itemsum}}
+              {% endif %}
             {% else %}
-              {{itemintro}}
+              {% if found.fd %}
+              ...
+              {% else %}
+              {% endif %}
             {% endif %}
-          {% else %}
-            {{item.introduction[:100]}} ...
-          {% endif %}
+
+            {% endfor %}
+            {% if found.fd %}
+            {% else %}
+            {{item.introduction[:100]}}...
+
+            {% endif %}
           </td>
           <td>
-            {% if wordsSearched.upper() in item.content.upper() %}
-            {% set index = item.content.upper().index(wordsSearched.upper()) %}
-            {% if index != 0 %}
-            ... 
-            {% endif %}
-            {% set itemcontent = item.content[index:] %}
-            {% if itemcontent | length >= 100 %}
-              {{itemcontent[:100]}}...
+              {% set found = {'fd': False} %}
+
+              {% set list1 = wordsSearched.split(' ') %}
+              {% for list in list1 %}
+          {% if list.upper() in item.content.upper() %}
+              {% if found.update({'fd': True}) %} {% endif %}
+              {% set index = item.content.upper().index(list.upper()) %}
+              {% if index != 0 %}
+              ...
+              {% endif %}
+              {% set itemsum = item.content[index:] %}
+              {% if itemsum | length >= 100 %}
+                {{itemsum[:100]}}...
+              {% else %}
+                {{itemsum}}
+              {% endif %}
             {% else %}
-              {{itemcontent}}
+              {% if found.fd %}
+              ...
+              {% else %}
+              {% endif %}
             {% endif %}
-          {% else %}
-            {{item.content[:100]}} ...
-          {% endif %}
+
+            {% endfor %}
+            {% if found.fd %}
+            {% else %}
+            {{item.content[:100]}}...
+
+            {% endif %}
           </td>
           <td>
-            {% if wordsSearched.upper() in item.conclusion.upper() %}
-            {% set index = item.conclusion.upper().index(wordsSearched.upper()) %}
-            {% if index != 0 %}
-            ... 
-            {% endif %}
-            {% set itemconclusion = item.conclusion[index:] %}
-            {% if itemconclusion | length >= 100 %}
-              {{itemconclusion[:100]}}...
+              {% set found = {'fd': False} %}
+
+              {% set list1 = wordsSearched.split(' ') %}
+              {% for list in list1 %}
+          {% if list.upper() in item.conclusion.upper() %}
+              {% if found.update({'fd': True}) %} {% endif %}
+              {% set index = item.conclusion.upper().index(list.upper()) %}
+              {% if index != 0 %}
+              ...
+              {% endif %}
+              {% set itemsum = item.conclusion[index:] %}
+              {% if itemsum | length >= 100 %}
+                {{itemsum[:100]}}...
+              {% else %}
+                {{itemsum}}
+              {% endif %}
             {% else %}
-              {{itemconclusion}}
+              {% if found.fd %}
+              ...
+              {% else %}
+              {% endif %}
             {% endif %}
-          {% else %}
+
+            {% endfor %}
+            {% if found.fd %}
+            {% else %}
             {{item.conclusion[:100]}}...
-          {% endif %}
+
+            {% endif %}
           </td>
           <td>{{item.url}}</td>
         </tr>
@@ -316,10 +406,10 @@
 
 
 <script type ="text/javascript">
-var gpager = new Pager('gTable', 10, 'gpager'); 
-var ppager = new Pager('pTable', 10, 'ppager'); 
-var spager = new Pager('sTable', 10, 'spager'); 
-var rpager = new Pager('rTable', 10, 'rpager'); 
+var gpager = new Pager('gTable', 10, 'gpager');
+var ppager = new Pager('pTable', 10, 'ppager');
+var spager = new Pager('sTable', 10, 'spager');
+var rpager = new Pager('rTable', 10, 'rpager');
 function Pager(tableName, itemsPerPage, pagerName) {
     this.tableName = tableName;
     this.itemsPerPage = itemsPerPage;
@@ -328,17 +418,17 @@ function Pager(tableName, itemsPerPage, pagerName) {
     this.inited = false;
     this.pagerName = pagerName;
 
-    this.showRecords = function(from, to) {        
+    this.showRecords = function(from, to) {
         var rows = document.getElementById(tableName).rows;
         // i starts from 1 to skip table header row
         for (var i = 1; i < rows.length; i++) {
-            if (i < from || i > to)  
+            if (i < from || i > to)
                 rows[i].style.display = 'none';
             else
                 rows[i].style.display = '';
         }
     }
-    
+
     this.showPage = function(pageNumber) {
       if (! this.inited) {
         return;
@@ -346,30 +436,30 @@ function Pager(tableName, itemsPerPage, pagerName) {
 
         var oldPageAnchor = document.getElementById(this.pagerName+'pg'+this.currentPage);
         oldPageAnchor.className = 'pg-normal';
-        
+
         this.currentPage = pageNumber;
         var newPageAnchor = document.getElementById(this.pagerName+'pg'+this.currentPage);
         newPageAnchor.className = 'pg-selected';
-        
+
         var from = (pageNumber - 1) * itemsPerPage + 1;
         var to = from + itemsPerPage - 1;
         this.showRecords(from, to);
-    }   
-    
+    }
+
     this.prev = function() {
         if (this.currentPage > 1)
             this.showPage(this.currentPage - 1);
     }
-    
+
     this.next = function() {
         if (this.currentPage < this.pages) {
             this.showPage(this.currentPage + 1);
         }
-    }                        
-    
+    }
+
     this.init = function() {
         var rows = document.getElementById(tableName).rows;
-        var records = (rows.length - 1); 
+        var records = (rows.length - 1);
         this.pages = Math.ceil(records / itemsPerPage);
         this.inited = true;
     }
@@ -380,37 +470,37 @@ function Pager(tableName, itemsPerPage, pagerName) {
         return;
       }
       var element = document.getElementById(positionId);
-      
+
       var pagerHtml = '<span onclick="' + this.pagerName + '.prev();" class="pg-normal"> &#171 Prev</span> | ';
-        for (var page = 1; page <= this.pages; page++) 
+        for (var page = 1; page <= this.pages; page++)
             pagerHtml += '<span id="'+this.pagerName+'pg' + page + '" class="pg-normal" onclick="' + this.pagerName + '.showPage(' + page + ');">' + page + '</span> | ';
-        pagerHtml += '<span onclick="'+this.pagerName+'.next();" class="pg-normal"> Next &#187;</span>';            
-        
+        pagerHtml += '<span onclick="'+this.pagerName+'.next();" class="pg-normal"> Next &#187;</span>';
+
         element.innerHTML = pagerHtml;
     }
 }
 
   $(document).ready(function(){
       try{
-        gpager.init(); 
-        gpager.showPageNav('gPagination'); 
+        gpager.init();
+        gpager.showPageNav('gPagination');
         gpager.showPage(1);
       }catch(err){}
       try{
-      ppager.init(); 
-      ppager.showPageNav('pPagination'); 
+      ppager.init();
+      ppager.showPageNav('pPagination');
       ppager.showPage(1);
       }catch(err){}
 
       try{
-      spager.init(); 
-      spager.showPageNav('sPagination'); 
+      spager.init();
+      spager.showPageNav('sPagination');
       spager.showPage(1);
       } catch(err){}
 
       try{
-      rpager.init(); 
-      rpager.showPageNav('rPagination'); 
+      rpager.init();
+      rpager.showPageNav('rPagination');
       rpager.showPage(1);
 
       } catch(err){}
