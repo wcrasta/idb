@@ -2,6 +2,7 @@ app/pycache/
 .idea/
 *.pyc
 flask/
+app/static/js/package.json
 __pycache__/
 .DS_Store
 .coverage
