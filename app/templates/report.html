@@ -251,8 +251,13 @@
 
               </span>
               <br>
-              After performing the query, we gather the data and serve it to our search results html file and then we render it like with all the others using Jinja2. In addition, we used jQuery to do all the hi-lighting and contextualization. With jQuery, when the document loads, a function looks through all of the fields within a div and checks to see if it contains the word[s] that we searched for. If it does, it replaces the word[s] by surrounding it with a span that gives a new style that resembles hi-lighting. We implemented both And and Or searching that allows us to either find all the things that match exactly to the words provided or it things that match to one or more words in the given search string. 
-              </p> 
+              With the initial query, because we wanted to get rid of nonsensical items we filtered all the queries by certain rules to ensure the data being returned is what the user is expecting. In addition, case sensitvity was also an issue so we had to use ilike to filter.
+              After performing the query, we gather the data and serve it to our search results html file and then we render it like with all the others using Jinja2. In addition, we used jQuery to do all the hi-lighting and contextualization. With jQuery, when the document loads, a function looks through all of the fields within a div and checks to see if it contains the word[s] that we searched for. If it does, it replaces the word[s] by surrounding it with a span that gives a new style that resembles hi-lighting. For the contextualization, we used Jinja2 within the HTML to help us locate the searched word[s] split by a space. Then for each split word, it goes through each given attribute of a given model and attempts to find an index of that word. Then we take the index and words before and after it and then cut off the rest of the paragraph so we can focus in on the words that the user searched and display it on the search result table. We implemented both And and Or searching that allows us to either find all the things that match exactly to the words provided or it things that match to one or more words in the given search string.
+              </p>
+              <h4 style="color:red;"> Search Pagination </h4>
+              <p>
+                  To be written
+              </p>
 
 
 
@@ -302,6 +307,10 @@
             <p>We use ReactJS to create animation on the about the page. When you hover the mouse over the images of the team members, the image dynamically changes to a DC superhero character they resemble. When the mouse goes out of the field of the image, it returns back to the original image. Using reactJS helped us to do it in a faster way.</p>
             <p>
               Furthermore, we used jQuery to perform context hi-lighting when we did search. We had a loop that ran through all the words in the text string and for each word, we looked through the document that contained those data and then surrounded them with a span tag with a class that does the hi-lighting.
+            </p>
+            <h4 style="color:red;"> D3.js</h4>
+            <p>
+                 To be written.
             </p>
             </p>
             <h4>Back-End:</h4>
@@ -489,7 +498,16 @@
                       You have now deployed your Flask application on an EC2 instance with the help of an Apache web server.
                   </li>
                 </ol>
+                <h4> Enhanced WSGI</h4>
+                <p>
+                    With the use of Whoosh sqlalchemy, we ran into problems in using the package as it wanted to create files and the server blocks it due to lack of permission. A way we found to solve this issue was to wrap our application within a virtual environment that runs on Python 3. We figured it would be better to change our server to run on Python 3 instead of Python 2 because we test everything and write everything in Python 3 locally. To do so, we installed a virtual environment and then downloaded all the required packages for our application. Then within our WSGI.py and WSGI configuration file, we set it to execute the activiation of the virtual environment before serving our application. 
+                </p>
+                <h4 style="color:red;"> Planning Poker</h4>
+                <p>
+                     To be written.
+                </p>
           </div>
+
         </div>
       </div>
     </div>
