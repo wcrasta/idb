@@ -179,6 +179,10 @@ def orSearch(items):
 
 def andSearch(items):
     caseSensitive = "%"+ items +"%"
+    gameResults = []
+    platformResults = []
+    reviewsResults = []
+    studioResults = []
 
     gameResults = Game.query.whoosh_search(items).filter(
         or_(Game.name.ilike(caseSensitive), Game.summary.ilike(caseSensitive),

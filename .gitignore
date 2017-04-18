@@ -11,3 +11,7 @@ __pycache__/
 app/static/js/node_modules/
 app/static.js/npm-debug.log
 postgresql/
+companies.json
+games.json
+platforms.json
+reviews.json

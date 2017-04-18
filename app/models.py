@@ -11,6 +11,7 @@
 
 import os
 import datetime
+import getpass
 from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
 from flask_restful import Resource, Api
@@ -23,11 +24,12 @@ api = Api(app)
 basedir = os.path.abspath(os.path.dirname(__file__))
 app.config['SQLALCHEMY_DATABASE_URI'] = os.environ['our_secret']
 
-WHOOSH_BASE = os.environ['our_secret']
+if getpass.getuser() == 'www-data':
+    app.config['WHOOSH_BASE'] = '/var/www/FlaskApps/GGnoSWEApp/whoosh_index'
+
 #app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///' + \
 #    os.path.join(basedir, 'app.db')
 #WHOOSH_BASE = os.path.join(basedir,'app.db')
-
 
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = True
 db = SQLAlchemy(app)
