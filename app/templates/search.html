@@ -26,6 +26,8 @@
     .table td {
       background-color: white !important;
       opacity: 0.9;
+      border-radius: 15px;
+      overflow: hidden;
     }
     .highlight {
       background-color:yellow;
@@ -106,66 +108,67 @@
     <div class="container">
       <h1>Games</h1>
       <hr>
-      <div class="underline"></div>
-      <table class="table" id="gTable">
-        <colgroup>
-          <col style="width: 20%" />
-          <col style="width: 20%" />
-          <col style="width: 20%" />
-          <col style="width: 20%" />
-          <col style="width: 20%" />
-        </colgroup>
-        <thead>
-          <tr>
-            <th>Name</th>
-            <th>Genre</th>
-            <th>ESRB</th>
-            <th>Status</th>
-            <th>Summary</th>
-          </tr>
-        </thead>
-        <tbody>
-          {% for item in games %}
-          <tr>
-            <td><p><a href="{{ url_for('game_instance', name = item.id)}}">{{item.name}}</a></p></td>
-            <td><p>{{ item.genre }}</p></td>
-            <td><p>{{item.esrb}}</p></td>
-            <td><p>{{item.status}}</p></td>
-            <td><p>
-                {% set found = {'fd': False} %}
+      <div class="row" style="border-radius: 15px;">
+        <table class="table" id="gTable" style="border-radius: 15px;">
+          <colgroup>
+            <col style="width: 20%" />
+            <col style="width: 20%" />
+            <col style="width: 20%" />
+            <col style="width: 20%" />
+            <col style="width: 20%" />
+          </colgroup>
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Genre</th>
+              <th>ESRB</th>
+              <th>Status</th>
+              <th>Summary</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for item in games %}
+            <tr>
+              <td><p><a href="{{ url_for('game_instance', name = item.id)}}">{{item.name}}</a></p></td>
+              <td><p>{{ item.genre }}</p></td>
+              <td><p>{{item.esrb}}</p></td>
+              <td><p>{{item.status}}</p></td>
+              <td><p>
+                  {% set found = {'fd': False} %}
 
-                {% set list1 = wordsSearched.split(' ') %}
-                {% for list in list1 %}
-            {% if list.upper() in item.summary.upper() %}
-                {% if found.update({'fd': True}) %} {% endif %}
-                {% set index = item.summary.upper().index(list.upper()) %}
-                {% if index != 0 %}
-                ...
-                {% endif %}
-                {% set itemsum = item.summary[index:] %}
-                {% if itemsum | length >= 100 %}
-                  {{itemsum[:100]}}...
+                  {% set list1 = wordsSearched.split(' ') %}
+                  {% for list in list1 %}
+              {% if list.upper() in item.summary.upper() %}
+                  {% if found.update({'fd': True}) %} {% endif %}
+                  {% set index = item.summary.upper().index(list.upper()) %}
+                  {% if index != 0 %}
+                  ...
+                  {% endif %}
+                  {% set itemsum = item.summary[index:] %}
+                  {% if itemsum | length >= 100 %}
+                    {{itemsum[:100]}}...
+                  {% else %}
+                    {{itemsum}}
+                  {% endif %}
                 {% else %}
-                  {{itemsum}}
+                  {% if found.fd %}
+                  ...
+                  {% else %}
+                  {% endif %}
                 {% endif %}
-              {% else %}
+
+                {% endfor %}
                 {% if found.fd %}
-                ...
                 {% else %}
+                {{item.summary[:100]}}...
+
                 {% endif %}
-              {% endif %}
-
-              {% endfor %}
-              {% if found.fd %}
-              {% else %}
-              {{item.summary[:100]}}...
-
-              {% endif %}
-            </p></td>
-          </tr>
-        {% endfor %}
-        </tbody>
-      </table>
+              </p></td>
+            </tr>
+          {% endfor %}
+          </tbody>
+        </table>
+      </div>
     </div>
     <div id="gPagination" style="text-align:center;"></div>
     <div class="container">
