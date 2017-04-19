@@ -191,10 +191,7 @@ def orSearch(items):
         ).all()
         for m in mod3:
             reviewsResults.add(m)
-    # gameResults = Game.query.whoosh_search(items,or_=True)
-    # platformResults = Platform.query.whoosh_search(items, or_=True).all()
-    # studioResults = Studio.query.whoosh_search(items, or_=True).all()
-    # reviewsResults = Reviews.query.whoosh_search(items, or_=True).all()
+
 
     return [list(gameResults)[0:400], list(platformResults)[0:400], list(studioResults)[0:400], list(reviewsResults)[0:400]]
 
@@ -253,9 +250,7 @@ def search(typeSearch=None):
     searchA = request.args.get('searchAnd')
 
     searchO = request.args.get('searchOr')
-    # typeSearch = request.args.get("typeSearch")
-    print("ahhhhhh")
-    print(typeSearch)
+
     searched = ""
     results = []
 
@@ -265,10 +260,7 @@ def search(typeSearch=None):
     else:
         results = andSearch(searchA)
         searched = searchA
-    print(results)
-    print(searched)
-    # results = Game.query.whoosh_search(item).all()
-    # print(item,results)
+   
     return render_template('search.html', platforms=results[1], studios=results[2], reviews=results[3], games=results[0], wordsSearched=searched)
 
 
