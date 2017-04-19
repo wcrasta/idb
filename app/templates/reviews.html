@@ -223,7 +223,14 @@
                         <p> <b>Game:</b> <a href="{{ url_for('game_instance', name = item.game.id)}}"> {{item.game.name}} </a></p>
                         </p>
                         <p>
-                          <p> <b>Platform:</b> <a href="{{url_for('platform_instance', name=item.platform.id)}}"> {{item.platform.name}} </a></p>
+                          <p> <b>Platform:</b> 
+                            {% if item.platform %}
+                            <a href="{{url_for('platform_instance', name=item.platform.id)}}"> {{item.platform.name}} </a>
+                            {% else %}
+                            None
+                            {% endif %}
+
+                          </p>
                         </p>
                         <p> <b>Video:</b> {{item.video}} </p>
                         <p> <b>Written Time:</b> {{item.created_at.date()}} </p>
