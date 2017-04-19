@@ -9,7 +9,7 @@
 <td valign=bottom>&nbsp;<br>
 <font color="#ffffff" face="helvetica, arial">&nbsp;<br><big><big><strong>models</strong></big></big></font></td
 ><td align=right valign=bottom
-><font color="#ffffff" face="helvetica, arial"><a href=".">index</a><br><a href="file:/v/filer4b/v38q001/wcrasta/idb/app/models.py">/v/filer4b/v38q001/wcrasta/idb/app/models.py</a></font></td></tr></table>
+><font color="#ffffff" face="helvetica, arial"><a href=".">index</a><br><a href="file:/v/filer4b/v38q001/zz3686/Desktop/swe/idb/app/models.py">/v/filer4b/v38q001/zz3686/Desktop/swe/idb/app/models.py</a></font></td></tr></table>
     <p><tt>#&nbsp;pylint:&nbsp;disable&nbsp;=&nbsp;no-member<br>
 #&nbsp;pylint:&nbsp;disable&nbsp;=&nbsp;missing-docstring<br>
 #&nbsp;pylint:&nbsp;disable&nbsp;=&nbsp;invalid-name<br>
@@ -17,7 +17,9 @@
 #&nbsp;pylint:&nbsp;disable&nbsp;=&nbsp;too-many-arguments<br>
 #&nbsp;pylint:&nbsp;disable&nbsp;=&nbsp;too-many-instance-attributes<br>
 #&nbsp;pylint:&nbsp;disable&nbsp;=&nbsp;too-many-locals<br>
-#&nbsp;pylint:&nbsp;disable&nbsp;=&nbsp;line-too-long</tt></p>
+#&nbsp;pylint:&nbsp;disable&nbsp;=&nbsp;line-too-long<br>
+#&nbsp;pylint:&nbsp;disable&nbsp;=&nbsp;unused-import<br>
+#&nbsp;pylint:&nbsp;disable&nbsp;=&nbsp;too-many-branches</tt></p>
 <p>
 <table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
 <tr bgcolor="#aa55cc">
@@ -67,7 +69,7 @@ and&nbsp;companies.<br>&nbsp;</tt></td></tr>
 </dl>
 <hr>
 Methods defined here:<br>
-<dl><dt><a name="Game-__init__"><strong>__init__</strong></a>(self, name<font color="#909090">=None</font>, api_id<font color="#909090">=None</font>, summary<font color="#909090">=None</font>, genre<font color="#909090">=None</font>, rating<font color="#909090">=None</font>, storyline<font color="#909090">=None</font>, category<font color="#909090">=None</font>, esrb<font color="#909090">=None</font>, status<font color="#909090">=None</font>, platform_id<font color="#909090">=None</font>, studio_id<font color="#909090">=None</font>, reviews<font color="#909090">=None</font>, video<font color="#909090">=None</font>, image<font color="#909090">=None</font>, release_date<font color="#909090">=None</font>, website<font color="#909090">=None</font>)</dt></dl>
+<dl><dt><a name="Game-__init__"><strong>__init__</strong></a>(self, name<font color="#909090">=None</font>, api_id<font color="#909090">=None</font>, summary<font color="#909090">=None</font>, genre<font color="#909090">=None</font>, rating<font color="#909090">=None</font>, storyline<font color="#909090">=None</font>, category<font color="#909090">=None</font>, esrb<font color="#909090">=None</font>, status<font color="#909090">=None</font>, video<font color="#909090">=None</font>, image<font color="#909090">=None</font>, release_date<font color="#909090">=None</font>, website<font color="#909090">=None</font>)</dt></dl>
 
 <hr>
 Data descriptors defined here:<br>
@@ -107,7 +109,7 @@ Data descriptors defined here:<br>
 </dl>
 <hr>
 Data and other attributes defined here:<br>
-<dl><dt><strong>__mapper__</strong> = &lt;Mapper at 0x7f218540d8d0; Game&gt;</dl>
+<dl><dt><strong>__mapper__</strong> = &lt;Mapper at 0x7fd4b1b0db90; Game&gt;</dl>
 
 <dl><dt><strong>__searchable__</strong> = ['name', 'summary', 'genre', 'storyline', 'esrb', 'status']</dl>
 
@@ -186,7 +188,7 @@ Data descriptors defined here:<br>
 </dl>
 <hr>
 Data and other attributes defined here:<br>
-<dl><dt><strong>__mapper__</strong> = &lt;Mapper at 0x7f21853c2110; Platform&gt;</dl>
+<dl><dt><strong>__mapper__</strong> = &lt;Mapper at 0x7fd4b1acc3d0; Platform&gt;</dl>
 
 <dl><dt><strong>__searchable__</strong> = ['name', 'summary', 'image', 'website']</dl>
 
@@ -274,7 +276,7 @@ Data descriptors defined here:<br>
 </dl>
 <hr>
 Data and other attributes defined here:<br>
-<dl><dt><strong>__mapper__</strong> = &lt;Mapper at 0x7f21853d5150; Reviews&gt;</dl>
+<dl><dt><strong>__mapper__</strong> = &lt;Mapper at 0x7fd4b1ae2410; Reviews&gt;</dl>
 
 <dl><dt><strong>__searchable__</strong> = ['title', 'video', 'introduction', 'content', 'conclusion', 'positive', 'negative', 'url']</dl>
 
@@ -348,7 +350,7 @@ Data descriptors defined here:<br>
 </dl>
 <hr>
 Data and other attributes defined here:<br>
-<dl><dt><strong>__mapper__</strong> = &lt;Mapper at 0x7f21853c2790; Studio&gt;</dl>
+<dl><dt><strong>__mapper__</strong> = &lt;Mapper at 0x7fd4b1acca50; Studio&gt;</dl>
 
 <dl><dt><strong>__searchable__</strong> = ['name', 'logo', 'description', 'website']</dl>
 
@@ -387,6 +389,6 @@ Data descriptors inherited from <a href="flask_sqlalchemy.html#Model">flask_sqla
 <tr><td bgcolor="#55aa55"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
 <td width="100%"><strong>api</strong> = &lt;flask_restful.Api object&gt;<br>
 <strong>app</strong> = &lt;Flask 'models'&gt;<br>
-<strong>basedir</strong> = '/v/filer4b/v38q001/wcrasta/idb/app'<br>
+<strong>basedir</strong> = '/v/filer4b/v38q001/zz3686/Desktop/swe/idb/app'<br>
 <strong>db</strong> = &lt;SQLAlchemy engine=postgresql://wcrasta:***@ggno...cpgg3gqlefhf.us-west-2.rds.amazonaws.com/ggnoswe&gt;</td></tr></table>
 </body></html>

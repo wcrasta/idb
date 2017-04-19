@@ -86,11 +86,7 @@ config:
 	git config -l
 
 format:
-	$(AUTOPEP8) -i app/__init__.py
-	$(AUTOPEP8) -i app/models.py
-	$(AUTOPEP8) -i app/ScrapeAPI.py
-	$(AUTOPEP8) -i app/populateDb.py
-	$(AUTOPEP8) -i app/tests.py
+	$(AUTOPEP8) --in-place --recursive .
 
 status:
 	make clean
