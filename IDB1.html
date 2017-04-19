@@ -26,8 +26,10 @@
     
 <tr><td bgcolor="#aa55cc"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
 <td width="100%"><table width="100%" summary="list"><tr><td width="25%" valign=top><a href="datetime.html">datetime</a><br>
+</td><td width="25%" valign=top><a href="getpass.html">getpass</a><br>
 </td><td width="25%" valign=top><a href="os.html">os</a><br>
-</td><td width="25%" valign=top></td><td width="25%" valign=top></td></tr></table></td></tr></table><p>
+</td><td width="25%" valign=top><a href="flask_whooshalchemy.html">flask_whooshalchemy</a><br>
+</td></tr></table></td></tr></table><p>
 <table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
 <tr bgcolor="#ee77aa">
 <td colspan=3 valign=bottom>&nbsp;<br>
@@ -105,21 +107,25 @@ Data descriptors defined here:<br>
 </dl>
 <hr>
 Data and other attributes defined here:<br>
-<dl><dt><strong>__mapper__</strong> = &lt;Mapper at 0x7f5651271250; Game&gt;</dl>
+<dl><dt><strong>__mapper__</strong> = &lt;Mapper at 0x7f53b563d8d0; Game&gt;</dl>
+
+<dl><dt><strong>__searchable__</strong> = ['name', 'summary', 'genre', 'storyline', 'esrb', 'status']</dl>
 
 <dl><dt><strong>__table__</strong> = Table('game', MetaData(bind=None), Column('id', ..., String(length=256), table=&lt;game&gt;), schema=None)</dl>
 
+<dl><dt><strong>pure_whoosh</strong> = &lt;flask_whooshalchemy._Searcher object&gt;<dd><tt>Assigned&nbsp;to&nbsp;a&nbsp;Model&nbsp;class&nbsp;as&nbsp;``pure_search``,&nbsp;which&nbsp;enables<br>
+text-querying&nbsp;to&nbsp;whoosh&nbsp;hit&nbsp;list.&nbsp;Also&nbsp;used&nbsp;by&nbsp;``query.whoosh_search``</tt></dl>
+
+<dl><dt><strong>query_class</strong> = &lt;class 'flask_whooshalchemy._QueryProxy'&gt;</dl>
+
+<dl><dt><strong>whoosh_primary_key</strong> = 'id'</dl>
+
 <hr>
 Methods inherited from flask_sqlalchemy.Model:<br>
-<strong>query</strong> = &lt;flask_sqlalchemy.BaseQuery object&gt;
+<strong>query</strong> = &lt;flask_whooshalchemy._QueryProxy object&gt;
 <hr>
 Data and other attributes inherited from flask_sqlalchemy.Model:<br>
 <dl><dt><strong>metadata</strong> = MetaData(bind=None)</dl>
-
-<dl><dt><strong>query_class</strong> = &lt;class 'flask_sqlalchemy.BaseQuery'&gt;<dd><tt>SQLAlchemy&nbsp;:class:`~sqlalchemy.orm.query.Query`&nbsp;subclass&nbsp;with&nbsp;convenience&nbsp;methods&nbsp;for&nbsp;querying&nbsp;in&nbsp;a&nbsp;web&nbsp;application.<br>
-&nbsp;<br>
-This&nbsp;is&nbsp;the&nbsp;default&nbsp;:attr:`~Model.query`&nbsp;object&nbsp;used&nbsp;for&nbsp;models,&nbsp;and&nbsp;exposed&nbsp;as&nbsp;:attr:`~SQLAlchemy.Query`.<br>
-Override&nbsp;the&nbsp;query&nbsp;class&nbsp;for&nbsp;an&nbsp;individual&nbsp;model&nbsp;by&nbsp;subclassing&nbsp;this&nbsp;and&nbsp;setting&nbsp;:attr:`~Model.query_class`.</tt></dl>
 
 <hr>
 Data descriptors inherited from <a href="flask_sqlalchemy.html#Model">flask_sqlalchemy.Model</a>:<br>
@@ -180,21 +186,25 @@ Data descriptors defined here:<br>
 </dl>
 <hr>
 Data and other attributes defined here:<br>
-<dl><dt><strong>__mapper__</strong> = &lt;Mapper at 0x7f5651271ad0; Platform&gt;</dl>
+<dl><dt><strong>__mapper__</strong> = &lt;Mapper at 0x7f53b55f2110; Platform&gt;</dl>
+
+<dl><dt><strong>__searchable__</strong> = ['name', 'summary', 'image', 'website']</dl>
 
 <dl><dt><strong>__table__</strong> = Table('platform', MetaData(bind=None), Column('i...tring(length=80), table=&lt;platform&gt;), schema=None)</dl>
 
+<dl><dt><strong>pure_whoosh</strong> = &lt;flask_whooshalchemy._Searcher object&gt;<dd><tt>Assigned&nbsp;to&nbsp;a&nbsp;Model&nbsp;class&nbsp;as&nbsp;``pure_search``,&nbsp;which&nbsp;enables<br>
+text-querying&nbsp;to&nbsp;whoosh&nbsp;hit&nbsp;list.&nbsp;Also&nbsp;used&nbsp;by&nbsp;``query.whoosh_search``</tt></dl>
+
+<dl><dt><strong>query_class</strong> = &lt;class 'flask_whooshalchemy._QueryProxy'&gt;</dl>
+
+<dl><dt><strong>whoosh_primary_key</strong> = 'id'</dl>
+
 <hr>
 Methods inherited from flask_sqlalchemy.Model:<br>
-<strong>query</strong> = &lt;flask_sqlalchemy.BaseQuery object&gt;
+<strong>query</strong> = &lt;flask_whooshalchemy._QueryProxy object&gt;
 <hr>
 Data and other attributes inherited from flask_sqlalchemy.Model:<br>
 <dl><dt><strong>metadata</strong> = MetaData(bind=None)</dl>
-
-<dl><dt><strong>query_class</strong> = &lt;class 'flask_sqlalchemy.BaseQuery'&gt;<dd><tt>SQLAlchemy&nbsp;:class:`~sqlalchemy.orm.query.Query`&nbsp;subclass&nbsp;with&nbsp;convenience&nbsp;methods&nbsp;for&nbsp;querying&nbsp;in&nbsp;a&nbsp;web&nbsp;application.<br>
-&nbsp;<br>
-This&nbsp;is&nbsp;the&nbsp;default&nbsp;:attr:`~Model.query`&nbsp;object&nbsp;used&nbsp;for&nbsp;models,&nbsp;and&nbsp;exposed&nbsp;as&nbsp;:attr:`~SQLAlchemy.Query`.<br>
-Override&nbsp;the&nbsp;query&nbsp;class&nbsp;for&nbsp;an&nbsp;individual&nbsp;model&nbsp;by&nbsp;subclassing&nbsp;this&nbsp;and&nbsp;setting&nbsp;:attr:`~Model.query_class`.</tt></dl>
 
 <hr>
 Data descriptors inherited from <a href="flask_sqlalchemy.html#Model">flask_sqlalchemy.Model</a>:<br>
@@ -264,21 +274,25 @@ Data descriptors defined here:<br>
 </dl>
 <hr>
 Data and other attributes defined here:<br>
-<dl><dt><strong>__mapper__</strong> = &lt;Mapper at 0x7f565122bb10; Reviews&gt;</dl>
+<dl><dt><strong>__mapper__</strong> = &lt;Mapper at 0x7f53b5605150; Reviews&gt;</dl>
+
+<dl><dt><strong>__searchable__</strong> = ['title', 'video', 'introduction', 'content', 'conclusion', 'positive', 'negative', 'url']</dl>
 
 <dl><dt><strong>__table__</strong> = Table('reviews', MetaData(bind=None), Column('id...tring(length=256), table=&lt;reviews&gt;), schema=None)</dl>
 
+<dl><dt><strong>pure_whoosh</strong> = &lt;flask_whooshalchemy._Searcher object&gt;<dd><tt>Assigned&nbsp;to&nbsp;a&nbsp;Model&nbsp;class&nbsp;as&nbsp;``pure_search``,&nbsp;which&nbsp;enables<br>
+text-querying&nbsp;to&nbsp;whoosh&nbsp;hit&nbsp;list.&nbsp;Also&nbsp;used&nbsp;by&nbsp;``query.whoosh_search``</tt></dl>
+
+<dl><dt><strong>query_class</strong> = &lt;class 'flask_whooshalchemy._QueryProxy'&gt;</dl>
+
+<dl><dt><strong>whoosh_primary_key</strong> = 'id'</dl>
+
 <hr>
 Methods inherited from flask_sqlalchemy.Model:<br>
-<strong>query</strong> = &lt;flask_sqlalchemy.BaseQuery object&gt;
+<strong>query</strong> = &lt;flask_whooshalchemy._QueryProxy object&gt;
 <hr>
 Data and other attributes inherited from flask_sqlalchemy.Model:<br>
 <dl><dt><strong>metadata</strong> = MetaData(bind=None)</dl>
-
-<dl><dt><strong>query_class</strong> = &lt;class 'flask_sqlalchemy.BaseQuery'&gt;<dd><tt>SQLAlchemy&nbsp;:class:`~sqlalchemy.orm.query.Query`&nbsp;subclass&nbsp;with&nbsp;convenience&nbsp;methods&nbsp;for&nbsp;querying&nbsp;in&nbsp;a&nbsp;web&nbsp;application.<br>
-&nbsp;<br>
-This&nbsp;is&nbsp;the&nbsp;default&nbsp;:attr:`~Model.query`&nbsp;object&nbsp;used&nbsp;for&nbsp;models,&nbsp;and&nbsp;exposed&nbsp;as&nbsp;:attr:`~SQLAlchemy.Query`.<br>
-Override&nbsp;the&nbsp;query&nbsp;class&nbsp;for&nbsp;an&nbsp;individual&nbsp;model&nbsp;by&nbsp;subclassing&nbsp;this&nbsp;and&nbsp;setting&nbsp;:attr:`~Model.query_class`.</tt></dl>
 
 <hr>
 Data descriptors inherited from <a href="flask_sqlalchemy.html#Model">flask_sqlalchemy.Model</a>:<br>
@@ -334,21 +348,25 @@ Data descriptors defined here:<br>
 </dl>
 <hr>
 Data and other attributes defined here:<br>
-<dl><dt><strong>__mapper__</strong> = &lt;Mapper at 0x7f565122b190; Studio&gt;</dl>
+<dl><dt><strong>__mapper__</strong> = &lt;Mapper at 0x7f53b55f2790; Studio&gt;</dl>
+
+<dl><dt><strong>__searchable__</strong> = ['name', 'logo', 'description', 'website']</dl>
 
 <dl><dt><strong>__table__</strong> = Table('studio', MetaData(bind=None), Column('id'...String(length=256), table=&lt;studio&gt;), schema=None)</dl>
 
+<dl><dt><strong>pure_whoosh</strong> = &lt;flask_whooshalchemy._Searcher object&gt;<dd><tt>Assigned&nbsp;to&nbsp;a&nbsp;Model&nbsp;class&nbsp;as&nbsp;``pure_search``,&nbsp;which&nbsp;enables<br>
+text-querying&nbsp;to&nbsp;whoosh&nbsp;hit&nbsp;list.&nbsp;Also&nbsp;used&nbsp;by&nbsp;``query.whoosh_search``</tt></dl>
+
+<dl><dt><strong>query_class</strong> = &lt;class 'flask_whooshalchemy._QueryProxy'&gt;</dl>
+
+<dl><dt><strong>whoosh_primary_key</strong> = 'id'</dl>
+
 <hr>
 Methods inherited from flask_sqlalchemy.Model:<br>
-<strong>query</strong> = &lt;flask_sqlalchemy.BaseQuery object&gt;
+<strong>query</strong> = &lt;flask_whooshalchemy._QueryProxy object&gt;
 <hr>
 Data and other attributes inherited from flask_sqlalchemy.Model:<br>
 <dl><dt><strong>metadata</strong> = MetaData(bind=None)</dl>
-
-<dl><dt><strong>query_class</strong> = &lt;class 'flask_sqlalchemy.BaseQuery'&gt;<dd><tt>SQLAlchemy&nbsp;:class:`~sqlalchemy.orm.query.Query`&nbsp;subclass&nbsp;with&nbsp;convenience&nbsp;methods&nbsp;for&nbsp;querying&nbsp;in&nbsp;a&nbsp;web&nbsp;application.<br>
-&nbsp;<br>
-This&nbsp;is&nbsp;the&nbsp;default&nbsp;:attr:`~Model.query`&nbsp;object&nbsp;used&nbsp;for&nbsp;models,&nbsp;and&nbsp;exposed&nbsp;as&nbsp;:attr:`~SQLAlchemy.Query`.<br>
-Override&nbsp;the&nbsp;query&nbsp;class&nbsp;for&nbsp;an&nbsp;individual&nbsp;model&nbsp;by&nbsp;subclassing&nbsp;this&nbsp;and&nbsp;setting&nbsp;:attr:`~Model.query_class`.</tt></dl>
 
 <hr>
 Data descriptors inherited from <a href="flask_sqlalchemy.html#Model">flask_sqlalchemy.Model</a>:<br>

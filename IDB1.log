@@ -1,3 +1,417 @@
+commit 5f7f9cdfa70f16bad951974bc95d01881f2cd22e
+Author: Warren Crasta <warrencrasta@gmail.com>
+Date:   Tue Apr 18 19:42:38 2017 -0500
+
+    Making search look better.
+
+commit 64be98a89e1d4049771316d8abec8b939b0edc54
+Author: Warren Crasta <warrencrasta@gmail.com>
+Date:   Tue Apr 18 18:36:47 2017 -0500
+
+    Synchronize server files with GitHub
+
+commit 1da66e2834738c2b43256822792aa25651541921
+Author: Zihao <zihaozhu@utexas.edu>
+Date:   Tue Apr 18 12:59:22 2017 -0500
+
+    Added my portions of the report
+
+commit 150b262196dd35467ca1ffa604ed641e4d0b53ad
+Author: kbbrownn <kbbrown@utexas.edu>
+Date:   Mon Apr 17 12:11:22 2017 -0500
+
+    Vis page now loads flare.json from proper route
+
+commit 8a0d411293d675330ccc61410d6d627c000793e3
+Author: kbbrownn <kbbrown@utexas.edu>
+Date:   Mon Apr 17 11:52:52 2017 -0500
+
+    Updated gitignore to ignore package.json
+
+commit 7844effcac8b5a2d4fa7cce578ef0ecc31fa5891
+Author: Kaivan Shah <kaivan29@utexas.edu>
+Date:   Mon Apr 17 11:51:44 2017 -0500
+
+    added flare.json
+
+commit 871bfdf791bd7ecde7bfdc2ad8dfc25d8f79fdea
+Author: kbbrownn <kbbrown@utexas.edu>
+Date:   Mon Apr 17 11:50:31 2017 -0500
+
+    Fixed gitignore to allow json files
+
+commit d339c407dc50a633156794de5960980986f7a7a8
+Author: Warren Crasta <warrencrasta@gmail.com>
+Date:   Sat Apr 15 22:39:57 2017 -0500
+
+    Missed adding the searchbar to 2 pages.
+
+commit 460fa2491a5fcaa66081eeb8bdee599e23c3f332
+Author: Warren Crasta <warrencrasta@gmail.com>
+Date:   Sat Apr 15 22:28:35 2017 -0500
+
+    Lame attempt at search in navbar.
+
+commit b96132ef3ae9c47240c20c39ed4fc9bb05d34a45
+Merge: 96ebf38 0114bc6
+Author: Zihao <zihaozhu@utexas.edu>
+Date:   Sat Apr 15 21:13:49 2017 -0500
+
+    Merge branch 'phase3test' of https://github.com/wcrasta/idb into phase3test
+
+commit 96ebf3874909efd6ba888390d29cfc94ceab3e4e
+Author: Zihao <zihaozhu@utexas.edu>
+Date:   Sat Apr 15 21:13:39 2017 -0500
+
+    fixing contextualization
+
+commit 0114bc660a9edaba87cd3a5b3eaea18384d43db4
+Author: Warren Crasta <warrencrasta@gmail.com>
+Date:   Sat Apr 15 21:11:40 2017 -0500
+
+    Updated 404 page.
+
+commit cf1bbbf98f2ed30e1d082b92a61485255040ca01
+Author: Warren Crasta <warrencrasta@gmail.com>
+Date:   Sat Apr 15 20:51:03 2017 -0500
+
+    Removing CSS addition from 1cfdbe8cb017f5d3e999bbf0b3357779a5b33f96. Mistake?
+
+commit b021a3cb3febf7f07a38cfd1b41565e800c98d50
+Author: Warren Crasta <warrencrasta@gmail.com>
+Date:   Sat Apr 15 20:11:38 2017 -0500
+
+    Updated search UI
+
+commit 67e8e6c8bfec54ca08c1747b92217924e057ee88
+Author: Warren Crasta <warrencrasta@gmail.com>
+Date:   Sat Apr 15 16:57:09 2017 -0500
+
+    Fixed search contextualization. Closing #75.
+
+commit 913aa81ad8419df13c6c6a2e70835eff4e61216a
+Author: Anurag Papineni <anuragpapineni@gmail.com>
+Date:   Sat Apr 15 12:41:19 2017 -0500
+
+    10 results per page now and fixed bug where pagination wouldnt happen if there was an error in the js
+
+commit 73099fc7e08d7dbd035837e198288e6c9c00718d
+Author: Anurag Papineni <anuragpapineni@gmail.com>
+Date:   Fri Apr 14 20:17:02 2017 -0500
+
+    review pagination done
+
+commit af85e6073b88bd88a34350b132342f86e634fdb8
+Author: Anurag Papineni <anuragpapineni@gmail.com>
+Date:   Fri Apr 14 20:10:56 2017 -0500
+
+    studio pagination
+
+commit 12fd9d893677d5eb1d738ab0c60d73b7b11e933a
+Author: Anurag Papineni <anuragpapineni@gmail.com>
+Date:   Fri Apr 14 20:06:53 2017 -0500
+
+    platform pagination done
+
+commit f3f444d40cca54d737b4e9229fce828b45c7fb02
+Author: Anurag Papineni <anuragpapineni@gmail.com>
+Date:   Fri Apr 14 19:49:38 2017 -0500
+
+    game pagination finished
+
+commit 48cbb73fd562e10399b1866d65bb1739532ece05
+Author: Anurag Papineni <anuragpapineni@gmail.com>
+Date:   Fri Apr 14 19:40:28 2017 -0500
+
+    limiting results to 400 for search
+
+commit 045d612afff75e2f86f5c77438e9c215e5c454cf
+Author: Zihao <zihaozhu@utexas.edu>
+Date:   Fri Apr 14 18:14:51 2017 -0500
+
+    Fixed or search
+
+commit e892fe5934101b481c828b462c0fcd9f89fbb256
+Author: Zihao <zihaozhu@utexas.edu>
+Date:   Fri Apr 14 18:14:26 2017 -0500
+
+    Fixed or search
+
+commit 74a277146718ecc69a1853867d9c4531e04c5ea9
+Merge: 747029a 954e09b
+Author: wcrasta <wcrasta@utexas.edu>
+Date:   Fri Apr 14 15:26:27 2017 -0500
+
+    Merge branch 'phase3test' of https://github.com/wcrasta/idb into phase3test
+
+commit 747029a487fb758089163bf136ccc3f697bb576d
+Author: wcrasta <wcrasta@utexas.edu>
+Date:   Fri Apr 14 15:26:17 2017 -0500
+
+    Fix highlighting and andSearch.
+
+commit 954e09b3374c413d08d5396fff1eb211af19485b
+Merge: 063d315 9bbb33c
+Author: Kaivan Shah <kaivan29@utexas.edu>
+Date:   Fri Apr 14 15:11:54 2017 -0500
+
+    Merge branch 'phase3test' of https://github.com/wcrasta/idb into phase3test
+
+commit 063d3152978a8c190ae801ea69a21210428f20d8
+Author: Kaivan Shah <kaivan29@utexas.edu>
+Date:   Fri Apr 14 15:11:50 2017 -0500
+
+    visualization changes
+
+commit 9bbb33c5ce0fb5159e0148ecdc362756245df539
+Author: Zihao Zhu <zz3686@cs.utexas.edu>
+Date:   Fri Apr 14 14:17:31 2017 -0500
+
+    Added stuff to report
+
+commit 442f670af9d79803297d1001b608960a055aa684
+Merge: c9341e7 31e2b4d
+Author: Kaivan Shah <kaivan29@utexas.edu>
+Date:   Fri Apr 14 13:24:41 2017 -0500
+
+    Merge branch 'phase3test' of https://github.com/wcrasta/idb into phase3test
+
+commit 31e2b4d946626096c009b41c4f40e8399ef02e40
+Author: wcrasta <wcrasta@utexas.edu>
+Date:   Fri Apr 14 13:19:02 2017 -0500
+
+    Colin's changes.
+
+commit 91998399216b3a0938b907a8b5e5f6ef681ee444
+Author: kbbrownn <kbbrown@utexas.edu>
+Date:   Fri Apr 14 13:17:31 2017 -0500
+
+    Added links to all individual pages / review url on search page
+
+commit c9341e75b4db90b545f48974c731855ecfed4c13
+Merge: adf715f dc04a4b
+Author: Kaivan Shah <kaivan29@utexas.edu>
+Date:   Fri Apr 14 13:13:28 2017 -0500
+
+    Merge branch 'phase3test' of https://github.com/wcrasta/idb into phase3test
+
+commit adf715f282b8b1c6170d0c14cbb748cf370f89a8
+Author: Kaivan Shah <kaivan29@utexas.edu>
+Date:   Fri Apr 14 13:13:26 2017 -0500
+
+    visualization stuff
+
+commit dc04a4b622b611eaff9b47768bbf3a77cbccceff
+Merge: 9a2b795 5d751f9
+Author: Zihao Zhu <zz3686@cs.utexas.edu>
+Date:   Fri Apr 14 12:53:43 2017 -0500
+
+    finished hilighting
+
+commit 9a2b795dcd84ab3d5b9ba74b3af810a95dfbdbda
+Author: Zihao Zhu <zz3686@cs.utexas.edu>
+Date:   Fri Apr 14 12:52:21 2017 -0500
+
+    Finished hi-lighting
+
+commit 5d751f98c3f4159c75b5d54a81d2853ebbe2e957
+Author: kbbrownn <kbbrown@utexas.edu>
+Date:   Fri Apr 14 12:44:26 2017 -0500
+
+    Cut down length of long items on search page
+
+commit b6ba6584fe46d1d863a920496e31a94ccb9678be
+Author: kbbrownn <kbbrown@utexas.edu>
+Date:   Fri Apr 14 12:15:57 2017 -0500
+
+    Fixed navbar / spacing on search page
+
+commit 0465e2331326acf221a36fd080705d8e91fc96b4
+Merge: 38f9566 e26d51c
+Author: Zihao Zhu <zz3686@cs.utexas.edu>
+Date:   Fri Apr 14 12:01:21 2017 -0500
+
+    Merge branch 'phase3test' of https://github.com/wcrasta/idb into phase3test
+
+commit 38f9566d4e383b6c6f512d86f7a9c7fd1a62bb03
+Author: Zihao Zhu <zz3686@cs.utexas.edu>
+Date:   Fri Apr 14 12:01:02 2017 -0500
+
+    Fixed home search
+
+commit e26d51c41c0bb10d4f74801294c371b819cf8c4d
+Author: Warren Crasta <warrencrasta@gmail.com>
+Date:   Thu Apr 13 14:36:28 2017 -0500
+
+    Closing #71
+
+commit 38740cb11b5acccf5f6eb0544fcbac23bf170027
+Author: wcrasta <wcrasta@utexas.edu>
+Date:   Thu Apr 13 13:46:02 2017 -0500
+
+    Fixed search
+
+commit c9763d27531de101c67b332d984e9c7dd7b5bc34
+Author: wcrasta <wcrasta@utexas.edu>
+Date:   Thu Apr 13 13:29:17 2017 -0500
+
+    Fixing search
+
+commit dfc7d1f6e8f0be01be4113ca9cc203688ebc74e4
+Author: wcrasta <wcrasta@utexas.edu>
+Date:   Thu Apr 13 12:05:56 2017 -0500
+
+    Made attributes bold.
+
+commit 4a64b4d46f2e5aa6ab2cecd043f58f55d49a68a2
+Author: wcrasta <wcrasta@utexas.edu>
+Date:   Thu Apr 13 11:15:18 2017 -0500
+
+    Last of cleanup.
+
+commit 68848f692d636d17a41127aa2f36d5f058890bef
+Author: wcrasta <wcrasta@utexas.edu>
+Date:   Thu Apr 13 11:12:55 2017 -0500
+
+    Does this break search? v2
+
+commit 9e7e8a2edcd3c7e9c3bfab52b0c6bca85b9fffa1
+Merge: fd9d5dc dd5961e
+Author: wcrasta <wcrasta@utexas.edu>
+Date:   Thu Apr 13 11:10:03 2017 -0500
+
+    Merge branch 'phase3test' of https://github.com/wcrasta/idb into phase3test
+
+commit fd9d5dcef1d5fe8bb3f29253ee53dc8f42ac341f
+Author: wcrasta <wcrasta@utexas.edu>
+Date:   Thu Apr 13 11:09:40 2017 -0500
+
+    Does this break search?
+
+commit dd5961ea01a1628fc1daa4c6a1561f737c7ce379
+Author: Colin-Thornton <spartan0366@yahoo.com>
+Date:   Thu Apr 13 10:57:57 2017 -0500
+
+    Added backrefs to games, studios and platforms for api call
+
+commit deedb7ebf6e812db3dbb7bf414b70b979b1b4445
+Author: kbbrownn <kbbrown@utexas.edu>
+Date:   Thu Apr 13 10:16:33 2017 -0500
+
+    Deleting old named files
+
+commit ec3d0ff03014405dec37ca727be5439120207467
+Author: kbbrownn <kbbrown@utexas.edu>
+Date:   Thu Apr 13 10:08:26 2017 -0500
+
+    Testing name changes
+
+commit 738eebf5cf6fb711f5b653801ff490de3605f3d0
+Author: Zihao Zhu <zz3686@cs.utexas.edu>
+Date:   Wed Apr 12 19:00:05 2017 -0500
+
+    Finished search
+
+commit 545fddcc641f1da08974a9f1f49f80e92689667d
+Merge: 1cfdbe8 32d37d6
+Author: Zihao Zhu <zz3686@cs.utexas.edu>
+Date:   Wed Apr 12 17:54:39 2017 -0500
+
+    conflict
+
+commit 32d37d6215f1cd109eaf7ac04c6837d8fae853f0
+Author: kbbrownn <kbbrown@utexas.edu>
+Date:   Wed Apr 12 16:05:00 2017 -0500
+
+    Fixed various stylings
+
+commit 1cfdbe8cb017f5d3e999bbf0b3357779a5b33f96
+Author: Zihao Zhu <zz3686@cs.utexas.edu>
+Date:   Wed Apr 12 16:01:39 2017 -0500
+
+    Testy testy
+
+commit 5145c21dc94753a486692aa40cae9a3b1a33e7c2
+Author: Colin Thornton <colin@cs.utexas.edu>
+Date:   Wed Apr 12 15:49:29 2017 -0500
+
+    Starting scrap for visulization
+
+commit ab807382894b7d7b985c70bc9d8416b8247ffc54
+Author: kbbrownn <kbbrown@utexas.edu>
+Date:   Wed Apr 12 12:31:14 2017 -0500
+
+    Added template / route and link to visualization page
+
+commit 95098a82b6e1e56b30a3cd82328b582756dca488
+Merge: 683f00c 44f35ba
+Author: kbbrownn <kbbrown@utexas.edu>
+Date:   Wed Apr 12 12:11:53 2017 -0500
+
+    Merge branch 'phase3' of https://github.com/wcrasta/idb into phase3
+
+commit 683f00ce1570bf17d56ada7928e7c8b8b677e331
+Author: kbbrownn <kbbrown@utexas.edu>
+Date:   Wed Apr 12 12:11:25 2017 -0500
+
+    Changed filter button sizing
+
+commit 44f35ba04acebf3c522dfa680946d58973211605
+Merge: f554f23 40e05b3
+Author: Zihao <zihaozhu@utexas.edu>
+Date:   Wed Apr 12 11:56:20 2017 -0500
+
+    Merge branch 'phase3' of https://github.com/wcrasta/idb into phase3
+
+commit f554f237a3a4b87a2b44d94f6b7ec3f10609123c
+Author: Zihao <zihaozhu@utexas.edu>
+Date:   Wed Apr 12 11:56:06 2017 -0500
+
+    Working on search
+
+commit 40e05b309722393d090c888146681e576b090c45
+Author: kbbrownn <kbbrown@utexas.edu>
+Date:   Tue Apr 11 23:07:41 2017 -0500
+
+    Referencing #69, now have one button for filter submit, fixed spacing on studios, made titles smaller
+
+commit ee5a6e89ea1facb6d63f7aa4f24df1891d2b5170
+Merge: 3623457 4aa0480
+Author: Zihao <zihaozhu@utexas.edu>
+Date:   Tue Apr 11 13:25:38 2017 -0500
+
+    backbone search
+
+commit 36234573ea0731ce139b17fb8063dcf512655fd1
+Author: Zihao <zihaozhu@utexas.edu>
+Date:   Tue Apr 11 13:22:40 2017 -0500
+
+    Added backbone search in init
+
+commit 4aa0480fd5357b47e8c36fc1811a1529cb4213f4
+Author: kbbrownn <kbbrown@utexas.edu>
+Date:   Mon Apr 10 22:26:05 2017 -0500
+
+    Reimplemented search bar on home page -- needs dynamic resizing / positioning on collapse
+
+commit d017329c4db1856230aad70b2c8bb82469e52ce1
+Author: kbbrownn <kbbrown@utexas.edu>
+Date:   Mon Apr 10 22:23:15 2017 -0500
+
+    Reimplemented search bar on home page -- needs styling fixes on page collapse
+
+commit 6e37a33b1cb747d2323c54d0c006e02088d323b5
+Author: Warren Crasta <warrencrasta@gmail.com>
+Date:   Fri Apr 7 18:21:48 2017 -0500
+
+    Adding Platforms and Studios to Games page
+
+commit 2720312c0a113b5682625f806dc86b0e7fc186fc
+Author: wcrasta <wcrasta@utexas.edu>
+Date:   Thu Apr 6 20:02:52 2017 -0500
+
+    Final commit Phase 2
+
 commit 6b146c3eb48c416b542b792946856d35d698291b
 Author: Colin Thornton <colin@cs.utexas.edu>
 Date:   Thu Apr 6 19:48:19 2017 -0500
