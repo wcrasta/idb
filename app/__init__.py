@@ -236,6 +236,13 @@ def andSearch(items):
 def not_found_error(error):
     return render_template('404.html'), 404
 
+@app.route('/presentation')
+def presentation():
+    """
+        Renders the presentation page
+    """
+    return render_template('presentation.pdf')
+
 
 @app.route('/visualization')
 def visualization():
@@ -260,7 +267,7 @@ def search(typeSearch=None):
     else:
         results = andSearch(searchA)
         searched = searchA
-   
+
     return render_template('search.html', platforms=results[1], studios=results[2], reviews=results[3], games=results[0], wordsSearched=searched)
 
 

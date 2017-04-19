@@ -96,7 +96,10 @@
               <li class="nav-item" style="padding-top: 15px">
                 <form class="navbar-form" role="search" action="{{ url_for('search') }}" method="get" id="searchBar">
                 <div class="input-group-sm" align="center">
-                  <input type="text" name="searchAnd" class="form-control"  placeholder="Search"><button class="btn btn-sm" type="submit"><i class="glyphicon glyphicon-search"></i></button>
+                  <input type="text" name="searchAnd" class="form-control" placeholder="Search" style="width: 150px;">
+                  <button class="btn btn-sm" type="submit">
+                    <i class="glyphicon glyphicon-search"></i>
+                  </button>
                 </div>
                 </form>
               </li>
@@ -307,6 +310,8 @@
           <h3>Technical Report</h3></a>
         <a href="{{url_for('visualization')}}">
           <h3>YouTubeSWEg API Visualization</h3></a>
+        <a href="{{url_for('presentation')}}">
+          <h3>Class Presentation</h3></a>
       </div>
     </div>
   </div>
