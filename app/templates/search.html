@@ -541,6 +541,7 @@ function Pager(tableName, itemsPerPage, pagerName) {
       for (i = 0; i<wordsLength;i++)
       {
         var regex = new RegExp('(' + allWords[i] + ')', 'ig');
+       //var regex = new RegExp('(?!<a[^>]*?>)('+allWords[i]+')(?![^<]*?</a>)', 'ig');
        $('#searchedText').html( $('#searchedText').html().replace(regex, "<span class='highlight'><b>$1</b></span>"));
       }
 });
