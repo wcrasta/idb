@@ -13,6 +13,11 @@
     body {
       background: url('../static/images/bg2.png');
     }
+    p {
+      text-align: left;
+      color: black;
+      font-size: 1.2em;
+    }
     h1 {
       color: white;
     }
@@ -122,11 +127,11 @@
         <tbody>
           {% for item in games %}
           <tr>
-            <td><a href="{{ url_for('game_instance', name = item.id)}}"> {{item.name}} </a></td>
-            <td>{{ item.genre }}</td>
-            <td>{{item.esrb}}</td>
-            <td>{{item.status}}</td>
-            <td>
+            <td><p><a href="{{ url_for('game_instance', name = item.id)}}">{{item.name}}</a></p></td>
+            <td><p>{{ item.genre }}</p></td>
+            <td><p>{{item.esrb}}</p></td>
+            <td><p>{{item.status}}</p></td>
+            <td><p>
                 {% set found = {'fd': False} %}
 
                 {% set list1 = wordsSearched.split(' ') %}
@@ -156,7 +161,7 @@
               {{item.summary[:100]}}...
 
               {% endif %}
-            </td>
+            </p></td>
           </tr>
         {% endfor %}
         </tbody>
@@ -184,10 +189,15 @@
         <tbody>
           {% for item in platforms %}
           <tr>
-            <td><a href="{{ url_for('platform_instance', name = item.id)}}"> {{item.name}} </a></td>
-            <td>{{item.created_at.date()}}</td>
-            <td>{{item.website}}</td>
-            <td>
+            <td><p><a href="{{ url_for('platform_instance', name = item.id)}}"> {{item.name}} </a></p></td>
+            <td><p>{{item.created_at.date()}}</p></td>
+            <td><p>
+              {% if item.website !='None' %}
+                <a href="{{item.website}}">{{item.website}}</a></p></td>
+              {% else %}
+                {{item.website}}
+              {% endif %}
+            <td><p>
                 {% set found = {'fd': False} %}
 
                 {% set list1 = wordsSearched.split(' ') %}
@@ -217,7 +227,7 @@
               {{item.summary[:100]}}...
 
               {% endif %}
-            </td>
+            </p></td>
           </tr>
         {% endfor %}
         </tbody>
@@ -245,10 +255,16 @@
         <tbody>
           {% for item in studios %}
           <tr>
-            <td><a href="{{ url_for('studio_instance', name = item.id)}}"> {{item.name}} </a></td>
-            <td>{{item.created_at.date()}}</td>
-            <td>{{item.website}}</td>
-            <td>
+            <td><p><a href="{{ url_for('studio_instance', name = item.id)}}"> {{item.name}} </a></p></td>
+            <td><p>{{item.created_at.date()}}</p></td>
+            <td><p>
+              {% if item.website !='None' %}
+                <a href="{{item.website}}">{{item.website}}</a></p></td>
+              {% else %}
+                {{item.website}}
+              {% endif %}
+            </p></td>
+            <td><p>
                 {% set found = {'fd': False} %}
 
                 {% set list1 = wordsSearched.split(' ') %}
@@ -278,7 +294,7 @@
               {{item.description[:100]}}...
 
               {% endif %}
-          </td>
+          </p></td>
           </tr>
         {% endfor %}
         </tbody>
@@ -308,8 +324,8 @@
       <tbody>
         {% for item in reviews %}
         <tr>
-          <td><a href="{{ url_for('review_instance', name = item.id)}}"> {{item.title}} </a></td>
-          <td>
+          <td><p><a href="{{ url_for('review_instance', name = item.id)}}"> {{item.title}} </a></p></td>
+          <td><p>
               {% set found = {'fd': False} %}
 
               {% set list1 = wordsSearched.split(' ') %}
@@ -339,8 +355,8 @@
             {{item.introduction[:100]}}...
 
             {% endif %}
-          </td>
-          <td>
+          </p></td>
+          <td><p>
               {% set found = {'fd': False} %}
 
               {% set list1 = wordsSearched.split(' ') %}
@@ -370,8 +386,8 @@
             {{item.content[:100]}}...
 
             {% endif %}
-          </td>
-          <td>
+          </p></td>
+          <td><p>
               {% set found = {'fd': False} %}
 
               {% set list1 = wordsSearched.split(' ') %}
@@ -401,8 +417,14 @@
             {{item.conclusion[:100]}}...
 
             {% endif %}
-          </td>
-          <td>{{item.url}}</td>
+          </p></td>
+          <td><p>
+              {% if item.url !='None' %}
+                <a href="{{item.url}}">{{item.url}}</a></p></td>
+              {% else %}
+                {{item.url}}
+              {% endif %}
+          </p></td>
         </tr>
       {% endfor %}
       </tbody>
