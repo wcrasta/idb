@@ -71,16 +71,20 @@ d3.json("flare", function(root) {
       .attr("d", arc)
       .style("fill", function(d) { return color((d.children ? d : d.parent).name); })
       .on("click", click)
-      .attr("id", "xddd") // ID for path
+      .attr("id", function(d, i) {return "a" + i++;}) // Give each path a unique ID
       .each(stash);
 
+    d3.selectAll("path").each(function(d, i) {
       // TEXT MANAGEMENT
       svg.append("text")
-         .append("textPath")
-      	.attr("xlink:href", "#xddd")
-      	.style("text-anchor","middle")
-      	.attr("startOffset", "50%")
-      	.text("AAAAAAAAAA");
+        .attr("x", 2)
+        .attr("dy", 30)
+      .append("textPath")
+        .attr("xlink:href", "#a" + i++)
+        .text("Woweee")
+        .style("font-size", "1em");
+      });
+
 
   d3.selectAll("input").on("change", function change() {
     var value = this.value === "count"
@@ -96,7 +100,7 @@ d3.json("flare", function(root) {
 
   });
 
-  function click(d) {
+  function click(d, i) {
     path.transition()
       .duration(1000)
       .attrTween("d", arcTweenZoom(d));
