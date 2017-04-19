@@ -1,3 +1,45 @@
+commit ad2ee2d33bf2bb40986db60cc78322f16f8de677
+Author: Zihao Zhu <zz3686@cs.utexas.edu>
+Date:   Wed Apr 19 13:51:10 2017 -0500
+
+    highlighting works properly and links are not messed up on search
+
+commit cd5999c887ce6bcf642ac6cc2b35dd501deadd7d
+Author: Zihao Zhu <zz3686@cs.utexas.edu>
+Date:   Wed Apr 19 13:29:21 2017 -0500
+
+    Adding whoosh alch
+
+commit 974a50e1d34c4818008dbb541e161195a74e1319
+Author: Zihao Zhu <zz3686@cs.utexas.edu>
+Date:   Wed Apr 19 13:27:12 2017 -0500
+
+    Fixed search?
+
+commit 1a93377808b1813ef9a7624ca4684770dd5375d4
+Author: kbbrownn <kbbrown@utexas.edu>
+Date:   Wed Apr 19 11:53:33 2017 -0500
+
+    Added text to all paths
+
+commit 9c321b7be14450414ce9aef2d86d024e12e1c14a
+Author: kbbrownn <kbbrown@utexas.edu>
+Date:   Tue Apr 18 23:58:51 2017 -0500
+
+    Finally got text on pie, may be able to stick with this visualization
+
+commit 6a4000b2a260975e0fb3b6cdfde348cb11497f25
+Author: Warren Crasta <warrencrasta@gmail.com>
+Date:   Tue Apr 18 22:08:24 2017 -0500
+
+    Search is so fragile.
+
+commit d901e0c9292cc57fc6bde65714599dd01aaea596
+Author: wcrasta <wcrasta@utexas.edu>
+Date:   Tue Apr 18 21:42:38 2017 -0500
+
+    Fixing small error in makefile.
+
 commit 06f2349754d1e44b7f5888d7a3a151cc2bab6c5c
 Author: wcrasta <wcrasta@utexas.edu>
 Date:   Tue Apr 18 21:34:10 2017 -0500
