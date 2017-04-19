@@ -1,3 +1,9 @@
+commit 06f2349754d1e44b7f5888d7a3a151cc2bab6c5c
+Author: wcrasta <wcrasta@utexas.edu>
+Date:   Tue Apr 18 21:34:10 2017 -0500
+
+    Updates to makefile to address Issue 78
+
 commit 5f7f9cdfa70f16bad951974bc95d01881f2cd22e
 Author: Warren Crasta <warrencrasta@gmail.com>
 Date:   Tue Apr 18 19:42:38 2017 -0500

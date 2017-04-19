@@ -42,9 +42,9 @@ endif
 	$(PYLINT) --disable=locally-disabled --reports=no --generate-rcfile > $@
 
 app/tests.out: .pylintrc
-	-$(PYLINT) app/tests.py
+	-$(PYLINT) app/models.py
 	$(COVERAGE) run    --branch app/tests.py >  app/tests.out 2>&1
-	$(COVERAGE) report -m --include="app/models.py" >> app/tests.out
+	-$(COVERAGE) report -m --include="app/models.py" >> app/tests.out
 	cat app/tests.out
 
 IDB1.html:

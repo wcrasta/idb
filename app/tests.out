@@ -2,7 +2,7 @@
   import flask.ext.sqlalchemy as flask_sqlalchemy
 ...............
 ----------------------------------------------------------------------
-Ran 15 tests in 0.039s
+Ran 15 tests in 0.038s
 
 OK
 Name            Stmts   Miss Branch BrPart  Cover   Missing
