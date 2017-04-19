@@ -19,7 +19,10 @@ path {
   stroke: #fff;
   fill-rule: evenodd;
 }
-
+p {
+  color: black;
+  font-size: 2em;
+}
 </style>
 <body>
 <form>
@@ -66,9 +69,18 @@ d3.json("flare", function(root) {
       .data(partition.nodes)
       .enter().append("path")
       .attr("d", arc)
-      .style("stroke", function(d) { return color((d.children ? d : d.parent).name); })
+      .style("fill", function(d) { return color((d.children ? d : d.parent).name); })
       .on("click", click)
+      .attr("id", "xddd") // ID for path
       .each(stash);
+
+      // TEXT MANAGEMENT
+      svg.append("text")
+         .append("textPath")
+      	.attr("xlink:href", "#xddd")
+      	.style("text-anchor","middle")
+      	.attr("startOffset", "50%")
+      	.text("AAAAAAAAAA");
 
   d3.selectAll("input").on("change", function change() {
     var value = this.value === "count"
@@ -77,15 +89,18 @@ d3.json("flare", function(root) {
 
     path
         .data(partition.value(value).nodes)
-      .transition()
+        .transition()
         .duration(1000)
         .attrTween("d", arcTweenData);
+
+
   });
 
   function click(d) {
     path.transition()
       .duration(1000)
       .attrTween("d", arcTweenZoom(d));
+
   }
 });
 
