@@ -27,7 +27,7 @@ def get_data():
                 tempdict2["children"] += [tempdict3]
             tempdict["children"] += [tempdict2]
         data["children"] += [tempdict]
-    with open('data.json', 'w') as data_file:
+    with open('templates/flare.json', 'w') as data_file:
         json.dump(data, data_file)
     
 

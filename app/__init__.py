@@ -10,6 +10,7 @@ import subprocess
 from subprocess import call
 import sys
 import binascii
+from visualizationScrap import get_data
 
 
 from flask_sqlalchemy import SQLAlchemy
@@ -295,8 +296,8 @@ def unit_tests():
         Renders the home page
     """
     subprocess.call(
-        "coverage run    --branch --include=tests.py tests.py > tests.out 2>&1", shell=True)
-    subprocess.call("coverage report -m >> tests.out", shell=True)
+        "coverage run    --branch tests.py >  tests.out 2>&1", shell=True)
+    subprocess.call("coverage report -m --include=\"models.py\" >> tests.out", shell=True)
     with open("tests.out", "r") as f:
         output = f.read()
     result = ""
@@ -503,6 +504,7 @@ def studio_instance(name):
 
 @app.route('/flare', methods=['GET'])
 def flare_instance():
+    get_data()
     return render_template('flare.json')
 
 if __name__ == '__main__':
