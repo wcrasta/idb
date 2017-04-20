@@ -43,10 +43,12 @@
 
   <header>
     <!-- Starting Navigation Bar -->
-    <nav class="navbar navbar-toggleable-md navbar-fixed-top" style="background-color: black; margin-top: 0;">
+    <nav class="navbar navbar-toggleable-md navbar-fixed-top"
+    style="background-color: black; margin-top: 0;">
       <div class="container">
         <div class="navbar-header">
-          <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#nav-col">
+          <button class="navbar-toggle collapsed" type="button"
+          data-toggle="collapse" data-target="#nav-col">
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
@@ -55,7 +57,8 @@
             <ul class="nav navbar-nav">
               <li class="nav-item">
                 <a class="nav-link" href="/">
-                  <img src="../static/images/logo.png" style="width: 100px; height: 50px; padding-top: -20px;" />
+                  <img src="../static/images/logo.png"
+                  style="width: 100px; height: 50px; padding-top: -20px;" />
                 </a>
               </li>
               <li class="nav-item" style="padding-top: 15px;">
@@ -64,7 +67,8 @@
                 </a>
               </li>
               <li class="nav-item" style="padding-top: 15px;">
-                <a class="nav-link" href="{{ url_for('platforms')}}">Platforms</a>
+                <a class="nav-link" href="{{ url_for('platforms')}}">Platforms
+                </a>
               </li>
               <li class="nav-item" style="padding-top: 15px;">
                 <a class="nav-link" href="{{ url_for('studios')}}">Studios</a>
@@ -75,14 +79,27 @@
               <li class="nav-item" style="padding-top: 15px;">
                 <a class="nav-link" href="{{ url_for('about')}}">About</a>
               </li>
-              <li class="nav-item" style="padding-top: 15px">
-                <form class="navbar-form" role="search" action="{{ url_for('search') }}" method="get" id="searchBar">
-                <div class="input-group-sm" align="center">
-                  <input type="text" name="searchAnd" class="form-control"  placeholder="Search"><button class="btn btn-sm" type="submit"><i class="glyphicon glyphicon-search"></i></button>
+              <li class="nav-item hidden-sm hidden-md hidden-lg hidden-xl" style="padding-top: 15px; display: inline-block;">
+                <form class="navbar-form" role="search">
+                <div class="input-group" style="width: 200px;">
+                  <input type="text" class="form-control" placeholder="Search" name="srch-term" id="srch-term">
+                  <div class="input-group-btn">
+                      <button class="btn btn-default" type="submit"><i class="glyphicon glyphicon-search"></i></button>
+                  </div>
                 </div>
                 </form>
               </li>
             </ul>
+            <div class="col-sm-3 pull-right hidden-xs" style="float: right; position: absolute; right: 0; padding-top: 15px;">
+              <form class="navbar-form" role="search">
+              <div class="input-group" style="width: 200px;">
+                <input type="text" class="form-control" placeholder="Search" name="srch-term" id="srch-term">
+                <div class="input-group-btn">
+                    <button class="btn btn-default" type="submit"><i class="glyphicon glyphicon-search"></i></button>
+                </div>
+              </div>
+              </form>
+            </div>
           </div>
         </div>
       </div>
