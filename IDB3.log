@@ -1,3 +1,171 @@
+commit eaad5e0c443126ee442af32fc36579fac5bfa56a
+Author: Colin Thornton <colin@cs.utexas.edu>
+Date:   Thu Apr 20 16:12:52 2017 -0500
+
+    Added a word explaination of the visualization
+
+commit b2de9ed76d97c28aacb978c9a9853725250e562d
+Author: kbbrownn <kbbrown@utexas.edu>
+Date:   Thu Apr 20 12:52:54 2017 -0500
+
+    Text no longer prevents sections of visualization from being selectable
+
+commit 0455c8afec156f6733147bcd6ad8612bc5f1f290
+Author: kbbrownn <kbbrown@utexas.edu>
+Date:   Thu Apr 20 12:12:46 2017 -0500
+
+    Improved visibility of logo on home
+
+commit 6fdd5efd56ad07e8ff61f38dd522232ab1701698
+Author: kbbrownn <kbbrown@utexas.edu>
+Date:   Thu Apr 20 11:34:58 2017 -0500
+
+    Prevent logo from zooming on hover on report page
+
+commit 352f14fa59b3905a50ca853f538e4e54bc456448
+Author: Anurag Papineni <anuragpapineni@gmail.com>
+Date:   Thu Apr 20 00:52:00 2017 -0500
+
+    my report stuff
+
+commit da7f07d80ef67516cb59aebf69634e7b40d0d75c
+Author: Anurag Papineni <anuragpapineni@gmail.com>
+Date:   Thu Apr 20 00:17:07 2017 -0500
+
+    fixed search. also added threaded function for a little extra speed
+
+commit de11bbb3f8fad9d379056e99056b5e91cd3f39fc
+Author: Anurag Papineni <anuragpapineni@gmail.com>
+Date:   Wed Apr 19 23:32:55 2017 -0500
+
+    regex stuff  fixed maybe
+
+commit 4a8ab4e94795441c1de814a517232f6406da293c
+Author: kbbrownn <kbbrown@utexas.edu>
+Date:   Wed Apr 19 21:48:38 2017 -0500
+
+    Added some stuff to vis page
+
+commit 506bb1f42b24821bd16c9d9f59c34e6f2a5777f4
+Merge: 9fc351d 56f71cc
+Author: kbbrownn <kbbrown@utexas.edu>
+Date:   Wed Apr 19 21:35:26 2017 -0500
+
+    Trying to solve merge conflicts
+
+commit 9fc351d15427744d592278bb6690a008c6178499
+Author: kbbrownn <kbbrown@utexas.edu>
+Date:   Wed Apr 19 21:30:37 2017 -0500
+
+    Fixed navbar search bar alignment + mobile fixes / changed shadow on home page
+
+commit 56f71ccc466b57df960a497b08641b6ebd1cfe72
+Merge: 29d06c2 ee86568
+Author: Colin Thornton <colin@cs.utexas.edu>
+Date:   Wed Apr 19 21:23:49 2017 -0500
+
+    Merge branch 'phase3test' of https://github.com/wcrasta/idb into phase3test
+
+commit 29d06c22d35a815f2c05cbf38e0630cedfa860bd
+Author: Colin Thornton <colin@cs.utexas.edu>
+Date:   Wed Apr 19 21:23:10 2017 -0500
+
+    Finished visualization need to fix font to no longer be limited to 20 characters and instead container size
+
+commit ee86568c5ae1031a559fc6707f86ae092ab4e199
+Merge: 62f3973 0783121
+Author: Kaivan Shah <kaivan29@utexas.edu>
+Date:   Wed Apr 19 19:52:59 2017 -0500
+
+    Merge branch 'phase3test' of https://github.com/wcrasta/idb into phase3test
+
+commit 62f39739fe79fc3dbaa7f7062cdaaf8d48211560
+Author: Kaivan Shah <kaivan29@utexas.edu>
+Date:   Wed Apr 19 19:52:40 2017 -0500
+
+    report d3.js
+
+commit 0783121d293d9e80dd24df507e8bad059f82b89b
+Merge: f0d91aa 0fcd9d7
+Author: kbbrownn <kbbrown@utexas.edu>
+Date:   Wed Apr 19 19:20:16 2017 -0500
+
+    Merge branch 'phase3test' of https://github.com/wcrasta/idb into phase3test
+
+commit f0d91aaaa1c3d6a640aee930429bd39a3f84004d
+Author: kbbrownn <kbbrown@utexas.edu>
+Date:   Wed Apr 19 19:20:11 2017 -0500
+
+    Various styling changes on search page
+
+commit b2209e404026fbb9f766d3c11a4d025cae4d9960
+Author: kbbrownn <kbbrown@utexas.edu>
+Date:   Wed Apr 19 19:02:30 2017 -0500
+
+    Added zoomable images on hover for better readability
+
+commit 0fcd9d730b233f974705d02db95e899785d088df
+Author: Zihao Zhu <zz3686@cs.utexas.edu>
+Date:   Wed Apr 19 15:40:24 2017 -0500
+
+    Done presentation
+
+commit 7fc974d66a23c4286b4806cbf41e43e396d7d284
+Author: kbbrownn <kbbrown@utexas.edu>
+Date:   Wed Apr 19 15:23:54 2017 -0500
+
+    Added link / route to presentation
+
+commit 0ec9798687477e76864d3454dbf565c94195a07c
+Author: Zihao Zhu <zz3686@cs.utexas.edu>
+Date:   Wed Apr 19 15:03:25 2017 -0500
+
+    added none to default platform
+
+commit e892ba27002a3aa0be39ffde212c8c37b941f6d3
+Merge: c7ec71c d25478c
+Author: Zihao Zhu <zz3686@cs.utexas.edu>
+Date:   Wed Apr 19 14:59:46 2017 -0500
+
+    Merge branch 'phase3test' of https://github.com/wcrasta/idb into phase3test
+
+commit c7ec71c07ee30016f00e4c822621d2ec96ad9a68
+Author: Zihao Zhu <zz3686@cs.utexas.edu>
+Date:   Wed Apr 19 14:59:32 2017 -0500
+
+    removed printing and unncessary stuff
+
+commit d25478c11380926c774b663a045a52b6716bc3a3
+Merge: c3db3d5 d637d2f
+Author: kbbrownn <kbbrown@utexas.edu>
+Date:   Wed Apr 19 14:57:53 2017 -0500
+
+    Merge branch 'phase3test' of https://github.com/wcrasta/idb into phase3test
+
+commit d637d2f3381f3b44ee4904663bc203986f997564
+Author: Zihao Zhu <zz3686@cs.utexas.edu>
+Date:   Wed Apr 19 14:57:43 2017 -0500
+
+    added shadow
+
+commit c3db3d557c9a3b8704657064e0317437f532ad9d
+Author: kbbrownn <kbbrown@utexas.edu>
+Date:   Wed Apr 19 14:57:13 2017 -0500
+
+    Credit to Zihao for finding the same visualization model with labels already implemented lol
+
+commit 24c7fe688d34424b369f622ef4ae506bf5d01213
+Author: Zihao Zhu <zz3686@cs.utexas.edu>
+Date:   Wed Apr 19 14:44:33 2017 -0500
+
+    fixed autopep 8 and coverage
+
+commit 5e49e8022b681b24bd4cadff51e926e114f72bac
+Author: kbbrownn <kbbrown@utexas.edu>
+Date:   Wed Apr 19 14:29:12 2017 -0500
+
+    Added border radius / removed overflow to search tables
+
 commit ad2ee2d33bf2bb40986db60cc78322f16f8de677
 Author: Zihao Zhu <zz3686@cs.utexas.edu>
 Date:   Wed Apr 19 13:51:10 2017 -0500

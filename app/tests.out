@@ -1,8 +1,8 @@
-/u/zz3686/.local/lib/python3.5/site-packages/flask_whooshalchemy.py:18: ExtDeprecationWarning: Importing flask.ext.sqlalchemy is deprecated, use flask_sqlalchemy instead.
+/u/colin/.local/lib/python3.5/site-packages/flask_whooshalchemy.py:18: ExtDeprecationWarning: Importing flask.ext.sqlalchemy is deprecated, use flask_sqlalchemy instead.
   import flask.ext.sqlalchemy as flask_sqlalchemy
 ...............
 ----------------------------------------------------------------------
-Ran 15 tests in 0.027s
+Ran 15 tests in 0.038s
 
 OK
 Name            Stmts   Miss Branch BrPart  Cover   Missing

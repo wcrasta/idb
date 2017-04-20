@@ -94,9 +94,9 @@
                 <a class="nav-link" href="{{ url_for('about')}}">About</a>
               </li>
               <li class="nav-item hidden-sm hidden-md hidden-lg hidden-xl" style="padding-top: 15px; display: inline-block;">
-                <form class="navbar-form" role="search">
+                <form class="navbar-form" action="{{ url_for('search') }}" method="get" id="searchBar">
                 <div class="input-group" style="width: 200px;">
-                  <input type="text" class="form-control" placeholder="Search" name="srch-term" id="srch-term">
+                  <input type="text" class="form-control" placeholder="Search" name="searchAnd"  action="{{ url_for('search') }}" method="get">
                   <div class="input-group-btn">
                       <button class="btn btn-default" type="submit"><i class="glyphicon glyphicon-search"></i></button>
                   </div>
@@ -105,9 +105,9 @@
               </li>
             </ul>
             <div class="col-sm-3 pull-right hidden-xs" style="float: right; position: absolute; right: 0; padding-top: 15px;">
-              <form class="navbar-form" role="search">
+              <form class="navbar-form" action="{{ url_for('search') }}" method="get" id="searchBar">
               <div class="input-group" style="width: 200px;">
-                <input type="text" class="form-control" placeholder="Search" name="srch-term" id="srch-term">
+                <input type="text" class="form-control" placeholder="Search" name="searchAnd"  action="{{ url_for('search') }}" method="get">
                 <div class="input-group-btn">
                     <button class="btn btn-default" type="submit"><i class="glyphicon glyphicon-search"></i></button>
                 </div>
@@ -132,11 +132,12 @@
       <div class="row" style="border-radius: 15px;">
         <table class="table" id="gTable" style="border-radius: 15px;">
           <colgroup>
-            <col style="width: 20%" />
-            <col style="width: 20%" />
-            <col style="width: 20%" />
-            <col style="width: 20%" />
-            <col style="width: 20%" />
+            <col style="width: 16%" />
+            <col style="width: 16%" />
+            <col style="width: 16%" />
+            <col style="width: 16%" />
+            <col style="width: 16%" />
+            <col style="width: 16%" />
           </colgroup>
           <thead>
             <tr>
@@ -144,6 +145,7 @@
               <th>Genre</th>
               <th>ESRB</th>
               <th>Status</th>
+              <th>Storyline</th>
               <th>Summary</th>
             </tr>
           </thead>
@@ -154,6 +156,35 @@
               <td><p>{{ item.genre }}</p></td>
               <td><p>{{item.esrb}}</p></td>
               <td><p>{{item.status}}</p></td>
+              <td><p>    {% set found = {'fd': False} %}
+
+                  {% set list1 = wordsSearched.split(' ') %}
+                  {% for list in list1 %}
+              {% if list.upper() in item.storyline.upper() %}
+                  {% if found.update({'fd': True}) %} {% endif %}
+                  {% set index = item.storyline.upper().index(list.upper()) %}
+                  {% if index != 0 %}
+                  ...
+                  {% endif %}
+                  {% set itemsum = item.storyline[index:] %}
+                  {% if itemsum | length >= 100 %}
+                    {{itemsum[:100]}}...
+                  {% else %}
+                    {{itemsum}}
+                  {% endif %}
+                {% else %}
+                  {% if found.fd %}
+                  ...
+                  {% else %}
+                  {% endif %}
+                {% endif %}
+
+                {% endfor %}
+                {% if found.fd %}
+                {% else %}
+                {{item.storyline[:100]}}...
+
+                {% endif %}</p></td>
               <td><p>
                   {% set found = {'fd': False} %}
 
@@ -565,12 +596,12 @@ function Pager(tableName, itemsPerPage, pagerName) {
       for (i = 0; i<wordsLength;i++)
       {
         //(^(http).*Test)
-        var regex = new RegExp('(\\s+'+ allWords[i] +')', 'ig');
+        var regex = new RegExp('(\\s+)('+ allWords[i] +')', 'ig');
        //var regex = new RegExp('(?!<a[^>]*?>)('+allWords[i]+')(?![^<]*?</a>)', 'ig');
-       $('#searchedText').html( $('#searchedText').html().replace(regex, "<span class='highlight'><b>$1</b></span>"));
-        var regex = new RegExp('(?!\\s+'+ allWords[i] +')('+allWords[i] +'\\s+)', 'ig');
+       $('#searchedText').html( $('#searchedText').html().replace(regex, "$1<span class='highlight'><b>$2</b></span>"));
+        var regex = new RegExp('(?!\\s+'+ allWords[i] +')('+allWords[i] +')(\\s+)', 'ig');
        //var regex = new RegExp('(?!<a[^>]*?>)('+allWords[i]+')(?![^<]*?</a>)', 'ig');
-       $('#searchedText').html( $('#searchedText').html().replace(regex, "<span class='highlight'><b>$1</b></span>"));
+       $('#searchedText').html( $('#searchedText').html().replace(regex, "<span class='highlight'><b>$1</b></span>$2"));
       }
 });
 </script>
