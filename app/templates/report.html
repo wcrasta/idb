@@ -69,6 +69,13 @@
     img:not(.logo):hover {
       transform: scale(1.5);
   }
+
+  table,th,td{
+      color: black;
+      font-size: 1.2em;
+      border: 1px solid black;
+      padding: 100px solid black;
+    }
   </style>
 </head>
 
@@ -536,9 +543,55 @@
                 <p>
                     With the use of Whoosh sqlalchemy, we ran into problems in using the package as it wanted to create files and the server blocks it due to lack of permission. A way we found to solve this issue was to wrap our application within a virtual environment that runs on Python 3. We figured it would be better to change our server to run on Python 3 instead of Python 2 because we test everything and write everything in Python 3 locally. To do so, we installed a virtual environment and then downloaded all the required packages for our application. Then within our WSGI.py and WSGI configuration file, we set it to execute the activiation of the virtual environment before serving our application.
                 </p>
-                <h4 style="color:red;"> Planning Poker</h4>
+                <h4 style="color:red;"> Planit Poker</h4>
                 <p>
-                     To be written.
+                     We used Planit Poker for project estimation with the rough estimate of 1 hour to 1 point and came up with the following estimations for our stories
+                     <table>
+                       <tr>
+                        <th>Story</th>
+                        <th>Estimate</th> 
+                      </tr>
+                      <tr>
+                        <td>Presentation</td>
+                        <td>5</td> 
+                      </tr>
+                      <tr>
+                        <td>Technical Report</td>
+                        <td>3</td> 
+                      </tr>
+                      <tr>
+                        <td>Build Visualization</td>
+                        <td>8</td> 
+                      </tr>
+                      <tr>
+                        <td>Query Other Group's API</td>
+                        <td>3</td> 
+                      </tr>
+                      <tr>
+                        <td>Search Bar Front End</td>
+                        <td>5</td> 
+                      </tr>
+                      <tr>
+                        <td>Search Bar Back End Getting Results</td>
+                        <td>8</td> 
+                      </tr>
+                      <tr>
+                        <td>Search Bar back End Sorting</td>
+                        <td>8</td> 
+                      </tr>
+                      <tr>
+                        <td>Search Post Processing(Highlighting query on results)  </td>
+                        <td>3</td> 
+                      </tr>
+                      <tr>
+                        <td>Fix pep8 and pylint issues</td>
+                        <td>3</td> 
+                      </tr>
+                      <tr>
+                        <td>Critique Other Group's API</td>
+                        <td>1</td> 
+                      </tr>
+                     </table>
                 </p>
           </div>
 
