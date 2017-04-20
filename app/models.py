@@ -16,7 +16,9 @@ import getpass
 from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
 from flask_restful import Resource, Api
+from flask_cors import CORS
 import flask_whooshalchemy as whooshalchemy
+import flask_cors
 
 app = Flask(__name__)
 app.debug = True
@@ -33,6 +35,7 @@ if getpass.getuser() == 'www-data': #pragma: no cover
 # WHOOSH_BASE = os.path.join(basedir,'app.db')
 
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = True
+CORS(app)
 db = SQLAlchemy(app)
 
 
