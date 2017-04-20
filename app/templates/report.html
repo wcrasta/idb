@@ -276,18 +276,26 @@
 
               </span>
               <br>
-              With the initial query, because we wanted to get rid of nonsensical items we filtered all the queries by certain rules to ensure the data being returned is what the user is expecting. In addition, case sensitvity was also an issue so we had to use ilike to filter.
-              After performing the query, we gather the data and serve it to our search results html file and then we render it like with all the others using Jinja2. In addition, we used jQuery to do all the hi-lighting and contextualization. With jQuery, when the document loads, a function looks through all of the fields within a div and checks to see if it contains the word[s] that we searched for. If it does, it replaces the word[s] by surrounding it with a span that gives a new style that resembles hi-lighting. For the contextualization, we used Jinja2 within the HTML to help us locate the searched word[s] split by a space. Then for each split word, it goes through each given attribute of a given model and attempts to find an index of that word. Then we take the index and words before and after it and then cut off the rest of the paragraph so we can focus in on the words that the user searched and display it on the search result table. We implemented both And and Or searching that allows us to either find all the things that match exactly to the words provided or it things that match to one or more words in the given search string.
+              With the initial query, because we wanted to get rid of nonsensical items we filtered all the queries by certain rules to ensure the data being returned is what the user is expecting. In addition, case sensitvity was also an issue so we had to use ilike to filter. 
+              After performing the query, we gather the data and serve it to our search results html file and then we render it like with all the others using Jinja2. In addition, we used jQuery to do all the hi-lighting and contextualization. With jQuery, when the document loads, a function looks through all of the fields within a div and checks to see if it contains the word[s] that we searched for. If it does, it replaces the word[s] by surrounding it with a span that gives a new style that resembles hi-lighting. For the contextualization, we used Jinja2 within the HTML to help us locate the searched word[s] split by a space. Then for each split word, it goes through each given attribute of a given model and attempts to find an index of that word. Then we take the index and words before and after it and then cut off the rest of the paragraph so we can focus in on the words that the user searched and display it on the search result table. We implemented both And and Or searching that allows us to either find all the things that match exactly to the words provided or it things that match to one or more words in the given search string. We implemented OR search by filtering on each word individually and concatenating the resulting matches to make a set of final results. For AND search we did something similar but instead of adding to a set, we just filtered the results from the previous filter.
               </p>
-              <h4 style="color:red;"> Search Pagination </h4>
+              <h4 > Search Pagination </h4>
               <p>
-                  To be written
+                  We accomplished search pagination using javascript. We added pagination links with a simple for loop dependent on how many rows were fed into the html. We limited the results to have 10 results per page and 400 results total to avoid getting to many of these links. For the actual pagination, we created a class called Pager whose header is displayed below. Utilizing this as the base of our class we created several methods that would correctly load up the appropriate results upon loading of the page with showResults. Among these were methods to show the next page, previous page, and nth page. You can clearly see these represented as our pagination links.
+                <figure>
+                  <img class="center-block" float="left" src="../static/images/pager.png" />
+                  <figcaption style="color: black; text-align: center; font-size: 1.2em">Figure 7: Pagination Method For Searching</figcaption>
+                </figure>
+
+              </p>
+              <p>
+              The last step in pagination to make it all work was to actually insert ways to call these methods onclick. We did this by creating another js function which replaced empty div tags with actually important HTML code. This code created our pagination links and set up the appropriate on click methods which would reconstruct the table using showResults. A big advantage of this is that we don't need to do any more database queries or reload the page because it all ends up happening on the front end.
               </p>
 
 
 
 
-                            <h4> Sorting and Filtering </h4>
+                <h4> Sorting and Filtering </h4>
                 <p>
                   Instead of doing sorting through the front-end, we realized that it could be done easily through the back end with the help of Flask and Jinja2. On the front-end side, we designed the website to include forms so when you click/submit certain values, the forms will pass back the value to the backend. Once we obtain those values from the form that the user submits, we employ them to fetch data from the database using queries that sorted them by the value passed in, in addition to ordering them by ascension or descension. For a lot of our sortings, we simply had the option of sorting by asc and sorting by desc. We targeted a list of values we want users to sort by and then added those options in the front end. Most of the work, however, is being done in our query to the database, as shown in the following snippet:
                    <span style="display:inline-block;color:black;border-width:1px;border-style:solid;padding:5px;font-size:1em">
