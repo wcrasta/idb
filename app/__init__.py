@@ -198,37 +198,37 @@ def orSearch(items):
 
 
 def andSearch(items):
-    caseSensitive = "%" + items + "%"
-    gameResults = []
-    platformResults = []
-    reviewsResults = []
-    studioResults = []
-
-    gameResults = Game.query.whoosh_search(items).filter(
+    itemlist = items.split(" ")
+    gameResults = Game.query.whoosh_search(items)
+    platformResults = Platform.query.whoosh_search(items)
+    studioResults = Studio.query.whoosh_search(items)
+    reviewsResults = Reviews.query.whoosh_search(items)
+    for i in items.split(" "):
+        caseSensitive = "%" + i + "%"
+        gameResults = gameResults.filter(
         or_(Game.name.ilike(caseSensitive), Game.summary.ilike(caseSensitive),
-            Game.genre.ilike(
-                caseSensitive), Game.storyline.ilike(caseSensitive),
+            Game.genre.ilike(caseSensitive), Game.storyline.ilike(caseSensitive),
             Game.esrb.ilike(caseSensitive), Game.status.ilike(caseSensitive))
-    )
+        )
 
-    platformResults = Platform.query.whoosh_search(items).filter(
-        or_(Platform.name.ilike(caseSensitive), Platform.summary.ilike(caseSensitive),
-            Platform.image.ilike(caseSensitive), Platform.website.ilike(caseSensitive))
-    )
+        platformResults = platformResults.filter(
+            or_(Platform.name.ilike(caseSensitive), Platform.summary.ilike(caseSensitive),
+                Platform.image.ilike(caseSensitive), Platform.website.ilike(caseSensitive))
+        )
 
-    studioResults = Studio.query.whoosh_search(items).filter(
-        or_(Studio.name.ilike(caseSensitive), Studio.logo.ilike(caseSensitive),
-            Studio.description.ilike(caseSensitive), Studio.website.ilike(caseSensitive))
-    )
+        studioResults = studioResults.filter(
+            or_(Studio.name.ilike(caseSensitive), Studio.logo.ilike(caseSensitive),
+                Studio.description.ilike(caseSensitive), Studio.website.ilike(caseSensitive))
+        )
 
-    reviewsResults = Reviews.query.whoosh_search(items).filter(
-        or_(Reviews.title.ilike(caseSensitive), Reviews.video.ilike(caseSensitive),
-            Reviews.introduction.ilike(
-                caseSensitive), Reviews.content.ilike(caseSensitive),
-            Reviews.conclusion.ilike(
-                caseSensitive), Reviews.positive.ilike(caseSensitive),
-            Reviews.negative.ilike(caseSensitive), Reviews.url.ilike(caseSensitive))
-    )
+        reviewsResults = reviewsResults.filter(
+            or_(Reviews.title.ilike(caseSensitive), Reviews.video.ilike(caseSensitive),
+                Reviews.introduction.ilike(
+                    caseSensitive), Reviews.content.ilike(caseSensitive),
+                Reviews.conclusion.ilike(
+                    caseSensitive), Reviews.positive.ilike(caseSensitive),
+                Reviews.negative.ilike(caseSensitive), Reviews.url.ilike(caseSensitive))
+        )
 
     return [gameResults[:400], platformResults[:400], studioResults[:400], reviewsResults[0:400]]
 
@@ -506,4 +506,4 @@ def flare_instance():
     return render_template('flare.json')
 
 if __name__ == '__main__':
-    app.run()
+    app.run(threaded=True)
