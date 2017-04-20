@@ -31,7 +31,7 @@
     fill-rule: evenodd;
   }
   p {
-    color: black;
+    color: white;
     font-size: 2em;
   }
   </style>
@@ -173,6 +173,7 @@ d3.json("flare", function(error, root) {
           return d.name;
       });
 
+
   function click(d) {
     var total = d.dx;
     // fade out all text elements
@@ -216,6 +217,7 @@ function computeTextRotation(d) {
 }
 
 </script>
+<p> This visual depicts the Categories, Channels and Videos models created my <a style = "color: white; text-decoration:underline" href = "//youtubesweg.me">YouTubeSWEg</a>. The size of each region is based off of the number of views for a video, channel or category. </p>
 <script src="https://code.jquery.com/jquery-3.2.0.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </body>
