@@ -1,6 +1,6 @@
 from models import app
 from flask import Flask, render_template, jsonify
-from flask import request
+from flask import request, send_file
 from flask_paginate import Pagination
 from sqlalchemy import func, or_
 import os
@@ -10,6 +10,7 @@ import subprocess
 from subprocess import call
 import sys
 import binascii
+
 
 from flask_sqlalchemy import SQLAlchemy
 
@@ -236,12 +237,13 @@ def andSearch(items):
 def not_found_error(error):
     return render_template('404.html'), 404
 
-@app.route('/presentation')
-def presentation():
-    """
-        Renders the presentation page
-    """
-    return render_template('presentation.pdf')
+# @app.route('/presentation')
+# def presentation():
+#     """
+#         Renders the presentation page
+#     """
+#     with open ("presentation.pdf", "rb") as f:
+#         return send_file(f, attachment_filename='file.pdf', as_attachment=True)
 
 
 @app.route('/visualization')
