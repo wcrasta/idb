@@ -48,6 +48,11 @@
     font-size: 12px;
   }
 
+  h1 {
+      color: white;
+      font-size: 3em;
+  }
+
   </style>
 </head>
 <body>
@@ -120,8 +125,8 @@
 
 <script>
 
-var width = 960,
-    height = 700,
+var width = 760,
+    height = 800,
     radius = Math.min(width, height) / 2;
 
 var x = d3.scale.linear()
@@ -217,6 +222,7 @@ function computeTextRotation(d) {
 }
 
 </script>
+<h1 style="text-align: center;">Visualization</h1>
 <p> This visual depicts the Categories, Channels and Videos models created my <a style = "color: white; text-decoration:underline" href = "//youtubesweg.me">YouTubeSWEg</a>. The size of each region is based off of the number of views for a video, channel or category. </p>
 <script src="https://code.jquery.com/jquery-3.2.0.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
