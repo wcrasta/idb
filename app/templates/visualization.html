@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width = device-width, initial-scale=1">
+  <title>GGnoSWE · Visualization</title>
+  <link rel="shortcut icon" type="image/png" href="../static/images/favicon.png" />
+  <link rel="stylesheet" type="text/css" href="../static/css/home.css">
+  <script src="https://d3js.org/d3.v3.min.js"></script>
+  <style>
+
+  body {
+    background: url('../static/images/bg2.png');
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    margin: auto;
+    position: relative;
+    width: 960px;
+    margin-bottom: 100px;
+    margin-top: 200px;
+  }
+
+  form {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+  }
+
+  path {
+    stroke: #fff;
+    fill-rule: evenodd;
+  }
+  p {
+    color: white;
+    font-size: 2em;
+  }
+  </style>
+  <body>
+  <style>
+
+  path {
+    stroke: #fff;
+    fill-rule: evenodd;
+  }
+
+  text {
+    font-family: Arial, sans-serif;
+    font-size: 12px;
+  }
+
+  h1 {
+      color: white;
+      font-size: 3em;
+  }
+
+  </style>
+</head>
+<body>
+<script src="http://d3js.org/d3.v3.min.js"></script>
+
+<header>
+    <!-- Starting Navigation Bar -->
+    <nav class="navbar navbar-toggleable-md navbar-fixed-top"
+    style="background-color: black; margin-top: 0;">
+      <div class="container">
+        <div class="navbar-header">
+          <button class="navbar-toggle collapsed" type="button"
+          data-toggle="collapse" data-target="#nav-col">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <div class="collapse navbar-collapse navbar-left" id="nav-col">
+            <ul class="nav navbar-nav">
+              <li class="nav-item">
+                <a class="nav-link" href="/">
+                  <img src="../static/images/logo.png"
+                  style="width: 100px; height: 50px; padding-top: -20px;" />
+                </a>
+              </li>
+              <li class="nav-item" style="padding-top: 15px;">
+                <a class="nav-link" href="{{ url_for('games')}}">Games
+                  <span class="sr-only">(current)</span>
+                </a>
+              </li>
+              <li class="nav-item" style="padding-top: 15px;">
+                <a class="nav-link" href="{{ url_for('platforms')}}">Platforms
+                </a>
+              </li>
+              <li class="nav-item" style="padding-top: 15px;">
+                <a class="nav-link" href="{{ url_for('studios')}}">Studios</a>
+              </li>
+              <li class="nav-item" style="padding-top: 15px;">
+                <a class="nav-link" href="{{ url_for('reviews')}}">Reviews</a>
+              </li>
+              <li class="nav-item" style="padding-top: 15px;">
+                <a class="nav-link" href="{{ url_for('about')}}">About</a>
+              </li>
+              <li class="nav-item hidden-sm hidden-md hidden-lg hidden-xl" style="padding-top: 15px; display: inline-block;">
+                <form class="navbar-form" role="search">
+                <div class="input-group" style="width: 200px;">
+                  <input type="text" class="form-control" placeholder="Search" name="srch-term" id="srch-term">
+                  <div class="input-group-btn">
+                      <button class="btn btn-default" type="submit"><i class="glyphicon glyphicon-search"></i></button>
+                  </div>
+                </div>
+                </form>
+              </li>
+            </ul>
+            <div class="col-sm-3 pull-right hidden-xs" style="float: right; position: absolute; right: 0; padding-top: 15px;">
+              <form class="navbar-form" role="search">
+              <div class="input-group" style="width: 200px;">
+                <input type="text" class="form-control" placeholder="Search" name="srch-term" id="srch-term">
+                <div class="input-group-btn">
+                    <button class="btn btn-default" type="submit"><i class="glyphicon glyphicon-search"></i></button>
+                </div>
+              </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+<script>
+
+var width = 760,
+    height = 800,
+    radius = Math.min(width, height) / 2;
+
+var x = d3.scale.linear()
+    .range([0, 2 * Math.PI]);
+
+var y = d3.scale.linear()
+    .range([0, radius]);
+
+var color = d3.scale.category20c();
+
+var svg = d3.select("body").append("svg")
+    .attr("width", width)
+    .attr("height", height)
+  .append("g")
+    .attr("transform", "translate(" + width / 2 + "," + (height / 2 + 10) + ")");
+
+var partition = d3.layout.partition()
+    .value(function(d) { return d.size; });
+
+var arc = d3.svg.arc()
+    .startAngle(function(d) { return Math.max(0, Math.min(2 * Math.PI, x(d.x))); })
+    .endAngle(function(d) { return Math.max(0, Math.min(2 * Math.PI, x(d.x + d.dx))); })
+    .innerRadius(function(d) { return Math.max(0, y(d.y)); })
+    .outerRadius(function(d) { return Math.max(0, y(d.y + d.dy)); });
+
+d3.json("flare", function(error, root) {
+  var g = svg.selectAll("g")
+      .data(partition.nodes(root))
+    .enter().append("g");
+
+  var path = g.append("path")
+    .attr("d", arc)
+    .style("fill", function(d) { return color((d.children ? d : d.parent).name); })
+    .on("click", click);
+
+  var text = g.append("text")
+    .attr("transform", function(d) { return "rotate(" + computeTextRotation(d) + ")"; })
+    .attr("x", function(d) { return y(d.y); })
+    .attr("dx", "6") // margin
+    .attr("dy", ".35em") // vertical-align
+    .attr("visibility",function(d) { return d.dx < 0.01? "hidden" : "visible"})
+    .style("-webkit-user-select", "none")
+    .style("cursor", "default")
+    .on("click", click)
+    .text(function(d) {
+        if(d.name.length > 20)
+          return d.name.substring(0,20)+'...';
+        else
+          return d.name;
+      });
+
+
+  function click(d) {
+    var total = d.dx;
+    // fade out all text elements
+    text.transition().attr("opacity", 0);
+
+    path.transition()
+      .duration(750)
+      .attrTween("d", arcTween(d))
+      .each("end", function(e, i) {
+          // check if the animated element's data e lies within the visible angle span given in d
+          if (e.x >= d.x && e.x < (d.x + d.dx)) {
+            // get a selection of the associated text element
+            var arcText = d3.select(this.parentNode).select("text");
+            // fade in the text element and recalculate positions
+            arcText.transition().duration(750)
+              .attr("opacity", 1)
+              .attr("transform", function() { return "rotate(" + computeTextRotation(e) + ")" })
+              .attr("x", function(d) { return y(d.y); })
+              .attr("visibility",function(d) { return d.dx/total < 0.01? "hidden" : "visible"});
+          }
+      });
+  }
+});
+
+d3.select(self.frameElement).style("height", height + "px");
+
+// Interpolate the scales!
+function arcTween(d) {
+  var xd = d3.interpolate(x.domain(), [d.x, d.x + d.dx]),
+      yd = d3.interpolate(y.domain(), [d.y, 1]),
+      yr = d3.interpolate(y.range(), [d.y ? 20 : 0, radius]);
+  return function(d, i) {
+    return i
+        ? function(t) { return arc(d); }
+        : function(t) { x.domain(xd(t)); y.domain(yd(t)).range(yr(t)); return arc(d); };
+  };
+}
+
+function computeTextRotation(d) {
+  return (x(d.x + d.dx / 2) - Math.PI / 2) / Math.PI * 180;
+}
+
+</script>
+<h1 style="text-align: center;">Visualization</h1>
+<p> This visual depicts the Categories, Channels and Videos models created my <a style = "color: white; text-decoration:underline" href = "//youtubesweg.me">YouTubeSWEg</a>. The size of each region is based off of the number of views for a video, channel or category. </p>
+<script src="https://code.jquery.com/jquery-3.2.0.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</body>

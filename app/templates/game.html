@@ -43,10 +43,12 @@
 
   <header>
     <!-- Starting Navigation Bar -->
-    <nav class="navbar navbar-toggleable-md navbar-fixed-top" style="background-color: black; margin-top: 0;">
+    <nav class="navbar navbar-toggleable-md navbar-fixed-top"
+    style="background-color: black; margin-top: 0;">
       <div class="container">
         <div class="navbar-header">
-          <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#nav-col">
+          <button class="navbar-toggle collapsed" type="button"
+          data-toggle="collapse" data-target="#nav-col">
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
@@ -55,7 +57,8 @@
             <ul class="nav navbar-nav">
               <li class="nav-item">
                 <a class="nav-link" href="/">
-                  <img src="../static/images/logo.png" style="width: 100px; height: 50px; padding-top: -20px;" />
+                  <img src="../static/images/logo.png"
+                  style="width: 100px; height: 50px; padding-top: -20px;" />
                 </a>
               </li>
               <li class="nav-item" style="padding-top: 15px;">
@@ -64,7 +67,8 @@
                 </a>
               </li>
               <li class="nav-item" style="padding-top: 15px;">
-                <a class="nav-link" href="{{ url_for('platforms')}}">Platforms</a>
+                <a class="nav-link" href="{{ url_for('platforms')}}">Platforms
+                </a>
               </li>
               <li class="nav-item" style="padding-top: 15px;">
                 <a class="nav-link" href="{{ url_for('studios')}}">Studios</a>
@@ -75,7 +79,27 @@
               <li class="nav-item" style="padding-top: 15px;">
                 <a class="nav-link" href="{{ url_for('about')}}">About</a>
               </li>
+              <li class="nav-item hidden-sm hidden-md hidden-lg hidden-xl" style="padding-top: 15px; display: inline-block;">
+                <form class="navbar-form" action="{{ url_for('search') }}" method="get" id="searchBar">
+                <div class="input-group" style="width: 200px;">
+                  <input type="text" class="form-control" placeholder="Search" name="searchAnd"  action="{{ url_for('search') }}" method="get">
+                  <div class="input-group-btn">
+                      <button class="btn btn-default" type="submit"><i class="glyphicon glyphicon-search"></i></button>
+                  </div>
+                </div>
+                </form>
+              </li>
             </ul>
+            <div class="col-sm-3 pull-right hidden-xs" style="float: right; position: absolute; right: 0; padding-top: 15px;">
+              <form class="navbar-form" action="{{ url_for('search') }}" method="get" id="searchBar">
+              <div class="input-group" style="width: 200px;">
+                <input type="text" class="form-control" placeholder="Search" name="searchAnd">
+                <div class="input-group-btn">
+                    <button class="btn btn-default" type="submit"><i class="glyphicon glyphicon-search"></i></button>
+                </div>
+              </div>
+              </form>
+            </div>
           </div>
         </div>
       </div>
@@ -114,12 +138,12 @@
         </div>
         <div class="col-sm-3" style="padding-right: 50px;">
           <div class="row">
-            <h2 style="display: inline-block;">Platform:	&nbsp;</h2> {% if items.platform.name != 'None' %}
+            <h2 style="display: inline-block;"><b>Platform:</b>&nbsp;</h2> {% if items.platform.name != 'None' %}
             <span><a style = "color: black; text-decoration: underline" href="{{ url_for('platform_instance', name = items.platform.id)}}">{{items.platform.name}}</a></span> {% else %}
             <span style="color: black; text-decoration: underline">{{items.platform.name}}</span> {% endif %}
           </div>
           <div class="row">
-            <h2 style="display: inline-block;">Studio:	&nbsp;</h2>
+            <h2 style="display: inline-block;"><b>Studio:</b>&nbsp;</h2>
             {% if items.studio.name != 'None' %}
             <span><a style = "color: black; text-decoration: underline" href="{{ url_for('studio_instance', name = items.studio.id)}}">{{items.studio.name}}</a></span> {% else %}
             <span style="color: black; text-decoration: underline">
@@ -128,32 +152,32 @@
             {% endif %}
           </div>
           <div class="row">
-            <h2 style="display: inline-block;">Genre:	&nbsp;</h2>
+            <h2 style="display: inline-block;"><b>Genre:</b>&nbsp;</h2>
             <span>{{items.genre}}</span>
           </div>
           <div class="row">
-            <h2 style="display: inline-block;">Category: &nbsp;</h2>
+            <h2 style="display: inline-block;"><b>Category:</b>&nbsp;</h2>
             <span>{{items.category}}</span>
           </div>
           <div class="row">
-            <h2 style="display: inline-block;">Rating:	&nbsp;</h2>
-            <span>{{items.rating}}</span>
+            <h2 style="display: inline-block;"><b>Rating:</b>&nbsp;</h2>
+            <span>{{'%0.2f'| format(items.rating|float)}}</span>
           </div>
           <div class="row">
-            <h2 style="display: inline-block;">Status:	&nbsp;</h2>
+            <h2 style="display: inline-block;"><b>Status:</b>&nbsp;</h2>
             <span>{{items.status}}</span>
           </div>
           <div class="row">
-            <h2 style="display: inline-block;">Release Date:	&nbsp;</h2>
-            <span>{{items.release_date}}</span>
+            <h2 style="display: inline-block;"><b>Release Date:</b>&nbsp;</h2>
+            <span>{{items.release_date.date()}}</span>
           </div>
           <div class="row">
-            <h2 style="display: inline-block;">Website:	&nbsp;</h2> {% if items.website != 'None' %}
+            <h2 style="display: inline-block;"><b>Website:</b>&nbsp;</h2> {% if items.website != 'None' %}
             <span><a style = "color: black; text-decoration: underline" href = "{{items.website}}">{{items.website}}</a></span> {% else %}
             <span style="color: black; text-decoration: underline">{{items.website}}</span> {% endif %}
           </div>
           <div class="row">
-            <h2 style="display: inline-block;">Reviews:	&nbsp;</h2>
+            <h2 style="display: inline-block;"><b>Reviews:</b>&nbsp;</h2>
             <span>
               {% for review in items.reviews %}
                 <p><a href="{{ url_for('review_instance', name = review.id)}}">{{review.title}}</a></p>

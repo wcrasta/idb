@@ -1,0 +1,615 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width = device-width, initial-scale=1">
+  <title>GGnoSWE · Search</title>
+  <link rel="shortcut icon" type="image/png" href="../static/images/favicon.png"/>
+  <link rel="stylesheet" type="text/css" href="../static/css/home.css">
+  <script src="https://code.jquery.com/jquery-3.2.0.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <style type="text/css">
+    body {
+      background: url('../static/images/bg2.png');
+    }
+    p {
+      text-align: left;
+      color: black;
+      font-size: 1.2em;
+    }
+    h1 {
+      color: white;
+    }
+    .table,
+    .table tr,
+    .table td {
+      background-color: white !important;
+      opacity: 0.9;
+      border-radius: 15px;
+      overflow: hidden;
+    }
+    th {
+      font-weight: bolder;
+      color: black;
+      font-size: 1.4em;
+    }
+    .pg {
+      font-size: 1.5em;
+    }
+    .highlight {
+      background-color:yellow;
+    }
+    .pg-normal {
+      color: white;
+      font-weight: normal;
+      text-decoration: none;
+      cursor: pointer;
+    }
+    .pg-selected {
+      color: white;
+      font-weight: bold;
+      text-decoration: underline;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <!-- Starting Navigation Bar -->
+    <nav class="navbar navbar-toggleable-md navbar-fixed-top"
+    style="background-color: black; margin-top: 0;">
+      <div class="container">
+        <div class="navbar-header">
+          <button class="navbar-toggle collapsed" type="button"
+          data-toggle="collapse" data-target="#nav-col">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <div class="collapse navbar-collapse navbar-left" id="nav-col">
+            <ul class="nav navbar-nav">
+              <li class="nav-item">
+                <a class="nav-link" href="/">
+                  <img src="../static/images/logo.png"
+                  style="width: 100px; height: 50px; padding-top: -20px;" />
+                </a>
+              </li>
+              <li class="nav-item" style="padding-top: 15px;">
+                <a class="nav-link" href="{{ url_for('games')}}">Games
+                  <span class="sr-only">(current)</span>
+                </a>
+              </li>
+              <li class="nav-item" style="padding-top: 15px;">
+                <a class="nav-link" href="{{ url_for('platforms')}}">Platforms
+                </a>
+              </li>
+              <li class="nav-item" style="padding-top: 15px;">
+                <a class="nav-link" href="{{ url_for('studios')}}">Studios</a>
+              </li>
+              <li class="nav-item" style="padding-top: 15px;">
+                <a class="nav-link" href="{{ url_for('reviews')}}">Reviews</a>
+              </li>
+              <li class="nav-item" style="padding-top: 15px;">
+                <a class="nav-link" href="{{ url_for('about')}}">About</a>
+              </li>
+              <li class="nav-item hidden-sm hidden-md hidden-lg hidden-xl" style="padding-top: 15px; display: inline-block;">
+                <form class="navbar-form" action="{{ url_for('search') }}" method="get" id="searchBar">
+                <div class="input-group" style="width: 200px;">
+                  <input type="text" class="form-control" placeholder="Search" name="searchAnd"  action="{{ url_for('search') }}" method="get">
+                  <div class="input-group-btn">
+                      <button class="btn btn-default" type="submit"><i class="glyphicon glyphicon-search"></i></button>
+                  </div>
+                </div>
+                </form>
+              </li>
+            </ul>
+            <div class="col-sm-3 pull-right hidden-xs" style="float: right; position: absolute; right: 0; padding-top: 15px;">
+              <form class="navbar-form" action="{{ url_for('search') }}" method="get" id="searchBar">
+              <div class="input-group" style="width: 200px;">
+                <input type="text" class="form-control" placeholder="Search" name="searchAnd"  action="{{ url_for('search') }}" method="get">
+                <div class="input-group-btn">
+                    <button class="btn btn-default" type="submit"><i class="glyphicon glyphicon-search"></i></button>
+                </div>
+              </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Buttons -->
+  <div class="container" style="padding-top:100px; text-align:center;">
+    <a href="/search?searchAnd={{wordsSearched}}" class="btn btn-success" role="button">AND search</a>&emsp;
+    <a href="/search?searchOr={{wordsSearched}}" class="btn btn-success" role="button">OR search</a>
+  </div>
+  <div id = "searchedText" style="margin-bottom: 20px;">
+    <div class="container">
+      <h1>Games</h1>
+      <hr>
+      <div class="row" style="border-radius: 15px;">
+        <table class="table" id="gTable" style="border-radius: 15px;">
+          <colgroup>
+            <col style="width: 16%" />
+            <col style="width: 16%" />
+            <col style="width: 16%" />
+            <col style="width: 16%" />
+            <col style="width: 16%" />
+            <col style="width: 16%" />
+          </colgroup>
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Genre</th>
+              <th>ESRB</th>
+              <th>Status</th>
+              <th>Storyline</th>
+              <th>Summary</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for item in games %}
+            <tr>
+              <td><p><a href="{{ url_for('game_instance', name = item.id)}}">{{item.name}}</a></p></td>
+              <td><p>{{ item.genre }}</p></td>
+              <td><p>{{item.esrb}}</p></td>
+              <td><p>{{item.status}}</p></td>
+              <td><p>    {% set found = {'fd': False} %}
+
+                  {% set list1 = wordsSearched.split(' ') %}
+                  {% for list in list1 %}
+              {% if list.upper() in item.storyline.upper() %}
+                  {% if found.update({'fd': True}) %} {% endif %}
+                  {% set index = item.storyline.upper().index(list.upper()) %}
+                  {% if index != 0 %}
+                  ...
+                  {% endif %}
+                  {% set itemsum = item.storyline[index:] %}
+                  {% if itemsum | length >= 100 %}
+                    {{itemsum[:100]}}...
+                  {% else %}
+                    {{itemsum}}
+                  {% endif %}
+                {% else %}
+                  {% if found.fd %}
+                  ...
+                  {% else %}
+                  {% endif %}
+                {% endif %}
+
+                {% endfor %}
+                {% if found.fd %}
+                {% else %}
+                {{item.storyline[:100]}}...
+
+                {% endif %}</p></td>
+              <td><p>
+                  {% set found = {'fd': False} %}
+
+                  {% set list1 = wordsSearched.split(' ') %}
+                  {% for list in list1 %}
+              {% if list.upper() in item.summary.upper() %}
+                  {% if found.update({'fd': True}) %} {% endif %}
+                  {% set index = item.summary.upper().index(list.upper()) %}
+                  {% if index != 0 %}
+                  ...
+                  {% endif %}
+                  {% set itemsum = item.summary[index:] %}
+                  {% if itemsum | length >= 100 %}
+                    {{itemsum[:100]}}...
+                  {% else %}
+                    {{itemsum}}
+                  {% endif %}
+                {% else %}
+                  {% if found.fd %}
+                  ...
+                  {% else %}
+                  {% endif %}
+                {% endif %}
+
+                {% endfor %}
+                {% if found.fd %}
+                {% else %}
+                {{item.summary[:100]}}...
+
+                {% endif %}
+              </p></td>
+            </tr>
+          {% endfor %}
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <div class="pg" id="gPagination" style="text-align:center;"></div>
+    <div class="container">
+      <h1>Platforms</h1>
+      <hr>
+      <table class="table" id="pTable">
+        <colgroup>
+          <col style="width: 25%" />
+          <col style="width: 25%" />
+          <col style="width: 25%" />
+          <col style="width: 25%" />
+        </colgroup>
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Created At</th>
+            <th>Website</th>
+            <th>Summary</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for item in platforms %}
+          <tr>
+            <td><p><a href="{{ url_for('platform_instance', name = item.id)}}"> {{item.name}} </a></p></td>
+            <td><p>{{item.created_at.date()}}</p></td>
+            <td><p>
+              {% if item.website !='None' %}
+                <a href="{{item.website}}">{{item.website}}</a></p></td>
+              {% else %}
+                {{item.website}}
+              {% endif %}
+            <td><p>
+                {% set found = {'fd': False} %}
+
+                {% set list1 = wordsSearched.split(' ') %}
+                {% for list in list1 %}
+            {% if list.upper() in item.summary.upper() %}
+                {% if found.update({'fd': True}) %} {% endif %}
+                {% set index = item.summary.upper().index(list.upper()) %}
+                {% if index != 0 %}
+                ...
+                {% endif %}
+                {% set itemsum = item.summary[index:] %}
+                {% if itemsum | length >= 100 %}
+                  {{itemsum[:100]}}...
+                {% else %}
+                  {{itemsum}}
+                {% endif %}
+              {% else %}
+                {% if found.fd %}
+                ...
+                {% else %}
+                {% endif %}
+              {% endif %}
+
+              {% endfor %}
+              {% if found.fd %}
+              {% else %}
+              {{item.summary[:100]}}...
+
+              {% endif %}
+            </p></td>
+          </tr>
+        {% endfor %}
+        </tbody>
+      </table>
+    </div>
+    <div class="pg" id="pPagination" style="text-align:center;"></div>
+    <div class="container">
+      <h1>Studios</h1>
+      <hr>
+      <table class="table" id="sTable">
+        <colgroup>
+          <col style="width: 25%" />
+          <col style="width: 25%" />
+          <col style="width: 25%" />
+          <col style="width: 25%" />
+        </colgroup>
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Created At</th>
+            <th>Website</th>
+            <th>Description</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for item in studios %}
+          <tr>
+            <td><p><a href="{{ url_for('studio_instance', name = item.id)}}"> {{item.name}} </a></p></td>
+            <td><p>{{item.created_at.date()}}</p></td>
+            <td><p>
+              {% if item.website !='None' %}
+                <a href="{{item.website}}">{{item.website}}</a></p></td>
+              {% else %}
+                {{item.website}}
+              {% endif %}
+            </p></td>
+            <td><p>
+                {% set found = {'fd': False} %}
+
+                {% set list1 = wordsSearched.split(' ') %}
+                {% for list in list1 %}
+            {% if list.upper() in item.description.upper() %}
+                {% if found.update({'fd': True}) %} {% endif %}
+                {% set index = item.description.upper().index(list.upper()) %}
+                {% if index != 0 %}
+                ...
+                {% endif %}
+                {% set itemsum = item.description[index:] %}
+                {% if itemsum | length >= 100 %}
+                  {{itemsum[:100]}}...
+                {% else %}
+                  {{itemsum}}
+                {% endif %}
+              {% else %}
+                {% if found.fd %}
+                ...
+                {% else %}
+                {% endif %}
+              {% endif %}
+
+              {% endfor %}
+              {% if found.fd %}
+              {% else %}
+              {{item.description[:100]}}...
+
+              {% endif %}
+          </p></td>
+          </tr>
+        {% endfor %}
+        </tbody>
+      </table>
+    </div>
+    <div class="pg" id="sPagination" style="text-align:center;"></div>
+    <div class="container">
+    <h1>Reviews</h1>
+    <hr>
+    <table class="table" id="rTable">
+      <colgroup>
+        <col style="width: 20%" />
+        <col style="width: 20%" />
+        <col style="width: 20%" />
+        <col style="width: 20%" />
+        <col style="width: 20%" />
+      </colgroup>
+      <thead>
+        <tr>
+          <th>Title</th>
+          <th>Introduction</th>
+          <th>Content</th>
+          <th>Conclusion</th>
+          <th>Website</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for item in reviews %}
+        <tr>
+          <td><p><a href="{{ url_for('review_instance', name = item.id)}}"> {{item.title}} </a></p></td>
+          <td><p>
+              {% set found = {'fd': False} %}
+
+              {% set list1 = wordsSearched.split(' ') %}
+              {% for list in list1 %}
+          {% if list.upper() in item.introduction.upper() %}
+              {% if found.update({'fd': True}) %} {% endif %}
+              {% set index = item.introduction.upper().index(list.upper()) %}
+              {% if index != 0 %}
+              ...
+              {% endif %}
+              {% set itemsum = item.introduction[index:] %}
+              {% if itemsum | length >= 100 %}
+                {{itemsum[:100]}}...
+              {% else %}
+                {{itemsum}}
+              {% endif %}
+            {% else %}
+              {% if found.fd %}
+              ...
+              {% else %}
+              {% endif %}
+            {% endif %}
+
+            {% endfor %}
+            {% if found.fd %}
+            {% else %}
+            {{item.introduction[:100]}}...
+
+            {% endif %}
+          </p></td>
+          <td><p>
+              {% set found = {'fd': False} %}
+
+              {% set list1 = wordsSearched.split(' ') %}
+              {% for list in list1 %}
+          {% if list.upper() in item.content.upper() %}
+              {% if found.update({'fd': True}) %} {% endif %}
+              {% set index = item.content.upper().index(list.upper()) %}
+              {% if index != 0 %}
+              ...
+              {% endif %}
+              {% set itemsum = item.content[index:] %}
+              {% if itemsum | length >= 100 %}
+                {{itemsum[:100]}}...
+              {% else %}
+                {{itemsum}}
+              {% endif %}
+            {% else %}
+              {% if found.fd %}
+              ...
+              {% else %}
+              {% endif %}
+            {% endif %}
+
+            {% endfor %}
+            {% if found.fd %}
+            {% else %}
+            {{item.content[:100]}}...
+
+            {% endif %}
+          </p></td>
+          <td><p>
+              {% set found = {'fd': False} %}
+
+              {% set list1 = wordsSearched.split(' ') %}
+              {% for list in list1 %}
+          {% if list.upper() in item.conclusion.upper() %}
+              {% if found.update({'fd': True}) %} {% endif %}
+              {% set index = item.conclusion.upper().index(list.upper()) %}
+              {% if index != 0 %}
+              ...
+              {% endif %}
+              {% set itemsum = item.conclusion[index:] %}
+              {% if itemsum | length >= 100 %}
+                {{itemsum[:100]}}...
+              {% else %}
+                {{itemsum}}
+              {% endif %}
+            {% else %}
+              {% if found.fd %}
+              ...
+              {% else %}
+              {% endif %}
+            {% endif %}
+
+            {% endfor %}
+            {% if found.fd %}
+            {% else %}
+            {{item.conclusion[:100]}}...
+
+            {% endif %}
+          </p></td>
+          <td><p>
+              {% if item.url !='None' %}
+                <a href="{{item.url}}">{{item.url}}</a></p></td>
+              {% else %}
+                {{item.url}}
+              {% endif %}
+          </p></td>
+        </tr>
+      {% endfor %}
+      </tbody>
+    </table>
+  </div>
+  <div class="pg" id="rPagination" style="text-align:center;"></div>
+</div>
+
+
+<script type ="text/javascript">
+var gpager = new Pager('gTable', 10, 'gpager');
+var ppager = new Pager('pTable', 10, 'ppager');
+var spager = new Pager('sTable', 10, 'spager');
+var rpager = new Pager('rTable', 10, 'rpager');
+function Pager(tableName, itemsPerPage, pagerName) {
+    this.tableName = tableName;
+    this.itemsPerPage = itemsPerPage;
+    this.currentPage = 1;
+    this.pages = 0;
+    this.inited = false;
+    this.pagerName = pagerName;
+
+    this.showRecords = function(from, to) {
+        var rows = document.getElementById(tableName).rows;
+        // i starts from 1 to skip table header row
+        for (var i = 1; i < rows.length; i++) {
+            if (i < from || i > to)
+                rows[i].style.display = 'none';
+            else
+                rows[i].style.display = '';
+        }
+    }
+
+    this.showPage = function(pageNumber) {
+      if (! this.inited) {
+        return;
+      }
+
+        var oldPageAnchor = document.getElementById(this.pagerName+'pg'+this.currentPage);
+        oldPageAnchor.className = 'pg-normal';
+
+        this.currentPage = pageNumber;
+        var newPageAnchor = document.getElementById(this.pagerName+'pg'+this.currentPage);
+        newPageAnchor.className = 'pg-selected';
+
+        var from = (pageNumber - 1) * itemsPerPage + 1;
+        var to = from + itemsPerPage - 1;
+        this.showRecords(from, to);
+    }
+
+    this.prev = function() {
+        if (this.currentPage > 1)
+            this.showPage(this.currentPage - 1);
+    }
+
+    this.next = function() {
+        if (this.currentPage < this.pages) {
+            this.showPage(this.currentPage + 1);
+        }
+    }
+
+    this.init = function() {
+        var rows = document.getElementById(tableName).rows;
+        var records = (rows.length - 1);
+        this.pages = Math.ceil(records / itemsPerPage);
+        this.inited = true;
+    }
+
+    this.showPageNav = function(positionId) {
+      if (! this.inited) {
+        alert("not inited");
+        return;
+      }
+      var element = document.getElementById(positionId);
+
+      var pagerHtml = '<span onclick="' + this.pagerName + '.prev();" class="pg-normal"> &#171 Prev</span> | ';
+        for (var page = 1; page <= this.pages; page++)
+            pagerHtml += '<span id="'+this.pagerName+'pg' + page + '" class="pg-normal" onclick="' + this.pagerName + '.showPage(' + page + ');">' + page + '</span> | ';
+        pagerHtml += '<span onclick="'+this.pagerName+'.next();" class="pg-normal"> Next &#187;</span>';
+
+        element.innerHTML = pagerHtml;
+    }
+}
+
+  $(document).ready(function(){
+      try{
+        gpager.init();
+        gpager.showPageNav('gPagination');
+        gpager.showPage(1);
+      }catch(err){}
+      try{
+      ppager.init();
+      ppager.showPageNav('pPagination');
+      ppager.showPage(1);
+      }catch(err){}
+
+      try{
+      spager.init();
+      spager.showPageNav('sPagination');
+      spager.showPage(1);
+      } catch(err){}
+
+      try{
+      rpager.init();
+      rpager.showPageNav('rPagination');
+      rpager.showPage(1);
+
+      } catch(err){}
+
+      var wordsSearched = "{{wordsSearched}}"
+      var allWords = wordsSearched.split(" ")
+      var wordsLength = allWords.length;
+
+      for (i = 0; i<wordsLength;i++)
+      {
+        //(^(http).*Test)
+        var regex = new RegExp('(\\s+)('+ allWords[i] +')', 'ig');
+       //var regex = new RegExp('(?!<a[^>]*?>)('+allWords[i]+')(?![^<]*?</a>)', 'ig');
+       $('#searchedText').html( $('#searchedText').html().replace(regex, "$1<span class='highlight'><b>$2</b></span>"));
+        var regex = new RegExp('(?!\\s+'+ allWords[i] +')('+allWords[i] +')(\\s+)', 'ig');
+       //var regex = new RegExp('(?!<a[^>]*?>)('+allWords[i]+')(?![^<]*?</a>)', 'ig');
+       $('#searchedText').html( $('#searchedText').html().replace(regex, "<span class='highlight'><b>$1</b></span>$2"));
+      }
+});
+</script>
+
+<script type="text/javascript">
+  $('a[data-toggle="tab"]').on('shown.bs.tab', function (e) {
+    var target = $(e.target).attr("href") // activated tab
+  });
+</script>
+</body>
+</html>

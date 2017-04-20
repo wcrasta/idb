@@ -5,8 +5,8 @@ FILES :=                \
     app/models.py       \
     app/tests.py        \
     app/tests.out       \
-    IDB1.log            \
-    IDB1.html           \
+    IDB3.log            \
+    IDB3.html           \
 
 ifeq ($(shell uname), Darwin)          # Apple
     PYTHON   := python3.5
@@ -42,17 +42,17 @@ endif
 	$(PYLINT) --disable=locally-disabled --reports=no --generate-rcfile > $@
 
 app/tests.out: .pylintrc
-	-$(PYLINT) app/tests.py
-	$(COVERAGE) run    --branch --include=app/tests.py app/tests.py >  app/tests.out 2>&1
-	-$(COVERAGE) report -m                      >> app/tests.out
+	-$(PYLINT) app/models.py
+	$(COVERAGE) run    --branch app/tests.py >  app/tests.out 2>&1
+	-$(COVERAGE) report -m --include="app/models.py" >> app/tests.out
 	cat app/tests.out
 
-IDB1.html:
+IDB3.html:
 	pydoc -w app/models.py
-	mv models.html IDB1.html
+	mv models.html IDB3.html
 
-IDB1.log:
-	git log > IDB1.log
+IDB3.log:
+	git log > IDB3.log
 
 check:
 	@not_found=0;                                 \
@@ -78,19 +78,15 @@ clean:
 	rm -f  *.pyc
 	rm -rf __pycache__
 	rm -f .pylintrc
-	rm -f  IDB1.html
-	rm -f  IDB1.log
+	rm -f  IDB3.html
+	rm -f  IDB3.log
 	rm -f app/tests.out
 
 config:
 	git config -l
 
 format:
-	$(AUTOPEP8) -i app/__init__.py
-	$(AUTOPEP8) -i app/models.py
-	$(AUTOPEP8) -i app/ScrapeAPI.py
-	$(AUTOPEP8) -i app/populateDb.py
-	$(AUTOPEP8) -i app/tests.py
+	$(AUTOPEP8) --in-place --recursive .
 
 status:
 	make clean
@@ -99,7 +95,7 @@ status:
 	git remote -v
 	git status
 
-test: IDB1.html IDB1.log app/tests.out
+test: IDB3.html IDB3.log app/tests.out
 	ls -al
 	make check
 

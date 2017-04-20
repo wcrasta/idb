@@ -62,6 +62,20 @@
       color: white;
       font-size: 1.75em;
     }
+    img:not(.logo) {
+    transition: transform 0.25s;
+  }
+
+    img:not(.logo):hover {
+      transform: scale(1.5);
+  }
+
+  table,th,td{
+      color: black;
+      font-size: 1.2em;
+      border: 1px solid black;
+      padding: 100px solid black;
+    }
   </style>
 </head>
 
@@ -69,10 +83,12 @@
 
   <header>
     <!-- Starting Navigation Bar -->
-    <nav class="navbar navbar-toggleable-md navbar-fixed-top" style="background-color: black; margin-top: 0;">
+    <nav class="navbar navbar-toggleable-md navbar-fixed-top"
+    style="background-color: black; margin-top: 0;">
       <div class="container">
         <div class="navbar-header">
-          <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#nav-col">
+          <button class="navbar-toggle collapsed" type="button"
+          data-toggle="collapse" data-target="#nav-col">
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
@@ -81,7 +97,8 @@
             <ul class="nav navbar-nav">
               <li class="nav-item">
                 <a class="nav-link" href="/">
-                  <img src="../static/images/logo.png" style="width: 100px; height: 50px; padding-top: -20px;" />
+                  <img class="logo" src="../static/images/logo.png"
+                  style="width: 100px; height: 50px; padding-top: -20px;" />
                 </a>
               </li>
               <li class="nav-item" style="padding-top: 15px;">
@@ -90,7 +107,8 @@
                 </a>
               </li>
               <li class="nav-item" style="padding-top: 15px;">
-                <a class="nav-link" href="{{ url_for('platforms')}}">Platforms</a>
+                <a class="nav-link" href="{{ url_for('platforms')}}">Platforms
+                </a>
               </li>
               <li class="nav-item" style="padding-top: 15px;">
                 <a class="nav-link" href="{{ url_for('studios')}}">Studios</a>
@@ -101,11 +119,32 @@
               <li class="nav-item" style="padding-top: 15px;">
                 <a class="nav-link" href="{{ url_for('about')}}">About</a>
               </li>
+              <li class="nav-item hidden-sm hidden-md hidden-lg hidden-xl" style="padding-top: 15px; display: inline-block;">
+                <form class="navbar-form" action="{{ url_for('search') }}" method="get" id="searchBar">
+                <div class="input-group" style="width: 200px;">
+                  <input type="text" class="form-control" placeholder="Search" name="searchAnd"  action="{{ url_for('search') }}" method="get">
+                  <div class="input-group-btn">
+                      <button class="btn btn-default" type="submit"><i class="glyphicon glyphicon-search"></i></button>
+                  </div>
+                </div>
+                </form>
+              </li>
             </ul>
+            <div class="col-sm-3 pull-right hidden-xs" style="float: right; position: absolute; right: 0; padding-top: 15px;">
+              <form class="navbar-form" action="{{ url_for('search') }}" method="get" id="searchBar">
+              <div class="input-group" style="width: 200px;">
+                <input type="text" class="form-control" placeholder="Search" name="searchAnd"  action="{{ url_for('search') }}" method="get">
+                <div class="input-group-btn">
+                    <button class="btn btn-default" type="submit"><i class="glyphicon glyphicon-search"></i></button>
+                </div>
+              </div>
+              </form>
+            </div>
           </div>
         </div>
       </div>
     </nav>
+  </header>
 
     <!-- Page Content -->
     <div class="container">
@@ -238,7 +277,32 @@
               us to create objects for each model and be able to use data in a declarative way as we did in __init__.py. Having defined the relationships, it made it easier for us to get the attributes a certain object was connected it. We overwrote __init__
               for each model and then we declared them as we made our objects. We used assertions throughout the init methods to make sure that the data being passed in are what we were expecting.
             </p>
-                            <h4> Sorting and Filtering </h4>
+              <h4> Search Capability </h4>
+              <p> With search, we decided to employ a Flask library to accomplish what we needed. The other alternative was to code up all the different attributes and check if each field of the model contains a given word provided. However, we stumbled upon a library called whoosh_sqlalchemy that a well very formed search based on provided words. The only changes we had to do for Models.py was to add a __searchable__ attribute to each model               <br>   <span style="display:inline-block;color:black;border-width:1px;border-style:solid;padding:5px;font-size:1em">  __searchable__=['title','video','introduction','content','conclusion','positive','negative','url'] </span> <br>. Whoosh_sqlalchemy forms all the query parameters and you can simply perform the query in the manner shown below : <br>                  <span style="display:inline-block;color:black;border-width:1px;border-style:solid;padding:5px;font-size:1em">
+    gameResults = Game.query.whoosh_search(items).all()
+
+              </span>
+              <br>
+              With the initial query, because we wanted to get rid of nonsensical items we filtered all the queries by certain rules to ensure the data being returned is what the user is expecting. In addition, case sensitvity was also an issue so we had to use ilike to filter.
+              After performing the query, we gather the data and serve it to our search results html file and then we render it like with all the others using Jinja2. In addition, we used jQuery to do all the hi-lighting and contextualization. With jQuery, when the document loads, a function looks through all of the fields within a div and checks to see if it contains the word[s] that we searched for. If it does, it replaces the word[s] by surrounding it with a span that gives a new style that resembles hi-lighting. For the contextualization, we used Jinja2 within the HTML to help us locate the searched word[s] split by a space. Then for each split word, it goes through each given attribute of a given model and attempts to find an index of that word. Then we take the index and words before and after it and then cut off the rest of the paragraph so we can focus in on the words that the user searched and display it on the search result table. We implemented both And and Or searching that allows us to either find all the things that match exactly to the words provided or it things that match to one or more words in the given search string. We implemented OR search by filtering on each word individually and concatenating the resulting matches to make a set of final results. For AND search we did something similar but instead of adding to a set, we just filtered the results from the previous filter.
+              </p>
+              <h4 > Search Pagination </h4>
+              <p>
+                  We accomplished search pagination using javascript. We added pagination links with a simple for loop dependent on how many rows were fed into the html. We limited the results to have 10 results per page and 400 results total to avoid getting to many of these links. For the actual pagination, we created a class called Pager whose header is displayed below. Utilizing this as the base of our class we created several methods that would correctly load up the appropriate results upon loading of the page with showResults. Among these were methods to show the next page, previous page, and nth page. You can clearly see these represented as our pagination links.
+                <figure>
+                  <img class="center-block" float="left" src="../static/images/pager.png" />
+                  <figcaption style="color: black; text-align: center; font-size: 1.2em">Figure 7: Pagination Method For Searching</figcaption>
+                </figure>
+
+              </p>
+              <p>
+              The last step in pagination to make it all work was to actually insert ways to call these methods onclick. We did this by creating another js function which replaced empty div tags with actually important HTML code. This code created our pagination links and set up the appropriate on click methods which would reconstruct the table using showResults. A big advantage of this is that we don't need to do any more database queries or reload the page because it all ends up happening on the front end.
+              </p>
+
+
+
+
+                <h4> Sorting and Filtering </h4>
                 <p>
                   Instead of doing sorting through the front-end, we realized that it could be done easily through the back end with the help of Flask and Jinja2. On the front-end side, we designed the website to include forms so when you click/submit certain values, the forms will pass back the value to the backend. Once we obtain those values from the form that the user submits, we employ them to fetch data from the database using queries that sorted them by the value passed in, in addition to ordering them by ascension or descension. For a lot of our sortings, we simply had the option of sorting by asc and sorting by desc. We targeted a list of values we want users to sort by and then added those options in the front end. Most of the work, however, is being done in our query to the database, as shown in the following snippet:
                    <span style="display:inline-block;color:black;border-width:1px;border-style:solid;padding:5px;font-size:1em">
@@ -281,6 +345,15 @@
             nicely.</p>
             <p>ReactJS is a JavaScript library that gives the ability to create very dynamic, interactive webpages that give a great user experience. React is able to produce fast results by maintaining a virtual Document Object Model (DOM), a structuring of HTML elements as a tree, for each component. As a result, instead of reconstructing the entire DOM or reloading a webpage, applications need only update the html elements that change. This pattern is known as single-page application architecture. This enables you to pass data between pages and create a hierarchical system of state and properties between your pages. React’s approach to single-page application architecture allows developers to produce robust applications with ease.</p>
             <p>We use ReactJS to create animation on the about the page. When you hover the mouse over the images of the team members, the image dynamically changes to a DC superhero character they resemble. When the mouse goes out of the field of the image, it returns back to the original image. Using reactJS helped us to do it in a faster way.</p>
+            <p>
+              Furthermore, we used jQuery to perform context hi-lighting when we did search. We had a loop that ran through all the words in the text string and for each word, we looked through the document that contained those data and then surrounded them with a span tag with a class that does the hi-lighting.
+            </p>
+            <h4> D3.js</h4>
+            <p>
+                 We are visualizing some of the data from <a href="//youtubesweg.me">Youtube Sweg </a> by utilizing their RESTful API. In order to do this, we used the D3.js library. We are using a zoomable pie chart that is interactive and changes shape according to the specific category that is clicked. There are 22 categories, each category has channels and each channel has videos. For example, if we click on one category the pie chart changes to show all the channels the category has and on choosing one of the channels the pie chart again changes to show all the videos that channel has.
+
+            </p>
+            </p>
             <h4>Back-End:</h4>
             <p> For the backend of our application, we focused mainly on using Flask paired with Jinja2 for rendering as well as SQLAlchemy for populating our grids and model instances with data. We scraped data from the API we’re using and populated a local database using SQLAlchemy. Doing so allowed us to easily access the data and create dynamically linked pages with more information and embedded images along with creating pagination.</p>
 
@@ -466,9 +539,65 @@
                       You have now deployed your Flask application on an EC2 instance with the help of an Apache web server.
                   </li>
                 </ol>
+                <h4> Enhanced WSGI</h4>
+                <p>
+                    With the use of Whoosh sqlalchemy, we ran into problems in using the package as it wanted to create files and the server blocks it due to lack of permission. A way we found to solve this issue was to wrap our application within a virtual environment that runs on Python 3. We figured it would be better to change our server to run on Python 3 instead of Python 2 because we test everything and write everything in Python 3 locally. To do so, we installed a virtual environment and then downloaded all the required packages for our application. Then within our WSGI.py and WSGI configuration file, we set it to execute the activiation of the virtual environment before serving our application.
+                </p>
+                <h4 > Planit Poker</h4>
+                <p>
+                     We used Planit Poker for project estimation with the rough estimate of 1 hour to 1 point and came up with the following estimations for our stories
+                     <table>
+                       <tr>
+                        <th>Story</th>
+                        <th>Estimate</th> 
+                      </tr>
+                      <tr>
+                        <td>Presentation</td>
+                        <td>5</td> 
+                      </tr>
+                      <tr>
+                        <td>Technical Report</td>
+                        <td>3</td> 
+                      </tr>
+                      <tr>
+                        <td>Build Visualization</td>
+                        <td>8</td> 
+                      </tr>
+                      <tr>
+                        <td>Query Other Group's API</td>
+                        <td>3</td> 
+                      </tr>
+                      <tr>
+                        <td>Search Bar Front End</td>
+                        <td>5</td> 
+                      </tr>
+                      <tr>
+                        <td>Search Bar Back End Getting Results</td>
+                        <td>8</td> 
+                      </tr>
+                      <tr>
+                        <td>Search Bar back End Sorting</td>
+                        <td>8</td> 
+                      </tr>
+                      <tr>
+                        <td>Search Post Processing(Highlighting query on results)  </td>
+                        <td>3</td> 
+                      </tr>
+                      <tr>
+                        <td>Fix pep8 and pylint issues</td>
+                        <td>3</td> 
+                      </tr>
+                      <tr>
+                        <td>Critique Other Group's API</td>
+                        <td>1</td> 
+                      </tr>
+                     </table>
+                </p>
           </div>
+
         </div>
       </div>
     </div>
-  </header>
+    <script src="https://code.jquery.com/jquery-3.2.0.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </body>

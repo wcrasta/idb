@@ -27,31 +27,42 @@
             <ul class="nav navbar-nav">
               <li class="nav-item">
                 <a class="nav-link" href="/">
-                  <img src="../static/images/logo.png" style="width: 100px; height: 50px; padding-top: -20px;" />
+                  <img src="../static/images/logo2.png" style="width: 100px; height: 50px; padding-top: -20px;" />
                 </a>
               </li>
               <li class="nav-item" style="padding-top: 15px;">
-                <a class="nav-link" href="{{ url_for('games')}}">Games
+                <a class="nav-link" href="{{ url_for('games')}}" style="text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;">Games
                   <span class="sr-only">(current)</span>
                 </a>
               </li>
               <li class="nav-item" style="padding-top: 15px;">
-                <a class="nav-link" href="{{ url_for('platforms')}}">Platforms</a>
+                <a class="nav-link" href="{{ url_for('platforms')}}"style="text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;">Platforms</a>
               </li>
               <li class="nav-item" style="padding-top: 15px;">
-                <a class="nav-link" href="{{ url_for('studios')}}">Studios</a>
+                <a class="nav-link" href="{{ url_for('studios')}}"style="text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;">Studios</a>
               </li>
               <li class="nav-item" style="padding-top: 15px;">
-                <a class="nav-link" href="{{ url_for('reviews')}}">Reviews</a>
+                <a class="nav-link" href="{{ url_for('reviews')}}"style="text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;">Reviews</a>
               </li>
               <li class="nav-item" style="padding-top: 15px;">
-                <a class="nav-link" href="{{ url_for('about')}}">About</a>
+                <a class="nav-link" href="{{ url_for('about')}}" style="text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;">About</a>
               </li>
             </ul>
+            <li class="nav-item hidden-sm hidden-md hidden-lg hidden-xl" style="padding-top: 15px; display: inline-block; border: none;">
+              <form class="navbar-form" action="{{ url_for('search') }}" method="get" id="searchBar">
+              <div class="input-group" style="width: 200px;">
+                <input type="text" class="form-control" placeholder="Search" name="searchAnd" >
+                <div class="input-group-btn">
+                    <button class="btn btn-default" type="submit"><i class="glyphicon glyphicon-search"></i></button>
+                </div>
+              </div>
+              </form>
+            </li>
           </div>
         </div>
       </div>
     </nav>
+  </header>
     <!-- Beginning Carousel -->
     <div id="splashCarousel" class="carousel slide" data-ride="carousel">
 
@@ -66,12 +77,13 @@
       <div class="carousel-inner">
 
       <!-- Beginning Search Bar -->
-        <div class="col-sm-4 col-sm-offset-4" style="top: 50%; text-align: center; position: absolute;">
+        <div class="col-sm-4 col-sm-offset-4"  style="top: 50%; text-align: center; position: absolute;">
           <div class="row">
-            <form class="form-inline" id="searchBar">
+            <!-- Search bar for all screens above screen size of xs -->
+            <form class="form-inline hidden-xs" action="{{ url_for('search') }}" method="get" id="searchBar">
              <div class="form-group">
-               <div class="input-group input-group-lg">
-                <input type="text" class="form-control" placeholder="Search">
+               <div class="input-group input-group-lg" style="width: 100%">
+                <input type="text" name="searchAnd" class="form-control" placeholder="Search">
                   <span class="input-group-btn">
                    <button class="btn btn-secondary" type="button" style="float: left;">
                     <span class="glyphicon glyphicon-search"></span>
@@ -128,7 +140,6 @@
       </a>
 
     </div>
-  </header>
 
   <!-- Use following version of JQuery -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>

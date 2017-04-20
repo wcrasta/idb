@@ -5,6 +5,10 @@ body {
   font-size: 100%;
   font-family: arial;
 }
+p {
+  color: white;
+  z-index: 9999;
+}
 
 /* Navbar Formatting */
 .navbar-fixed-top {
