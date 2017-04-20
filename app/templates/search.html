@@ -29,6 +29,14 @@
       border-radius: 15px;
       overflow: hidden;
     }
+    th {
+      font-weight: bolder;
+      color: black;
+      font-size: 1.4em;
+    }
+    .pg {
+      font-size: 1.5em;
+    }
     .highlight {
       background-color:yellow;
     }
@@ -104,7 +112,7 @@
     <a href="/search?searchAnd={{wordsSearched}}" class="btn btn-success" role="button">AND search</a>&emsp;
     <a href="/search?searchOr={{wordsSearched}}" class="btn btn-success" role="button">OR search</a>
   </div>
-  <div id = "searchedText">
+  <div id = "searchedText" style="margin-bottom: 20px;">
     <div class="container">
       <h1>Games</h1>
       <hr>
@@ -170,7 +178,7 @@
         </table>
       </div>
     </div>
-    <div id="gPagination" style="text-align:center;"></div>
+    <div class="pg" id="gPagination" style="text-align:center;"></div>
     <div class="container">
       <h1>Platforms</h1>
       <hr>
@@ -236,7 +244,7 @@
         </tbody>
       </table>
     </div>
-    <div id="pPagination" style="text-align:center;"></div>
+    <div class="pg" id="pPagination" style="text-align:center;"></div>
     <div class="container">
       <h1>Studios</h1>
       <hr>
@@ -303,7 +311,7 @@
         </tbody>
       </table>
     </div>
-    <div id="sPagination" style="text-align:center;"></div>
+    <div class="pg" id="sPagination" style="text-align:center;"></div>
     <div class="container">
     <h1>Reviews</h1>
     <hr>
@@ -433,7 +441,7 @@
       </tbody>
     </table>
   </div>
-  <div id="rPagination" style="text-align:center;"></div>
+  <div class="pg" id="rPagination" style="text-align:center;"></div>
 </div>
 
 
