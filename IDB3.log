@@ -1,3 +1,98 @@
+commit 7890b21a7dea8595a5ccc97544e7e6a56f83867b
+Author: kbbrownn <kbbrown@utexas.edu>
+Date:   Thu Apr 20 17:37:20 2017 -0500
+
+    Fixed home search
+
+commit 365aaa82d701e55e03bbbbf0e290fc40f4bb9585
+Merge: a3293d7 045cb53
+Author: kbbrownn <kbbrown@utexas.edu>
+Date:   Thu Apr 20 17:36:00 2017 -0500
+
+    Merge branch 'phase3test' of https://github.com/wcrasta/idb into phase3test
+
+commit 045cb531347b72b0d96c11c53ceb118196f5beb1
+Author: Zihao Zhu <zz3686@cs.utexas.edu>
+Date:   Thu Apr 20 17:35:14 2017 -0500
+
+    Please
+
+commit a3293d7348bbc0f08b6ac937f468779063652b70
+Merge: b66bb03 e409be3
+Author: kbbrownn <kbbrown@utexas.edu>
+Date:   Thu Apr 20 17:30:18 2017 -0500
+
+    Merge branch 'phase3test' of https://github.com/wcrasta/idb into phase3test
+
+commit e409be35b1a398ec64da05f122935e381b36cac5
+Merge: 9ed215b be6311e
+Author: Anurag Papineni <anuragpapineni@gmail.com>
+Date:   Thu Apr 20 17:29:24 2017 -0500
+
+    Merge branch 'phase3test' of https://github.com/wcrasta/idb into phase3test
+
+commit 9ed215bff9f360c6ad41545e6146743ee9ad8f7c
+Author: Anurag Papineni <anuragpapineni@gmail.com>
+Date:   Thu Apr 20 17:29:11 2017 -0500
+
+    search highlighting now no longer includes spaces
+
+commit be6311e30ecf3da19dd2feca5f676687140ee7a3
+Merge: cc41352 d46e8be
+Author: Zihao Zhu <zz3686@cs.utexas.edu>
+Date:   Thu Apr 20 17:28:53 2017 -0500
+
+    Merge branch 'phase3test' of https://github.com/wcrasta/idb into phase3test
+
+commit cc4135224003ccc223c3d930eeaf50707278a784
+Author: Zihao Zhu <zz3686@cs.utexas.edu>
+Date:   Thu Apr 20 17:28:43 2017 -0500
+
+    lol
+
+commit b66bb0311f55a6c463f5a9cc1c389b021d3f1eae
+Author: kbbrownn <kbbrown@utexas.edu>
+Date:   Thu Apr 20 17:23:10 2017 -0500
+
+    Fixed search bar on home page / put one in navbar on small devices
+
+commit d46e8beb3840ba691c78ff782dbafc14b2b05269
+Author: Anurag Papineni <anuragpapineni@gmail.com>
+Date:   Thu Apr 20 17:21:40 2017 -0500
+
+    forgot to change planit poker title color
+
+commit f2097df94caf5e5c54a279c0ad0227c9ba258c8d
+Author: Anurag Papineni <anuragpapineni@gmail.com>
+Date:   Thu Apr 20 17:18:17 2017 -0500
+
+    planit poker on report
+
+commit 888aa9e00334b9797be4bd83411e49d48b97daa6
+Author: Zihao Zhu <zz3686@cs.utexas.edu>
+Date:   Thu Apr 20 17:05:57 2017 -0500
+
+    Added storyline
+
+commit 3e90d4270cffe4bd8aa2bad04b50e4be68206dc4
+Merge: cc0ecbf 88043c2
+Author: Colin Thornton <colin@cs.utexas.edu>
+Date:   Thu Apr 20 16:50:50 2017 -0500
+
+    Merge branch 'phase3test' of https://github.com/wcrasta/idb into phase3test
+
+commit cc0ecbff8a278769d64d4a25c63291630f4f2a14
+Author: Colin Thornton <colin@cs.utexas.edu>
+Date:   Thu Apr 20 16:50:33 2017 -0500
+
+    Added dynamic visualization loading and fixed make file and run unit test button
+
+commit 88043c2c9d530019df66f5e29b1364a260968595
+Author: Kaivan Shah <kaivan29@utexas.edu>
+Date:   Thu Apr 20 16:21:47 2017 -0500
+
+    complete circle shows now
+
 commit eaad5e0c443126ee442af32fc36579fac5bfa56a
 Author: Colin Thornton <colin@cs.utexas.edu>
 Date:   Thu Apr 20 16:12:52 2017 -0500
