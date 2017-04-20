@@ -90,7 +90,7 @@
             <ul class="nav navbar-nav">
               <li class="nav-item">
                 <a class="nav-link" href="/">
-                  <img src="../static/images/logo.png"
+                  <img class="logo" src="../static/images/logo.png"
                   style="width: 100px; height: 50px; padding-top: -20px;" />
                 </a>
               </li>
@@ -276,7 +276,7 @@
 
               </span>
               <br>
-              With the initial query, because we wanted to get rid of nonsensical items we filtered all the queries by certain rules to ensure the data being returned is what the user is expecting. In addition, case sensitvity was also an issue so we had to use ilike to filter. 
+              With the initial query, because we wanted to get rid of nonsensical items we filtered all the queries by certain rules to ensure the data being returned is what the user is expecting. In addition, case sensitvity was also an issue so we had to use ilike to filter.
               After performing the query, we gather the data and serve it to our search results html file and then we render it like with all the others using Jinja2. In addition, we used jQuery to do all the hi-lighting and contextualization. With jQuery, when the document loads, a function looks through all of the fields within a div and checks to see if it contains the word[s] that we searched for. If it does, it replaces the word[s] by surrounding it with a span that gives a new style that resembles hi-lighting. For the contextualization, we used Jinja2 within the HTML to help us locate the searched word[s] split by a space. Then for each split word, it goes through each given attribute of a given model and attempts to find an index of that word. Then we take the index and words before and after it and then cut off the rest of the paragraph so we can focus in on the words that the user searched and display it on the search result table. We implemented both And and Or searching that allows us to either find all the things that match exactly to the words provided or it things that match to one or more words in the given search string. We implemented OR search by filtering on each word individually and concatenating the resulting matches to make a set of final results. For AND search we did something similar but instead of adding to a set, we just filtered the results from the previous filter.
               </p>
               <h4 > Search Pagination </h4>
