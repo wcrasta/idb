@@ -91,9 +91,16 @@ d3.json("flare", function(error, root) {
     .attr("x", function(d) { return y(d.y); })
     .attr("dx", "6") // margin
     .attr("dy", ".35em") // vertical-align
-    .text(function(d) { return d.name; });
+    .attr("visibility",function(d) { return d.dx < 0.01? "hidden" : "visible"})
+    .text(function(d) { 
+        if(d.name.length > 20)
+          return d.name.substring(0,20)+'...';
+        else
+          return d.name; 
+      });
 
   function click(d) {
+    var total = d.dx;
     // fade out all text elements
     text.transition().attr("opacity", 0);
 
@@ -109,7 +116,8 @@ d3.json("flare", function(error, root) {
             arcText.transition().duration(750)
               .attr("opacity", 1)
               .attr("transform", function() { return "rotate(" + computeTextRotation(e) + ")" })
-              .attr("x", function(d) { return y(d.y); });
+              .attr("x", function(d) { return y(d.y); })
+              .attr("visibility",function(d) { return d.dx/total < 0.01? "hidden" : "visible"});
           }
       });
   }
