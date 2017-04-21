@@ -1,3 +1,64 @@
+commit 6563ef09e1c6bd4f80372b58a63490d3ec71bec7
+Author: Anurag Papineni <anuragpapineni@gmail.com>
+Date:   Thu Apr 20 21:34:38 2017 -0500
+
+    empty string fix applied to maaster too
+
+commit 17aecfca2551b2164bf54bffa24b3295455e5d70
+Author: Anurag Papineni <anuragpapineni@gmail.com>
+Date:   Thu Apr 20 21:27:06 2017 -0500
+
+    the thing with space is actually fixed now
+
+commit b966b57b4fbd531ebd6cbdef9b5341f061b76424
+Author: kbbrownn <kbbrown@utexas.edu>
+Date:   Thu Apr 20 21:13:22 2017 -0500
+
+    Pushing changes to __init__ to master and adding wait time msg back
+
+commit 0895e97e3fdf76f2c5edbd1af5b507fb1eb8c4d7
+Author: kbbrownn <kbbrown@utexas.edu>
+Date:   Thu Apr 20 20:58:37 2017 -0500
+
+    Updated vis performance changes to master
+
+commit 637857405f056de7450eb432be0a9a28214960fb
+Author: kbbrownn <kbbrown@utexas.edu>
+Date:   Thu Apr 20 20:27:12 2017 -0500
+
+    Added comment about load time on loader / changed loader
+
+commit 1959940d454877147b65eefc2d4e62c6147fd33d
+Author: kbbrownn <kbbrown@utexas.edu>
+Date:   Thu Apr 20 19:59:43 2017 -0500
+
+    Added loader + fixed navbar search
+
+commit e83ad93a47ba862e0a0229b6d6153f04be1ec84f
+Author: kbbrownn <kbbrown@utexas.edu>
+Date:   Thu Apr 20 18:27:31 2017 -0500
+
+    Added flask-cors for other group
+
+commit a8bd1e71fc0349aea3b7a6c9ce4928c2a4585741
+Author: Zihao Zhu <zz3686@cs.utexas.edu>
+Date:   Thu Apr 20 17:52:35 2017 -0500
+
+    no more
+
+commit 45e1e32ab478fc1058015353f93a6cf51d0decf6
+Merge: 7320a90 2993ea4
+Author: Zihao Zhu <zz3686@cs.utexas.edu>
+Date:   Thu Apr 20 17:41:38 2017 -0500
+
+    Merge branch 'phase3test'
+
+commit 2993ea4d8e8f569fd0f203f538989833bbed5143
+Author: Zihao Zhu <zz3686@cs.utexas.edu>
+Date:   Thu Apr 20 17:40:08 2017 -0500
+
+    just 4 fun
+
 commit 7890b21a7dea8595a5ccc97544e7e6a56f83867b
 Author: kbbrownn <kbbrown@utexas.edu>
 Date:   Thu Apr 20 17:37:20 2017 -0500
@@ -599,6 +660,12 @@ Date:   Thu Apr 13 11:09:40 2017 -0500
 
     Does this break search?
 
+commit 7320a90767cacf545a3f29e8315c9061b45043bc
+Author: Colin-Thornton <colin_thornton0366@utexas.edu>
+Date:   Thu Apr 13 11:08:37 2017 -0500
+
+    Added new fields returned in games, studios and platforms
+
 commit dd5961ea01a1628fc1daa4c6a1561f737c7ce379
 Author: Colin-Thornton <spartan0366@yahoo.com>
 Date:   Thu Apr 13 10:57:57 2017 -0500
@@ -647,6 +714,12 @@ Author: Colin Thornton <colin@cs.utexas.edu>
 Date:   Wed Apr 12 15:49:29 2017 -0500
 
     Starting scrap for visulization
+
+commit a925c6d61672cff1e15790c28a41f7df94f752b2
+Author: Colin-Thornton <colin_thornton0366@utexas.edu>
+Date:   Wed Apr 12 14:12:57 2017 -0500
+
+    Fixed Api
 
 commit ab807382894b7d7b985c70bc9d8416b8247ffc54
 Author: kbbrownn <kbbrown@utexas.edu>
