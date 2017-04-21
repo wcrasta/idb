@@ -52,20 +52,11 @@
       color: white;
       font-size: 3em;
   }
-  /* Based on https://www.w3schools.com/howto/howto_css_loader.asp */
   .loader {
-      border: 16px solid light gray; /* Light grey */
-      border-top: 16px solid blue; /* Blue */
-      border-radius: 50%;
-      width: 120px;
-      height: 120px;
-      animation: spin 2s linear infinite;
+      width: 231px;
+      height: 232px;
+      background: url("../static/images/loader.gif");
       margin: auto;
-  }
-  /* Based on https://www.w3schools.com/howto/howto_css_loader.asp */
-  @keyframes spin {
-      0% { transform: rotate(0deg); }
-      100% { transform: rotate(360deg); }
   }
   </style>
 </head>
@@ -138,7 +129,10 @@
   </header>
   <div class="row center-block">
     <div class="col-sm-12">
-      <div class="loader"></div>
+      <div class="loader" id="loader"></div>
+      <p style="text-align: center; padding-top: 30px;" id="expl">
+        Visualization will take a minute to load...
+      </p>
     </div>
   </div>
 <script>
@@ -220,7 +214,8 @@ d3.json("flare", function(error, root) {
       });
   }
 
-    $(".loader").hide();
+    $("#loader").hide();
+    $("#expl").hide();
 });
 
 d3.select(self.frameElement).style("height", height + "px");
