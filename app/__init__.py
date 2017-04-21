@@ -153,7 +153,8 @@ api.add_resource(Api_Review, '/api/reviews/<int:id>')
 
 
 def orSearch(items):
-
+    if items==None:
+        items = ''
     gameResults = set()
     platformResults = set()
     studioResults = set()
@@ -202,7 +203,10 @@ def orSearch(items):
 
 
 def andSearch(items):
+    if items==None:
+        items = ''
     itemlist = items.split(" ")
+    print(itemlist)
     gameResults = Game.query.whoosh_search(items)
     platformResults = Platform.query.whoosh_search(items)
     studioResults = Studio.query.whoosh_search(items)
