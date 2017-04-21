@@ -5,6 +5,7 @@ from flask_paginate import Pagination
 from sqlalchemy import func, or_
 import os
 import json
+import re
 import time
 import subprocess
 from subprocess import call
@@ -157,7 +158,9 @@ def orSearch(items):
     platformResults = set()
     studioResults = set()
     reviewsResults = set()
-    for i in items.split(" "):
+    for i in re.split('\\s', items):
+        if i == '':
+            continue
         caseSensitive = "%" + i + "%"
         print(caseSensitive)
         mod = Game.query.whoosh_search(items, or_=True).filter(
@@ -204,7 +207,9 @@ def andSearch(items):
     platformResults = Platform.query.whoosh_search(items)
     studioResults = Studio.query.whoosh_search(items)
     reviewsResults = Reviews.query.whoosh_search(items)
-    for i in items.split(" "):
+    for i in re.split('\\s', items):
+        if i == '':
+            continue
         caseSensitive = "%" + i + "%"
         gameResults = gameResults.filter(
         or_(Game.name.ilike(caseSensitive), Game.summary.ilike(caseSensitive),
@@ -263,7 +268,6 @@ def search(typeSearch=None):
 
     searched = ""
     results = []
-
     if searchA == None or len(searchA) == 0:
         results = orSearch(searchO)
         searched = searchO

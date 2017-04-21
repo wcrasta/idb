@@ -130,6 +130,9 @@
   <div class="row center-block">
     <div class="col-sm-12">
       <div class="loader" id="loader"></div>
+      <p style="text-align: center; padding-top: 30px;" id="expl">
+        Visualization will take a minute to load...
+      </p>
     </div>
   </div>
 <script>
@@ -212,6 +215,7 @@ d3.json("flare", function(error, root) {
   }
 
     $("#loader").hide();
+    $("#expl").hide();
 });
 
 d3.select(self.frameElement).style("height", height + "px");
