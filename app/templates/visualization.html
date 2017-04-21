@@ -52,7 +52,21 @@
       color: white;
       font-size: 3em;
   }
-
+  /* Based on https://www.w3schools.com/howto/howto_css_loader.asp */
+  .loader {
+      border: 16px solid light gray; /* Light grey */
+      border-top: 16px solid blue; /* Blue */
+      border-radius: 50%;
+      width: 120px;
+      height: 120px;
+      animation: spin 2s linear infinite;
+      margin: auto;
+  }
+  /* Based on https://www.w3schools.com/howto/howto_css_loader.asp */
+  @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+  }
   </style>
 </head>
 <body>
@@ -122,11 +136,15 @@
       </div>
     </nav>
   </header>
-
+  <div class="row center-block">
+    <div class="col-sm-12">
+      <div class="loader"></div>
+    </div>
+  </div>
 <script>
 
-var width = 760,
-    height = 800,
+var width = 960,
+    height = 1000,
     radius = Math.min(width, height) / 2;
 
 var x = d3.scale.linear()
@@ -201,6 +219,8 @@ d3.json("flare", function(error, root) {
           }
       });
   }
+
+    $(".loader").hide();
 });
 
 d3.select(self.frameElement).style("height", height + "px");
@@ -222,8 +242,15 @@ function computeTextRotation(d) {
 }
 
 </script>
-<h1 style="text-align: center;">Visualization</h1>
-<p> This visual depicts the Categories, Channels and Videos models created my <a style = "color: white; text-decoration:underline" href = "//youtubesweg.me">YouTubeSWEg</a>. The size of each region is based off of the number of views for a video, channel or category. </p>
+<div class="row">
+  <div class="col-sm-12">
+    <h1 style="text-align: center; padding-top: 20px;">Visualization</h1>
+    <p> This visual depicts the Categories, Channels and Videos models created my
+      <a style = "color: white; text-decoration:underline" href = "//youtubesweg.me">YouTubeSWEg</a>
+      .The size of each region is based off of the number of views for a video, channel or category.
+    </p>
+  </div>
+</div>
 <script src="https://code.jquery.com/jquery-3.2.0.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </body>
