@@ -10,26 +10,32 @@ def get_data():
         templist = []
         tempdict["name"] = x["title"]
         url = 'http://youtubesweg.me/api/channel?id='
-        url2 = 'http://youtubesweg.me/api/video?id='
         tempdict["children"] = []
         for y in x["channels"]:
-            r = requests.get(url + str(y))
+            url = url + str(y) + ','
+        r = requests.get(url)
+        rjson = r.json()[0]["channels"]
+        for entry in rjson:
             tempdict2 = {}
-            tempdict2["name"] = r.json()[0]["channels"][0]["title"]
+            tempdict2["name"] = entry["title"]
             tempdict2["children"] = []
-            list_of_videos = r.json()[0]["channels"][0]["videos"]
-            view_count = r.json()[0]["channels"][0]["view_count"]
+            list_of_videos = entry["videos"]
+            view_count = entry["view_count"]
+            url2 = 'http://youtubesweg.me/api/video?id='
             for z in list_of_videos:
+                url2 = url2 +str(z)+','
+            r2 = requests.get(url2)
+            r2json = r2.json()[0]["videos"]
+            for entry2 in r2json:
                 tempdict3 = {}
-                r2 = requests.get(url2 + str(z))
-                tempdict3["name"] = r2.json()[0]["videos"][0]["title"]
+                tempdict3["name"] = entry2["title"]
                 tempdict3["size"] = view_count // len(list_of_videos)
                 tempdict2["children"] += [tempdict3]
             tempdict["children"] += [tempdict2]
         data["children"] += [tempdict]
     with open('templates/flare.json', 'w') as data_file:
         json.dump(data, data_file)
-    
+
 
 
 
